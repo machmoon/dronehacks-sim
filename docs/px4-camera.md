@@ -1,6 +1,6 @@
 # PX4 camera localization demo
 
-**Historical diagnostic:** this flight path requires artificial mapped markers that do not exist on the real course. They are now disabled by default. Use `runtime/preview-marker-free.sh` for the current preview. Set `SIM_TEST_MARKERS=1` only when explicitly reproducing this old fixture. Marker-free PX4 navigation remains pending.
+**Historical diagnostic:** this flight path requires artificial mapped markers that do not exist on the real course. They are now disabled by default. Use `runtime/run-markerfree.sh` and [the current RGB-D runbook](markerfree-rgbd.md) for the active experiment. Set `SIM_TEST_MARKERS=1` only when explicitly reproducing this old fixture. Marker-free hover works; full-course evidence is tracked separately.
 
 ## Start and replay
 

@@ -1,0 +1,392 @@
+{
+  "cad_proxy": {
+    "certified_clear": true,
+    "component_count": 9,
+    "interpretation": "Unresolved component separation can be a conservative false positive.",
+    "margin_m": 0.015,
+    "model": "SDF body/gear boxes and swept rotor cylinders against the course CAD proxy boxes and polygonal tunnel shell. Translation is linear and attitude follows the shortest arc.",
+    "phases": {
+      "abort_landing": {
+        "certified_clear": true,
+        "checked_subsegments": 1723,
+        "first_unresolved": null,
+        "ground_checked": false,
+        "interval_sim_s": [
+          36.908,
+          50.48
+        ],
+        "truth_complete": true
+      },
+      "takeoff": {
+        "certified_clear": true,
+        "checked_subsegments": 1420,
+        "first_unresolved": null,
+        "ground_checked": false,
+        "interval_sim_s": [
+          18.48,
+          29.692
+        ],
+        "truth_complete": true
+      },
+      "transit": {
+        "certified_clear": true,
+        "checked_subsegments": 914,
+        "first_unresolved": null,
+        "ground_checked": true,
+        "interval_sim_s": [
+          29.692,
+          36.908
+        ],
+        "truth_complete": true
+      }
+    }
+  },
+  "checks": {
+    "camera_aid_stopped_through_abort": false,
+    "expected_fault_observed": true,
+    "independent_touchdown_observed": true,
+    "injection_fault_land_ack_disarm_events_ordered": true,
+    "no_unexpected_contact_in_received_messages": true,
+    "policy_task_and_pre_injection_action_present": true,
+    "pre_fault_and_abort_multipart_geometry_certified_clear": true,
+    "px4_auto_land_mode_observed": true,
+    "px4_ground_and_disarm_confirmed_after_fault": true
+  },
+  "contacts_through_disarm": {
+    "first_abort_floor_contact": {
+      "pairs": [
+        [
+          "course_quad::base_link::base_link_collision_4",
+          "ground_plane::ground::floor"
+        ]
+      ],
+      "sim_time_s": 38.388000000000005,
+      "source": "Gazebo contact sensor; raw observations only",
+      "topic": "/model/course_quad/contact/base_link"
+    },
+    "first_obstacle_observation": null,
+    "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact.",
+    "raw_pair_observations": {
+      "expected_ground": 8867,
+      "obstacle": 0,
+      "self": 0,
+      "transit_ground": 0
+    },
+    "status": "partial_topic_coverage",
+    "topic_discovery_and_observations": {
+      "/model/course_quad/contact/base_link": {
+        "interpretation": "messages_received",
+        "messages_with_contact_pairs": 17307,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "publisher_count_end": 5,
+        "publisher_count_start": 5,
+        "transport_messages_received": 17307
+      },
+      "/model/course_quad/contact/rotor_0": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      },
+      "/model/course_quad/contact/rotor_1": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      },
+      "/model/course_quad/contact/rotor_2": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      },
+      "/model/course_quad/contact/rotor_3": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      }
+    },
+    "topics_expected": [
+      "/model/course_quad/contact/base_link",
+      "/model/course_quad/contact/rotor_0",
+      "/model/course_quad/contact/rotor_1",
+      "/model/course_quad/contact/rotor_2",
+      "/model/course_quad/contact/rotor_3"
+    ],
+    "topics_with_messages": [
+      "/model/course_quad/contact/base_link"
+    ]
+  },
+  "expected_fault": "stale_policy_action",
+  "fault_test_passed": false,
+  "independent_truth": {
+    "at_confirmed_disarm_enu_m": [
+      -2.5111265375756098,
+      2.499481537704483,
+      0.2269993315552099
+    ],
+    "at_fault_enu_m": [
+      -2.5083082698639565,
+      2.426114840575522,
+      0.9537717039655207
+    ],
+    "at_first_floor_contact_enu_m": [
+      -2.5110142909349102,
+      2.4997069062406783,
+      0.22612381768619563
+    ],
+    "at_injection_enu_m": [
+      -2.5087639635351806,
+      2.322367456701571,
+      0.9492661135786391
+    ],
+    "horizontal_displacement_fault_to_disarm_m": 0.07342080686363515,
+    "horizontal_displacement_injection_to_disarm_m": 0.17712983781848432
+  },
+  "mission_fault": "stale_policy_action",
+  "mission_result": "failed",
+  "provenance": {
+    "fault_timestamp_source": "Controller arming simulation time plus summary elapsed simulation time.",
+    "max_truth_interpolation_gap_s": 0.12,
+    "sha256_by_file": {
+      "artifacts/markerfree/blackout-03/observer/contacts.jsonl": "fe47cbb41fac98cb6d3c465573db4bfa708e4d8b477411108b8003cfbe00c476",
+      "artifacts/markerfree/blackout-03/observer/status.json": "c568b6532a27403e864648580a161c71b045facd7d07d47ce31d633ae3572249",
+      "artifacts/markerfree/blackout-03/observer/truth.jsonl": "d46ff53d620397b80a1cd442b0fe89594037aff2483f4c508f2506a14b61fe46",
+      "artifacts/markerfree/blackout-03/telemetry.jsonl": "045dd790eed6ed3bebc2202e79b21c6761796612d5a14b8d295b754973e67f73",
+      "artifacts/px4/log/2026-11-07/17_26_02.ulg": "9e97abda0081d2eaf196a833a45d931c51bc4e661733f5ed6aee1174fc383750",
+      "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+      "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+      "mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+      "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+      "models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+      "models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+      "models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+      "models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+      "models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+      "models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+      "models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+      "models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+      "models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+      "models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+      "models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+      "models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+      "models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+      "models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+      "models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+      "models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6",
+      "models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+      "models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+      "models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+      "models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+      "models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+      "models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+      "models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+      "models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+      "models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+      "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+      "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+      "tools/score_blackout.py": "84c457cff91192041796d099b4015f687e79a389f710a54af24d3309bea44c03",
+      "tools/score_markerfree.py": "d276e14117862a1ea505a33f7d3dce1b4e782ae75f377773febfbe7db910dcf3"
+    }
+  },
+  "px4_transitions": {
+    "arming_state": [
+      {
+        "sim_time_s": 18.436,
+        "value": 2
+      },
+      {
+        "sim_time_s": 50.072,
+        "value": 1
+      }
+    ],
+    "barometer_height_aid": [
+      {
+        "sim_time_s": 0.636,
+        "value": 0
+      }
+    ],
+    "external_vision_height_aid": [
+      {
+        "sim_time_s": 3.984,
+        "value": 1
+      },
+      {
+        "sim_time_s": 37.252,
+        "value": 0
+      }
+    ],
+    "failsafe": [
+      {
+        "sim_time_s": 0.468,
+        "value": 0
+      },
+      {
+        "sim_time_s": 41.368,
+        "value": 1
+      },
+      {
+        "sim_time_s": 50.072,
+        "value": 0
+      }
+    ],
+    "land_detected": [
+      {
+        "sim_time_s": 20.112,
+        "value": 0
+      },
+      {
+        "sim_time_s": 40.092,
+        "value": 1
+      },
+      {
+        "sim_time_s": 41.868,
+        "value": 0
+      },
+      {
+        "sim_time_s": 48.06,
+        "value": 1
+      }
+    ],
+    "navigation_state": [
+      {
+        "sim_time_s": 18.436,
+        "value": 14
+      },
+      {
+        "sim_time_s": 36.928,
+        "value": 18
+      },
+      {
+        "sim_time_s": 41.368,
+        "value": 12
+      },
+      {
+        "sim_time_s": 50.072,
+        "value": 14
+      }
+    ],
+    "vertical_position_valid": [
+      {
+        "sim_time_s": 3.984,
+        "value": 1
+      },
+      {
+        "sim_time_s": 41.868,
+        "value": 0
+      }
+    ]
+  },
+  "run_id": "973a85d6dfe645ee9b46f05ed4b4bec6",
+  "scope": "Injected RGBD aid loss followed by floor landing and disarm. The multipart proxy checks obstacles throughout and permits floor contact during takeoff and abort landing. Contact observations are limited to received sensor messages.",
+  "timeline_sim_s": {
+    "controller_armed_offboard": 18.48,
+    "controller_confirmed_ground_and_disarm": 50.48,
+    "expected_fault": 36.908,
+    "independent_first_floor_contact": 38.388000000000005,
+    "injected_camera_aiding_stop": 36.492,
+    "px4_disarmed": 50.072,
+    "px4_entered_auto_land": 36.928
+  },
+  "vision_aiding": {
+    "controller_send_count_unchanged_in_recorded_samples_after_injection": true,
+    "controller_total_vision_measurements_sent": 661,
+    "interpretation": "The ULog count measures logged updates. Logger sampling and any unobserved records limit absence claims, including when no dropout mark is present.",
+    "px4_ulog": {
+      "coverage_sim_s": [
+        0.552,
+        51.068
+      ],
+      "dropout_records": [],
+      "dropout_records_overlapping_blackout": [],
+      "file_corruption_detected": false,
+      "last_visual_odometry_capture_sim_s": 36.4524,
+      "last_visual_odometry_receipt_sim_s": 36.496,
+      "logged_visual_odometry_records_after_injection": 1,
+      "px4_git_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+      "spans_blackout_without_reported_dropouts_or_corruption": true,
+      "vehicle_visual_odometry_record_count": 652
+    },
+    "source_guard": {
+      "checked_runner_source_sha256": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+      "interpretation": "Telemetry records runtime_source_sha256 when available. A missing hash means runner-source identity cannot be established for that historical run; the scorer hashes the currently checked source but does not retroactively attribute it to the run.",
+      "recorded_hash_matches_checked_source": true,
+      "recorded_runner_source_sha256": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77"
+    }
+  },
+  "registration_compliance": {
+    "protocol_sha256": "4607317906c0387762d3fff5fd095a0d9dae84ca0057ccd035f7037c8a1efa67",
+    "run_id": "973a85d6dfe645ee9b46f05ed4b4bec6",
+    "checks": {
+      "source_hashes_match": true,
+      "px4_binary_matches": true,
+      "checkpoint_matches": true,
+      "sensor_configuration_matches": true,
+      "task_normals_depth_guard_heading": true,
+      "capture_limits": true,
+      "launch_matches": true,
+      "trigger_at_or_after_requested_delay": true,
+      "expected_fault": true,
+      "observer_complete": true,
+      "observer_accounting": true
+    },
+    "configuration_and_observer_checks_passed": true,
+    "actual_injection_after_arming_sim_s": 18.011999999999997,
+    "trigger_overshoot_sim_s": 0.011999999999996902,
+    "scope": "Configuration/accounting only; the separate strict no-post-injection-receipt fault test remains failed."
+  },
+  "observer_queue_accounting": {
+    "truth_samples": 6192,
+    "truth_queue_overflow": 0,
+    "truth_queue_overflow_timestamp_range_ns": null,
+    "truth_queue_overflow_timestamp_range_scope": "Inclusive min/max simulation-time stamps of explicitly discarded oldest queue entries.",
+    "truth_queue_accounting_consistent": true,
+    "truth_dequeue_accounting_consistent": true,
+    "contact_messages_received": 17307,
+    "contact_queue_overflow": 0,
+    "contact_queue_overflow_timestamp_range_ns": null,
+    "contact_queue_overflow_timestamp_range_scope": "Inclusive min/max simulation-time stamps of explicitly discarded queued contact messages.",
+    "contact_queue_accounting_consistent": true,
+    "contact_topic_receive_accounting_consistent": true,
+    "contact_topic_pair_queue_accounting_consistent": true,
+    "recording_complete": true,
+    "callback_acceptance_closed": true,
+    "recording_complete_scope": "Observer queues were drained on an orderly stop with no counted observer-queue overflow, after closing callback acceptance. Callbacks arriving after that capture cutoff are ignored. This does not prove Gazebo Transport delivered every generated sample.",
+    "evidence_loss": false
+  },
+  "late_visual_odometry_receipts": [
+    {
+      "receipt_sim_s": 36.496,
+      "capture_sim_s": 36.4524,
+      "receipt_after_cutoff_s": 0.0040000000000048885,
+      "capture_before_cutoff_s": 0.03960000000000008,
+      "receipt_minus_capture_s": 0.04360000000000497
+    }
+  ],
+  "interpretation": "Eight of nine strict fault checks passed. Complete abort geometry and zero observer queue overflow were recorded. One VVO record was received 4 ms after cutoff but captured 39.6 ms before cutoff; the last controller capture stamp aligns and send count remained fixed. This is consistent with a pre-cutoff packet in flight, but individual send times were not logged. The preregistered zero-post-cutoff-receipt criterion still failed; no threshold was changed.",
+  "source_artifacts": {
+    "artifacts/markerfree/blackout-03/fault-test.json": "5ff4edfe6caa697510dc00c8499c0250dfd6e3eb9d06be62922a49a03405cc43",
+    "artifacts/markerfree/blackout-03/protocol-check.json": "1a17a6cb31efabe77f4df862ca0c5a100428bcdd8b7b587df3d8d95612e4cbdb",
+    "artifacts/markerfree/blackout-03/telemetry.jsonl": "045dd790eed6ed3bebc2202e79b21c6761796612d5a14b8d295b754973e67f73",
+    "artifacts/markerfree/blackout-03/telemetry.summary.json": "9534460ed1af08b99bab3b55edad4e39387142c893926585aa1223fbc378fb35",
+    "artifacts/markerfree/blackout-03/observer/status.json": "c568b6532a27403e864648580a161c71b045facd7d07d47ce31d633ae3572249",
+    "artifacts/markerfree/blackout-03/observer/truth.jsonl": "d46ff53d620397b80a1cd442b0fe89594037aff2483f4c508f2506a14b61fe46",
+    "artifacts/markerfree/blackout-03/observer/contacts.jsonl": "fe47cbb41fac98cb6d3c465573db4bfa708e4d8b477411108b8003cfbe00c476",
+    "artifacts/markerfree/blackout-03/recording.json": "5b3ff5d1b5ca5e113fd4e37c8c7c3151993a03be32911250fa4750492148823b",
+    "artifacts/markerfree/blackout-03/score.json": "2b6528ae0110cb46b3d12da83549e31860032fbbda50825084c8487242b9f070"
+  }
+}

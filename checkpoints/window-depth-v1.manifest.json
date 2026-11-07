@@ -1,0 +1,27 @@
+{
+  "schema": "dronehacks.policy-checkpoint-manifest.v1",
+  "file": "checkpoints/window-depth-v1.pt",
+  "sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+  "original_sha256": "3602a898cad3f3ec91be78786c0811aa1ab0bd2f2d3a6b8f909edcf64c0cdf56",
+  "repackaging": "Loaded and saved with torch.load(weights_only=True, map_location=cpu); removed only initialization.checkpoint, a local absolute path. All tensors and all remaining values were recursively verified identical.",
+  "removed_metadata_field": "initialization.checkpoint",
+  "source_run": "artifacts/learning/20261107T120458Z-273a3b/best.pt",
+  "selected_artifact": "artifacts/markerfree/policy-flight-03/selection.json",
+  "selected_checkpoint_steps": 13720,
+  "selection_split": "validation",
+  "profile": "x500-transfer",
+  "transfer_profile": "x500-transfer-v1",
+  "architecture": "DepthPolicy",
+  "camera_forward_m": 0.34,
+  "heading_lookahead_m": 1.8,
+  "tensor_count_verified": 14,
+  "flight_status": "Policy-05 completed the nominal Gazebo/PX4 route with the planar braking guard; independent geometry score passed.",
+  "verified_flight": {
+    "run_id": "700b14c3385f4094843291cacb63882d",
+    "elapsed_sim_s": 77.0,
+    "waypoints": 15,
+    "required": 15,
+    "score": "docs/packaged-policy-results.json",
+    "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31"
+  }
+}

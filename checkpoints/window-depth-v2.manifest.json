@@ -1,0 +1,35 @@
+{
+  "schema": "dronehacks.checkpoint-package.v1",
+  "checkpoint_file": "window-depth-v2.pt",
+  "source_checkpoint_sha256": "bde17ed4c642ddf769d90032a27948563d8ee7aad8ea1974fe29e98d31b635de",
+  "packaged_checkpoint_sha256": "9a52d8e9c46d7e764b63f18823b88419c23b4205f07bcb0b32a942f602206319",
+  "metadata_removed": [
+    "initialization.checkpoint"
+  ],
+  "all_remaining_values_exactly_equal_after_cpu_load": true,
+  "exactly_equal_tensor_count": 14,
+  "profile": "x500-transfer-delay",
+  "selected_steps": 48440,
+  "selection_split": "validation",
+  "training_run": "20261107T132354Z-af36ec",
+  "analytic_comparison": {
+    "v1": {
+      "successes": 7,
+      "collisions": 1,
+      "bounds_violations": 0,
+      "successful_median_seconds": 60.0,
+      "successful_min_window_margin_m": 0.023786639406058963
+    },
+    "v2": {
+      "successes": 7,
+      "collisions": 1,
+      "bounds_violations": 0,
+      "successful_median_seconds": 61.44,
+      "successful_min_window_margin_m": 0.03424899524491043
+    },
+    "noninferior": true,
+    "flight_candidate": false
+  },
+  "flight_status": "Not promoted and not flown. Both policies completed 7/8 paired held-out analytic cases; v2 was slower. The flight baseline remains packaged v1.",
+  "scope": "The source checkpoint was evaluated; packaging changes only the local initialization path, with identical learned parameters. No physical-transfer claim."
+}

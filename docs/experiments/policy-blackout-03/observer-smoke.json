@@ -1,0 +1,135 @@
+{
+  "observer_sha256": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+  "scope": "20-wall-second passive Gazebo observer test; no flight commands. Queue completeness is not upstream transport completeness.",
+  "status": {
+    "state": "duration_complete",
+    "reason": null,
+    "truth_topic": "/world/dronehacks/dynamic_pose/info",
+    "truth_subscribed": true,
+    "truth_samples": 755,
+    "truth_messages_received": 755,
+    "truth_messages_dequeued": 755,
+    "truth_messages_ignored": 0,
+    "truth_queue_capacity": 512,
+    "truth_queue_pending": 0,
+    "truth_queue_overflow": 0,
+    "truth_queue_overflow_timestamp_range_ns": null,
+    "truth_queue_overflow_timestamp_range_scope": "Inclusive min/max simulation-time stamps of explicitly discarded oldest queue entries.",
+    "truth_queue_accounting_consistent": true,
+    "truth_dequeue_accounting_consistent": true,
+    "contacts_expected_topics": [
+      "/model/course_quad/contact/base_link",
+      "/model/course_quad/contact/rotor_0",
+      "/model/course_quad/contact/rotor_1",
+      "/model/course_quad/contact/rotor_2",
+      "/model/course_quad/contact/rotor_3"
+    ],
+    "contacts_subscribed_topics": [
+      "/model/course_quad/contact/base_link",
+      "/model/course_quad/contact/rotor_0",
+      "/model/course_quad/contact/rotor_1",
+      "/model/course_quad/contact/rotor_2",
+      "/model/course_quad/contact/rotor_3"
+    ],
+    "contacts_unavailable_topics": [],
+    "contact_topic_publishers_at_start": {
+      "/model/course_quad/contact/base_link": 5,
+      "/model/course_quad/contact/rotor_0": 1,
+      "/model/course_quad/contact/rotor_1": 1,
+      "/model/course_quad/contact/rotor_2": 1,
+      "/model/course_quad/contact/rotor_3": 1
+    },
+    "contact_topic_publishers_at_end": {
+      "/model/course_quad/contact/base_link": 5,
+      "/model/course_quad/contact/rotor_0": 1,
+      "/model/course_quad/contact/rotor_1": 1,
+      "/model/course_quad/contact/rotor_2": 1,
+      "/model/course_quad/contact/rotor_3": 1
+    },
+    "contact_topic_observation": {
+      "/model/course_quad/contact/base_link": {
+        "publisher_count_start": 5,
+        "publisher_count_end": 5,
+        "transport_messages_received": 3000,
+        "messages_with_contact_pairs": 3000,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "interpretation": "messages_received"
+      },
+      "/model/course_quad/contact/rotor_0": {
+        "publisher_count_start": 1,
+        "publisher_count_end": 1,
+        "transport_messages_received": 0,
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "interpretation": "publisher_advertised_no_messages_observed"
+      },
+      "/model/course_quad/contact/rotor_1": {
+        "publisher_count_start": 1,
+        "publisher_count_end": 1,
+        "transport_messages_received": 0,
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "interpretation": "publisher_advertised_no_messages_observed"
+      },
+      "/model/course_quad/contact/rotor_2": {
+        "publisher_count_start": 1,
+        "publisher_count_end": 1,
+        "transport_messages_received": 0,
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "interpretation": "publisher_advertised_no_messages_observed"
+      },
+      "/model/course_quad/contact/rotor_3": {
+        "publisher_count_start": 1,
+        "publisher_count_end": 1,
+        "transport_messages_received": 0,
+        "messages_with_contact_pairs": 0,
+        "observer_queue_overflow": 0,
+        "observer_queue_overflow_timestamp_range_ns": null,
+        "interpretation": "publisher_advertised_no_messages_observed"
+      }
+    },
+    "contacts_topics_with_messages": [
+      "/model/course_quad/contact/base_link"
+    ],
+    "contacts_topics_without_messages": [
+      "/model/course_quad/contact/rotor_0",
+      "/model/course_quad/contact/rotor_1",
+      "/model/course_quad/contact/rotor_2",
+      "/model/course_quad/contact/rotor_3"
+    ],
+    "contact_messages_with_pairs": 3000,
+    "contact_messages_received": 3000,
+    "contact_messages_queued": 3000,
+    "contact_messages_dequeued": 3000,
+    "contact_queue_capacity": 2048,
+    "contact_queue_pending": 0,
+    "contact_queue_overflow": 0,
+    "contact_queue_overflow_timestamp_range_ns": null,
+    "contact_queue_overflow_timestamp_range_scope": "Inclusive min/max simulation-time stamps of explicitly discarded queued contact messages.",
+    "contact_queue_accounting_consistent": true,
+    "contact_topic_receive_accounting_consistent": true,
+    "contact_topic_pair_queue_accounting_consistent": true,
+    "raw_contact_pair_observations": 3000,
+    "recording_complete": true,
+    "callback_acceptance_closed": true,
+    "recording_complete_scope": "Observer queues were drained on an orderly stop with no counted observer-queue overflow, after closing callback acceptance. Callbacks arriving after that capture cutoff are ignored. This does not prove Gazebo Transport delivered every generated sample.",
+    "evidence_loss": false,
+    "evidence_loss_scope": "True when this observer explicitly dropped queued messages on overflow; upstream Gazebo Transport loss is not observable here.",
+    "first_sim_time_s": 221.48000000000002,
+    "last_sim_time_s": 227.472,
+    "truth_file": "truth.jsonl",
+    "contacts_file": "contacts.jsonl",
+    "computed_mission_score": false,
+    "includes_latest_pose": false
+  },
+  "sha256_by_file": {
+    "artifacts/markerfree/observer-smoke-03/status.json": "463425bb82907293eb83ce1213ea3ad421aaa50c632ba3ff6e615049fa66ea4f",
+    "artifacts/markerfree/observer-smoke-03/truth.jsonl": "0284778c8c87284c07787252db19a21391ba5180dbe2e38828ec71a9718ee6e2",
+    "artifacts/markerfree/observer-smoke-03/contacts.jsonl": "111f7717306e47bee1e0bbddd71d92272e6ebba7d2536d3ed7d3766a74dd7efe"
+  }
+}

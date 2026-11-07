@@ -1,0 +1,40 @@
+{
+  "scope": "Supervisor lifetimes within the five-hour session budget, including initialization, collection, optimization and evaluation; not GPU-only training time. No claim of five uninterrupted hours.",
+  "session_cutoff_utc": "2026-11-07T15:24:35Z",
+  "jobs": [
+    {
+      "run": "20261107T104932Z-e928bc",
+      "started_at": "2026-11-07T10:49:32.504717+00:00",
+      "finished_at": "2026-11-07T10:53:28.976945+00:00",
+      "wall_seconds_including_initialization_and_evaluation": 236.472228,
+      "stop_reason": "low_disk_space",
+      "exit_code": -9
+    },
+    {
+      "run": "20261107T110237Z-ffd821",
+      "started_at": "2026-11-07T11:02:37.986131+00:00",
+      "finished_at": "2026-11-07T11:50:26.137228+00:00",
+      "wall_seconds_including_initialization_and_evaluation": 2868.151097,
+      "stop_reason": "user_stop",
+      "exit_code": 0
+    },
+    {
+      "run": "20261107T120458Z-273a3b",
+      "started_at": "2026-11-07T12:04:58.285973+00:00",
+      "finished_at": "2026-11-07T13:10:48.570923+00:00",
+      "wall_seconds_including_initialization_and_evaluation": 3950.28495,
+      "stop_reason": "low_disk_space",
+      "exit_code": 0
+    },
+    {
+      "run": "20261107T132354Z-af36ec",
+      "started_at": "2026-11-07T13:23:54.812713+00:00",
+      "finished_at": "2026-11-07T15:22:01.226023+00:00",
+      "wall_seconds_including_initialization_and_evaluation": 7086.41331,
+      "stop_reason": "trainer_exited",
+      "exit_code": 0
+    }
+  ],
+  "summed_job_wall_seconds": 14141.321585,
+  "last_finished_at": "2026-11-07T15:22:01.226023+00:00"
+}

@@ -1,0 +1,518 @@
+{
+  "experiment": "net-visual-ablation-01",
+  "overall_limits": [
+    "Navigation used RGB-D depth registration to the supplied course map and PX4 EKF2; simulator pose was used only by independent offline scoring.",
+    "Contact telemetry had partial topic coverage. Zero obstacle-pair observations on received base_link messages and silence on rotor topics do not establish zero physical contact.",
+    "The simulator trials are not a real-camera or hardware-transfer result."
+  ],
+  "passive_ablation": {
+    "analysis_path": "docs/experiments/net-visual-ablation-01/results.json",
+    "analysis_sha256": "687c90a57e9283d4438b346695af3d6d94afe99e3100844d4a6378845bf9332a",
+    "analysis_source_sha256": "4825629a4909919621b143d4d8e1cc385d328f9fe03c71ef9234adc71f9696e1",
+    "changed_depth_pixel_fraction_of_full_image": 0.4847920735677083,
+    "claim_limit": "Rendered net-visual absence stress case with retained collisions; not a realistic wire-net optical model or real-sensor result.",
+    "control_world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0",
+    "overall_pass": true,
+    "status": "pass",
+    "treatment_world_sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+  },
+  "protocol": {
+    "path": "docs/experiments/net-visual-ablation-01/protocol.json",
+    "sha256": "b1a971901d1eeb05e639bd5477eadec256e23aca04516848fe5fbd7bfa219061"
+  },
+  "schema_version": 1,
+  "sequence": [
+    {
+      "condition": "control",
+      "evidence": {
+        "condition": "control",
+        "contact_observation": {
+          "interpretation": "Partial topic coverage: only base_link supplied contact messages; rotor-topic silence is not evidence of zero rotor contact.",
+          "observer_pairs_written": 13638,
+          "observer_received": 13638,
+          "queue_overflow": 0,
+          "raw_pair_observations": {
+            "expected_ground": 5082,
+            "obstacle": 0,
+            "self": 0,
+            "transit_ground": 0
+          },
+          "status": "partial_topic_coverage",
+          "topics_with_messages": [
+            "/model/course_quad/contact/base_link"
+          ]
+        },
+        "evidence": {
+          "camera/status.json": {
+            "path": "artifacts/markerfree/hover-10/camera/status.json",
+            "sha256": "42ec27f6af3dfaf22563b82c40996e8e1fef105a45bb023b38f8972e66b8dab0"
+          },
+          "observer/contacts.jsonl": {
+            "path": "artifacts/markerfree/hover-10/observer/contacts.jsonl",
+            "sha256": "317ba7c7d4b4dc15e57e19c2784078867f3a514587be15ed05f0ea4ce5dea5a8"
+          },
+          "observer/status.json": {
+            "path": "artifacts/markerfree/hover-10/observer/status.json",
+            "sha256": "2ddcfbacea55a8ce2366a42a739a31a7552d96a8548a4da74d8492a0fe9bdc14"
+          },
+          "observer/truth.jsonl": {
+            "path": "artifacts/markerfree/hover-10/observer/truth.jsonl",
+            "sha256": "363d2fb2efe6847cd428572deb5646b06dde8022f9b3cf255bd7c9c9cf780110"
+          },
+          "recording.json": {
+            "path": "artifacts/markerfree/hover-10/recording.json",
+            "sha256": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b"
+          },
+          "score.json": {
+            "path": "artifacts/markerfree/hover-10/score.json",
+            "sha256": "85aefab1ef995dec781b9479c1c0204ba303ba3de444aa39e6a77bb2986652ec"
+          },
+          "telemetry.jsonl": {
+            "path": "artifacts/markerfree/hover-10/telemetry.jsonl",
+            "sha256": "2b963d48c28f625887273271bba9fc63af81247b0f4655fae8a1584ae7128fe1"
+          },
+          "telemetry.summary.json": {
+            "path": "artifacts/markerfree/hover-10/telemetry.summary.json",
+            "sha256": "4da6003066a8d08885f1fd68e404c6c487cdfb0a9a9b45de2a6bbe5581a5d188"
+          }
+        },
+        "fault": null,
+        "independent_score_checks": {
+          "controller_reports_all_waypoints": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_complete_during_flight": true,
+          "truth_crosses_window_with_full_envelope": false,
+          "truth_multipart_path_certified_clear": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_touchdown_inside_pad": true,
+          "truth_transit_floor_checked": true
+        },
+        "navigation_and_runtime": {
+          "artificial_landmark_models": 0,
+          "camera_recording_contains_vehicle_pose": false,
+          "camera_recording_frames": 185,
+          "checkpoint_sha256": null,
+          "contact_queue_overflow": 0,
+          "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+          "observer_callback_acceptance_closed": true,
+          "observer_recording_complete": true,
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "px4_manifest_verified": true,
+          "sensor_diagnostic": {
+            "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+            "configured_renderer": "ogre2",
+            "depth_topic": "/dronehacks/rgbd/depth_image",
+            "mode": "gaussian-10mm",
+            "noise_mean_m": 0.0,
+            "noise_stddev_m": 0.01,
+            "seed": 4417,
+            "source_world_sha256": "a71ae7deba7ed784d461b73e0b91f3327bd4b46d0cb55443881ee46eba3ef92d",
+            "world_path": "/tmp/dronehacks-px4.sdf",
+            "world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+          },
+          "simulator_position_used_for_control": false,
+          "source_hash_count": 37,
+          "source_hashes_match_protocol": true,
+          "truth_odometry_publishers": 0,
+          "truth_queue_overflow": 0,
+          "truth_samples": 4699
+        },
+        "protocol_gate": {
+          "checks": {
+            "camera_position_error": true,
+            "completed_settled_landed_disarmed": true,
+            "contacts": true,
+            "controller_reports_all_waypoints": true,
+            "noise_world": true,
+            "normal_tilt_limits": true,
+            "observer_accounting": true,
+            "observer_complete": true,
+            "px4_binary": true,
+            "px4_ground_and_disarm_confirmed": true,
+            "px4_position_error": true,
+            "run_ids": true,
+            "runtime_sources": true,
+            "score_completed": true,
+            "task_and_launch": true,
+            "truth_complete_during_flight": true,
+            "truth_multipart_path_certified_clear": true,
+            "truth_reaches_all_waypoints_in_order": true,
+            "truth_touchdown_inside_pad": true,
+            "truth_transit_floor_checked": true
+          },
+          "passed": true,
+          "protocol_sha256": "b1a971901d1eeb05e639bd5477eadec256e23aca04516848fe5fbd7bfa219061"
+        },
+        "result": "completed",
+        "route_geometry": {
+          "full_envelope_crossed": false,
+          "min_aperture_clearance_m": null,
+          "truth_multipart_path_certified_clear": true
+        },
+        "run_id": "a8c95a894128413880436d9a50021d2b",
+        "summary": {
+          "elapsed_sim_s": 20.0,
+          "hover_settled_sim_s": 3.004000000000005,
+          "landed_after_fault": false,
+          "landed_and_disarmed": true,
+          "landing_position_enu": [
+            -2.515681505203247,
+            0.910290539264679,
+            0.22516195476055145
+          ],
+          "policy_actions_received": 0,
+          "policy_boundary_brake_enabled": false,
+          "policy_checkpoint_sha256": null,
+          "route_completed": true,
+          "route_elapsed_sim_s": 14.02000000000001,
+          "waypoint_count": 1,
+          "waypoints_reached": 1
+        },
+        "task": "hover"
+      },
+      "outcome": "passed",
+      "run": "hover-10"
+    },
+    {
+      "condition": "control",
+      "evidence": {
+        "condition": "control",
+        "contact_observation": {
+          "interpretation": "Partial topic coverage: only base_link supplied contact messages; rotor-topic silence is not evidence of zero rotor contact.",
+          "observer_pairs_written": 13326,
+          "observer_received": 13326,
+          "queue_overflow": 0,
+          "raw_pair_observations": {
+            "expected_ground": 4908,
+            "obstacle": 0,
+            "self": 0,
+            "transit_ground": 0
+          },
+          "status": "partial_topic_coverage",
+          "topics_with_messages": [
+            "/model/course_quad/contact/base_link"
+          ]
+        },
+        "evidence": {
+          "camera/status.json": {
+            "path": "artifacts/markerfree/policy-11/camera/status.json",
+            "sha256": "0a13cce36882ba99596ac7a8c865e069815254faf185b208bfe85ef907bb0d8f"
+          },
+          "observer/contacts.jsonl": {
+            "path": "artifacts/markerfree/policy-11/observer/contacts.jsonl",
+            "sha256": "ac4560569151e7709d8ed30256b39f728afe450cc3cefbf2c03b9beec1b7646e"
+          },
+          "observer/status.json": {
+            "path": "artifacts/markerfree/policy-11/observer/status.json",
+            "sha256": "9ab8e0e38bb2c462591159c1f0d6ec1f99ad4101eea5defc30e6995843bfc0a5"
+          },
+          "observer/truth.jsonl": {
+            "path": "artifacts/markerfree/policy-11/observer/truth.jsonl",
+            "sha256": "965b780d8104bda1891ab0cbcbe9c3e9cac8a94da5105fcc4c428b7c124e1ff2"
+          },
+          "recording.json": {
+            "path": "artifacts/markerfree/policy-11/recording.json",
+            "sha256": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b"
+          },
+          "score.json": {
+            "path": "artifacts/markerfree/policy-11/score.json",
+            "sha256": "b1bba241868e0863bc7ada6bc8ba714fda13ed773fe76e91f4900acbeb570623"
+          },
+          "telemetry.jsonl": {
+            "path": "artifacts/markerfree/policy-11/telemetry.jsonl",
+            "sha256": "8b9007ef30b3a5826ca8f20e6f6fcf1fd187cd391ad6771778367343c1870e28"
+          },
+          "telemetry.summary.json": {
+            "path": "artifacts/markerfree/policy-11/telemetry.summary.json",
+            "sha256": "a51e57d163cb1c6d1e12bebd4026e62dd89a799ca8654e54dc705fc6a03dc340"
+          }
+        },
+        "fault": null,
+        "independent_score_checks": {
+          "controller_reports_all_waypoints": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_complete_during_flight": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_touchdown_inside_pad": true,
+          "truth_transit_floor_checked": true
+        },
+        "navigation_and_runtime": {
+          "artificial_landmark_models": 0,
+          "camera_recording_contains_vehicle_pose": false,
+          "camera_recording_frames": 469,
+          "checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+          "contact_queue_overflow": 0,
+          "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+          "observer_callback_acceptance_closed": true,
+          "observer_recording_complete": true,
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "px4_manifest_verified": true,
+          "sensor_diagnostic": {
+            "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+            "configured_renderer": "ogre2",
+            "depth_topic": "/dronehacks/rgbd/depth_image",
+            "mode": "gaussian-10mm",
+            "noise_mean_m": 0.0,
+            "noise_stddev_m": 0.01,
+            "seed": 4417,
+            "source_world_sha256": "a71ae7deba7ed784d461b73e0b91f3327bd4b46d0cb55443881ee46eba3ef92d",
+            "world_path": "/tmp/dronehacks-px4.sdf",
+            "world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+          },
+          "simulator_position_used_for_control": false,
+          "source_hash_count": 37,
+          "source_hashes_match_protocol": true,
+          "truth_odometry_publishers": 0,
+          "truth_queue_overflow": 0,
+          "truth_samples": 11901
+        },
+        "protocol_gate": {
+          "checks": {
+            "completed_landed_disarmed": true,
+            "contacts": true,
+            "controller_reports_all_waypoints": true,
+            "noise_world": true,
+            "normal_tilt_limits": true,
+            "observer_accounting": true,
+            "observer_complete": true,
+            "policy_contract": true,
+            "px4_binary": true,
+            "px4_ground_and_disarm_confirmed": true,
+            "run_ids": true,
+            "runtime_sources": true,
+            "task_and_launch": true,
+            "truth_complete_during_flight": true,
+            "truth_crosses_window_with_full_envelope": true,
+            "truth_multipart_path_certified_clear": true,
+            "truth_reaches_all_waypoints_in_order": true,
+            "truth_touchdown_inside_pad": true,
+            "truth_transit_floor_checked": true
+          },
+          "passed": true,
+          "protocol_sha256": "b1a971901d1eeb05e639bd5477eadec256e23aca04516848fe5fbd7bfa219061"
+        },
+        "result": "completed",
+        "route_geometry": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.0825705800917422,
+          "truth_multipart_path_certified_clear": true
+        },
+        "run_id": "079bab46abe7432ca8c59d81dbbd124c",
+        "summary": {
+          "elapsed_sim_s": 77.0,
+          "hover_settled_sim_s": 3.027999999999995,
+          "landed_after_fault": false,
+          "landed_and_disarmed": true,
+          "landing_position_enu": [
+            -2.003265142440796,
+            -0.8225929141044617,
+            0.22515372931957245
+          ],
+          "policy_actions_received": 361,
+          "policy_boundary_brake_enabled": true,
+          "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+          "route_completed": true,
+          "route_elapsed_sim_s": 71.808,
+          "waypoint_count": 15,
+          "waypoints_reached": 15
+        },
+        "task": "policy"
+      },
+      "outcome": "passed",
+      "run": "policy-11"
+    },
+    {
+      "condition": "treatment",
+      "evidence": {
+        "abort_landing_geometry": {
+          "cad_proxy_clear": true,
+          "certified_clear_through_disarm": true,
+          "checked_subsegments": 587,
+          "confirmed_disarm_sim_s": 29.536,
+          "contact_scope": "CAD-proxy clearance only; partial contact-topic coverage is reported separately.",
+          "controller_confirmed_ground_and_disarm": true,
+          "fault_sim_s": 24.868,
+          "truth_complete": true
+        },
+        "condition": "treatment",
+        "contact_observation": {
+          "interpretation": "Partial topic coverage: only base_link supplied contact messages; rotor-topic silence is not evidence of zero rotor contact.",
+          "observer_pairs_written": 13385,
+          "observer_received": 13385,
+          "queue_overflow": 0,
+          "raw_pair_observations": {
+            "expected_ground": 2355,
+            "obstacle": 0,
+            "self": 0,
+            "transit_ground": 0
+          },
+          "status": "partial_topic_coverage",
+          "topics_with_messages": [
+            "/model/course_quad/contact/base_link"
+          ]
+        },
+        "evidence": {
+          "camera/status.json": {
+            "path": "artifacts/markerfree/hover-11/camera/status.json",
+            "sha256": "358f46225c64416be72c72421b305882b6c627d47904e7a291060b22c5becb4b"
+          },
+          "observer/contacts.jsonl": {
+            "path": "artifacts/markerfree/hover-11/observer/contacts.jsonl",
+            "sha256": "644015411550315456b6572ff85cc7a15e97ca4bb2df7c62f39e48cc59d7edce"
+          },
+          "observer/status.json": {
+            "path": "artifacts/markerfree/hover-11/observer/status.json",
+            "sha256": "0f86a4d7e6aab5502efc69caec4ffb5bae07673d3508bd66fbeb7db3e88b812e"
+          },
+          "observer/truth.jsonl": {
+            "path": "artifacts/markerfree/hover-11/observer/truth.jsonl",
+            "sha256": "a8d0d3d4a245b9cfac0c4b02285f3433550810b10ebc6bddf6be1aa68169c6b1"
+          },
+          "recording.json": {
+            "path": "artifacts/markerfree/hover-11/recording.json",
+            "sha256": "5b3ff5d1b5ca5e113fd4e37c8c7c3151993a03be32911250fa4750492148823b"
+          },
+          "score.json": {
+            "path": "artifacts/markerfree/hover-11/score.json",
+            "sha256": "54140b0e233f5892afed61be1800180642c23027bc4dfa91556c83748bf3b7ec"
+          },
+          "telemetry.jsonl": {
+            "path": "artifacts/markerfree/hover-11/telemetry.jsonl",
+            "sha256": "456d15593d90b57c0f2d388b4819139753def8bbdd04a1e6602cd9fc7c628087"
+          },
+          "telemetry.summary.json": {
+            "path": "artifacts/markerfree/hover-11/telemetry.summary.json",
+            "sha256": "2866bbbf69de0a8ac61c5ca0690c154bb57d6aa3be3496085cefe45ddcf6ae7f"
+          }
+        },
+        "fault": "rgbd_pose_unavailable:tracking_lost:survey:unobservable_depth_geometry:-4.2137e-18;depth:insufficient_depth_overlap;rgb:insufficient_inliers",
+        "first_rejected_frame_diagnostic": {
+          "capture_stamp_ns": 24852000000,
+          "clock_sim_usec": 24868000,
+          "depth_dtype": "float32",
+          "depth_shape": [
+            256,
+            384
+          ],
+          "fault_reasons": {
+            "frame_depth": "insufficient_depth_overlap",
+            "frame_rgb": "insufficient_inliers",
+            "survey": "unobservable_depth_geometry",
+            "survey_depth_matches": 322,
+            "survey_depth_overlap": 0.9669669669669669,
+            "survey_depth_plane_rms_m": 0.010321465937721142,
+            "survey_observability": -4.2136973353753084e-18
+          },
+          "paired_tof": {
+            "range_m": 0.1692385971546173,
+            "stamp_ns": 24852000000,
+            "std_m": 0.012
+          },
+          "path": "artifacts/markerfree/hover-11/vision-diagnostics/first-rejected.npz",
+          "rgb_dtype": "uint8",
+          "rgb_shape": [
+            256,
+            384,
+            3
+          ],
+          "scope": "One saved rejected frame; not an aggregate detector count or causal attribution.",
+          "sha256": "87668f266e3eecee49b53c98432c4e2c969b73d82c2c67a79ad4be3be19e2827",
+          "telemetry_rejection_count": "Not logged. The telemetry contains two samples with vision_valid=false; the saved diagnostic describes one frame.",
+          "tilt_prior": {
+            "bracket_usec": 36000,
+            "capture_usec": 24852000,
+            "disagreement_rad": 0.016169424903932444,
+            "observability_without_tilt": -3.4711126573317925e-18,
+            "status": "applied",
+            "std_rad": 0.010127191120937731
+          }
+        },
+        "independent_score_checks": {
+          "controller_reports_all_waypoints": false,
+          "px4_ground_and_disarm_confirmed": false,
+          "truth_complete_during_flight": true,
+          "truth_crosses_window_with_full_envelope": false,
+          "truth_multipart_path_certified_clear": true,
+          "truth_reaches_all_waypoints_in_order": false,
+          "truth_touchdown_inside_pad": false,
+          "truth_transit_floor_checked": false
+        },
+        "interpretation": "RGB-D tracking lost after arm; mission aborted and PX4 touchdown/disarm were observed later, but the mission summary and independent score do not accept this as a successful normal landing or hover. Treatment route was therefore stopped.",
+        "navigation_and_runtime": {
+          "artificial_landmark_models": 0,
+          "camera_recording_contains_vehicle_pose": false,
+          "camera_recording_frames": 139,
+          "checkpoint_sha256": null,
+          "contact_queue_overflow": 0,
+          "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+          "observer_callback_acceptance_closed": true,
+          "observer_recording_complete": true,
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "px4_manifest_verified": true,
+          "sensor_diagnostic": {
+            "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+            "configured_renderer": "ogre2",
+            "depth_topic": "/dronehacks/rgbd/depth_image",
+            "mode": "gaussian-10mm",
+            "noise_mean_m": 0.0,
+            "noise_stddev_m": 0.01,
+            "seed": 4417,
+            "source_world_sha256": "011daf6e7fc0a311a8c90e74b53cbfa3cdd92b39228102acf9fc78c15675dad9",
+            "world_path": "/tmp/dronehacks-px4.sdf",
+            "world_sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+          },
+          "simulator_position_used_for_control": false,
+          "source_hash_count": 37,
+          "source_hashes_match_protocol": true,
+          "truth_odometry_publishers": 0,
+          "truth_queue_overflow": 0,
+          "truth_samples": 3503
+        },
+        "protocol_gate": {
+          "evaluated": false,
+          "passed": false,
+          "reason": "Not eligible for hover acceptance after estimator fault; recorded score documents failure."
+        },
+        "result": "failed",
+        "route_geometry": {
+          "full_envelope_crossed": false,
+          "min_aperture_clearance_m": null,
+          "truth_multipart_path_certified_clear": true
+        },
+        "run_id": "ed0b6e15a79d4b478d02cce0d07a7249",
+        "summary": {
+          "abort_touchdown_disarm_confirmed_sim_s": 29.536,
+          "arm_to_fault_s": 5.332,
+          "elapsed_sim_s": 5.331999999999997,
+          "fault_sim_s": 24.868,
+          "hover_settled_sim_s": 0.0,
+          "landed_after_fault": true,
+          "landed_and_disarmed": false,
+          "landing_position_enu": null,
+          "mission_arm_sim_s": 19.536,
+          "normal_hover_acceptance": false,
+          "policy_actions_received": 0,
+          "policy_boundary_brake_enabled": false,
+          "policy_checkpoint_sha256": null,
+          "route_completed": false,
+          "route_elapsed_sim_s": null,
+          "waypoint_count": 1,
+          "waypoints_reached": 0
+        },
+        "task": "hover"
+      },
+      "outcome": "failed",
+      "run": "hover-11"
+    },
+    {
+      "condition": "treatment",
+      "outcome": "not_run",
+      "reason": "Preregistered stop rule: treatment hover-11 prerequisite failed; no policy flight was launched.",
+      "run": "policy-12"
+    }
+  ],
+  "sequence_conclusion": "The control hover and route passed their registered gates. The first treatment flight failed its RGB-D pose-tracking prerequisite, so the paired policy comparison was not completed. This single pair does not establish repeatability or isolate the direct effect of missing net returns from the treatment\u2019s intentional static-map/sensor mismatch and estimator fallback behavior.",
+  "status": "treatment_hover_failed_policy12_not_run"
+}

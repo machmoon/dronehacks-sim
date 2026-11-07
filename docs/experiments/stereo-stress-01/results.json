@@ -1,0 +1,4976 @@
+{
+  "protocol_sha256": "70c11cafbcdd8907f1593e28270d13d02ce4030a306ea4821876315879fa19a2",
+  "opencv_version": "4.6.0",
+  "numpy_version": "1.26.4",
+  "survey_normal_config": {
+    "method": "fals7",
+    "opencv_version": "4.6.0",
+    "sample_stride_px": 8,
+    "sample_origin_uv_px": [
+      2,
+      2
+    ],
+    "normal_radius_px": 3,
+    "center_curvature_radii_px": [
+      1,
+      2
+    ],
+    "center_curvature_limit_m": [
+      0.014,
+      0.018
+    ],
+    "full_support_window_px": 7,
+    "full_support_requires_valid_depth": true,
+    "full_support_curvature_limit_m": [
+      0.085,
+      0.018
+    ]
+  },
+  "depth_gates": {
+    "min_depth": 0.04,
+    "max_depth": 7.98,
+    "min_overlap": 0.4,
+    "min_matches": 100,
+    "min_observability": 0.004,
+    "max_plane_rms": 0.035
+  },
+  "vision_gates": {
+    "min_inliers": 24,
+    "min_ratio": 0.65,
+    "max_reprojection": 1.5,
+    "max_gap_s": 0.12,
+    "max_age_s": 0.3,
+    "max_speed": 3.0,
+    "max_angular_speed": 3.0,
+    "min_depth": 0.04,
+    "max_depth": 8.0,
+    "min_image_span": 0.12
+  },
+  "sources": [
+    {
+      "source": {
+        "id": "policy-06-native",
+        "phase": "MAZE",
+        "kind": "native_npz",
+        "path": "artifacts/markerfree/policy-06/vision-diagnostics/first-rejected.npz",
+        "capture_usec": 50852000,
+        "prior_usec": 50800000,
+        "now_usec": 50880000,
+        "pose": [
+          [
+            0.8711750493531619,
+            -0.0015671972997659313,
+            0.4909700370461982,
+            -0.13127203914680047
+          ],
+          [
+            -0.4909505184876328,
+            -0.012251481512655439,
+            0.8711013084581333,
+            1.8199105025942486
+          ],
+          [
+            0.004649922713700628,
+            -0.9999237196373392,
+            -0.011442601338328763,
+            0.9460838926107229
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tof": {
+          "distance_m": 0.876063346862793,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        },
+        "tilt": {
+          "capture_usec": 50852000,
+          "bracket_usec": 36000,
+          "up_optical": [
+            0.007165515112991591,
+            -0.9999274326167172,
+            -0.009684260101111668
+          ],
+          "std_rad": 0.010071742649611337
+        },
+        "prior_source": "previous accepted RGBD pose saved before rejected capture"
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 760,
+              "registration_wall_ms": 19.442101998720318,
+              "depth_matches": 709,
+              "depth_overlap": 0.9328947368421052,
+              "depth_observability": 0.00988284832694449,
+              "rms_m": 0.005926473461180603,
+              "tof_range_residual_m": 0.0007385187339946642,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.2936123554831691,
+                1.5488769370616289,
+                0.9502569852794193
+              ],
+              "rawfit_error_m": 0.002235935133695077,
+              "rawfit_horizontal_error_m": 0.0021106809344966803,
+              "accepted_pose_error_m": 0.002235935133695077,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 760,
+              "registration_wall_ms": 17.677759999060072,
+              "depth_matches": 709,
+              "depth_overlap": 0.9328947368421052,
+              "depth_observability": 0.009882848366110813,
+              "rms_m": 0.005926473446755741,
+              "tof_range_residual_m": 0.0007385222321710794,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29361235599156454,
+                1.5488769367574513,
+                0.950256981769929
+              ],
+              "rawfit_error_m": 0.002235935948164255,
+              "rawfit_horizontal_error_m": 0.0021106805704411225,
+              "accepted_pose_error_m": 0.002235935948164255,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 760,
+              "registration_wall_ms": 21.088030000100844,
+              "depth_matches": 709,
+              "depth_overlap": 0.9328947368421052,
+              "depth_observability": 0.00988284819114783,
+              "rms_m": 0.005926473518969677,
+              "tof_range_residual_m": 0.0007385061548754734,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29361234853746215,
+                1.5488769364942643,
+                0.9502569978786285
+              ],
+              "rawfit_error_m": 0.002235937282842558,
+              "rawfit_horizontal_error_m": 0.0021106876155921593,
+              "accepted_pose_error_m": 0.002235937282842558,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 693,
+              "registration_wall_ms": 19.991174998722272,
+              "depth_matches": 641,
+              "depth_overlap": 0.924963924963925,
+              "depth_observability": 0.01144889633665425,
+              "rms_m": 0.0060309160042198075,
+              "tof_range_residual_m": 0.0006509731012981357,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.2941522638244529,
+                1.5490099524561434,
+                0.9503356802324741
+              ],
+              "rawfit_error_m": 0.00169430266547852,
+              "rawfit_horizontal_error_m": 0.0015608228102687565,
+              "accepted_pose_error_m": 0.00169430266547852,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 693,
+              "registration_wall_ms": 18.88090400098008,
+              "depth_matches": 641,
+              "depth_overlap": 0.924963924963925,
+              "depth_observability": 0.011448896335709207,
+              "rms_m": 0.006030916003111156,
+              "tof_range_residual_m": 0.0006509731469612756,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29415226415242435,
+                1.54900995189947,
+                0.9503356801871481
+              ],
+              "rawfit_error_m": 0.0016943026136693755,
+              "rawfit_horizontal_error_m": 0.001560822734887043,
+              "accepted_pose_error_m": 0.0016943026136693755,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 693,
+              "registration_wall_ms": 20.604288998583797,
+              "depth_matches": 641,
+              "depth_overlap": 0.924963924963925,
+              "depth_observability": 0.011448896291941011,
+              "rms_m": 0.006030915997384261,
+              "tof_range_residual_m": 0.0006509685640894158,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29415225248990995,
+                1.5490099474439665,
+                0.9503356847143208
+              ],
+              "rawfit_error_m": 0.001694312338786391,
+              "rawfit_horizontal_error_m": 0.0015608352035598315,
+              "accepted_pose_error_m": 0.001694312338786391,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 98302
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 531,
+              "registration_wall_ms": 4.010926000773907,
+              "depth_matches": 528,
+              "depth_overlap": 0.9943502824858758,
+              "depth_observability": 0.0,
+              "rms_m": 0.015347191950060993,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                15.525092271384406,
+                16.254973312034373,
+                35.435914164757826,
+                43.57444244588386,
+                480.74258670483096
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 531,
+              "registration_wall_ms": 3.5546019971661735,
+              "depth_matches": 528,
+              "depth_overlap": 0.9943502824858758,
+              "depth_observability": 0.0,
+              "rms_m": 0.015347191950060993,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                15.525092271384406,
+                16.254973312034373,
+                35.435914164757826,
+                43.57444244588386,
+                480.74258670483096
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 531,
+              "registration_wall_ms": 3.5857259972544853,
+              "depth_matches": 528,
+              "depth_overlap": 0.9943502824858758,
+              "depth_observability": 0.0,
+              "rms_m": 0.015347191950060993,
+              "tof_range_residual_m": 0.002286596762456461,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                15.525092271384406,
+                16.254973312034373,
+                35.435914164757826,
+                43.57444244588386,
+                480.74258670483096
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 78841,
+          "newly_invalid_pixels": 19463,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 520,
+              "registration_wall_ms": 3.437644998484757,
+              "depth_matches": 517,
+              "depth_overlap": 0.9942307692307693,
+              "depth_observability": 0.0,
+              "rms_m": 0.015035614911456607,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                14.93442577485884,
+                15.585532322609332,
+                34.301535294886285,
+                42.44307499108507,
+                473.4044510462255
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 520,
+              "registration_wall_ms": 3.0202780035324395,
+              "depth_matches": 517,
+              "depth_overlap": 0.9942307692307693,
+              "depth_observability": 0.0,
+              "rms_m": 0.015035614911456607,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                14.93442577485884,
+                15.585532322609332,
+                34.301535294886285,
+                42.44307499108507,
+                473.4044510462255
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 520,
+              "registration_wall_ms": 3.2100659991556313,
+              "depth_matches": 517,
+              "depth_overlap": 0.9942307692307693,
+              "depth_observability": 0.0,
+              "rms_m": 0.015035614911456607,
+              "tof_range_residual_m": 0.002286596762456461,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                14.93442577485884,
+                15.585532322609332,
+                34.301535294886285,
+                42.44307499108507,
+                473.4044510462255
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 59177,
+          "newly_invalid_pixels": 39127,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 774,
+              "registration_wall_ms": 22.423921996960416,
+              "depth_matches": 724,
+              "depth_overlap": 0.9354005167958657,
+              "depth_observability": 0.009972964607777982,
+              "rms_m": 0.005912487391831376,
+              "tof_range_residual_m": 0.000778095996172623,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.293593571195909,
+                1.54889267555016,
+                0.9502176816601486
+              ],
+              "rawfit_error_m": 0.002260413217001255,
+              "rawfit_horizontal_error_m": 0.00212261404318449,
+              "accepted_pose_error_m": 0.002260413217001255,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 774,
+              "registration_wall_ms": 25.12112299882574,
+              "depth_matches": 724,
+              "depth_overlap": 0.9354005167958657,
+              "depth_observability": 0.00997296460528816,
+              "rms_m": 0.005912487393642568,
+              "tof_range_residual_m": 0.0007780956859358978,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29359357174792144,
+                1.548892675163449,
+                0.9502176819714246
+              ],
+              "rawfit_error_m": 0.0022604127526461688,
+              "rawfit_horizontal_error_m": 0.0021226136626522137,
+              "accepted_pose_error_m": 0.0022604127526461688,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.027999999999999997,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 774,
+              "registration_wall_ms": 22.78474899867433,
+              "depth_matches": 724,
+              "depth_overlap": 0.9354005167958657,
+              "depth_observability": 0.009972964589715487,
+              "rms_m": 0.0059124874062734985,
+              "tof_range_residual_m": 0.0007780929411179693,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29359356415720267,
+                1.5488926750935499,
+                0.9502176847172021
+              ],
+              "rawfit_error_m": 0.002260418503378642,
+              "rawfit_horizontal_error_m": 0.0021226207920342533,
+              "accepted_pose_error_m": 0.002260418503378642,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 2058
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 39127,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 105,
+        "near_to_far_center_bins": 5,
+        "near_to_max_range_bins": 105
+      },
+      "body_position_evaluation_only_m": [
+        -0.2955802989070454,
+        1.5496399394781846,
+        0.9509948415762984
+      ]
+    },
+    {
+      "source": {
+        "id": "synthetic-alias-69deg",
+        "phase": "MAZE",
+        "kind": "synthetic_npz",
+        "path": "artifacts/markerfree/noisy-policy-probe-01/alias-69deg.npz",
+        "capture_usec": 50852000,
+        "prior_usec": 50800000,
+        "now_usec": 50852000,
+        "pose": [
+          [
+            0.9335894012929369,
+            0.0002407438122928788,
+            0.3583444876594553,
+            -0.17636472593829305
+          ],
+          [
+            -0.358314398276507,
+            -0.012348965505181976,
+            0.9335193061949494,
+            1.8411326218247661
+          ],
+          [
+            0.004649922713700628,
+            -0.9999237196373392,
+            -0.011442601338328763,
+            0.9460838926107229
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tof": {
+          "distance_m": 0.876063346862793,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        },
+        "tilt": {
+          "capture_usec": 50852000,
+          "bracket_usec": 36000,
+          "up_optical": [
+            0.007165515112991591,
+            -0.9999274326167172,
+            -0.009684260101111668
+          ],
+          "std_rad": 0.010071742649611337
+        },
+        "prior_source": "native EV position and tilt, with fixed synthetic heading of 69 degrees"
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 892,
+              "registration_wall_ms": 26.559263998933602,
+              "depth_matches": 866,
+              "depth_overlap": 0.9708520179372198,
+              "depth_observability": 0.008305273762054805,
+              "rms_m": 0.005820936065405509,
+              "tof_range_residual_m": 0.00010187705974962213,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.2946605864011008,
+                1.5479434869030826,
+                0.9509017604076117
+              ],
+              "rawfit_error_m": 0.001033317548414071,
+              "rawfit_horizontal_error_m": 0.0010297185453218701,
+              "accepted_pose_error_m": 0.001033317548414071,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 892,
+              "registration_wall_ms": 28.43143800055259,
+              "depth_matches": 866,
+              "depth_overlap": 0.9708520179372198,
+              "depth_observability": 0.008305273764156254,
+              "rms_m": 0.005820936063586594,
+              "tof_range_residual_m": 0.0001018772388718947,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.294660547112418,
+                1.5479434868172763,
+                0.9509017602275095
+              ],
+              "rawfit_error_m": 0.0010333549771194728,
+              "rawfit_horizontal_error_m": 0.0010297560897702415,
+              "accepted_pose_error_m": 0.0010333549771194728,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 892,
+              "registration_wall_ms": 23.54319400183158,
+              "depth_matches": 866,
+              "depth_overlap": 0.9708520179372198,
+              "depth_observability": 0.008305265394149875,
+              "rms_m": 0.005821034394845507,
+              "tof_range_residual_m": 9.451990998499138e-05,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.2946562899228713,
+                1.5479207723563377,
+                0.9509089336924327
+              ],
+              "rawfit_error_m": 0.0010304704964565886,
+              "rawfit_horizontal_error_m": 0.0010274382345151867,
+              "accepted_pose_error_m": 0.0010304704964565886,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 786,
+              "registration_wall_ms": 23.3188229976804,
+              "depth_matches": 763,
+              "depth_overlap": 0.9707379134860051,
+              "depth_observability": 0.009104910868397945,
+              "rms_m": 0.006153991871276772,
+              "tof_range_residual_m": 0.0003304624606900175,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29500792148213595,
+                1.54822671446467,
+                0.9506658478087592
+              ],
+              "rawfit_error_m": 0.0009227992841505853,
+              "rawfit_horizontal_error_m": 0.0008647674815168225,
+              "accepted_pose_error_m": 0.0009227992841505853,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 786,
+              "registration_wall_ms": 16.66519499849528,
+              "depth_matches": 763,
+              "depth_overlap": 0.9707379134860051,
+              "depth_observability": 0.009104910829869937,
+              "rms_m": 0.006153991813887765,
+              "tof_range_residual_m": 0.00033046456066232466,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29500701569752485,
+                1.5482267126654996,
+                0.9506658456919577
+              ],
+              "rawfit_error_m": 0.0009234246899571888,
+              "rawfit_horizontal_error_m": 0.0008654340371848215,
+              "accepted_pose_error_m": 0.0009234246899571888,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 786,
+              "registration_wall_ms": 30.678854996949667,
+              "depth_matches": 762,
+              "depth_overlap": 0.9694656488549618,
+              "depth_observability": 0.009093507109308549,
+              "rms_m": 0.006156060539314251,
+              "tof_range_residual_m": 0.0003486236914110874,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.2945251321093868,
+                1.5482270990564246,
+                0.9506475974709688
+              ],
+              "rawfit_error_m": 0.001308652191610968,
+              "rawfit_horizontal_error_m": 0.001263624000001219,
+              "accepted_pose_error_m": 0.001308652191610968,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 98304
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 719,
+              "registration_wall_ms": 12.089945001207525,
+              "depth_matches": 716,
+              "depth_overlap": 0.9958275382475661,
+              "depth_observability": 0.0,
+              "rms_m": 0.024378224883416455,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                38.10229282246383,
+                39.6105335203262,
+                67.67144751376767,
+                94.00097899206823,
+                545.5537293815006
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 719,
+              "registration_wall_ms": 4.4185859987919684,
+              "depth_matches": 716,
+              "depth_overlap": 0.9958275382475661,
+              "depth_observability": 0.0,
+              "rms_m": 0.024378224883416455,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                38.10229282246383,
+                39.6105335203262,
+                67.67144751376767,
+                94.00097899206823,
+                545.5537293815006
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 719,
+              "registration_wall_ms": 3.584017998946365,
+              "depth_matches": 716,
+              "depth_overlap": 0.9958275382475661,
+              "depth_observability": 0.0,
+              "rms_m": 0.024378224883416455,
+              "tof_range_residual_m": 0.002286596762456461,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                38.10229282246383,
+                39.6105335203262,
+                67.67144751376767,
+                94.00097899206823,
+                545.5537293815006
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 85360,
+          "newly_invalid_pixels": 12944,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 697,
+              "registration_wall_ms": 4.572500001813751,
+              "depth_matches": 694,
+              "depth_overlap": 0.9956958393113343,
+              "depth_observability": 0.0,
+              "rms_m": 0.024414145582588784,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                35.680019620534544,
+                39.272290237277375,
+                66.26149406350288,
+                93.69500186429988,
+                530.712030807706
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 697,
+              "registration_wall_ms": 4.004344002169091,
+              "depth_matches": 694,
+              "depth_overlap": 0.9956958393113343,
+              "depth_observability": 0.0,
+              "rms_m": 0.024414145582588784,
+              "tof_range_residual_m": 0.001016499879005539,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                35.680019620534544,
+                39.272290237277375,
+                66.26149406350288,
+                93.69500186429988,
+                530.712030807706
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": false,
+              "registration_reason": "unobservable_depth_geometry:0",
+              "survey_runtime_gates_accepted": false,
+              "runtime_gate_reason": "unobservable_depth_geometry:0",
+              "source_samples": 697,
+              "registration_wall_ms": 4.037342998344684,
+              "depth_matches": 694,
+              "depth_overlap": 0.9956958393113343,
+              "depth_observability": 0.0,
+              "rms_m": 0.024414145582588784,
+              "tof_range_residual_m": 0.002286596762456461,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": null,
+              "rejected_hessian_eigenvalues": [
+                0.0,
+                35.680019620534544,
+                39.272290237277375,
+                66.26149406350288,
+                93.69500186429988,
+                530.712030807706
+              ],
+              "rejected_weakest_eigenvector_scaled_enu": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rawfit_error_m": null,
+              "rawfit_horizontal_error_m": null,
+              "accepted_pose_error_m": null,
+              "accepted_pose_warning_gt_30mm": null,
+              "accepted_pose_counterexample_gt_60mm": null
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 76190,
+          "newly_invalid_pixels": 22114,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 914,
+              "registration_wall_ms": 20.62341399869183,
+              "depth_matches": 892,
+              "depth_overlap": 0.975929978118162,
+              "depth_observability": 0.008224853050258133,
+              "rms_m": 0.005995002470788993,
+              "tof_range_residual_m": -2.1935946393991657e-05,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.2935580683064275,
+                1.5477242402829088,
+                0.9510236683691597
+              ],
+              "rawfit_error_m": 0.0020890951081889617,
+              "rawfit_horizontal_error_m": 0.0020887893635016595,
+              "accepted_pose_error_m": 0.0020890951081889617,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 914,
+              "registration_wall_ms": 16.02003999869339,
+              "depth_matches": 892,
+              "depth_overlap": 0.975929978118162,
+              "depth_observability": 0.008224853095128305,
+              "rms_m": 0.005995002465481637,
+              "tof_range_residual_m": -2.19378072122689e-05,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.29355755444135334,
+                1.5477242394508455,
+                0.9510236701910444
+              ],
+              "rawfit_error_m": 0.0020896085003693295,
+              "rawfit_horizontal_error_m": 0.002089302799644371,
+              "accepted_pose_error_m": 0.0020896085003693295,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 914,
+              "registration_wall_ms": 17.132187000242993,
+              "depth_matches": 892,
+              "depth_overlap": 0.975929978118162,
+              "depth_observability": 0.008224853172444235,
+              "rms_m": 0.0059950024513729765,
+              "tof_range_residual_m": -2.1944877650170724e-05,
+              "px4_tilt_prior_status": "applied",
+              "position_enu_m": [
+                -0.2935566151670329,
+                1.5477242390239427,
+                0.9510236771714987
+              ],
+              "rawfit_error_m": 0.002090547016252293,
+              "rawfit_horizontal_error_m": 0.002090241333412672,
+              "accepted_pose_error_m": 0.002090547016252293,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 2048
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 22114,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 56,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 56
+      },
+      "body_position_evaluation_only_m": [
+        -0.2956452465117857,
+        1.5476422150175608,
+        0.9509879281120065
+      ]
+    },
+    {
+      "source": {
+        "id": "policy-07-window-359",
+        "phase": "WINDOW_APPROACH",
+        "kind": "archive_png",
+        "path": "artifacts/markerfree/policy-07/camera/frames/depth-000359.png",
+        "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000359.jpg",
+        "capture_usec": 73252000,
+        "now_usec": 73252000,
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+        "prior_usec": 73200000,
+        "prior_ulog_timestamp_sample_usec": 73200423,
+        "prior_ulog_receive_usec": 73252000,
+        "prior_clock_grid_correction_usec": -423,
+        "pose": [
+          [
+            -0.14475176176713367,
+            0.023370803833282758,
+            -0.9891919596284117,
+            1.6434143997114474
+          ],
+          [
+            0.9894665892457953,
+            0.0017294475958675518,
+            -0.14475108903668255,
+            -1.728541189287975
+          ],
+          [
+            -0.0016721936500994853,
+            -0.99972536955866,
+            -0.023374970143236615,
+            0.9163118151516048
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tilt": {
+          "capture_usec": 73252000,
+          "up_optical": [
+            -0.0008362233617396104,
+            -0.9997749842191144,
+            -0.021196265240812917
+          ],
+          "std_rad": 0.01,
+          "bracket_usec": 0
+        },
+        "tof": {
+          "distance_m": 0.8514785170555115,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        }
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1089,
+              "registration_wall_ms": 18.252540998219047,
+              "depth_matches": 1064,
+              "depth_overlap": 0.9770431588613406,
+              "depth_observability": 0.04458470818107568,
+              "rms_m": 0.006832831578221208,
+              "tof_range_residual_m": 0.001625424673300846,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9625311596944228,
+                -1.6801642890039825,
+                0.9246208395246663
+              ],
+              "rawfit_error_m": 0.00237473197768719,
+              "rawfit_horizontal_error_m": 0.0016989647676595747,
+              "accepted_pose_error_m": 0.00237473197768719,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1089,
+              "registration_wall_ms": 17.779173998860642,
+              "depth_matches": 1064,
+              "depth_overlap": 0.9770431588613406,
+              "depth_observability": 0.044584640208161,
+              "rms_m": 0.006832834098809209,
+              "tof_range_residual_m": 0.0016243454798475776,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9625426472196437,
+                -1.6801656757745669,
+                0.9246219082146131
+              ],
+              "rawfit_error_m": 0.0023668997002963014,
+              "rawfit_horizontal_error_m": 0.0016890496316411202,
+              "accepted_pose_error_m": 0.0023668997002963014,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1089,
+              "registration_wall_ms": 19.295021000289125,
+              "depth_matches": 1064,
+              "depth_overlap": 0.9770431588613406,
+              "depth_observability": 0.04458460283585627,
+              "rms_m": 0.006832845317762806,
+              "tof_range_residual_m": 0.001622450913050577,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.96254326236815,
+                -1.6801677777838833,
+                0.9246237810547656
+              ],
+              "rawfit_error_m": 0.0023643183985772504,
+              "rawfit_horizontal_error_m": 0.0016872709312724728,
+              "accepted_pose_error_m": 0.0023643183985772504,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 839,
+              "registration_wall_ms": 15.164846998231951,
+              "depth_matches": 819,
+              "depth_overlap": 0.9761620977353993,
+              "depth_observability": 0.0326414536047877,
+              "rms_m": 0.008767429962723608,
+              "tof_range_residual_m": 0.0025762004761787916,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9637500074016483,
+                -1.6769846359667318,
+                0.9236926828269112
+              ],
+              "rawfit_error_m": 0.004952622497651278,
+              "rawfit_horizontal_error_m": 0.004223052243335235,
+              "accepted_pose_error_m": 0.004952622497651278,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 839,
+              "registration_wall_ms": 16.970980999758467,
+              "depth_matches": 819,
+              "depth_overlap": 0.9761620977353993,
+              "depth_observability": 0.032641737111603536,
+              "rms_m": 0.008767090444991573,
+              "tof_range_residual_m": 0.002586287586979319,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9637616913141844,
+                -1.676975517691747,
+                0.9236827086184505
+              ],
+              "rawfit_error_m": 0.004965329801115154,
+              "rawfit_horizontal_error_m": 0.004231842148421817,
+              "accepted_pose_error_m": 0.004965329801115154,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 839,
+              "registration_wall_ms": 19.2654800011951,
+              "depth_matches": 819,
+              "depth_overlap": 0.9761620977353993,
+              "depth_observability": 0.03264176086581665,
+              "rms_m": 0.00876704785606527,
+              "tof_range_residual_m": 0.002586993628252321,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9637628866433872,
+                -1.6769734502577207,
+                0.923682009950841
+              ],
+              "rawfit_error_m": 0.004967429973120605,
+              "rawfit_horizontal_error_m": 0.004233877498727312,
+              "accepted_pose_error_m": 0.004967429973120605,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 93744
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1037,
+              "registration_wall_ms": 19.055233999097254,
+              "depth_matches": 1013,
+              "depth_overlap": 0.9768563162970106,
+              "depth_observability": 0.04394954293083324,
+              "rms_m": 0.006821398584900956,
+              "tof_range_residual_m": 0.001955865980451388,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9625906848298271,
+                -1.6800450998850691,
+                0.9242925371989874
+              ],
+              "rawfit_error_m": 0.0026349211878185915,
+              "rawfit_horizontal_error_m": 0.0017299516643325692,
+              "accepted_pose_error_m": 0.0026349211878185915,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1037,
+              "registration_wall_ms": 15.714295997895533,
+              "depth_matches": 1013,
+              "depth_overlap": 0.9768563162970106,
+              "depth_observability": 0.04394890913882337,
+              "rms_m": 0.0068214043984639655,
+              "tof_range_residual_m": 0.00195844689308744,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.962597772904269,
+                -1.6800600400774557,
+                0.9242899810278369
+              ],
+              "rawfit_error_m": 0.0026268578020505083,
+              "rawfit_horizontal_error_m": 0.0017146830012626012,
+              "accepted_pose_error_m": 0.0026268578020505083,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1037,
+              "registration_wall_ms": 16.608862999419216,
+              "depth_matches": 1013,
+              "depth_overlap": 0.9768563162970106,
+              "depth_observability": 0.04394869185211724,
+              "rms_m": 0.006821441157069441,
+              "tof_range_residual_m": 0.0019555949014179452,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9625975004746348,
+                -1.6800614415433424,
+                0.9242927482797303
+              ],
+              "rawfit_error_m": 0.0026242829582555525,
+              "rawfit_horizontal_error_m": 0.001713949571274863,
+              "accepted_pose_error_m": 0.0026242829582555525,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 94073,
+          "newly_invalid_pixels": 4231,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1026,
+              "registration_wall_ms": 16.31720099976519,
+              "depth_matches": 1003,
+              "depth_overlap": 0.9775828460038987,
+              "depth_observability": 0.04397261267901019,
+              "rms_m": 0.006831042196668734,
+              "tof_range_residual_m": 0.0018885645344882684,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9626420300774063,
+                -1.6798892207112242,
+                0.9243588327379193
+              ],
+              "rawfit_error_m": 0.002634536253552854,
+              "rawfit_horizontal_error_m": 0.0018027288726556515,
+              "accepted_pose_error_m": 0.002634536253552854,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1026,
+              "registration_wall_ms": 17.10822799941525,
+              "depth_matches": 1003,
+              "depth_overlap": 0.9775828460038987,
+              "depth_observability": 0.043971979057994125,
+              "rms_m": 0.006831047403652757,
+              "tof_range_residual_m": 0.0018913336652508494,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9626486661187041,
+                -1.6799036050225535,
+                0.9243560902570676
+              ],
+              "rawfit_error_m": 0.002626281807848793,
+              "rawfit_horizontal_error_m": 0.0017876971518270513,
+              "accepted_pose_error_m": 0.002626281807848793,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1026,
+              "registration_wall_ms": 15.960708002239699,
+              "depth_matches": 1003,
+              "depth_overlap": 0.9775828460038987,
+              "depth_observability": 0.04397199612615524,
+              "rms_m": 0.006831059785704823,
+              "tof_range_residual_m": 0.0018890100639248342,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9626495427421426,
+                -1.679906992575365,
+                0.9243583875138307
+              ],
+              "rawfit_error_m": 0.002622510978187511,
+              "rawfit_horizontal_error_m": 0.0017846296630605104,
+              "accepted_pose_error_m": 0.002622510978187511,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 92396,
+          "newly_invalid_pixels": 5908,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 891,
+              "registration_wall_ms": 30.22998800224741,
+              "depth_matches": 877,
+              "depth_overlap": 0.9842873176206509,
+              "depth_observability": 0.057665894128573175,
+              "rms_m": 0.014257942947420211,
+              "tof_range_residual_m": 0.0037738441601262718,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9668221016549878,
+                -1.67684713704478,
+                0.9224823859532891
+              ],
+              "rawfit_error_m": 0.006489656967010205,
+              "rawfit_horizontal_error_m": 0.005262475099759178,
+              "accepted_pose_error_m": 0.006489656967010205,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 891,
+              "registration_wall_ms": 27.41649800009327,
+              "depth_matches": 877,
+              "depth_overlap": 0.9842873176206509,
+              "depth_observability": 0.0576663549810568,
+              "rms_m": 0.014257436782173274,
+              "tof_range_residual_m": 0.003775182825847989,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9668239254843194,
+                -1.6768441032938641,
+                0.9224810478281598
+              ],
+              "rawfit_error_m": 0.006493306393829848,
+              "rawfit_horizontal_error_m": 0.005266009812750634,
+              "accepted_pose_error_m": 0.006493306393829848,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 891,
+              "registration_wall_ms": 27.52170500025386,
+              "depth_matches": 877,
+              "depth_overlap": 0.9842873176206509,
+              "depth_observability": 0.05766761550820484,
+              "rms_m": 0.014256344035605445,
+              "tof_range_residual_m": 0.003778004199017637,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.9668271130841657,
+                -1.676839826049964,
+                0.9224782263692313
+              ],
+              "rawfit_error_m": 0.006499278786010858,
+              "rawfit_horizontal_error_m": 0.005271338627822565,
+              "accepted_pose_error_m": 0.006499278786010858,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 16103
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 5908,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 1,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 1
+      },
+      "body_position_evaluation_only_m": [
+        1.9638733808465703,
+        -1.681205885691994,
+        0.9262800172379031
+      ]
+    },
+    {
+      "source": {
+        "id": "policy-07-window-371",
+        "phase": "WINDOW_APPROACH",
+        "kind": "archive_png",
+        "path": "artifacts/markerfree/policy-07/camera/frames/depth-000371.png",
+        "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000371.jpg",
+        "capture_usec": 75652000,
+        "now_usec": 75652000,
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+        "prior_usec": 75600000,
+        "prior_ulog_timestamp_sample_usec": 75600365,
+        "prior_ulog_receive_usec": 75624000,
+        "prior_clock_grid_correction_usec": -365,
+        "pose": [
+          [
+            -0.17388789983764275,
+            0.0059047919547767285,
+            -0.9847477503005655,
+            0.723672226537212
+          ],
+          [
+            0.9847635848262404,
+            0.0029907057354574547,
+            -0.17387276290257803,
+            -1.8157209340279898
+          ],
+          [
+            0.001918408253260783,
+            -0.9999780943156579,
+            -0.006334871632410163,
+            0.9353966883837501
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tilt": {
+          "capture_usec": 75652000,
+          "up_optical": [
+            0.0017086795442051797,
+            -0.9999847424541141,
+            -0.005253120329333255
+          ],
+          "std_rad": 0.01,
+          "bracket_usec": 0
+        },
+        "tof": {
+          "distance_m": 0.8650359511375427,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        }
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 859,
+              "registration_wall_ms": 26.47072300169384,
+              "depth_matches": 822,
+              "depth_overlap": 0.9569266589057043,
+              "depth_observability": 0.02271619900856702,
+              "rms_m": 0.005770041214585828,
+              "tof_range_residual_m": 0.001600181985595639,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0386478029080992,
+                -1.7583214236804694,
+                0.9384162292677956
+              ],
+              "rawfit_error_m": 0.0020248637817453456,
+              "rawfit_horizontal_error_m": 0.001233173748940308,
+              "accepted_pose_error_m": 0.0020248637817453456,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 859,
+              "registration_wall_ms": 21.57943800193607,
+              "depth_matches": 822,
+              "depth_overlap": 0.9569266589057043,
+              "depth_observability": 0.02271620238130446,
+              "rms_m": 0.00577003365169463,
+              "tof_range_residual_m": 0.0016009117441133647,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0386514487082468,
+                -1.7583175669118791,
+                0.9384155024839438
+              ],
+              "rawfit_error_m": 0.002028054601344163,
+              "rawfit_horizontal_error_m": 0.0012374629749233369,
+              "accepted_pose_error_m": 0.002028054601344163,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 859,
+              "registration_wall_ms": 21.460607000335585,
+              "depth_matches": 822,
+              "depth_overlap": 0.9569266589057043,
+              "depth_observability": 0.022716198919512726,
+              "rms_m": 0.005770040858161561,
+              "tof_range_residual_m": 0.0016002975316040668,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.038651539543874,
+                -1.7583203833689622,
+                0.9384161146523461
+              ],
+              "rawfit_error_m": 0.0020258733123225455,
+              "rawfit_horizontal_error_m": 0.0012346816073463148,
+              "accepted_pose_error_m": 0.0020258733123225455,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 722,
+              "registration_wall_ms": 26.095647001056932,
+              "depth_matches": 678,
+              "depth_overlap": 0.9390581717451524,
+              "depth_observability": 0.02470358952489112,
+              "rms_m": 0.007247829441554713,
+              "tof_range_residual_m": 0.0010975231000169838,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0380008029926546,
+                -1.7601242597999638,
+                0.9389256025842345
+              ],
+              "rawfit_error_m": 0.0013342473808658087,
+              "rawfit_horizontal_error_m": 0.000759963262034179,
+              "accepted_pose_error_m": 0.0013342473808658087,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 722,
+              "registration_wall_ms": 20.836702002270613,
+              "depth_matches": 679,
+              "depth_overlap": 0.9404432132963989,
+              "depth_observability": 0.024802330364726878,
+              "rms_m": 0.00724432183967099,
+              "tof_range_residual_m": 0.00108968327104364,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0379867746395504,
+                -1.7600646025769031,
+                0.9389334179684308
+              ],
+              "rawfit_error_m": 0.0013082603703285494,
+              "rawfit_horizontal_error_m": 0.0007252267945384824,
+              "accepted_pose_error_m": 0.0013082603703285494,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 722,
+              "registration_wall_ms": 13.554584998928476,
+              "depth_matches": 679,
+              "depth_overlap": 0.9404432132963989,
+              "depth_observability": 0.02480233263459762,
+              "rms_m": 0.007244383792531251,
+              "tof_range_residual_m": 0.0010883078972517835,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0379906024780032,
+                -1.7600557427622494,
+                0.9389347874113814
+              ],
+              "rawfit_error_m": 0.0013021426060394576,
+              "rawfit_horizontal_error_m": 0.0007162153517881251,
+              "accepted_pose_error_m": 0.0013021426060394576,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 86996
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 534,
+              "registration_wall_ms": 17.533428999740863,
+              "depth_matches": 522,
+              "depth_overlap": 0.9775280898876404,
+              "depth_observability": 0.026885718388062772,
+              "rms_m": 0.005356641818031698,
+              "tof_range_residual_m": 0.0015051242145287524,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0395105591740337,
+                -1.7592961561406801,
+                0.9385119917148799
+              ],
+              "rawfit_error_m": 0.0018382694055793518,
+              "rawfit_horizontal_error_m": 0.0010480001180364013,
+              "accepted_pose_error_m": 0.0018382694055793518,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 534,
+              "registration_wall_ms": 18.524952996813226,
+              "depth_matches": 522,
+              "depth_overlap": 0.9775280898876404,
+              "depth_observability": 0.026885932135349434,
+              "rms_m": 0.005356632557498032,
+              "tof_range_residual_m": 0.0015007885825510936,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0395112828729975,
+                -1.7592787752626835,
+                0.9385162941398392
+              ],
+              "rawfit_error_m": 0.0018375733689879668,
+              "rawfit_horizontal_error_m": 0.0010529591179127245,
+              "accepted_pose_error_m": 0.0018375733689879668,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 534,
+              "registration_wall_ms": 26.120062997506466,
+              "depth_matches": 522,
+              "depth_overlap": 0.9775280898876404,
+              "depth_observability": 0.02688593599115788,
+              "rms_m": 0.005356633266501688,
+              "tof_range_residual_m": 0.0015002937404431371,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0395120098838317,
+                -1.759279243862204,
+                0.9385167864671675
+              ],
+              "rawfit_error_m": 0.0018375053972607745,
+              "rawfit_horizontal_error_m": 0.001053544362108901,
+              "accepted_pose_error_m": 0.0018375053972607745,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 90682,
+          "newly_invalid_pixels": 7622,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 483,
+              "registration_wall_ms": 13.963995002995944,
+              "depth_matches": 472,
+              "depth_overlap": 0.9772256728778468,
+              "depth_observability": 0.027475413107175196,
+              "rms_m": 0.005306909814850351,
+              "tof_range_residual_m": 0.0012479834219428776,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0397653298379679,
+                -1.759622398750839,
+                0.9387682199445394
+              ],
+              "rawfit_error_m": 0.0017885228193131014,
+              "rawfit_horizontal_error_m": 0.0012752179884409612,
+              "accepted_pose_error_m": 0.0017885228193131014,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 483,
+              "registration_wall_ms": 13.43192099739099,
+              "depth_matches": 472,
+              "depth_overlap": 0.9772256728778468,
+              "depth_observability": 0.027475818976039415,
+              "rms_m": 0.005306948446144557,
+              "tof_range_residual_m": 0.0012355640345171892,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0397761395175478,
+                -1.7595993822195997,
+                0.9387805265470387
+              ],
+              "rawfit_error_m": 0.0017868102577270738,
+              "rawfit_horizontal_error_m": 0.0012848239546114776,
+              "accepted_pose_error_m": 0.0017868102577270738,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 483,
+              "registration_wall_ms": 9.75448799727019,
+              "depth_matches": 472,
+              "depth_overlap": 0.9772256728778468,
+              "depth_observability": 0.027475826825219665,
+              "rms_m": 0.005306947739196302,
+              "tof_range_residual_m": 0.0012351354953420435,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0397767075298765,
+                -1.7595991329655898,
+                0.9387809528667245
+              ],
+              "rawfit_error_m": 0.0017869145918224351,
+              "rawfit_horizontal_error_m": 0.001285380889224392,
+              "accepted_pose_error_m": 0.0017869145918224351,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 80421,
+          "newly_invalid_pixels": 17883,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 750,
+              "registration_wall_ms": 23.102702001779107,
+              "depth_matches": 719,
+              "depth_overlap": 0.9586666666666667,
+              "depth_observability": 0.023037599172597373,
+              "rms_m": 0.011709681224696606,
+              "tof_range_residual_m": 0.0012410809799990874,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0418269543700416,
+                -1.763617203149062,
+                0.9387704330943694
+              ],
+              "rawfit_error_m": 0.005410221038369922,
+              "rawfit_horizontal_error_m": 0.005263402380116137,
+              "accepted_pose_error_m": 0.005410221038369922,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 750,
+              "registration_wall_ms": 23.592901998199522,
+              "depth_matches": 719,
+              "depth_overlap": 0.9586666666666667,
+              "depth_observability": 0.023036986389279215,
+              "rms_m": 0.011708449038443649,
+              "tof_range_residual_m": 0.0012412182021643847,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0418308338695494,
+                -1.7636217749689855,
+                0.9387702917907815
+              ],
+              "rawfit_error_m": 0.005416086266833732,
+              "rawfit_horizontal_error_m": 0.00526939745926277,
+              "accepted_pose_error_m": 0.005416086266833732,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 750,
+              "registration_wall_ms": 18.696325001656078,
+              "depth_matches": 720,
+              "depth_overlap": 0.96,
+              "depth_observability": 0.02299225927928334,
+              "rms_m": 0.011692538764310943,
+              "tof_range_residual_m": 0.0012441460082646127,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                1.0418453302757789,
+                -1.763671421544152,
+                0.9387674019905085
+              ],
+              "rawfit_error_m": 0.005463104984516677,
+              "rawfit_horizontal_error_m": 0.0053170321553142165,
+              "accepted_pose_error_m": 0.005463104984516677,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 10180
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 17883,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 15,
+        "near_to_far_center_bins": 2,
+        "near_to_max_range_bins": 15
+      },
+      "body_position_evaluation_only_m": [
+        1.0384924764898928,
+        -1.759544776123097,
+        0.9400222665773088
+      ]
+    },
+    {
+      "source": {
+        "id": "policy-07-window-383",
+        "phase": "WINDOW_ALIGN",
+        "kind": "archive_png",
+        "path": "artifacts/markerfree/policy-07/camera/frames/depth-000383.png",
+        "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000383.jpg",
+        "capture_usec": 78052000,
+        "now_usec": 78052000,
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+        "prior_usec": 78000000,
+        "prior_ulog_timestamp_sample_usec": 78000361,
+        "prior_ulog_receive_usec": 78044000,
+        "prior_clock_grid_correction_usec": -361,
+        "pose": [
+          [
+            -0.2691904721452909,
+            -0.011925017705847432,
+            -0.9630131274592839,
+            0.020557734663797678
+          ],
+          [
+            0.9630854310564418,
+            -0.0015522433750251767,
+            -0.26919146165384333,
+            -1.9769023848269918
+          ],
+          [
+            0.001715282199324081,
+            -0.9999276896322153,
+            0.0119026599445992,
+            0.9452051394542533
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tilt": {
+          "capture_usec": 78052000,
+          "up_optical": [
+            0.0017663885360351696,
+            -0.9999347568961033,
+            0.011285469536987724
+          ],
+          "std_rad": 0.01,
+          "bracket_usec": 0
+        },
+        "tof": {
+          "distance_m": 0.8681235313415527,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        }
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 942,
+              "registration_wall_ms": 23.182991997600766,
+              "depth_matches": 906,
+              "depth_overlap": 0.9617834394904459,
+              "depth_observability": 0.047347772066098553,
+              "rms_m": 0.007383654615514853,
+              "tof_range_residual_m": 0.001841545587452753,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.34520960709146237,
+                -1.8873124122474063,
+                0.9412395824685613
+              ],
+              "rawfit_error_m": 0.003046002698107093,
+              "rawfit_horizontal_error_m": 0.002433600755798414,
+              "accepted_pose_error_m": 0.003046002698107093,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 942,
+              "registration_wall_ms": 14.66856499973801,
+              "depth_matches": 906,
+              "depth_overlap": 0.9617834394904459,
+              "depth_observability": 0.04734673940442572,
+              "rms_m": 0.007383622853165877,
+              "tof_range_residual_m": 0.00184066312313369,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.34522685438413964,
+                -1.8873250975639595,
+                0.9412404362397238
+              ],
+              "rawfit_error_m": 0.003028431972466862,
+              "rawfit_horizontal_error_m": 0.002412220484789334,
+              "accepted_pose_error_m": 0.003028431972466862,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 942,
+              "registration_wall_ms": 35.759721002250444,
+              "depth_matches": 906,
+              "depth_overlap": 0.9617834394904459,
+              "depth_observability": 0.04734698044316305,
+              "rms_m": 0.007383660494732427,
+              "tof_range_residual_m": 0.0018368682209657372,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.34522381812159275,
+                -1.8873248863529268,
+                0.9412442639127616
+              ],
+              "rawfit_error_m": 0.0030282353408438603,
+              "rawfit_horizontal_error_m": 0.0024148745492138025,
+              "accepted_pose_error_m": 0.0030282353408438603,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 612,
+              "registration_wall_ms": 17.815673996665282,
+              "depth_matches": 571,
+              "depth_overlap": 0.9330065359477124,
+              "depth_observability": 0.04681581391646276,
+              "rms_m": 0.007594157254711103,
+              "tof_range_residual_m": 0.00195412125257588,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3468105970784811,
+                -1.8878399512852901,
+                0.9411216968516898
+              ],
+              "rawfit_error_m": 0.002154976542284361,
+              "rawfit_horizontal_error_m": 0.0009178271222159233,
+              "accepted_pose_error_m": 0.002154976542284361,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 612,
+              "registration_wall_ms": 16.740359998948406,
+              "depth_matches": 571,
+              "depth_overlap": 0.9330065359477124,
+              "depth_observability": 0.04682115836037984,
+              "rms_m": 0.007594298977220004,
+              "tof_range_residual_m": 0.001963088278984393,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.346842570898393,
+                -1.8878786788309898,
+                0.9411126509035933
+              ],
+              "rawfit_error_m": 0.0021427660079597045,
+              "rawfit_horizontal_error_m": 0.0008686612836510557,
+              "accepted_pose_error_m": 0.0021427660079597045,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 612,
+              "registration_wall_ms": 16.252869998425012,
+              "depth_matches": 571,
+              "depth_overlap": 0.9330065359477124,
+              "depth_observability": 0.04681466550411536,
+              "rms_m": 0.0075944416205509895,
+              "tof_range_residual_m": 0.0019593474982587678,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3468422992273407,
+                -1.8878882627515037,
+                0.9411164145681996
+              ],
+              "rawfit_error_m": 0.002135942141315721,
+              "rawfit_horizontal_error_m": 0.000860293794959787,
+              "accepted_pose_error_m": 0.002135942141315721,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 79972
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 598,
+              "registration_wall_ms": 14.682857003208483,
+              "depth_matches": 596,
+              "depth_overlap": 0.9966555183946488,
+              "depth_observability": 0.03865970257028014,
+              "rms_m": 0.007058947340172302,
+              "tof_range_residual_m": 0.001086841954267448,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3457841279741924,
+                -1.888861744738782,
+                0.9419965961816683
+              ],
+              "rawfit_error_m": 0.0018243949629413979,
+              "rawfit_horizontal_error_m": 0.00147414969149663,
+              "accepted_pose_error_m": 0.0018243949629413979,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 598,
+              "registration_wall_ms": 11.329626002407167,
+              "depth_matches": 596,
+              "depth_overlap": 0.9966555183946488,
+              "depth_observability": 0.038659960496455106,
+              "rms_m": 0.007058835212245866,
+              "tof_range_residual_m": 0.001106715402389491,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3457974205933275,
+                -1.888877345811503,
+                0.9419766275595661
+              ],
+              "rawfit_error_m": 0.0018275666278256082,
+              "rawfit_horizontal_error_m": 0.0014633437297871534,
+              "accepted_pose_error_m": 0.0018275666278256082,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 598,
+              "registration_wall_ms": 15.241138000419596,
+              "depth_matches": 596,
+              "depth_overlap": 0.9966555183946488,
+              "depth_observability": 0.03865993631002068,
+              "rms_m": 0.007058922837028984,
+              "tof_range_residual_m": 0.0010907317486398282,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3457925140209429,
+                -1.888866775437243,
+                0.941992677966585
+              ],
+              "rawfit_error_m": 0.0018206093705000776,
+              "rawfit_horizontal_error_m": 0.0014665880413799132,
+              "accepted_pose_error_m": 0.0018206093705000776,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 81421,
+          "newly_invalid_pixels": 16883,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 563,
+              "registration_wall_ms": 18.397372001345502,
+              "depth_matches": 561,
+              "depth_overlap": 0.9964476021314387,
+              "depth_observability": 0.03210740720824129,
+              "rms_m": 0.0069130048587456045,
+              "tof_range_residual_m": 0.0006720290057770084,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3458492840711236,
+                -1.888827022238867,
+                0.9424131541770582
+              ],
+              "rawfit_error_m": 0.001551477138146885,
+              "rawfit_horizontal_error_m": 0.0014048966848771653,
+              "accepted_pose_error_m": 0.001551477138146885,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 563,
+              "registration_wall_ms": 13.77708200016059,
+              "depth_matches": 561,
+              "depth_overlap": 0.9964476021314387,
+              "depth_observability": 0.03210771164123753,
+              "rms_m": 0.006912962629761852,
+              "tof_range_residual_m": 0.0006796822480388265,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.34585728581039804,
+                -1.8888308040441075,
+                0.942405464885574
+              ],
+              "rawfit_error_m": 0.0015480249627963906,
+              "rawfit_horizontal_error_m": 0.001397444799423173,
+              "accepted_pose_error_m": 0.0015480249627963906,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 563,
+              "registration_wall_ms": 15.628380002453923,
+              "depth_matches": 561,
+              "depth_overlap": 0.9964476021314387,
+              "depth_observability": 0.03210740085855222,
+              "rms_m": 0.00691300077344472,
+              "tof_range_residual_m": 0.0006721005353684806,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3458537319941561,
+                -1.8888254242730929,
+                0.9424130826381767
+              ],
+              "rawfit_error_m": 0.001547330954341896,
+              "rawfit_horizontal_error_m": 0.0014002829269029122,
+              "accepted_pose_error_m": 0.001547330954341896,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 65114,
+          "newly_invalid_pixels": 33190,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 808,
+              "registration_wall_ms": 22.728209998604143,
+              "depth_matches": 767,
+              "depth_overlap": 0.9492574257425742,
+              "depth_observability": 0.030380787868852368,
+              "rms_m": 0.013915130177454564,
+              "tof_range_residual_m": 0.0017443419959093376,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3452150299071032,
+                -1.876540785936544,
+                0.9413339618913854
+              ],
+              "rawfit_error_m": 0.012399760701688297,
+              "rawfit_horizontal_error_m": 0.012277427190362053,
+              "accepted_pose_error_m": 0.012399760701688297,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 808,
+              "registration_wall_ms": 20.40683499944862,
+              "depth_matches": 767,
+              "depth_overlap": 0.9492574257425742,
+              "depth_observability": 0.030379671807024333,
+              "rms_m": 0.013915302809734428,
+              "tof_range_residual_m": 0.001744137219013675,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3452175368462155,
+                -1.876540029321456,
+                0.9413341667195602
+              ],
+              "rawfit_error_m": 0.012400061142347771,
+              "rawfit_horizontal_error_m": 0.012277759609083581,
+              "accepted_pose_error_m": 0.012400061142347771,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 808,
+              "registration_wall_ms": 18.150167998101097,
+              "depth_matches": 767,
+              "depth_overlap": 0.9492574257425742,
+              "depth_observability": 0.03038616377401131,
+              "rms_m": 0.013914230893050154,
+              "tof_range_residual_m": 0.001739886411502578,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.3452217734636197,
+                -1.8765265298078158,
+                0.9413384482887189
+              ],
+              "rawfit_error_m": 0.012411955635574937,
+              "rawfit_horizontal_error_m": 0.012290376951301623,
+              "accepted_pose_error_m": 0.012411955635574937,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 14,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 17460
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 33190,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 74,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 74
+      },
+      "body_position_evaluation_only_m": [
+        0.34724292971195514,
+        -1.8886495778166665,
+        0.9430714448537456
+      ]
+    },
+    {
+      "source": {
+        "id": "policy-07-window-395",
+        "phase": "WINDOW_ALIGN",
+        "kind": "archive_png",
+        "path": "artifacts/markerfree/policy-07/camera/frames/depth-000395.png",
+        "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000395.jpg",
+        "capture_usec": 80452000,
+        "now_usec": 80452000,
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+        "prior_usec": 80400000,
+        "prior_ulog_timestamp_sample_usec": 80400371,
+        "prior_ulog_receive_usec": 80444000,
+        "prior_clock_grid_correction_usec": -371,
+        "pose": [
+          [
+            -0.19120325747315126,
+            0.003930558118821988,
+            -0.9815425946155016,
+            -0.14667624067318447
+          ],
+          [
+            0.9815499867245872,
+            -0.00022098267573317687,
+            -0.19120558236521346,
+            -2.26734477883303
+          ],
+          [
+            -0.000968448563033893,
+            -0.9999922509097416,
+            -0.003815786661904623,
+            0.9024534097795203
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tilt": {
+          "capture_usec": 80452000,
+          "up_optical": [
+            -0.0002647628974219806,
+            -0.9999944588077003,
+            -0.0033184717118796975
+          ],
+          "std_rad": 0.01,
+          "bracket_usec": 0
+        },
+        "tof": {
+          "distance_m": 0.831670343875885,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        }
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1069,
+              "registration_wall_ms": 22.477463997347513,
+              "depth_matches": 1030,
+              "depth_overlap": 0.9635173058933583,
+              "depth_observability": 0.04825651536065288,
+              "rms_m": 0.007637681925524129,
+              "tof_range_residual_m": 0.0021148322433306443,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18276375937652856,
+                -2.213344702990003,
+                0.9045461628296241
+              ],
+              "rawfit_error_m": 0.0033615692810973485,
+              "rawfit_horizontal_error_m": 0.0026092981530191767,
+              "accepted_pose_error_m": 0.0033615692810973485,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1069,
+              "registration_wall_ms": 20.134923001023708,
+              "depth_matches": 1030,
+              "depth_overlap": 0.9635173058933583,
+              "depth_observability": 0.04825637947375018,
+              "rms_m": 0.007637665900258607,
+              "tof_range_residual_m": 0.002119083229939256,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.1827657543580956,
+                -2.2133459745153665,
+                0.9045419201117293
+              ],
+              "rawfit_error_m": 0.0033626348338202136,
+              "rawfit_horizontal_error_m": 0.0026072207621748622,
+              "accepted_pose_error_m": 0.0033626348338202136,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1069,
+              "registration_wall_ms": 21.23507000214886,
+              "depth_matches": 1030,
+              "depth_overlap": 0.9635173058933583,
+              "depth_observability": 0.04825634251898911,
+              "rms_m": 0.007637722373304426,
+              "tof_range_residual_m": 0.0021147406752739517,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18277100621254994,
+                -2.213358372521374,
+                0.9045462562034682
+              ],
+              "rawfit_error_m": 0.0033495168549511883,
+              "rawfit_horizontal_error_m": 0.0025938287837229245,
+              "accepted_pose_error_m": 0.0033495168549511883,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 775,
+              "registration_wall_ms": 16.34749300137628,
+              "depth_matches": 757,
+              "depth_overlap": 0.9767741935483871,
+              "depth_observability": 0.05541796100060246,
+              "rms_m": 0.009637678096374613,
+              "tof_range_residual_m": 0.0015206221509405093,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.1837668815470656,
+                -2.214093507979413,
+                0.9051407166085667
+              ],
+              "rawfit_error_m": 0.0021791497946067008,
+              "rawfit_horizontal_error_m": 0.001556805152129491,
+              "accepted_pose_error_m": 0.0021791497946067008,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 775,
+              "registration_wall_ms": 21.45789900168893,
+              "depth_matches": 757,
+              "depth_overlap": 0.9767741935483871,
+              "depth_observability": 0.05541783699190132,
+              "rms_m": 0.009637681040044328,
+              "tof_range_residual_m": 0.0015229983155383708,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18377322406017596,
+                -2.2141033730852597,
+                0.9051383447305825
+              ],
+              "rawfit_error_m": 0.002173131622138592,
+              "rawfit_horizontal_error_m": 0.0015460305753154113,
+              "accepted_pose_error_m": 0.002173131622138592,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 775,
+              "registration_wall_ms": 16.98527199914679,
+              "depth_matches": 757,
+              "depth_overlap": 0.9767741935483871,
+              "depth_observability": 0.055418031347663176,
+              "rms_m": 0.009637908568293782,
+              "tof_range_residual_m": 0.0015028686393447899,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18379068643103838,
+                -2.2141401316942972,
+                0.905158430367213
+              ],
+              "rawfit_error_m": 0.0021312592522171317,
+              "rawfit_horizontal_error_m": 0.0015069575241970896,
+              "accepted_pose_error_m": 0.0021312592522171317,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 87126
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 943,
+              "registration_wall_ms": 22.205969002243364,
+              "depth_matches": 918,
+              "depth_overlap": 0.9734888653234358,
+              "depth_observability": 0.04691192743829771,
+              "rms_m": 0.007972569531612107,
+              "tof_range_residual_m": 0.0024054092230507695,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18225999554475772,
+                -2.2133855050638345,
+                0.9042563916069709
+              ],
+              "rawfit_error_m": 0.0037353195141257432,
+              "rawfit_horizontal_error_m": 0.002854587697353726,
+              "accepted_pose_error_m": 0.0037353195141257432,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 943,
+              "registration_wall_ms": 19.01198500127066,
+              "depth_matches": 918,
+              "depth_overlap": 0.9734888653234358,
+              "depth_observability": 0.0469124979544254,
+              "rms_m": 0.007972532900339203,
+              "tof_range_residual_m": 0.00240191366473419,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18227362570731448,
+                -2.2133659440109588,
+                0.9042598791669991
+              ],
+              "rawfit_error_m": 0.0037384515732952917,
+              "rawfit_horizontal_error_m": 0.002861620357714681,
+              "accepted_pose_error_m": 0.0037384515732952917,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 943,
+              "registration_wall_ms": 23.72673200079589,
+              "depth_matches": 918,
+              "depth_overlap": 0.9734888653234358,
+              "depth_observability": 0.04691232542413721,
+              "rms_m": 0.00797252503123225,
+              "tof_range_residual_m": 0.002404679907280327,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18228303177322247,
+                -2.2133765447478004,
+                0.9042571176018626
+              ],
+              "rawfit_error_m": 0.0037294217330412715,
+              "rawfit_horizontal_error_m": 0.0028474801188694563,
+              "accepted_pose_error_m": 0.0037294217330412715,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 88472,
+          "newly_invalid_pixels": 9832,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 937,
+              "registration_wall_ms": 21.622437998303212,
+              "depth_matches": 912,
+              "depth_overlap": 0.9733191035218783,
+              "depth_observability": 0.04612057247330885,
+              "rms_m": 0.007982747982190464,
+              "tof_range_residual_m": 0.002561321176805409,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18218001350728333,
+                -2.2134505201438888,
+                0.9041006995952143
+              ],
+              "rawfit_error_m": 0.0038377555643636725,
+              "rawfit_horizontal_error_m": 0.002854823997195347,
+              "accepted_pose_error_m": 0.0038377555643636725,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 937,
+              "registration_wall_ms": 26.253811000060523,
+              "depth_matches": 912,
+              "depth_overlap": 0.9733191035218783,
+              "depth_observability": 0.04612082207492746,
+              "rms_m": 0.007982706375329107,
+              "tof_range_residual_m": 0.002562112254684279,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18218745590479427,
+                -2.213436370868927,
+                0.9040999091431244
+              ],
+              "rawfit_error_m": 0.003842765816451049,
+              "rawfit_horizontal_error_m": 0.0028608470825206875,
+              "accepted_pose_error_m": 0.003842765816451049,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 937,
+              "registration_wall_ms": 23.11374400233035,
+              "depth_matches": 912,
+              "depth_overlap": 0.9733191035218783,
+              "depth_observability": 0.04612010145511147,
+              "rms_m": 0.007982704387290273,
+              "tof_range_residual_m": 0.0025698358777831443,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18219007789807484,
+                -2.2134588888029265,
+                0.9040921999018161
+              ],
+              "rawfit_error_m": 0.0038338764961777876,
+              "rawfit_horizontal_error_m": 0.002841933937717416,
+              "accepted_pose_error_m": 0.0038338764961777876,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 78933,
+          "newly_invalid_pixels": 19371,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 899,
+              "registration_wall_ms": 26.146772001084173,
+              "depth_matches": 869,
+              "depth_overlap": 0.9666295884315906,
+              "depth_observability": 0.0338592745317378,
+              "rms_m": 0.011138686576968225,
+              "tof_range_residual_m": 0.0014701350941981328,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18286817356294296,
+                -2.1831157154702012,
+                0.9051865117379811
+              ],
+              "rawfit_error_m": 0.03256716795514314,
+              "rawfit_horizontal_error_m": 0.03253356632467516,
+              "accepted_pose_error_m": 0.03256716795514314,
+              "accepted_pose_warning_gt_30mm": true,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 899,
+              "registration_wall_ms": 25.669405000371626,
+              "depth_matches": 869,
+              "depth_overlap": 0.9666295884315906,
+              "depth_observability": 0.033860383935494946,
+              "rms_m": 0.011138794299883749,
+              "tof_range_residual_m": 0.0014705507004291185,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18286906993172006,
+                -2.1830992556244855,
+                0.9051861018014841
+              ],
+              "rawfit_error_m": 0.03258358721240754,
+              "rawfit_horizontal_error_m": 0.03254998390227083,
+              "accepted_pose_error_m": 0.03258358721240754,
+              "accepted_pose_warning_gt_30mm": true,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 899,
+              "registration_wall_ms": 22.98999599952367,
+              "depth_matches": 869,
+              "depth_overlap": 0.9666295884315906,
+              "depth_observability": 0.03385520504895819,
+              "rms_m": 0.011138530340420356,
+              "tof_range_residual_m": 0.001464271571985143,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                0.18287727645182825,
+                -2.1831614217088204,
+                0.9051923504311226
+              ],
+              "rawfit_error_m": 0.03252095021572851,
+              "rawfit_horizontal_error_m": 0.032487566068852614,
+              "accepted_pose_error_m": 0.03252095021572851,
+              "accepted_pose_warning_gt_30mm": true,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 17409
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 19371,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 63,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 63
+      },
+      "body_position_evaluation_only_m": [
+        0.1840254361854855,
+        -2.2156286925874156,
+        0.9066655285791511
+      ]
+    },
+    {
+      "source": {
+        "id": "policy-07-window-407",
+        "phase": "WINDOW_CROSS",
+        "kind": "archive_png",
+        "path": "artifacts/markerfree/policy-07/camera/frames/depth-000407.png",
+        "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000407.jpg",
+        "capture_usec": 82852000,
+        "now_usec": 82852000,
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+        "prior_usec": 82800000,
+        "prior_ulog_timestamp_sample_usec": 82800358,
+        "prior_ulog_receive_usec": 82844000,
+        "prior_clock_grid_correction_usec": -358,
+        "pose": [
+          [
+            0.3398640752925135,
+            0.020957299301129786,
+            -0.9402410339543618,
+            -0.33265003538807186
+          ],
+          [
+            0.9404723133762986,
+            -0.009761847256299003,
+            0.33973009008737776,
+            -2.2980543056099156
+          ],
+          [
+            -0.0020586641780061636,
+            -0.9997327132509707,
+            -0.02302746094676184,
+            0.8866046981024723
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tilt": {
+          "capture_usec": 82852000,
+          "up_optical": [
+            -0.0018741015102703065,
+            -0.9997673599427033,
+            -0.021487525141957675
+          ],
+          "std_rad": 0.01,
+          "bracket_usec": 0
+        },
+        "tof": {
+          "distance_m": 0.8239889144897461,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        }
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1266,
+              "registration_wall_ms": 26.23189600126352,
+              "depth_matches": 1251,
+              "depth_overlap": 0.9881516587677726,
+              "depth_observability": 0.04770377498731928,
+              "rms_m": 0.007606195630222105,
+              "tof_range_residual_m": 0.003585208384464078,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022412014145338,
+                -2.4085699353335315,
+                0.8951916633209057
+              ],
+              "rawfit_error_m": 0.007512265806479914,
+              "rawfit_horizontal_error_m": 0.006594192138709895,
+              "accepted_pose_error_m": 0.007512265806479914,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1266,
+              "registration_wall_ms": 24.656257999595255,
+              "depth_matches": 1251,
+              "depth_overlap": 0.9881516587677726,
+              "depth_observability": 0.04770355118822575,
+              "rms_m": 0.007606209229355751,
+              "tof_range_residual_m": 0.0035911182252558183,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022385555665251966,
+                -2.4085676316507967,
+                0.8951858127936274
+              ],
+              "rawfit_error_m": 0.007524831455524557,
+              "rawfit_horizontal_error_m": 0.00660531436274568,
+              "accepted_pose_error_m": 0.007524831455524557,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1266,
+              "registration_wall_ms": 27.15937800167012,
+              "depth_matches": 1251,
+              "depth_overlap": 0.9881516587677726,
+              "depth_observability": 0.0477035948793138,
+              "rms_m": 0.007606169067130512,
+              "tof_range_residual_m": 0.0035903788146692817,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022402138297227647,
+                -2.4085646741911413,
+                0.895186540671735
+              ],
+              "rawfit_error_m": 0.007521991034641924,
+              "rawfit_horizontal_error_m": 0.006602475699642215,
+              "accepted_pose_error_m": 0.007521991034641924,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 709,
+              "registration_wall_ms": 19.75017999939155,
+              "depth_matches": 706,
+              "depth_overlap": 0.995768688293371,
+              "depth_observability": 0.06364875122281966,
+              "rms_m": 0.010766246287328774,
+              "tof_range_residual_m": 0.0002279104183703362,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022109540526641602,
+                -2.411237568146691,
+                0.8985165133139038
+              ],
+              "rawfit_error_m": 0.004356826942319047,
+              "rawfit_horizontal_error_m": 0.004348210850278336,
+              "accepted_pose_error_m": 0.004356826942319047,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 709,
+              "registration_wall_ms": 15.151348001381848,
+              "depth_matches": 706,
+              "depth_overlap": 0.995768688293371,
+              "depth_observability": 0.0636483150854816,
+              "rms_m": 0.010766142107333093,
+              "tof_range_residual_m": 0.00024248829911888148,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022078142585262694,
+                -2.411215114036275,
+                0.8985020858972766
+              ],
+              "rawfit_error_m": 0.0043942016108033085,
+              "rawfit_horizontal_error_m": 0.004384734181018103,
+              "accepted_pose_error_m": 0.0043942016108033085,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 709,
+              "registration_wall_ms": 16.253910998784704,
+              "depth_matches": 706,
+              "depth_overlap": 0.995768688293371,
+              "depth_observability": 0.06364783899661783,
+              "rms_m": 0.01076634275042711,
+              "tof_range_residual_m": 0.0002440112313751852,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022062532924183142,
+                -2.411222000872926,
+                0.8985005716844384
+              ],
+              "rawfit_error_m": 0.004397820697397654,
+              "rawfit_horizontal_error_m": 0.004388261336303574,
+              "accepted_pose_error_m": 0.004397820697397654,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 95372
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1220,
+              "registration_wall_ms": 26.523389999056235,
+              "depth_matches": 1208,
+              "depth_overlap": 0.9901639344262295,
+              "depth_observability": 0.04622315648263138,
+              "rms_m": 0.007657328974967208,
+              "tof_range_residual_m": 0.0037507376553075344,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.02247163710601857,
+                -2.4081815318852127,
+                0.8950276409431502
+              ],
+              "rawfit_error_m": 0.007896488075898309,
+              "rawfit_horizontal_error_m": 0.006942356416066648,
+              "accepted_pose_error_m": 0.007896488075898309,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1220,
+              "registration_wall_ms": 21.793518000777112,
+              "depth_matches": 1208,
+              "depth_overlap": 0.9901639344262295,
+              "depth_observability": 0.04622269334296031,
+              "rms_m": 0.007657361276099073,
+              "tof_range_residual_m": 0.003752506901904762,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022449769148734644,
+                -2.408195910096343,
+                0.8950258881009707
+              ],
+              "rawfit_error_m": 0.007891335954873064,
+              "rawfit_horizontal_error_m": 0.006935544519128027,
+              "accepted_pose_error_m": 0.007891335954873064,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1220,
+              "registration_wall_ms": 27.934447000006912,
+              "depth_matches": 1208,
+              "depth_overlap": 0.9901639344262295,
+              "depth_observability": 0.046222679132914994,
+              "rms_m": 0.00765732544532108,
+              "tof_range_residual_m": 0.003751590648822245,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.02246031224373163,
+                -2.4081856314904337,
+                0.895026795296648
+              ],
+              "rawfit_error_m": 0.007896573884340207,
+              "rawfit_horizontal_error_m": 0.006941995619056833,
+              "accepted_pose_error_m": 0.007896573884340207,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 94943,
+          "newly_invalid_pixels": 3361,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1214,
+              "registration_wall_ms": 26.093272997968597,
+              "depth_matches": 1202,
+              "depth_overlap": 0.9901153212520593,
+              "depth_observability": 0.045613692955367637,
+              "rms_m": 0.007671282764422056,
+              "tof_range_residual_m": 0.0036721058989166444,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.02243157587116207,
+                -2.4081605818042147,
+                0.8951057766110164
+              ],
+              "rawfit_error_m": 0.007888233399561675,
+              "rawfit_horizontal_error_m": 0.006974805950252413,
+              "accepted_pose_error_m": 0.007888233399561675,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1214,
+              "registration_wall_ms": 19.233232000260614,
+              "depth_matches": 1202,
+              "depth_overlap": 0.9901153212520593,
+              "depth_observability": 0.045613392755498625,
+              "rms_m": 0.007671369032620473,
+              "tof_range_residual_m": 0.003667146319950576,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022408821595853,
+                -2.4081773170971488,
+                0.8951106896026388
+              ],
+              "rawfit_error_m": 0.007878291295702874,
+              "rawfit_horizontal_error_m": 0.006966157214657567,
+              "accepted_pose_error_m": 0.007878291295702874,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1214,
+              "registration_wall_ms": 22.0236399982241,
+              "depth_matches": 1202,
+              "depth_overlap": 0.9901153212520593,
+              "depth_observability": 0.04561329858304609,
+              "rms_m": 0.007671266295682337,
+              "tof_range_residual_m": 0.0036751113557957904,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022424192126482834,
+                -2.408162833731279,
+                0.8951028003885172
+              ],
+              "rawfit_error_m": 0.007889798386996189,
+              "rawfit_horizontal_error_m": 0.00697500316870268,
+              "accepted_pose_error_m": 0.007889798386996189,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 93509,
+          "newly_invalid_pixels": 4795,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 988,
+              "registration_wall_ms": 25.79890400011209,
+              "depth_matches": 975,
+              "depth_overlap": 0.9868421052631579,
+              "depth_observability": 0.045636050422964085,
+              "rms_m": 0.00968891404011586,
+              "tof_range_residual_m": 0.003286302863814594,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.022719615827788697,
+                -2.3818313187682487,
+                0.895488542311908
+              ],
+              "rawfit_error_m": 0.0331679841158302,
+              "rawfit_horizontal_error_m": 0.03300322761221016,
+              "accepted_pose_error_m": 0.0331679841158302,
+              "accepted_pose_warning_gt_30mm": true,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 988,
+              "registration_wall_ms": 24.833753999701003,
+              "depth_matches": 975,
+              "depth_overlap": 0.9868421052631579,
+              "depth_observability": 0.04563604047925627,
+              "rms_m": 0.009688927223520024,
+              "tof_range_residual_m": 0.0032839123731221997,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.02271786401054049,
+                -2.381835962993645,
+                0.8954909099634148
+              ],
+              "rawfit_error_m": 0.03316323617167985,
+              "rawfit_horizontal_error_m": 0.032998692784624535,
+              "accepted_pose_error_m": 0.03316323617167985,
+              "accepted_pose_warning_gt_30mm": true,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 988,
+              "registration_wall_ms": 27.2493359989312,
+              "depth_matches": 975,
+              "depth_overlap": 0.9868421052631579,
+              "depth_observability": 0.04563589708232284,
+              "rms_m": 0.009688896433505016,
+              "tof_range_residual_m": 0.00328803867901839,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.02271952521565057,
+                -2.381845447285228,
+                0.8954868234754064
+              ],
+              "rawfit_error_m": 0.03315412590324313,
+              "rawfit_horizontal_error_m": 0.03298912810802994,
+              "accepted_pose_error_m": 0.03315412590324313,
+              "accepted_pose_warning_gt_30mm": true,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 18696
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 4795,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "body_position_evaluation_only_m": [
+        -0.02463237510648291,
+        -2.414779071115945,
+        0.8987903808125941
+      ]
+    },
+    {
+      "source": {
+        "id": "policy-07-window-419",
+        "phase": "WINDOW_CROSS",
+        "kind": "archive_png",
+        "path": "artifacts/markerfree/policy-07/camera/frames/depth-000419.png",
+        "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000419.jpg",
+        "capture_usec": 85252000,
+        "now_usec": 85252000,
+        "intrinsics": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+        "prior_usec": 85200000,
+        "prior_ulog_timestamp_sample_usec": 85200295,
+        "prior_ulog_receive_usec": 85240000,
+        "prior_clock_grid_correction_usec": -295,
+        "pose": [
+          [
+            0.2956023729422509,
+            0.0036887350244487003,
+            -0.9553039465766013,
+            -0.9674290313425753
+          ],
+          [
+            0.9553110643934775,
+            -0.0012311997873957492,
+            0.2955998213708607,
+            -2.084401828174703
+          ],
+          [
+            -8.578060161195831e-05,
+            -0.9999924386619146,
+            -0.0038878349611917665,
+            0.8939804317980092
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "tilt": {
+          "capture_usec": 85252000,
+          "up_optical": [
+            0.0011149540822262098,
+            -0.9999917003909136,
+            -0.003918676649565744
+          ],
+          "std_rad": 0.01,
+          "bracket_usec": 0
+        },
+        "tof": {
+          "distance_m": 0.8243098855018616,
+          "origin": [
+            0.0,
+            0.075,
+            -0.34
+          ],
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "std_m": 0.012
+        }
+      },
+      "cases": [
+        {
+          "mode": "control",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1232,
+              "registration_wall_ms": 25.00883500033524,
+              "depth_matches": 1219,
+              "depth_overlap": 0.989448051948052,
+              "depth_observability": 0.03149315422024781,
+              "rms_m": 0.007332716162627894,
+              "tof_range_residual_m": 0.0030775019769344603,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6568405249903762,
+                -2.1798196362726054,
+                0.8962240849507339
+              ],
+              "rawfit_error_m": 0.005516078015166713,
+              "rawfit_horizontal_error_m": 0.004576779714903856,
+              "accepted_pose_error_m": 0.005516078015166713,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1232,
+              "registration_wall_ms": 22.895206999237416,
+              "depth_matches": 1219,
+              "depth_overlap": 0.989448051948052,
+              "depth_observability": 0.0314934911405252,
+              "rms_m": 0.00733279816320757,
+              "tof_range_residual_m": 0.003061001842551536,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6567924647189551,
+                -2.1798164890403267,
+                0.896240542620863
+              ],
+              "rawfit_error_m": 0.005520116809405053,
+              "rawfit_horizontal_error_m": 0.004592663797775304,
+              "accepted_pose_error_m": 0.005520116809405053,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1232,
+              "registration_wall_ms": 33.82129899910069,
+              "depth_matches": 1219,
+              "depth_overlap": 0.989448051948052,
+              "depth_observability": 0.031493324254608566,
+              "rms_m": 0.007332700359525502,
+              "tof_range_residual_m": 0.0030768066501032365,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6568105679196066,
+                -2.1798129589420867,
+                0.8962247747649067
+              ],
+              "rawfit_error_m": 0.005527639694242573,
+              "rawfit_horizontal_error_m": 0.004591170207069629,
+              "accepted_pose_error_m": 0.005527639694242573,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "disparity_quantized",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 903,
+              "registration_wall_ms": 28.821597999922233,
+              "depth_matches": 895,
+              "depth_overlap": 0.991140642303433,
+              "depth_observability": 0.038909942246789335,
+              "rms_m": 0.009660178355311935,
+              "tof_range_residual_m": 0.003926964032316627,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6566101240448119,
+                -2.178336826633311,
+                0.8953766062059693
+              ],
+              "rawfit_error_m": 0.007229546462511422,
+              "rawfit_horizontal_error_m": 0.006070350382266611,
+              "accepted_pose_error_m": 0.007229546462511422,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 903,
+              "registration_wall_ms": 26.8731759970251,
+              "depth_matches": 895,
+              "depth_overlap": 0.991140642303433,
+              "depth_observability": 0.03881569683699341,
+              "rms_m": 0.009659865805263453,
+              "tof_range_residual_m": 0.0039441400530436654,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6565648295358915,
+                -2.1783198157440866,
+                0.8953594331413611
+              ],
+              "rawfit_error_m": 0.007261837521166297,
+              "rawfit_horizontal_error_m": 0.006097699717021235,
+              "accepted_pose_error_m": 0.007261837521166297,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 903,
+              "registration_wall_ms": 30.62348200182896,
+              "depth_matches": 895,
+              "depth_overlap": 0.991140642303433,
+              "depth_observability": 0.03881598841218184,
+              "rms_m": 0.009659946969232723,
+              "tof_range_residual_m": 0.003934847225963489,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.656560823795834,
+                -2.178321762011515,
+                0.8953687061458616
+              ],
+              "rawfit_error_m": 0.0072560361847238426,
+              "rawfit_horizontal_error_m": 0.006096783715321157,
+              "accepted_pose_error_m": 0.0072560361847238426,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 95211
+        },
+        {
+          "mode": "geometric_occlusion",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1206,
+              "registration_wall_ms": 26.709262001531897,
+              "depth_matches": 1193,
+              "depth_overlap": 0.9892205638474295,
+              "depth_observability": 0.02920621984426427,
+              "rms_m": 0.007377705747812726,
+              "tof_range_residual_m": 0.0028605613848607936,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6568838403522176,
+                -2.1796333745256167,
+                0.8964409225673193
+              ],
+              "rawfit_error_m": 0.005542238752382136,
+              "rawfit_horizontal_error_m": 0.0047459952771572835,
+              "accepted_pose_error_m": 0.005542238752382136,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1206,
+              "registration_wall_ms": 30.67902299881098,
+              "depth_matches": 1193,
+              "depth_overlap": 0.9892205638474295,
+              "depth_observability": 0.02920660734499241,
+              "rms_m": 0.007377788197574562,
+              "tof_range_residual_m": 0.0028456552899991383,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6568376322310052,
+                -2.1796266666555852,
+                0.896455790258263
+              ],
+              "rawfit_error_m": 0.005550002231693568,
+              "rawfit_horizontal_error_m": 0.0047639764713239266,
+              "accepted_pose_error_m": 0.005550002231693568,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1206,
+              "registration_wall_ms": 33.5814690006373,
+              "depth_matches": 1193,
+              "depth_overlap": 0.9892205638474295,
+              "depth_observability": 0.029206378285191497,
+              "rms_m": 0.007377687400694668,
+              "tof_range_residual_m": 0.0028615957650069967,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6568614792752882,
+                -2.1796255741901684,
+                0.8964398879195965
+              ],
+              "rawfit_error_m": 0.005553963604229361,
+              "rawfit_horizontal_error_m": 0.004759059653105092,
+              "accepted_pose_error_m": 0.005553963604229361,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 95737,
+          "newly_invalid_pixels": 2567,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "occlusion_dilated",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1205,
+              "registration_wall_ms": 21.501440001884475,
+              "depth_matches": 1192,
+              "depth_overlap": 0.9892116182572614,
+              "depth_observability": 0.028627661816092734,
+              "rms_m": 0.007378473490262005,
+              "tof_range_residual_m": 0.0027592711474897502,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.656887970552942,
+                -2.1796252035306067,
+                0.8965421601110637
+              ],
+              "rawfit_error_m": 0.005496623462495418,
+              "rawfit_horizontal_error_m": 0.004752914537065668,
+              "accepted_pose_error_m": 0.005496623462495418,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1205,
+              "registration_wall_ms": 24.244099000497954,
+              "depth_matches": 1192,
+              "depth_overlap": 0.9892116182572614,
+              "depth_observability": 0.028627992953124504,
+              "rms_m": 0.007378554043395865,
+              "tof_range_residual_m": 0.0027445508298348242,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6568417533471488,
+                -2.17961849417807,
+                0.8965568425055935
+              ],
+              "rawfit_error_m": 0.00550479566728291,
+              "rawfit_horizontal_error_m": 0.004770844859523305,
+              "accepted_pose_error_m": 0.00550479566728291,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1205,
+              "registration_wall_ms": 27.472830999613507,
+              "depth_matches": 1192,
+              "depth_overlap": 0.9892116182572614,
+              "depth_observability": 0.0286278043637468,
+              "rms_m": 0.007378455237269136,
+              "tof_range_residual_m": 0.0027603405813738657,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6568655982207287,
+                -2.1796173598057216,
+                0.8965410905572914
+              ],
+              "rawfit_error_m": 0.005508477482735499,
+              "rawfit_horizontal_error_m": 0.004765998766230781,
+              "accepted_pose_error_m": 0.005508477482735499,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": false,
+            "reason": "invalid_or_empty_policy_depth"
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 94843,
+          "newly_invalid_pixels": 3461,
+          "changed_finite_pixels": 0
+        },
+        {
+          "mode": "finite_far_edge_mismatch",
+          "fits": [
+            {
+              "east_prior_offset_m": -0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1092,
+              "registration_wall_ms": 20.813203002035152,
+              "depth_matches": 1082,
+              "depth_overlap": 0.9908424908424909,
+              "depth_observability": 0.022056848303665236,
+              "rms_m": 0.007009875719215415,
+              "tof_range_residual_m": 0.0032187970035030267,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6567281893877895,
+                -2.1829930068973797,
+                0.8960824972066717
+              ],
+              "rawfit_error_m": 0.003693769794971719,
+              "rawfit_horizontal_error_m": 0.0018088085765909142,
+              "accepted_pose_error_m": 0.003693769794971719,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.0,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1092,
+              "registration_wall_ms": 17.23510200099554,
+              "depth_matches": 1082,
+              "depth_overlap": 0.9908424908424909,
+              "depth_observability": 0.022055759540509957,
+              "rms_m": 0.0070099001734715135,
+              "tof_range_residual_m": 0.003213362281942689,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6566895618309134,
+                -2.1830218018747996,
+                0.8960879168124148
+              ],
+              "rawfit_error_m": 0.0036934186399444615,
+              "rawfit_horizontal_error_m": 0.0018177110917311412,
+              "accepted_pose_error_m": 0.0036934186399444615,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            },
+            {
+              "east_prior_offset_m": 0.025,
+              "capture_gap_s": 0.052,
+              "capture_processing_age_s": 0.0,
+              "register_depth_accepted": true,
+              "registration_reason": null,
+              "survey_runtime_gates_accepted": true,
+              "runtime_gate_reason": null,
+              "source_samples": 1092,
+              "registration_wall_ms": 23.880979999375995,
+              "depth_matches": 1082,
+              "depth_overlap": 0.9908424908424909,
+              "depth_observability": 0.022055872880076797,
+              "rms_m": 0.007009816809515214,
+              "tof_range_residual_m": 0.0032256865167766824,
+              "px4_tilt_prior_status": "not_needed",
+              "position_enu_m": [
+                -0.6567038303696553,
+                -2.1830151695565325,
+                0.8960756209983073
+              ],
+              "rawfit_error_m": 0.0037011215862978505,
+              "rawfit_horizontal_error_m": 0.001811578345100664,
+              "accepted_pose_error_m": 0.0037011215862978505,
+              "accepted_pose_warning_gt_30mm": false,
+              "accepted_pose_counterexample_gt_60mm": false
+            }
+          ],
+          "policy": {
+            "admitted": true,
+            "reason": null,
+            "coverage": 1.0,
+            "center_coverage": 1.0,
+            "near_to_far_bins": 0,
+            "near_to_far_center_bins": 0,
+            "near_to_max_range_bins": 0
+          },
+          "finite_returns_before": 98304,
+          "finite_returns_after": 98304,
+          "newly_invalid_pixels": 0,
+          "changed_finite_pixels": 5347
+        }
+      ],
+      "policy_negative_control": {
+        "replaced_hole_pixels": 3461,
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "body_position_evaluation_only_m": [
+        -0.6580424668144025,
+        -2.1842357712807785,
+        0.8993030789602523
+      ]
+    }
+  ],
+  "summary": {
+    "control": {
+      "fit_attempts": 24,
+      "registered": 24,
+      "survey_runtime_accepted": 24,
+      "survey_runtime_rejections": {},
+      "accepted_with_truth": 24,
+      "accepted_pose_warnings": 0,
+      "accepted_pose_counterexamples": 0,
+      "maximum_accepted_pose_error_m": 0.007524831455524557,
+      "policy_images_admitted": 8,
+      "policy_near_to_far_bins": 0
+    },
+    "disparity_quantized": {
+      "fit_attempts": 24,
+      "registered": 24,
+      "survey_runtime_accepted": 24,
+      "survey_runtime_rejections": {},
+      "accepted_with_truth": 24,
+      "accepted_pose_warnings": 0,
+      "accepted_pose_counterexamples": 0,
+      "maximum_accepted_pose_error_m": 0.007261837521166297,
+      "policy_images_admitted": 8,
+      "policy_near_to_far_bins": 0
+    },
+    "geometric_occlusion": {
+      "fit_attempts": 24,
+      "registered": 18,
+      "survey_runtime_accepted": 18,
+      "survey_runtime_rejections": {
+        "unobservable_depth_geometry:0": 6
+      },
+      "accepted_with_truth": 18,
+      "accepted_pose_warnings": 0,
+      "accepted_pose_counterexamples": 0,
+      "maximum_accepted_pose_error_m": 0.007896573884340207,
+      "policy_images_admitted": 0,
+      "policy_near_to_far_bins": 0
+    },
+    "occlusion_dilated": {
+      "fit_attempts": 24,
+      "registered": 18,
+      "survey_runtime_accepted": 18,
+      "survey_runtime_rejections": {
+        "unobservable_depth_geometry:0": 6
+      },
+      "accepted_with_truth": 18,
+      "accepted_pose_warnings": 0,
+      "accepted_pose_counterexamples": 0,
+      "maximum_accepted_pose_error_m": 0.007889798386996189,
+      "policy_images_admitted": 0,
+      "policy_near_to_far_bins": 0
+    },
+    "finite_far_edge_mismatch": {
+      "fit_attempts": 24,
+      "registered": 24,
+      "survey_runtime_accepted": 24,
+      "survey_runtime_rejections": {},
+      "accepted_with_truth": 24,
+      "accepted_pose_warnings": 6,
+      "accepted_pose_counterexamples": 0,
+      "maximum_accepted_pose_error_m": 0.0331679841158302,
+      "policy_images_admitted": 8,
+      "policy_near_to_far_bins": 14
+    }
+  },
+  "source_sha256": {
+    "artifacts/markerfree/stereo-stress-01/probe.py": "236706f44625b94a83d41fbd224b4876d19c726f7bbf235215f12a4020bc5c3c",
+    "artifacts/markerfree/stereo-stress-01/sources.json": "121ced9d74a08d60fd55cbeecc5d8465d622ce0346ed7bd53a93a2e6d2059f6b",
+    "models/course_v3/model.sdf": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072",
+    "artifacts/markerfree/policy-06/observer/truth.jsonl.gz": "4ad9a42b24aea1c9ba41f20bdc7c83d8ac8154b154f2d4a0980fdeab7986e4db",
+    "artifacts/markerfree/policy-07/observer/truth.jsonl.gz": "7fd06c399ee8ee3361cf4775910b0a9280f965ed504d320842074d4fa339db01",
+    "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+    "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+    "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+    "models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+    "models/course_v3/meshes/approach_ring_stage_4_line.obj": "bf9d50ae0b50c8a6ba1135ad4c31ca9fe3cdf7742c2b004a84e31ae934c48a5e",
+    "models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+    "models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+    "models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+    "models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+    "models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+    "models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+    "models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+    "models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+    "models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+    "models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+    "models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+    "models/course_v3/meshes/floor_20_x_20_ft.obj": "14fd3706a3f6e932996c174fddb7b51f9015373661c21a45f85f51cebe4df4d0",
+    "models/course_v3/meshes/guideline_zone_1.obj": "0685400d9691b75113bf5ab796350fe0dce53879f78ce91224abf5a7abb02d18",
+    "models/course_v3/meshes/landing_pad_5_ft.obj": "66f63b39526081df51b5886757ae43906b26c886fb4b297bd3c5945338b0ef1b",
+    "models/course_v3/meshes/landing_pad_cross.obj": "7bc183cca414bc91a03a211eeaf87936552456f8ff202dd278b3a15b3b4bc4c8",
+    "models/course_v3/meshes/landing_pad_ring_r20.obj": "b8627ba7624702aa3368ccff5526e432309f8a242da331b0e350d4975722e235",
+    "models/course_v3/meshes/landing_pad_ring_r30.obj": "ceef68e945fc02c2569f85c87ba7e4c57f77456d57611c85b133d05f8420c76f",
+    "models/course_v3/meshes/landing_pad_ring_r9.obj": "52b12630fdc2daf4f7ace8d47991c880f2048f51642a971c7fc0dfd4071b1f97",
+    "models/course_v3/meshes/launch_mark.obj": "d9546ce7fd19cb69dac3dc169a0941c855daa612231256275154f47e1a65da18",
+    "models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+    "models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+    "models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6",
+    "models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+    "models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+    "models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+    "models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+    "models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+    "models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+    "models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+    "models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+    "models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5"
+  }
+}

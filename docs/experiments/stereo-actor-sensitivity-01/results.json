@@ -1,0 +1,580 @@
+{
+  "protocol_sha256": "7c7325e89ba3518be18209566aa2fca7ee5509bf1ded2e77749ca14f6b250e5e",
+  "checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+  "source_sha256": {
+    "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+    "artifacts/learning/20261107T120458Z-273a3b/source-snapshot/learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+    "artifacts/markerfree/stereo-actor-sensitivity-01/inputs.json": "40f10fdbe58959845bfd601c6ed5f53287f63e2fbbb22cadd99dbd408824a2c5"
+  },
+  "device": "cpu",
+  "torch": "2.15.0",
+  "numpy": "2.4.6",
+  "pairs": [
+    {
+      "frame_id": 359,
+      "capture_usec": 73252000,
+      "phase": "WINDOW_APPROACH",
+      "waypoint_index": 11,
+      "target_enu_m": [
+        0.3,
+        -1.9,
+        0.95
+      ],
+      "speed_cap_m_s": 0.39,
+      "target_bracket_usec": [
+        73160000,
+        73264000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 73248000,
+          "mavlink_time_boot_usec": 73248000,
+          "uorb_timestamp_sample_usec": 73236000
+        },
+        {
+          "publication_usec": 73256000,
+          "mavlink_time_boot_usec": 73256000,
+          "uorb_timestamp_sample_usec": 73244000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 73252000,
+          "mavlink_time_boot_usec": 73252000,
+          "uorb_timestamp_sample_usec": 73240000
+        }
+      ],
+      "position_enu_m": [
+        1.9691085815429688,
+        -1.6780256628990173,
+        0.9246180951595306
+      ],
+      "velocity_enu_m_s": [
+        -0.31732363998889923,
+        -0.009303875267505646,
+        -0.002286791685037315
+      ],
+      "attitude_frd_rpy_rad": [
+        0.0008364113746210933,
+        -0.021197853609919548,
+        -1.715684175491333
+      ],
+      "state": [
+        0.3153420686721802,
+        -0.036609258502721786,
+        -0.0022867918014526367,
+        1.683668851852417,
+        -0.021339811384677887,
+        0.0253819040954113,
+        0.004182056989520788,
+        0.10598926991224289,
+        0.38999998569488525
+      ],
+      "changed_finite_pixels": 16103,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "control_velocity_flu_m_s": [
+        0.3899458348751068,
+        -0.0021580643951892853,
+        0.006131616421043873
+      ],
+      "finite_mismatch_velocity_flu_m_s": [
+        0.3899540901184082,
+        -0.004292496480047703,
+        0.004168519750237465
+      ],
+      "delta_velocity_flu_m_s": [
+        8.255243301391602e-06,
+        -0.0021344320848584175,
+        -0.001963096670806408
+      ],
+      "control_forward_m_s": 0.3899458348751068,
+      "finite_mismatch_forward_m_s": 0.3899540901184082,
+      "delta_forward_m_s": 8.255243301391602e-06,
+      "control_waypoint_closing_m_s": 0.3899899923973025,
+      "finite_mismatch_waypoint_closing_m_s": 0.3899957052049007,
+      "delta_waypoint_closing_m_s": 5.712807598238015e-06,
+      "control_speed_m_s": 0.39000001038245197,
+      "finite_mismatch_speed_m_s": 0.3899999929269422,
+      "delta_speed_m_s": -1.7455509759845e-08,
+      "vector_delta_norm_m_s": 0.0028999339669803204
+    },
+    {
+      "frame_id": 371,
+      "capture_usec": 75652000,
+      "phase": "WINDOW_APPROACH",
+      "waypoint_index": 11,
+      "target_enu_m": [
+        0.3,
+        -1.9,
+        0.95
+      ],
+      "speed_cap_m_s": 0.39,
+      "target_bracket_usec": [
+        75628000,
+        75760000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 75648000,
+          "mavlink_time_boot_usec": 75648000,
+          "uorb_timestamp_sample_usec": 75636000
+        },
+        {
+          "publication_usec": 75656000,
+          "mavlink_time_boot_usec": 75656000,
+          "uorb_timestamp_sample_usec": 75644000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 75652000,
+          "mavlink_time_boot_usec": 75652000,
+          "uorb_timestamp_sample_usec": 75640000
+        }
+      ],
+      "position_enu_m": [
+        1.0425480008125305,
+        -1.7581546902656555,
+        0.9371484816074371
+      ],
+      "velocity_enu_m_s": [
+        -0.40074339509010315,
+        -0.05265072174370289,
+        0.010711686685681343
+      ],
+      "attitude_frd_rpy_rad": [
+        -0.001708703930489719,
+        -0.0052531445398926735,
+        -1.748409628868103
+      ],
+      "state": [
+        0.40374135971069336,
+        -0.018981285393238068,
+        0.010711686685681343,
+        0.7559277415275574,
+        0.008419754914939404,
+        0.012851518578827381,
+        -0.008543519303202629,
+        0.026265721768140793,
+        0.38999998569488525
+      ],
+      "changed_finite_pixels": 10180,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "control_velocity_flu_m_s": [
+        0.38986337184906006,
+        0.008507512509822845,
+        0.005845998879522085
+      ],
+      "finite_mismatch_velocity_flu_m_s": [
+        0.38997283577919006,
+        0.004601664841175079,
+        4.059229831909761e-05
+      ],
+      "delta_velocity_flu_m_s": [
+        0.00010946393013000488,
+        -0.003905847668647766,
+        -0.005805406581202988
+      ],
+      "control_forward_m_s": 0.38986337184906006,
+      "finite_mismatch_forward_m_s": 0.38997283577919006,
+      "delta_forward_m_s": 0.00010946393013000488,
+      "control_waypoint_closing_m_s": 0.3899769835256051,
+      "finite_mismatch_waypoint_closing_m_s": 0.3899442520335048,
+      "delta_waypoint_closing_m_s": -3.273149210039752e-05,
+      "control_speed_m_s": 0.3900000027968239,
+      "finite_mismatch_speed_m_s": 0.38999998668295915,
+      "delta_speed_m_s": -1.611386474253962e-08,
+      "vector_delta_norm_m_s": 0.006997883532594384
+    },
+    {
+      "frame_id": 383,
+      "capture_usec": 78052000,
+      "phase": "WINDOW_ALIGN",
+      "waypoint_index": 12,
+      "target_enu_m": [
+        0.045893,
+        -2.460006,
+        0.9
+      ],
+      "speed_cap_m_s": 0.20475000000000002,
+      "target_bracket_usec": [
+        78028000,
+        78156000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 78052000,
+          "mavlink_time_boot_usec": 78052000,
+          "uorb_timestamp_sample_usec": 78040000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 78052000,
+          "mavlink_time_boot_usec": 78052000,
+          "uorb_timestamp_sample_usec": 78040000
+        }
+      ],
+      "position_enu_m": [
+        0.34632226824760437,
+        -1.8875895738601685,
+        0.9421980381011963
+      ],
+      "velocity_enu_m_s": [
+        -0.04654820263385773,
+        -0.021526023745536804,
+        -0.001594014698639512
+      ],
+      "attitude_frd_rpy_rad": [
+        -0.0017665019258856773,
+        0.011285709217190742,
+        -1.8459092378616333
+      ],
+      "state": [
+        0.05064539983868599,
+        0.008071447722613811,
+        -0.001594014698639512,
+        0.4446316063404083,
+        0.46927714347839355,
+        -0.04219803959131241,
+        -0.008832509629428387,
+        -0.05642854422330856,
+        0.20475000143051147
+      ],
+      "changed_finite_pixels": 17460,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 14,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "control_velocity_flu_m_s": [
+        0.13025890290737152,
+        0.15703988075256348,
+        -0.01713639684021473
+      ],
+      "finite_mismatch_velocity_flu_m_s": [
+        0.1344447135925293,
+        0.15355803072452545,
+        -0.016343696042895317
+      ],
+      "delta_velocity_flu_m_s": [
+        0.004185810685157776,
+        -0.003481850028038025,
+        0.0007927007973194122
+      ],
+      "control_forward_m_s": 0.13025890290737152,
+      "finite_mismatch_forward_m_s": 0.1344447135925293,
+      "delta_forward_m_s": 0.004185810685157776,
+      "control_waypoint_closing_m_s": 0.20427143323034286,
+      "finite_mismatch_waypoint_closing_m_s": 0.20457048890300805,
+      "delta_waypoint_closing_m_s": 0.0002990556726652216,
+      "control_speed_m_s": 0.20474999885244619,
+      "finite_mismatch_speed_m_s": 0.20475000906792185,
+      "delta_speed_m_s": 1.0215475659824946e-08,
+      "vector_delta_norm_m_s": 0.005502060092710751
+    },
+    {
+      "frame_id": 395,
+      "capture_usec": 80452000,
+      "phase": "WINDOW_ALIGN",
+      "waypoint_index": 12,
+      "target_enu_m": [
+        0.045893,
+        -2.460006,
+        0.9
+      ],
+      "speed_cap_m_s": 0.20475000000000002,
+      "target_bracket_usec": [
+        80332000,
+        80456000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 80448000,
+          "mavlink_time_boot_usec": 80448000,
+          "uorb_timestamp_sample_usec": 80436000
+        },
+        {
+          "publication_usec": 80456000,
+          "mavlink_time_boot_usec": 80456000,
+          "uorb_timestamp_sample_usec": 80444000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 80452000,
+          "mavlink_time_boot_usec": 80452000,
+          "uorb_timestamp_sample_usec": 80440000
+        }
+      ],
+      "position_enu_m": [
+        0.18405306339263916,
+        -2.210620641708374,
+        0.9052606225013733
+      ],
+      "velocity_enu_m_s": [
+        -0.0894085243344307,
+        -0.17730075120925903,
+        -0.01993175782263279
+      ],
+      "attitude_frd_rpy_rad": [
+        0.0002647643559612334,
+        -0.003318477887660265,
+        -1.7559305429458618
+      ],
+      "state": [
+        0.12051791697740555,
+        0.15781277418136597,
+        -0.01993175782263279,
+        0.18170559406280518,
+        0.2196914553642273,
+        -0.0052606225945055485,
+        0.001323821721598506,
+        0.016592388972640038,
+        0.20475000143051147
+      ],
+      "changed_finite_pixels": 17409,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "control_velocity_flu_m_s": [
+        0.12744855880737305,
+        0.13566440343856812,
+        -0.013974376954138279
+      ],
+      "finite_mismatch_velocity_flu_m_s": [
+        0.12501175701618195,
+        0.1318730115890503,
+        -0.0153007498010993
+      ],
+      "delta_velocity_flu_m_s": [
+        -0.002436801791191101,
+        -0.0037913918495178223,
+        -0.0013263728469610214
+      ],
+      "control_forward_m_s": 0.12744855880737305,
+      "finite_mismatch_forward_m_s": 0.12501175701618195,
+      "delta_forward_m_s": -0.002436801791191101,
+      "control_waypoint_closing_m_s": 0.18599494137390551,
+      "finite_mismatch_waypoint_closing_m_s": 0.18154552269901195,
+      "delta_waypoint_closing_m_s": -0.004449418674893572,
+      "control_speed_m_s": 0.18666346378891438,
+      "finite_mismatch_speed_m_s": 0.18235279960097828,
+      "delta_speed_m_s": -0.004310664187936103,
+      "vector_delta_norm_m_s": 0.004698076207906575
+    },
+    {
+      "frame_id": 407,
+      "capture_usec": 82852000,
+      "phase": "WINDOW_CROSS",
+      "waypoint_index": 13,
+      "target_enu_m": [
+        -0.987769,
+        -2.083784,
+        0.9
+      ],
+      "speed_cap_m_s": 0.29250000000000004,
+      "target_bracket_usec": [
+        82760000,
+        82864000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 82848000,
+          "mavlink_time_boot_usec": 82848000,
+          "uorb_timestamp_sample_usec": 82836000
+        },
+        {
+          "publication_usec": 82856000,
+          "mavlink_time_boot_usec": 82856000,
+          "uorb_timestamp_sample_usec": 82844000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 82852000,
+          "mavlink_time_boot_usec": 82852000,
+          "uorb_timestamp_sample_usec": 82840000
+        }
+      ],
+      "position_enu_m": [
+        -0.019957630895078182,
+        -2.4127014875411987,
+        0.8952597081661224
+      ],
+      "velocity_enu_m_s": [
+        -0.1899123415350914,
+        0.05758495070040226,
+        -0.0036358468933030963
+      ],
+      "attitude_frd_rpy_rad": [
+        0.0018745354609563947,
+        -0.021489178761839867,
+        -1.223312497138977
+      ],
+      "state": [
+        0.19817134737968445,
+        0.010528194718062878,
+        -0.003635847009718418,
+        1.021975040435791,
+        0.02031288854777813,
+        0.004740291740745306,
+        0.009372677654027939,
+        0.10744589567184448,
+        0.29249998927116394
+      ],
+      "changed_finite_pixels": 18696,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "control_velocity_flu_m_s": [
+        0.2924305498600006,
+        0.0036764717660844326,
+        -0.0052052708342671394
+      ],
+      "finite_mismatch_velocity_flu_m_s": [
+        0.2923336923122406,
+        0.007940123789012432,
+        -0.005847410764545202
+      ],
+      "delta_velocity_flu_m_s": [
+        -9.685754776000977e-05,
+        0.0042636520229279995,
+        -0.0006421399302780628
+      ],
+      "control_forward_m_s": 0.2924305498600006,
+      "finite_mismatch_forward_m_s": 0.2923336923122406,
+      "delta_forward_m_s": -9.685754776000977e-05,
+      "control_waypoint_closing_m_s": 0.2924185859390616,
+      "finite_mismatch_waypoint_closing_m_s": 0.2924034978743867,
+      "delta_waypoint_closing_m_s": -1.5088064674914636e-05,
+      "control_speed_m_s": 0.29249997911201153,
+      "finite_mismatch_speed_m_s": 0.29249995801596607,
+      "delta_speed_m_s": -2.1096045466073576e-08,
+      "vector_delta_norm_m_s": 0.004312824323715681
+    },
+    {
+      "frame_id": 419,
+      "capture_usec": 85252000,
+      "phase": "WINDOW_CROSS",
+      "waypoint_index": 13,
+      "target_enu_m": [
+        -0.987769,
+        -2.083784,
+        0.9
+      ],
+      "speed_cap_m_s": 0.29250000000000004,
+      "target_bracket_usec": [
+        85228000,
+        85328000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 85252000,
+          "mavlink_time_boot_usec": 85252000,
+          "uorb_timestamp_sample_usec": 85240000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 85252000,
+          "mavlink_time_boot_usec": 85252000,
+          "uorb_timestamp_sample_usec": 85240000
+        }
+      ],
+      "position_enu_m": [
+        -0.6554670929908752,
+        -2.1803226470947266,
+        0.8951165676116943
+      ],
+      "velocity_enu_m_s": [
+        -0.28549668192863464,
+        0.10066353529691696,
+        0.005438861437141895
+      ],
+      "attitude_frd_rpy_rad": [
+        -0.0011149628553539515,
+        -0.003918686881661415,
+        -1.2725861072540283
+      ],
+      "state": [
+        0.30247190594673157,
+        -0.01233888790011406,
+        0.005438861437141895,
+        0.3459993898868561,
+        0.005355781875550747,
+        0.004883432295173407,
+        -0.005574814043939114,
+        0.019593434408307076,
+        0.29249998927116394
+      ],
+      "changed_finite_pixels": 5347,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      },
+      "control_velocity_flu_m_s": [
+        0.23351973295211792,
+        0.008177332580089569,
+        0.0063989427872002125
+      ],
+      "finite_mismatch_velocity_flu_m_s": [
+        0.23460927605628967,
+        0.008104395121335983,
+        0.00025585200637578964
+      ],
+      "delta_velocity_flu_m_s": [
+        0.001089543104171753,
+        -7.293745875358582e-05,
+        -0.006143090780824423
+      ],
+      "control_forward_m_s": 0.23351973295211792,
+      "finite_mismatch_forward_m_s": 0.23460927605628967,
+      "delta_forward_m_s": 0.001089543104171753,
+      "control_waypoint_closing_m_s": 0.23368535688153474,
+      "finite_mismatch_waypoint_closing_m_s": 0.2346868477224745,
+      "delta_waypoint_closing_m_s": 0.0010014908409397417,
+      "control_speed_m_s": 0.23375046719728226,
+      "finite_mismatch_speed_m_s": 0.2347493537630897,
+      "delta_speed_m_s": 0.000998886565807433,
+      "vector_delta_norm_m_s": 0.0062393900655583045
+    }
+  ]
+}

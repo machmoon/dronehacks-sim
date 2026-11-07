@@ -1,0 +1,448 @@
+{
+  "protocol_sha256": "7c7325e89ba3518be18209566aa2fca7ee5509bf1ded2e77749ca14f6b250e5e",
+  "opencv": "4.13.0",
+  "numpy": "1.26.4",
+  "ulog_dropouts": 0,
+  "inputs": [
+    {
+      "frame_id": 359,
+      "capture_usec": 73252000,
+      "phase": "WINDOW_APPROACH",
+      "waypoint_index": 11,
+      "target_enu_m": [
+        0.3,
+        -1.9,
+        0.95
+      ],
+      "speed_cap_m_s": 0.39,
+      "target_bracket_usec": [
+        73160000,
+        73264000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 73248000,
+          "mavlink_time_boot_usec": 73248000,
+          "uorb_timestamp_sample_usec": 73236000
+        },
+        {
+          "publication_usec": 73256000,
+          "mavlink_time_boot_usec": 73256000,
+          "uorb_timestamp_sample_usec": 73244000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 73252000,
+          "mavlink_time_boot_usec": 73252000,
+          "uorb_timestamp_sample_usec": 73240000
+        }
+      ],
+      "position_enu_m": [
+        1.9691085815429688,
+        -1.6780256628990173,
+        0.9246180951595306
+      ],
+      "velocity_enu_m_s": [
+        -0.31732363998889923,
+        -0.009303875267505646,
+        -0.002286791685037315
+      ],
+      "attitude_frd_rpy_rad": [
+        0.0008364113746210933,
+        -0.021197853609919548,
+        -1.715684175491333
+      ],
+      "state": [
+        0.3153420686721802,
+        -0.036609258502721786,
+        -0.0022867918014526367,
+        1.683668851852417,
+        -0.021339811384677887,
+        0.0253819040954113,
+        0.004182056989520788,
+        0.10598926991224289,
+        0.38999998569488525
+      ],
+      "changed_finite_pixels": 16103,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      }
+    },
+    {
+      "frame_id": 371,
+      "capture_usec": 75652000,
+      "phase": "WINDOW_APPROACH",
+      "waypoint_index": 11,
+      "target_enu_m": [
+        0.3,
+        -1.9,
+        0.95
+      ],
+      "speed_cap_m_s": 0.39,
+      "target_bracket_usec": [
+        75628000,
+        75760000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 75648000,
+          "mavlink_time_boot_usec": 75648000,
+          "uorb_timestamp_sample_usec": 75636000
+        },
+        {
+          "publication_usec": 75656000,
+          "mavlink_time_boot_usec": 75656000,
+          "uorb_timestamp_sample_usec": 75644000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 75652000,
+          "mavlink_time_boot_usec": 75652000,
+          "uorb_timestamp_sample_usec": 75640000
+        }
+      ],
+      "position_enu_m": [
+        1.0425480008125305,
+        -1.7581546902656555,
+        0.9371484816074371
+      ],
+      "velocity_enu_m_s": [
+        -0.40074339509010315,
+        -0.05265072174370289,
+        0.010711686685681343
+      ],
+      "attitude_frd_rpy_rad": [
+        -0.001708703930489719,
+        -0.0052531445398926735,
+        -1.748409628868103
+      ],
+      "state": [
+        0.40374135971069336,
+        -0.018981285393238068,
+        0.010711686685681343,
+        0.7559277415275574,
+        0.008419754914939404,
+        0.012851518578827381,
+        -0.008543519303202629,
+        0.026265721768140793,
+        0.38999998569488525
+      ],
+      "changed_finite_pixels": 10180,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      }
+    },
+    {
+      "frame_id": 383,
+      "capture_usec": 78052000,
+      "phase": "WINDOW_ALIGN",
+      "waypoint_index": 12,
+      "target_enu_m": [
+        0.045893,
+        -2.460006,
+        0.9
+      ],
+      "speed_cap_m_s": 0.20475000000000002,
+      "target_bracket_usec": [
+        78028000,
+        78156000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 78052000,
+          "mavlink_time_boot_usec": 78052000,
+          "uorb_timestamp_sample_usec": 78040000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 78052000,
+          "mavlink_time_boot_usec": 78052000,
+          "uorb_timestamp_sample_usec": 78040000
+        }
+      ],
+      "position_enu_m": [
+        0.34632226824760437,
+        -1.8875895738601685,
+        0.9421980381011963
+      ],
+      "velocity_enu_m_s": [
+        -0.04654820263385773,
+        -0.021526023745536804,
+        -0.001594014698639512
+      ],
+      "attitude_frd_rpy_rad": [
+        -0.0017665019258856773,
+        0.011285709217190742,
+        -1.8459092378616333
+      ],
+      "state": [
+        0.05064539983868599,
+        0.008071447722613811,
+        -0.001594014698639512,
+        0.4446316063404083,
+        0.46927714347839355,
+        -0.04219803959131241,
+        -0.008832509629428387,
+        -0.05642854422330856,
+        0.20475000143051147
+      ],
+      "changed_finite_pixels": 17460,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 14,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      }
+    },
+    {
+      "frame_id": 395,
+      "capture_usec": 80452000,
+      "phase": "WINDOW_ALIGN",
+      "waypoint_index": 12,
+      "target_enu_m": [
+        0.045893,
+        -2.460006,
+        0.9
+      ],
+      "speed_cap_m_s": 0.20475000000000002,
+      "target_bracket_usec": [
+        80332000,
+        80456000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 80448000,
+          "mavlink_time_boot_usec": 80448000,
+          "uorb_timestamp_sample_usec": 80436000
+        },
+        {
+          "publication_usec": 80456000,
+          "mavlink_time_boot_usec": 80456000,
+          "uorb_timestamp_sample_usec": 80444000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 80452000,
+          "mavlink_time_boot_usec": 80452000,
+          "uorb_timestamp_sample_usec": 80440000
+        }
+      ],
+      "position_enu_m": [
+        0.18405306339263916,
+        -2.210620641708374,
+        0.9052606225013733
+      ],
+      "velocity_enu_m_s": [
+        -0.0894085243344307,
+        -0.17730075120925903,
+        -0.01993175782263279
+      ],
+      "attitude_frd_rpy_rad": [
+        0.0002647643559612334,
+        -0.003318477887660265,
+        -1.7559305429458618
+      ],
+      "state": [
+        0.12051791697740555,
+        0.15781277418136597,
+        -0.01993175782263279,
+        0.18170559406280518,
+        0.2196914553642273,
+        -0.0052606225945055485,
+        0.001323821721598506,
+        0.016592388972640038,
+        0.20475000143051147
+      ],
+      "changed_finite_pixels": 17409,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      }
+    },
+    {
+      "frame_id": 407,
+      "capture_usec": 82852000,
+      "phase": "WINDOW_CROSS",
+      "waypoint_index": 13,
+      "target_enu_m": [
+        -0.987769,
+        -2.083784,
+        0.9
+      ],
+      "speed_cap_m_s": 0.29250000000000004,
+      "target_bracket_usec": [
+        82760000,
+        82864000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 82848000,
+          "mavlink_time_boot_usec": 82848000,
+          "uorb_timestamp_sample_usec": 82836000
+        },
+        {
+          "publication_usec": 82856000,
+          "mavlink_time_boot_usec": 82856000,
+          "uorb_timestamp_sample_usec": 82844000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 82852000,
+          "mavlink_time_boot_usec": 82852000,
+          "uorb_timestamp_sample_usec": 82840000
+        }
+      ],
+      "position_enu_m": [
+        -0.019957630895078182,
+        -2.4127014875411987,
+        0.8952597081661224
+      ],
+      "velocity_enu_m_s": [
+        -0.1899123415350914,
+        0.05758495070040226,
+        -0.0036358468933030963
+      ],
+      "attitude_frd_rpy_rad": [
+        0.0018745354609563947,
+        -0.021489178761839867,
+        -1.223312497138977
+      ],
+      "state": [
+        0.19817134737968445,
+        0.010528194718062878,
+        -0.003635847009718418,
+        1.021975040435791,
+        0.02031288854777813,
+        0.004740291740745306,
+        0.009372677654027939,
+        0.10744589567184448,
+        0.29249998927116394
+      ],
+      "changed_finite_pixels": 18696,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      }
+    },
+    {
+      "frame_id": 419,
+      "capture_usec": 85252000,
+      "phase": "WINDOW_CROSS",
+      "waypoint_index": 13,
+      "target_enu_m": [
+        -0.987769,
+        -2.083784,
+        0.9
+      ],
+      "speed_cap_m_s": 0.29250000000000004,
+      "target_bracket_usec": [
+        85228000,
+        85328000
+      ],
+      "local_bracket": [
+        {
+          "publication_usec": 85252000,
+          "mavlink_time_boot_usec": 85252000,
+          "uorb_timestamp_sample_usec": 85240000
+        }
+      ],
+      "attitude_bracket": [
+        {
+          "publication_usec": 85252000,
+          "mavlink_time_boot_usec": 85252000,
+          "uorb_timestamp_sample_usec": 85240000
+        }
+      ],
+      "position_enu_m": [
+        -0.6554670929908752,
+        -2.1803226470947266,
+        0.8951165676116943
+      ],
+      "velocity_enu_m_s": [
+        -0.28549668192863464,
+        0.10066353529691696,
+        0.005438861437141895
+      ],
+      "attitude_frd_rpy_rad": [
+        -0.0011149628553539515,
+        -0.003918686881661415,
+        -1.2725861072540283
+      ],
+      "state": [
+        0.30247190594673157,
+        -0.01233888790011406,
+        0.005438861437141895,
+        0.3459993898868561,
+        0.005355781875550747,
+        0.004883432295173407,
+        -0.005574814043939114,
+        0.019593434408307076,
+        0.29249998927116394
+      ],
+      "changed_finite_pixels": 5347,
+      "policy_depth_delta": {
+        "admitted": true,
+        "reason": null,
+        "coverage": 1.0,
+        "center_coverage": 1.0,
+        "near_to_far_bins": 0,
+        "near_to_far_center_bins": 0,
+        "near_to_max_range_bins": 0
+      }
+    }
+  ],
+  "duplicate_boot_stamps_discarded": {
+    "local": 0,
+    "attitude": 21
+  },
+  "sha256": {
+    "artifacts/markerfree/stereo-actor-sensitivity-01/actor_probe.py": "67be96baf75af682e69d5f99a9abd3270f980241e33ff83087e216cc8fb804d0",
+    "artifacts/markerfree/stereo-actor-sensitivity-01/protocol.json": "7c7325e89ba3518be18209566aa2fca7ee5509bf1ded2e77749ca14f6b250e5e",
+    "artifacts/markerfree/stereo-stress-01/protocol.json": "70c11cafbcdd8907f1593e28270d13d02ce4030a306ea4821876315879fa19a2",
+    "artifacts/markerfree/stereo-stress-01/results.json": "89b6462fbd6ac061f08a1cedb4d4a9dbf48a73961d9af71b9e65ea957c9c52f8",
+    "artifacts/markerfree/stereo-stress-01/probe.py": "236706f44625b94a83d41fbd224b4876d19c726f7bbf235215f12a4020bc5c3c",
+    "artifacts/markerfree/stereo-stress-01/sources.json": "121ced9d74a08d60fd55cbeecc5d8465d622ce0346ed7bd53a93a2e6d2059f6b",
+    "artifacts/px4/log/2026-11-07/15_23_01.ulg.gz": "22133134e1f54e6188b6ef9fa3111efdb156c6834832f9973303924793b72553",
+    "artifacts/markerfree/policy-07/telemetry.jsonl": "27cc2aab1604dad83666ff50fed8b648e97c298beaf62d0a8be2a71cffa9342e",
+    "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+    "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+    "artifacts/learning/20261107T120458Z-273a3b/source-snapshot/learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000359.png": "213212c6f7785799ad11abed0f7adcb42726fa20932b5e9d375d58a1ab9ef3b5",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000371.png": "595482279b4145e59321961a8ba4ff42a11f4059191e3abcbd8a172d1299bb70",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000383.png": "4790a1788246680f35b0fe8557e1966461d73f0cb5ee7a55ed37011e209dbea1",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000395.png": "275c28f4416e4c5d67beee6965203aeb34b809a7ad8f9295d9adca4ff8006cd5",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000407.png": "439e2bdb4f10ccd8fdd244ab5cd7614f0a090a0055986b76d7212acba7d92467",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000419.png": "8df94007ffb5bed778fa28eea2186928bb2be4fc69aa54cf42fdc0aeea271a00",
+    "artifacts/markerfree/stereo-actor-sensitivity-01/inputs.npz": "1c971f38995677499bfbd70b30d215604a2bc4c2b15690e012a1d4291048cbaa"
+  }
+}

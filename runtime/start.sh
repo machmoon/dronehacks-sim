@@ -18,6 +18,13 @@ start() {
 }
 
 args=(-r -v 3)
+if [[ -n ${SIM_MARKERFREE_GZ_SEED:-} ]]; then
+    if [[ ${GZ_PARTITION:-} != dronehacks_markerfree || ! $SIM_MARKERFREE_GZ_SEED =~ ^[1-9][0-9]*$ ]]; then
+        echo 'Invalid marker-free Gazebo seed or partition.' >&2
+        exit 1
+    fi
+    args+=(--seed "$SIM_MARKERFREE_GZ_SEED")
+fi
 world=${SIM_WORLD:-worlds/course.sdf}
 gui_args=()
 if [[ ${SIM_GUI:-1} == 1 ]]; then

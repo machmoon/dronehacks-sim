@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "registered_at_utc": "2026-11-07T18:48:46.218850+00:00",
+  "status_at_registration": "not_run",
+  "purpose": "Evaluate an optional prearm absolute-survey qualification, separate from the unchanged original net-visual ablation. No claim of restored navigation in the treatment scene.",
+  "configuration": {
+    "flag": "--require-survey-startup",
+    "default_enabled": false,
+    "min_contiguous_capture_span_s": 3.0,
+    "max_capture_gap_and_age_s": 0.12,
+    "accepted_sources": [
+      "depth_survey",
+      "depth_survey_tof",
+      "depth_survey_px4_tilt",
+      "depth_survey_tof_px4_tilt"
+    ],
+    "survey_normals": "fals7",
+    "px4_tilt": true,
+    "depth_noise": "gaussian-10mm",
+    "noise_seed": 4417,
+    "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31"
+  },
+  "source_sha256": {
+    "mission/markerfree_run.py": "0dca1b349a57a04a956fc07bcce2250942e83247f3416507e9cb32251a10a9d0",
+    "mission/survey_startup.py": "35d74a04aa33e8c364adc734d29ff5b736b895b29782caa788b3724b44a8ccc2",
+    "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+    "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+  },
+  "control": {
+    "output": "artifacts/markerfree/survey-startup-control-01",
+    "world": "artifacts/markerfree/net-visual-ablation-01/control.sdf",
+    "runtime_world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0",
+    "requirements": [
+      "mission completed, settled >=3simseconds, landed/disarmed",
+      "all7 applicable hover score checks",
+      "survey_startup_at_arm ready with span>=3s and accepted_count>1",
+      "complete closed observer with zero overflow",
+      "zero received obstacle/transit-ground contact pairs"
+    ]
+  },
+  "treatment": {
+    "output": "artifacts/markerfree/survey-startup-treatment-01",
+    "world": "artifacts/markerfree/net-visual-ablation-01/treatment.sdf",
+    "runtime_world_sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d",
+    "prerequisite": "control acceptance passes",
+    "startup_wall_timeout_s": 120,
+    "requirements": [
+      "mission exits with absolute_survey_startup_unqualified",
+      "arm_request_sent is false and no armed event",
+      "all sampled PX4 armed flags are false",
+      "nonempty capture ledger, all qualification ready flags false",
+      "final sampled PX4 landed_state=on_ground",
+      "complete closed observer with zero overflow"
+    ]
+  },
+  "failure_policy": "Retain failures; stop dependent steps if control fails. Do not tune thresholds or rerun the treatment for a passing result.",
+  "limits": [
+    "Qualification uses estimator-accepted survey source labels; it does not independently prove pose accuracy.",
+    "No check guarantees continued observability after takeoff.",
+    "No full route with this optional flag is claimed by these two tests.",
+    "Original hover-11 treatment failure remains unchanged.",
+    "No physical hardware is accessed."
+  ]
+}

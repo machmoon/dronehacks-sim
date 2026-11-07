@@ -1,0 +1,795 @@
+{
+  "scope": "Failed noisy-depth policy flight after a successful noisy hover. The controller rejected an underconstrained survey match and confirmed landing/disarm after abort. No noisy full-route success is claimed.",
+  "summary": {
+    "type": "summary",
+    "run_id": "1d2d51936eb346bea1a6690473f97028",
+    "world": "dronehacks",
+    "vehicle": "course_quad",
+    "vehicle_model": "PX4 x500",
+    "task": "policy",
+    "launch": {
+      "position_enu": [
+        -2.5146,
+        0.9144,
+        0.24
+      ],
+      "yaw_enu_deg": 90.0
+    },
+    "source": "RGBD depth registration to supplied course map + PX4 EKF2",
+    "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+    "simulator_position_used_for_control": false,
+    "inertial_tilt_prior_enabled": true,
+    "sitl_power_watchdog_enabled": true,
+    "policy_boundary_brake_enabled": true,
+    "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+    "policy_depth_mode": "raw",
+    "result": "failed",
+    "fault": "rgbd_pose_unavailable:tracking_lost:survey:unobservable_depth_geometry:0.0028333;depth:insufficient_depth_overlap;rgb:insufficient_correspondences",
+    "elapsed_sim_s": 33.34,
+    "route_elapsed_sim_s": null,
+    "route_completed": false,
+    "landed_and_disarmed": false,
+    "landed_after_fault": true,
+    "landing_position_enu": null,
+    "pad_radius_m": 0.762,
+    "aircraft_radius_m": 0.401,
+    "waypoints_reached": 5,
+    "waypoint_count": 15,
+    "hover_settled_sim_s": 3.0,
+    "vision_measurements_sent": 966,
+    "policy_actions_received": 120,
+    "policy_setpoints_sent": 1524,
+    "policy_boundary_braking_interventions": 86,
+    "policy_boundary_guard_setpoints": 1564,
+    "policy_boundary_budget_max_deficit_m": 0.022605085372924827,
+    "policy_training_camera_forward_m": 0.34,
+    "policy_training_heading_lookahead_m": 1.8,
+    "policy_service_session": "115cfc919e58495586ed037692ab6c9a"
+  },
+  "score": {
+    "run_id": "1d2d51936eb346bea1a6690473f97028",
+    "task": "policy",
+    "mission_result": "failed",
+    "mission_fault": "rgbd_pose_unavailable:tracking_lost:survey:unobservable_depth_geometry:0.0028333;depth:insufficient_depth_overlap;rgb:insufficient_correspondences",
+    "full_route_verified_by_geometry": false,
+    "checks": {
+      "controller_reports_all_waypoints": false,
+      "truth_complete_during_flight": true,
+      "truth_reaches_all_waypoints_in_order": false,
+      "truth_crosses_window_with_full_envelope": false,
+      "truth_multipart_path_certified_clear": true,
+      "truth_transit_floor_checked": true,
+      "px4_ground_and_disarm_confirmed": false,
+      "truth_touchdown_inside_pad": false
+    },
+    "flight_interval_sim_s": [
+      17.556,
+      50.896
+    ],
+    "max_truth_interpolation_gap_s": 0.12,
+    "truth_sample_count": 7103,
+    "truth_flight_points": 4249,
+    "truth_contiguous_chunks": 1,
+    "route": {
+      "reached": 5,
+      "required": 15,
+      "arrivals": [
+        {
+          "index": 0,
+          "phase": "TAKEOFF",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 28.04058173634233,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 1,
+          "phase": "FIRST_CORRIDOR",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 36.36076783418915,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 2,
+          "phase": "MAZE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 40.295882908266044,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 3,
+          "phase": "MAZE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 44.88342396531065,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 4,
+          "phase": "MAZE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 48.50044680625086,
+          "verification_radius_m": 0.08
+        }
+      ]
+    },
+    "window": {
+      "full_envelope_crossed": false,
+      "min_aperture_clearance_m": null,
+      "direction": "incomplete",
+      "valid_forward_crossings": 0,
+      "forward_attempts": 0,
+      "valid_reverse_crossings": 0,
+      "margin_m": 0.015,
+      "path_assumption": "Linear translation, shortest-arc attitude, conservative inflated component supports."
+    },
+    "cad_proxy": {
+      "certified_clear": true,
+      "phases": {
+        "takeoff": {
+          "interval_sim_s": [
+            17.556,
+            28.668
+          ],
+          "ground_checked": false,
+          "truth_complete": true,
+          "certified_clear": true,
+          "checked_subsegments": 1417,
+          "first_unresolved": null
+        },
+        "transit": {
+          "interval_sim_s": [
+            28.668,
+            50.896
+          ],
+          "ground_checked": true,
+          "truth_complete": true,
+          "certified_clear": true,
+          "checked_subsegments": 2832,
+          "first_unresolved": null
+        }
+      },
+      "margin_m": 0.015,
+      "component_count": 9,
+      "model": "SDF body/gear boxes and swept rotor cylinders against the course CAD proxy boxes and polygonal tunnel shell. Translation is linear and attitude follows the shortest arc.",
+      "interpretation": "Unresolved component separation can be a conservative false positive."
+    },
+    "legacy_sphere": {
+      "window": {
+        "full_envelope_crossed": false,
+        "min_aperture_clearance_m": null,
+        "direction": "incomplete",
+        "valid_forward_crossings": 0,
+        "forward_attempts": 0,
+        "valid_reverse_crossings": 0,
+        "expanded_half_thickness_m": 0.4108,
+        "path_assumption": "Linear interpolation between supplied positions; conservative full-radius aperture erosion."
+      },
+      "cad_proxy": {
+        "sphere_radius_m": 0.36,
+        "checked_segments": 4248,
+        "hit_segment_count": 0,
+        "first_hit_segment_sim_s": null,
+        "sampled_min_obstacle_clearance_m": 0.04372244110451462,
+        "first_transit_floor_overlap_segment_sim_s": null,
+        "model": "Continuous sphere sweeps over learning.sim CAD box and polygonal tunnel proxies, linear truth segments.",
+        "ground_treatment": "Floor scored separately from the start of hover verification to landing handoff."
+      },
+      "landing_horizontal_clearance_m": null
+    },
+    "landing": {
+      "px4_confirmed_ground_and_disarm": false,
+      "truth_time_sim_s": null,
+      "truth_base_link_enu_m": null,
+      "pad_center_enu_m": [
+        -2.0422,
+        -0.7925,
+        0.0
+      ],
+      "pad_radius_m": 0.762,
+      "horizontal_footprint_radius_bound_m": 0.4081546507290498,
+      "horizontal_envelope_clearance_m": null,
+      "ground_height_error_vs_launch_m": null,
+      "px4_landing_error_enu_m": null,
+      "truth_envelope_inside_pad": false,
+      "truth_height_consistent_with_touchdown": false
+    },
+    "abort_landing": {
+      "fault_sim_s": 50.896,
+      "confirmed_disarm_sim_s": 56.556,
+      "controller_confirmed_ground_and_disarm": true,
+      "cad_proxy": {
+        "certified_clear": true,
+        "phases": {
+          "abort_landing": {
+            "interval_sim_s": [
+              50.896,
+              56.556
+            ],
+            "ground_checked": false,
+            "truth_complete": true,
+            "certified_clear": true,
+            "checked_subsegments": 718,
+            "first_unresolved": null
+          }
+        },
+        "margin_m": 0.015,
+        "component_count": 9,
+        "model": "SDF body/gear boxes and swept rotor cylinders against the course CAD proxy boxes and polygonal tunnel shell. Translation is linear and attitude follows the shortest arc.",
+        "interpretation": "Unresolved component separation can be a conservative false positive."
+      },
+      "contacts": {
+        "status": "partial_topic_coverage",
+        "topics_with_messages": [
+          "/model/course_quad/contact/base_link"
+        ],
+        "topics_expected": [
+          "/model/course_quad/contact/base_link",
+          "/model/course_quad/contact/rotor_0",
+          "/model/course_quad/contact/rotor_1",
+          "/model/course_quad/contact/rotor_2",
+          "/model/course_quad/contact/rotor_3"
+        ],
+        "topic_discovery_and_observations": {
+          "/model/course_quad/contact/base_link": {
+            "publisher_count_start": 5,
+            "publisher_count_end": 5,
+            "transport_messages_received": 13384,
+            "messages_with_contact_pairs": 13384,
+            "interpretation": "messages_received"
+          },
+          "/model/course_quad/contact/rotor_0": {
+            "publisher_count_start": 1,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_1": {
+            "publisher_count_start": 1,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_2": {
+            "publisher_count_start": 1,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_3": {
+            "publisher_count_start": 1,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          }
+        },
+        "raw_pair_observations": {
+          "obstacle": 0,
+          "transit_ground": 0,
+          "expected_ground": 2060,
+          "self": 0
+        },
+        "first_obstacle_observation": null,
+        "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact."
+      },
+      "certified_clear_through_disarm": true,
+      "scope": "Clearance covers the post-fault interval through controller-confirmed disarm. It compares the margin-inflated multipart envelope with course CAD obstacle proxies. Floor contact is permitted. Physical contact evidence is reported separately."
+    },
+    "contacts": {
+      "status": "partial_topic_coverage",
+      "topics_with_messages": [
+        "/model/course_quad/contact/base_link"
+      ],
+      "topics_expected": [
+        "/model/course_quad/contact/base_link",
+        "/model/course_quad/contact/rotor_0",
+        "/model/course_quad/contact/rotor_1",
+        "/model/course_quad/contact/rotor_2",
+        "/model/course_quad/contact/rotor_3"
+      ],
+      "topic_discovery_and_observations": {
+        "/model/course_quad/contact/base_link": {
+          "publisher_count_start": 5,
+          "publisher_count_end": 5,
+          "transport_messages_received": 13384,
+          "messages_with_contact_pairs": 13384,
+          "interpretation": "messages_received"
+        },
+        "/model/course_quad/contact/rotor_0": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_1": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_2": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_3": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        }
+      },
+      "raw_pair_observations": {
+        "obstacle": 0,
+        "transit_ground": 0,
+        "expected_ground": 2806,
+        "self": 0
+      },
+      "first_obstacle_observation": null,
+      "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact.",
+      "unexpected_contact_observed": false
+    },
+    "px4_position_error": {
+      "timestamp_field": "position_stamp_sim_s",
+      "approximate_loop_timestamp_samples": 0,
+      "unmatched_timestamp_count": 0,
+      "stats": {
+        "sample_count": 304,
+        "bias_enu_m": [
+          0.0001362241254847436,
+          6.326477156044128e-05,
+          -0.0024153010058762386
+        ],
+        "rmse_enu_m": [
+          0.00551315732411766,
+          0.0031145330550411943,
+          0.004683149627277926
+        ],
+        "first_error_enu_m": [
+          0.0012375923156739965,
+          6.226807538656232e-05,
+          -0.0006403890879142782
+        ],
+        "last_error_enu_m": [
+          0.0006578988575235423,
+          -0.002294028149874894,
+          -0.0035762660990337203
+        ],
+        "rmse_m": 0.007875729189280811,
+        "median_m": 0.004672184703374104,
+        "p95_m": 0.019469529631869254,
+        "max_m": 0.026853176988152823
+      },
+      "by_phase": {
+        "TAKEOFF": {
+          "sample_count": 100,
+          "bias_enu_m": [
+            0.001042722790897619,
+            0.0008316541143442158,
+            -0.001509557665343871
+          ],
+          "rmse_enu_m": [
+            0.001189810570377767,
+            0.0010680645605419155,
+            0.006871693394351305
+          ],
+          "first_error_enu_m": [
+            0.0012375923156739965,
+            6.226807538656232e-05,
+            -0.0006403890879142782
+          ],
+          "last_error_enu_m": [
+            0.0018107937450864142,
+            -6.155485649195214e-05,
+            -0.003956781807095022
+          ],
+          "rmse_m": 0.007055252029859715,
+          "median_m": 0.00537463784432619,
+          "p95_m": 0.016830432318994597,
+          "max_m": 0.021078432637965785
+        },
+        "HOVER_CHECK": {
+          "sample_count": 27,
+          "bias_enu_m": [
+            0.0017457454728767709,
+            0.0010208947677010267,
+            -0.003635691144367504
+          ],
+          "rmse_enu_m": [
+            0.0017765208938126053,
+            0.001071531865135932,
+            0.0036466977188069935
+          ],
+          "first_error_enu_m": [
+            0.0019529161577875875,
+            6.632619120561234e-05,
+            -0.0038455730557226397
+          ],
+          "last_error_enu_m": [
+            0.0020456603144833885,
+            0.001169193782912803,
+            -0.003782381361534193
+          ],
+          "rmse_m": 0.004195546600445114,
+          "median_m": 0.0043102514398203244,
+          "p95_m": 0.004543741747563849,
+          "max_m": 0.004594140679192776
+        },
+        "FIRST_CORRIDOR": {
+          "sample_count": 47,
+          "bias_enu_m": [
+            0.0017580558739066616,
+            -0.004433434022074102,
+            -0.0029928024618092164
+          ],
+          "rmse_enu_m": [
+            0.012665408297804999,
+            0.0064468459029152405,
+            0.003315994729949302
+          ],
+          "first_error_enu_m": [
+            0.0019237386830255332,
+            0.001135383875957352,
+            -0.003717930925698276
+          ],
+          "last_error_enu_m": [
+            0.00035853907326410805,
+            -0.010599681586908272,
+            -0.0040017751964542825
+          ],
+          "rmse_m": 0.014593498912018815,
+          "median_m": 0.0076037321046009045,
+          "p95_m": 0.025175568773368188,
+          "max_m": 0.026853176988152823
+        },
+        "MAZE": {
+          "sample_count": 130,
+          "bias_enu_m": [
+            -0.0014817222983360442,
+            0.0008990332263808281,
+            -0.0026497720203771816
+          ],
+          "rmse_enu_m": [
+            0.0033671289058782292,
+            0.0025576633060178126,
+            0.0028681502702449994
+          ],
+          "first_error_enu_m": [
+            -0.0010078540620557241,
+            -0.009162852121314735,
+            -0.003653066695339824
+          ],
+          "last_error_enu_m": [
+            0.0006578988575235423,
+            -0.002294028149874894,
+            -0.0035762660990337203
+          ],
+          "rmse_m": 0.005109352662368996,
+          "median_m": 0.004500136544082004,
+          "p95_m": 0.007580517743700104,
+          "max_m": 0.009915569831738627
+        }
+      }
+    },
+    "px4_attitude_error": {
+      "sample_count": 305,
+      "approximate_loop_timestamp_samples": 0,
+      "unmatched_timestamp_count": 0,
+      "rmse_deg": 0.2018349465332378,
+      "p95_deg": 0.4786027370753699,
+      "max_deg": 0.8515511782083606
+    },
+    "camera_position_error": {
+      "timestamp_field": "vision_stamp_sim_s",
+      "approximate_loop_timestamp_samples": 0,
+      "unmatched_timestamp_count": 0,
+      "stats": {
+        "sample_count": 304,
+        "bias_enu_m": [
+          0.00025033065073924813,
+          -7.267160380857627e-05,
+          -0.0021264599312518957
+        ],
+        "rmse_enu_m": [
+          0.0038950223929319883,
+          0.0010666486528916484,
+          0.0024014547245764417
+        ],
+        "first_error_enu_m": [
+          -0.0007959938250663434,
+          0.0008771446171396136,
+          -0.0016321157239939377
+        ],
+        "last_error_enu_m": [
+          -0.0017662428492951632,
+          -1.2277950529826498e-05,
+          -0.0009087076758544921
+        ],
+        "rmse_m": 0.004698502270335485,
+        "median_m": 0.0028722165173537977,
+        "p95_m": 0.0047099364293235295,
+        "max_m": 0.05692352493775625
+      },
+      "by_phase": {
+        "TAKEOFF": {
+          "sample_count": 100,
+          "bias_enu_m": [
+            0.001302320297451267,
+            0.0005459951329303526,
+            -0.0019053388413437602
+          ],
+          "rmse_enu_m": [
+            0.001553323634339502,
+            0.0007075655616920082,
+            0.002163841682125162
+          ],
+          "first_error_enu_m": [
+            -0.0007959938250663434,
+            0.0008771446171396136,
+            -0.0016321157239939377
+          ],
+          "last_error_enu_m": [
+            0.0005595014741670568,
+            0.0011792294602771536,
+            -0.0032494472982460554
+          ],
+          "rmse_m": 0.002756025065632106,
+          "median_m": 0.0024717868822559785,
+          "p95_m": 0.004006651441912672,
+          "max_m": 0.005463871559677515
+        },
+        "HOVER_CHECK": {
+          "sample_count": 27,
+          "bias_enu_m": [
+            0.0015294880823379518,
+            0.0008236325255965807,
+            -0.0030739197222586613
+          ],
+          "rmse_enu_m": [
+            0.0017279195777483054,
+            0.000884619384441123,
+            0.003198713749216294
+          ],
+          "first_error_enu_m": [
+            0.001646686175531098,
+            0.0012289885349281437,
+            -0.003662103375165704
+          ],
+          "last_error_enu_m": [
+            0.0015471504909374545,
+            0.0005218729133116273,
+            -0.002579885968817197
+          ],
+          "rmse_m": 0.003741661017772753,
+          "median_m": 0.00373686978461741,
+          "p95_m": 0.005275909391666885,
+          "max_m": 0.005546939794188155
+        },
+        "FIRST_CORRIDOR": {
+          "sample_count": 47,
+          "bias_enu_m": [
+            0.00018523673132907174,
+            -0.00036008290073664045,
+            -0.002209708911599839
+          ],
+          "rmse_enu_m": [
+            0.003177388763247164,
+            0.0008530182270955136,
+            0.002539783387542248
+          ],
+          "first_error_enu_m": [
+            0.0004967799974844311,
+            0.0007490666058700413,
+            -0.002966814131114548
+          ],
+          "last_error_enu_m": [
+            0.0008317137917162043,
+            -0.0002184017889668155,
+            -0.0023884418995080425
+          ],
+          "rmse_m": 0.004156192861766895,
+          "median_m": 0.0027378445454796277,
+          "p95_m": 0.005259028308066361,
+          "max_m": 0.0181881827000817
+        },
+        "MAZE": {
+          "sample_count": 130,
+          "bias_enu_m": [
+            -0.0008010293578152797,
+            -0.0006308143285179078,
+            -0.00206967525861557
+          ],
+          "rmse_enu_m": [
+            0.005417668080174893,
+            0.0013600901718008663,
+            0.0023295939404413455
+          ],
+          "first_error_enu_m": [
+            0.0006713119047576654,
+            -0.0009714720656677223,
+            -0.0014973541790771483
+          ],
+          "last_error_enu_m": [
+            -0.0017662428492951632,
+            -1.2277950529826498e-05,
+            -0.0009087076758544921
+          ],
+          "rmse_m": 0.006052105470802394,
+          "median_m": 0.0029537498496512993,
+          "p95_m": 0.004698138578956918,
+          "max_m": 0.05692352493775625
+        }
+      }
+    },
+    "camera_capture_age_sim_s": {
+      "median": 0.06400000000000006,
+      "p95": 0.09600000000000364
+    },
+    "provenance": {
+      "sha256_by_file": {
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/policy-06/telemetry.jsonl": "66faa426972d40a4cdcafbc70b3ab066aee7f8ada26fdda7f007eef97dee4960",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/policy-06/observer/truth.jsonl": "59a0d01e4aa8b4ea8b731db9ea55dafc5a98dc92070e5fc4e2f0aed542cd7ed3",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/policy-06/observer/contacts.jsonl": "0eb20414125ff346c80ac07704a0b7d16339d59764633679dbf617ad971a8a28",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/policy-06/observer/status.json": "7c5ffb976fd762536c656d203210a1168e32f4e41b6ab3c25aed837989372b74",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+        "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6"
+      },
+      "navigation_source_audit": {
+        "type": "event",
+        "message": "Navigation source audit passed",
+        "world_and_model_sources": [
+          {
+            "path": "/tmp/dronehacks-px4.sdf",
+            "sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+          },
+          {
+            "path": "/workspace/models/flight_x500/model.sdf",
+            "sha256": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472"
+          },
+          {
+            "path": "/workspace/models/flight_x500_base/model.sdf",
+            "sha256": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b"
+          },
+          {
+            "path": "/workspace/models/course_v3/model.sdf",
+            "sha256": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072"
+          }
+        ],
+        "truth_topic": "/model/course_quad/odometry_with_covariance",
+        "truth_topic_publishers": 0,
+        "topic_audit": "No publishers on topic [/model/course_quad/odometry_with_covariance]\nSubscribers [Address, Message Type]:\n  tcp://127.0.0.1:39467, gz.msgs.OdometryWithCovariance",
+        "artificial_landmark_models": 0,
+        "position_aiding": "MAVLink camera/depth estimate only; EKF parameters verified separately",
+        "static_survey_used": true,
+        "live_simulator_position_used": false
+      },
+      "truth_source": "Independent Gazebo dynamic_pose/info observer, world ENU base_link.",
+      "estimate_source": "PX4 LOCAL_POSITION_NED converted to ENU in controller telemetry; camera ENU when logged.",
+      "error_sign": "Estimate minus truth; no fitted frame transform or time shift.",
+      "geometry_scope": "Simulated path, multipart x500 collision envelope, and course CAD proxies. Legacy sphere diagnostics do not determine the score. Geometry certification does not establish physical contacts or official scoring."
+    }
+  },
+  "sensor_diagnostic": {
+    "mode": "gaussian-10mm",
+    "seed": 4417,
+    "configured_renderer": "ogre2",
+    "depth_topic": "/dronehacks/rgbd/depth_image",
+    "noise_mean_m": 0.0,
+    "noise_stddev_m": 0.01,
+    "world_path": "/tmp/dronehacks-px4.sdf",
+    "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+    "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+    "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+  },
+  "px4_runtime": {
+    "executable_path": "/opt/px4/bin/px4",
+    "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+    "build_manifest": {
+      "schema_version": 1,
+      "base_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+      "patches": [
+        {
+          "path": "patches/px4-posix-hrt-serialization.patch",
+          "sha256": "3d7560bf9154091b0c7a2ce5230ac06af719cb51a15e4aa6ab0b65a1fbe0d61c"
+        }
+      ],
+      "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+      "build_adjustments": [
+        "mavlink_loopback_only",
+        "unused_gz_optical_flow_plugin_disabled"
+      ],
+      "build_script_sha256": "cc3e0b9b66ed24ca3a75482c09fafd9abacef7ded7d451d7ec2381facde3ccc3",
+      "base_build_script_sha256": "0f7ec7f2cab668bd7d66b985aa2f5f25db80813c2a4480a11daca65c122be6df",
+      "build_target": "px4_sitl",
+      "compiler_jobs": 1,
+      "runtime_base_image_id": "sha256:1a143b37658705117b3f3b494509b3d86f879da253137afdbe580e6eaa9294df",
+      "package_script_sha256": "618e85ac498adeb0d2432b4094a4896cd82f018f79110b98ebd60618a786451d"
+    },
+    "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+    "manifest_verified": true,
+    "scope": "On-disk SITL executable; launch script starts this path. Not hardware firmware."
+  },
+  "runtime_source_sha256": {
+    "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+    "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+    "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+    "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+    "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+    "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+    "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+    "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+    "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+    "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+    "mission/markerfree_run.py": "0c780405f9ac7673d3d9a4d2ff0bd9ce8498469899d838af3113ccd8b01a8afa",
+    "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+    "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+    "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+    "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+    "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+    "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+    "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+    "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+    "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+    "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+    "vision/depth_odometry.py": "6771e364d1b7c6aa0533d9d6815de3cb727b1d350474b1ce62db239f6ddfbf2d",
+    "vision/flight_observe.py": "1d224332701763b45516e61465d9d75a24c597e4869d06beac6ccdec0ccf4dae",
+    "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+    "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+    "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+    "vision/rgbd_odometry.py": "6774c8bf77589e0ed80aad41cd45a702fa03c00672be07521b776d4c363e06ee",
+    "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+    "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+    "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+    "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+    "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+    "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+    "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+    "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+    "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+    "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69"
+  },
+  "evidence_sha256": {
+    "artifacts/markerfree/policy-06/telemetry.jsonl": "66faa426972d40a4cdcafbc70b3ab066aee7f8ada26fdda7f007eef97dee4960",
+    "artifacts/markerfree/policy-06/telemetry.summary.json": "51fe5edca62edd025efb2302c5d354e5ddfd206b0f09e4adcbdb4facc528703a",
+    "artifacts/markerfree/policy-06/score.json": "027d6c9783772dd40b7a498303b90b44404980316d7fbe6287d63f862da8dc2a",
+    "artifacts/markerfree/policy-06/observer/truth.jsonl": "59a0d01e4aa8b4ea8b731db9ea55dafc5a98dc92070e5fc4e2f0aed542cd7ed3",
+    "artifacts/markerfree/policy-06/observer/contacts.jsonl": "0eb20414125ff346c80ac07704a0b7d16339d59764633679dbf617ad971a8a28",
+    "artifacts/markerfree/policy-06/camera/frames.jsonl": "4999b161f8300b57bf7d33c290a565b40b6786a5a73e9811ccef2c8620887bc8",
+    "artifacts/markerfree/policy-06/recording.json": "5b3ff5d1b5ca5e113fd4e37c8c7c3151993a03be32911250fa4750492148823b",
+    "artifacts/markerfree/policy-06/vision-diagnostics/first-rejected.npz": "fdd02a17bfeca7f8216cf62efcbeb93361b86f2fe89c3e9cdae7fe1f52d73848"
+  }
+}

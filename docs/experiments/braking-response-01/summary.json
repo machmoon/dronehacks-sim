@@ -1,0 +1,311 @@
+{
+  "analysis_script": {
+    "path": "docs/experiments/braking-response-01/reproduce.py",
+    "sha256": "cea6751d0c586165366f83adc779857c1e205bbc3e341f803c2159db6749c68c"
+  },
+  "current_source_sha256": {
+    "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+    "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77"
+  },
+  "method": {
+    "fit_scope": "descriptive closed-loop telemetry fit; PX4 velocity-control loop, policy feedback, estimator and setpoint slew are included; not a physical plant identification or worst-case stopping proof",
+    "input_clock": "telemetry sim_time when command_velocity (already-sent ENU setpoint) was logged; actual MAVLink transmission timestamp is not recorded",
+    "input_selection": "exact zero-order hold integration across command boundaries shifted by candidate_delay; starting input is latest logged command <= segment_start - delay; no command effective after the output time is used",
+    "model": "exact piecewise integration of first-order velocity response over delayed zero-order-held command changes",
+    "output_clock": "PX4 telemetry position_stamp_sim_s for velocity samples",
+    "selection": "policy-action route phases only; takeoff/hover/wait/landing excluded; XY ENU only",
+    "self_check": {
+      "future_command_at_1p2_s_ignored": true,
+      "passed": true,
+      "u0_delay_0p2_s": {
+        "actual": 0.2591817793182821,
+        "expected": 0.2591817793182821
+      },
+      "u0_zero_delay": {
+        "actual": 0.3934693402873666,
+        "expected": 0.3934693402873666
+      }
+    },
+    "state_alignment": "recursive first-order state is initialized from the first PX4 velocity sample of each contiguous selected segment; excluded phases, nonmonotonic stamps, and gaps >0.2s start a new segment and are not bridged"
+  },
+  "python": "3.9.6",
+  "runs": {
+    "policy-05": {
+      "fit": {
+        "best_grid": {
+          "delay_s": 0.16,
+          "integrated_command_boundaries": 485,
+          "intervals": 485,
+          "rmse_mps": 0.01558565880664582,
+          "segment_resets": 1,
+          "tau_s": 0.44
+        },
+        "command_log_time_minus_px4_position_stamp_s": {
+          "max_abs_s": 0.028000000000005798,
+          "median_abs_s": 0.015999999999998238,
+          "p95_abs_s": 0.02400000000000091
+        },
+        "configured_0p8_0p4": {
+          "delay_s": 0.4,
+          "integrated_command_boundaries": 485,
+          "intervals": 485,
+          "rmse_mps": 0.08536272727146647,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        },
+        "grid": {
+          "delay_max_s": 0.5,
+          "delay_min_s": 0.0,
+          "delay_step_s": 0.02,
+          "tau_max_s": 1.6,
+          "tau_min_s": 0.08,
+          "tau_step_s": 0.04
+        },
+        "max_output_gap_s": 0.2,
+        "selected_command_samples": 840,
+        "selected_output_samples": 486,
+        "tau_0p8_zero_delay": {
+          "delay_s": 0.0,
+          "integrated_command_boundaries": 484,
+          "intervals": 485,
+          "rmse_mps": 0.0363213570182087,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        }
+      },
+      "input": {
+        "path": "artifacts/markerfree/policy-05/telemetry.jsonl",
+        "sha256": "ff04b5c9d8660a74e3241e3cc2d2a6287d336b7220db3923771d62bae5e00861"
+      },
+      "recorded_runtime_source_sha256": {
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/markerfree_run.py": "0c780405f9ac7673d3d9a4d2ff0bd9ce8498469899d838af3113ccd8b01a8afa"
+      },
+      "telemetry_timing": {
+        "capture_age_sim_s": {
+          "max": 0.09999999999999432,
+          "p50": 0.04800000000000182,
+          "p95": 0.0799999999999983
+        },
+        "capture_interval_sim_s": {
+          "max": 0.3,
+          "p50": 0.152,
+          "p95": 0.2
+        },
+        "policy_latency_wall_s": {
+          "max": 0.0811688409994531,
+          "p50": 0.014079451000725385,
+          "p95": 0.020808365999982925
+        }
+      }
+    },
+    "policy-07": {
+      "fit": {
+        "best_grid": {
+          "delay_s": 0.12,
+          "integrated_command_boundaries": 475,
+          "intervals": 475,
+          "rmse_mps": 0.015568990908666222,
+          "segment_resets": 1,
+          "tau_s": 0.48
+        },
+        "command_log_time_minus_px4_position_stamp_s": {
+          "max_abs_s": 0.03200000000001069,
+          "median_abs_s": 0.003999999999997783,
+          "p95_abs_s": 0.02800000000000047
+        },
+        "configured_0p8_0p4": {
+          "delay_s": 0.4,
+          "integrated_command_boundaries": 475,
+          "intervals": 475,
+          "rmse_mps": 0.08605733457569868,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        },
+        "grid": {
+          "delay_max_s": 0.5,
+          "delay_min_s": 0.0,
+          "delay_step_s": 0.02,
+          "tau_max_s": 1.6,
+          "tau_min_s": 0.08,
+          "tau_step_s": 0.04
+        },
+        "max_output_gap_s": 0.2,
+        "selected_command_samples": 825,
+        "selected_output_samples": 476,
+        "tau_0p8_zero_delay": {
+          "delay_s": 0.0,
+          "integrated_command_boundaries": 476,
+          "intervals": 475,
+          "rmse_mps": 0.036151039716302374,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        }
+      },
+      "input": {
+        "path": "artifacts/markerfree/policy-07/telemetry.jsonl",
+        "sha256": "27cc2aab1604dad83666ff50fed8b648e97c298beaf62d0a8be2a71cffa9342e"
+      },
+      "recorded_runtime_source_sha256": {
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/markerfree_run.py": "7615df6de25968583c8bcc2ac80503aed2ab05d6716d76e2d129a4f3eac8993f"
+      },
+      "telemetry_timing": {
+        "capture_age_sim_s": {
+          "max": 0.06799999999999784,
+          "p50": 0.027999999999998693,
+          "p95": 0.04399999999999693
+        },
+        "capture_interval_sim_s": {
+          "max": 0.2,
+          "p50": 0.152,
+          "p95": 0.2
+        },
+        "policy_latency_wall_s": {
+          "max": 0.026790487998368917,
+          "p50": 0.012410536000970751,
+          "p95": 0.01858557499872404
+        }
+      }
+    },
+    "policy-08": {
+      "fit": {
+        "best_grid": {
+          "delay_s": 0.16,
+          "integrated_command_boundaries": 489,
+          "intervals": 489,
+          "rmse_mps": 0.015477760464005943,
+          "segment_resets": 1,
+          "tau_s": 0.44
+        },
+        "command_log_time_minus_px4_position_stamp_s": {
+          "max_abs_s": 0.020000000000003126,
+          "median_abs_s": 0.012000000000000455,
+          "p95_abs_s": 0.016000000000005343
+        },
+        "configured_0p8_0p4": {
+          "delay_s": 0.4,
+          "integrated_command_boundaries": 489,
+          "intervals": 489,
+          "rmse_mps": 0.0841689766180258,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        },
+        "grid": {
+          "delay_max_s": 0.5,
+          "delay_min_s": 0.0,
+          "delay_step_s": 0.02,
+          "tau_max_s": 1.6,
+          "tau_min_s": 0.08,
+          "tau_step_s": 0.04
+        },
+        "max_output_gap_s": 0.2,
+        "selected_command_samples": 847,
+        "selected_output_samples": 490,
+        "tau_0p8_zero_delay": {
+          "delay_s": 0.0,
+          "integrated_command_boundaries": 489,
+          "intervals": 489,
+          "rmse_mps": 0.03560624454848269,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        }
+      },
+      "input": {
+        "path": "artifacts/markerfree/policy-08/telemetry.jsonl",
+        "sha256": "b42331cf71440e20534fe34b8e9c2437e6ba3d5cf8b3306188d2190d47c2e781"
+      },
+      "recorded_runtime_source_sha256": {
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77"
+      },
+      "telemetry_timing": {
+        "capture_age_sim_s": {
+          "max": 0.09199999999999875,
+          "p50": 0.027999999999998693,
+          "p95": 0.05999999999999517
+        },
+        "capture_interval_sim_s": {
+          "max": 0.2,
+          "p50": 0.152,
+          "p95": 0.2
+        },
+        "policy_latency_wall_s": {
+          "max": 0.040688459997909376,
+          "p50": 0.012089687999832677,
+          "p95": 0.018969937002111692
+        }
+      }
+    },
+    "policy-09": {
+      "fit": {
+        "best_grid": {
+          "delay_s": 0.16,
+          "integrated_command_boundaries": 485,
+          "intervals": 485,
+          "rmse_mps": 0.015513747328412047,
+          "segment_resets": 1,
+          "tau_s": 0.44
+        },
+        "command_log_time_minus_px4_position_stamp_s": {
+          "max_abs_s": 0.04000000000000625,
+          "median_abs_s": 0.016000000000005343,
+          "p95_abs_s": 0.03200000000000003
+        },
+        "configured_0p8_0p4": {
+          "delay_s": 0.4,
+          "integrated_command_boundaries": 485,
+          "intervals": 485,
+          "rmse_mps": 0.08492158551423029,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        },
+        "grid": {
+          "delay_max_s": 0.5,
+          "delay_min_s": 0.0,
+          "delay_step_s": 0.02,
+          "tau_max_s": 1.6,
+          "tau_min_s": 0.08,
+          "tau_step_s": 0.04
+        },
+        "max_output_gap_s": 0.2,
+        "selected_command_samples": 844,
+        "selected_output_samples": 486,
+        "tau_0p8_zero_delay": {
+          "delay_s": 0.0,
+          "integrated_command_boundaries": 484,
+          "intervals": 485,
+          "rmse_mps": 0.0359748023781984,
+          "segment_resets": 1,
+          "tau_s": 0.8
+        }
+      },
+      "input": {
+        "path": "artifacts/markerfree/policy-09/telemetry.jsonl",
+        "sha256": "882028daee12edcd1e751f3103d1c69d8453d2e34090f48146777b4717e727aa"
+      },
+      "recorded_runtime_source_sha256": {
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77"
+      },
+      "telemetry_timing": {
+        "capture_age_sim_s": {
+          "max": 0.07600000000000051,
+          "p50": 0.031999999999996476,
+          "p95": 0.04800000000000182
+        },
+        "capture_interval_sim_s": {
+          "max": 0.352,
+          "p50": 0.152,
+          "p95": 0.2
+        },
+        "policy_latency_wall_s": {
+          "max": 0.052301129999250406,
+          "p50": 0.012720803999400232,
+          "p95": 0.019145926999044605
+        }
+      }
+    }
+  },
+  "schema_version": 3
+}
