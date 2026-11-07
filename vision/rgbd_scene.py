@@ -22,16 +22,38 @@ TOF_TRANSLATION = (0., 0., -.075)
 TOF_MIN_DEPTH = .025
 TOF_MAX_DEPTH = 4.
 
+# Every consumer imports the same runtime calibration as the generated SDF.
+# The x500 fixture remains the reproducible baseline; Sky Beta uses its CAD.
+AIRFRAME = os.environ.get('SIM_AIRFRAME') or 'x500'
+if AIRFRAME == 'skybeta':
+    from vehicle.skybeta import load, properties
+    _profile, _geometry = load()
+    _properties = properties(_profile, _geometry)
+    _camera = next(p for p in _properties['parts'] if 'OAK-D2 Camera' in p['name'])
+    RGBD_HFOV = _profile['camera']['horizontal_fov_rad']
+    RGBD_TRANSLATION = (float(_camera['max_m'][0]) + .002,
+                        _profile['camera']['baseline_m']/2, float(_camera['center'][2]))
+    # Provisional downward range mount outside the front of the body.
+    TOF_TRANSLATION = (RGBD_TRANSLATION[0], 0., -.03)
+elif AIRFRAME != 'x500':
+    raise ValueError('SIM_AIRFRAME must be x500 or skybeta')
+
 
 def generate(world_path, output_path, launch_z=0.0):
     output_path = Path(output_path)
-    generate_camera_scene(Path(world_path), output_path, launch_z, with_test_markers=False, airframe="x500")
+    generate_camera_scene(Path(world_path), output_path, launch_z, with_test_markers=False, airframe=AIRFRAME)
     tree = ET.parse(output_path)
     factor = float(os.environ.get('SIM_REAL_TIME_FACTOR', '.3'))
     if not math.isfinite(factor) or not 0 < factor <= 1:
         raise ValueError('SIM_REAL_TIME_FACTOR must be in (0, 1]')
     tree.find('./world/physics/real_time_factor').text = str(factor)
-    sensor = tree.find(".//model[@name='course_quad']/link[@name='down_camera_link']/sensor")
+    model = tree.find(".//model[@name='course_quad']")
+    if AIRFRAME == 'skybeta':
+        body = model.find("link[@name='base_link']")
+        sensor = body.find("sensor[@name='oak_left']")
+        body.remove(body.find("sensor[@name='oak_right']"))
+    else:
+        sensor = model.find("link[@name='down_camera_link']/sensor")
     if sensor is None:
         raise ValueError('camera fixture not found')
     sensor.set('type', 'rgbd_camera')
@@ -41,17 +63,17 @@ def generate(world_path, output_path, launch_z=0.0):
     sensor.find('camera/image/width').text = str(RGBD_WIDTH)
     sensor.find('camera/image/height').text = str(RGBD_HEIGHT)
     # Gazebo looks along link +X. Optical +Z is forward, +X right and +Y down.
-    link = tree.find(".//model[@name='course_quad']/link[@name='down_camera_link']")
-    link.find('pose').text = '0.34 0 0 0 0 0'
-    model = tree.find(".//model[@name='course_quad']")
-    model.find('include/uri').text = 'model://flight_x500'
+    if AIRFRAME == 'x500':
+        link = model.find("link[@name='down_camera_link']")
+        link.find('pose').text = '0.34 0 0 0 0 0'
+        model.find('include/uri').text = 'model://flight_x500'
     pose = model.find('pose').text.split()
     pose[-1] = str(LAUNCH_YAW)
     model.find('pose').text = ' '.join(pose)
     # A single downward range ray supplies height when the forward image
     # sees only vertical surfaces. Image messages contain no vehicle pose.
-    model.append(ET.fromstring(f'''<link name="down_tof_link">
-      <pose relative_to="base_link">0 0 -0.075 0 {math.pi/2} 0</pose>
+    tof_link = ET.fromstring(f'''<link name="down_tof_link">
+      <pose relative_to="base_link">{' '.join(map(str, TOF_TRANSLATION))} 0 {math.pi/2} 0</pose>
       <inertial><mass>0.001</mass><inertia><ixx>1e-7</ixx><iyy>1e-7</iyy><izz>1e-7</izz></inertia></inertial>
       <sensor name="down_tof" type="depth_camera">
         <always_on>true</always_on><update_rate>{RGBD_RATE}</update_rate><topic>{TOF_TOPIC}</topic>
@@ -60,9 +82,15 @@ def generate(world_path, output_path, launch_z=0.0):
           <clip><near>{TOF_MIN_DEPTH}</near><far>{TOF_MAX_DEPTH}</far></clip>
         </camera>
       </sensor>
-    </link>'''))
-    model.append(ET.fromstring('''<joint name="down_tof_joint" type="fixed">
-      <parent>base_link</parent><child>down_tof_link</child></joint>'''))
+    </link>''')
+    if AIRFRAME == 'skybeta':
+        tof = tof_link.find('sensor')
+        ET.SubElement(tof, 'pose').text = tof_link.findtext('pose')
+        model.find("link[@name='base_link']").append(tof)
+    else:
+        model.append(tof_link)
+        model.append(ET.fromstring('''<joint name="down_tof_joint" type="fixed">
+          <parent>base_link</parent><child>down_tof_link</child></joint>'''))
     # No texture, landmark or collision geometry is introduced here. The
     # starting yaw is a surveyed placement, not a simulator pose measurement.
     ET.indent(tree, space='  ')

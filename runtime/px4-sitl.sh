@@ -36,13 +36,10 @@ export PX4_PARAM_COM_RC_IN_MODE=4
 
 # Use one physical profile for the Gazebo rotors and the PX4 mixer.
 airframe=${SIM_AIRFRAME:-skybeta}
-if [[ ${SIM_VISION_BACKEND:-legacy} == rgbd ]]; then
-    if [[ -n ${SIM_AIRFRAME:-} && ${SIM_AIRFRAME} != x500 ]]; then
-        echo 'The RGBD flight fixture requires SIM_AIRFRAME=x500.' >&2
-        exit 1
-    fi
-    airframe=x500
-elif [[ ${SIM_TEST_MARKERS:-0} == 1 && -z ${SIM_AIRFRAME:-} ]]; then
+if [[ ${SIM_VISION_BACKEND:-legacy} == rgbd && -z ${SIM_AIRFRAME:-} ]]; then
+    airframe=x500  # same default as vision.rgbd_scene
+fi
+if [[ ${SIM_TEST_MARKERS:-0} == 1 && -z ${SIM_AIRFRAME:-} ]]; then
     airframe=x500
 fi
 case "$airframe" in

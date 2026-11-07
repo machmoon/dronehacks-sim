@@ -1,17 +1,17 @@
 {
-  "name": "Sky Beta — Stanford DroneHacks 2026",
+  "name": "Sky Beta \u2014 Stanford DroneHacks 2026",
   "status": "CAD geometry; uncalibrated mass and propulsion estimates",
   "hardware_source": "https://dronehacks.groups.stanford.edu/connect/challenge/drone",
   "motor": {
     "name": "DYS X2807 1500KV",
-    "thrust_coefficient": 0.0000045,
+    "thrust_coefficient": 4.5e-06,
     "moment_ratio_m": 0.016,
     "max_speed_rad_s": 1500.0,
     "idle_speed_rad_s": 100.0,
     "rise_time_s": 0.025,
     "fall_time_s": 0.05,
-    "rotor_drag_coefficient": 0.00008,
-    "rolling_moment_coefficient": 0.000001,
+    "rotor_drag_coefficient": 8e-05,
+    "rolling_moment_coefficient": 1e-06,
     "provenance": "Motor identity official; all dynamic coefficients provisional, require thrust-stand/RPM or flight-log fitting. KV is not a thrust coefficient."
   },
   "propeller": {
@@ -23,20 +23,27 @@
   "component_mass_kg": {
     "Pixhawk 6C": 0.059,
     "OAK-D2 Camera": 0.091,
-    "Jetson Orin": 0.220,
+    "Jetson Orin": 0.22,
     "AERO SELFIE": 0.018,
-    "X2807": 0.050,
-    "OVONIC": 0.530,
+    "X2807": 0.05,
+    "OVONIC": 0.53,
     "OAK-D Camera Mount": 0.025
   },
   "frame_density_kg_m3": 1550.0,
   "standoff_density_kg_m3": 2700.0,
-  "unmodelled_mass_kg": 0.060,
+  "unmodelled_mass_kg": 0.06,
   "mass_provenance": "Engineering estimates, not measured weights. Frame and standoffs use CAD solid volumes and assumed densities. Electronics use lumped masses and uniform bounding-box inertia. Wiring/fasteners/rangefinder lumped at body origin.",
   "camera": {
     "baseline_m": 0.075,
     "horizontal_fov_rad": 1.3962634016,
     "rate_hz": 30,
     "provenance": "Nominal ideal stereo proxy, 75 mm baseline and 80 degree HFOV; lens centres inferred from camera enclosure, not calibrated optical extrinsics."
+  },
+  "sensor_noise": {
+    "gyro_std_rad_s": 0.0008726646,
+    "accel_std_m_s2": 0.00637,
+    "mag_std_gauss": 0.0001,
+    "pressure_std_pa": 3.0,
+    "provenance": "Representative Gaussian SITL noise, matching the pinned x500 sensor scale; not a measured Sky Beta calibration. Prevents PX4 stuck-value validation failures."
   }
 }

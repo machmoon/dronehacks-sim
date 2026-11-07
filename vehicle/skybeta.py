@@ -28,6 +28,9 @@ def load(profile_path=PROFILE, geometry_path=GEOMETRY):
     for key in ('radius_m', 'mass_kg', 'thickness_m'):
         if not math.isfinite(profile['propeller'][key]) or profile['propeller'][key] <= 0:
             raise ValueError(f'propeller.{key} must be finite and positive')
+    for key, val in profile.get('sensor_noise', {}).items():
+        if key != 'provenance' and (not math.isfinite(val) or val <= 0):
+            raise ValueError(f'sensor_noise.{key} must be finite and positive')
     idle, maximum = (profile['motor'][k] for k in ('idle_speed_rad_s', 'max_speed_rad_s'))
     if not 0 <= idle < maximum:
         raise ValueError('idle speed must be below maximum speed')
@@ -153,6 +156,25 @@ def build_model(profile, geometry):
             primitive(body,'collision',f'component_{n}_{j}',(lo+hi)/2,'box',{'size':numbers(np.maximum(.001,hi-lo))})
     for name,kind,rate in [('imu_sensor','imu',250),('air_pressure_sensor','air_pressure',50),('magnetometer_sensor','magnetometer',100)]:
         sensor=add(body,'sensor',name=name,type=kind); add(sensor,'always_on','true'); add(sensor,'update_rate',rate)
+        # Noise is required by PX4's stuck-value detector even while at rest.
+        # These are provisional simulator values, not hardware calibration.
+        noise_profile = profile.get('sensor_noise', {})
+        def noisy(parent, std):
+            noise = add(parent, 'noise', type='gaussian')
+            add(noise, 'mean', 0); add(noise, 'stddev', std)
+        if kind == 'imu':
+            imu = add(sensor, 'imu')
+            for channel, std in (('angular_velocity', noise_profile.get('gyro_std_rad_s', .0008726646)),
+                                 ('linear_acceleration', noise_profile.get('accel_std_m_s2', .00637))):
+                axes = add(imu, channel)
+                for axis in 'xyz':
+                    noisy(add(axes, axis), std)
+        elif kind == 'magnetometer':
+            axes = add(sensor, 'magnetometer')
+            for axis in 'xyz':
+                noisy(add(axes, axis), noise_profile.get('mag_std_gauss', .0001))
+        else:
+            noisy(add(add(sensor, 'air_pressure'), 'pressure'), noise_profile.get('pressure_std_pa', 3.))
     for row in p['rotors']:
         i=row['index']; xyz=row['position']; prop=profile['propeller']; motor=profile['motor']
         link=add(model,'link',name=f'rotor_{i}'); add(link,'pose',numbers([*xyz,0,0,0]))

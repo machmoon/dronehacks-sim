@@ -1,0 +1,15 @@
+# Independent runtime: does not restart another chat's baseline/evidence run.
+name: dronehacks-camera-slam
+services:
+  sim:
+    image: ${SIM_PX4_IMAGE:-dronehacks-markerfree:hrt-v1.16.2}
+    environment:
+      SIM_VISION_BACKEND: rgbd
+      SIM_AIRFRAME: ${SIM_AIRFRAME:-skybeta}
+      SIM_TEST_MARKERS: "0"
+      SIM_CAMERA_WIDTH: "384"
+      SIM_CAMERA_HEIGHT: "256"
+      SIM_GUI: "0"
+      GZ_PARTITION: dronehacks_camera_slam
+      SIM_REAL_TIME_FACTOR: ${SIM_REAL_TIME_FACTOR:-0.15}
+      SIM_RGBD_DEPTH_NOISE: "off"

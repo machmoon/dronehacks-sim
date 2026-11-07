@@ -6,6 +6,8 @@ The public repository is [machmoon/dronehacks-sim](https://github.com/machmoon/d
 
 The merged `patrick` branch has a fresh **85-second marker-free full-course run**, including landing/disarm and all eight independent geometry checks. See the [team integration report](docs/patrick-integration.md), [replay](docs/media/patrick-full-course.mp4), and [setup instructions](docs/mac-quickstart.md).
 
+The [Sky Beta camera/SLAM integration](docs/camera-slam.md) adds calibrated RGBD navigation and an explicit sparse-mapping backend. Its flight evidence is separate from the x500 results below.
+
 ## Verified flights
 
 | Run | Controller | Arm to landing and disarm | Verified waypoints | Minimum modeled window clearance |
