@@ -4,7 +4,9 @@ This pass implements a small, independently written **sparse metric map tracker*
 and prepares a reduced-budget configuration for upstream DPVO. The local tracker
 runs without neural weights on NumPy/OpenCV. It is a research prototype, not a
 newly validated SLAM algorithm, a distilled neural network, or a replacement for
-the drone's cuVSLAM. No flight-control output is connected.
+the drone's cuVSLAM. Raw map poses are not flight-control outputs. The later [SITL camera bridge](camera-slam.md)
+rejects recovery jumps and tracking loss; see its live-camera validation before
+using it for a simulated flight.
 
 ## Research choice
 

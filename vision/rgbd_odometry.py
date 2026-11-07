@@ -437,13 +437,22 @@ class TiltHistory:
 class Vision:
     """CameraWorker-compatible Gazebo adapter. No pose/odometry subscription."""
     def __init__(self, launch_position_enu, launch_orientation_wxyz=(1, 0, 0, 0),
-                 *, rejected_frame_dir=None, use_px4_tilt=False, survey_normals='central2'):
+                 *, rejected_frame_dir=None, use_px4_tilt=False, survey_normals='central2',
+                 localizer='survey'):
         from gz.msgs10.clock_pb2 import Clock
         from gz.msgs10.image_pb2 import Image, RGB_INT8, R_FLOAT32
         from gz.transport13 import Node
-        survey = DepthSurvey.from_course(Path(__file__).resolve().parents[1] / 'models/course_v3/model.sdf')
-        self.estimator = RGBDOdometry(launch_position_enu, launch_orientation_wxyz, survey=survey,
-                                      survey_normals=survey_normals)
+        if localizer == 'survey':
+            survey = DepthSurvey.from_course(Path(__file__).resolve().parents[1] / 'models/course_v3/model.sdf')
+            self.estimator = RGBDOdometry(launch_position_enu, launch_orientation_wxyz, survey=survey,
+                                          survey_normals=survey_normals)
+        elif localizer == 'sparse':
+            from .slam_odometry import SLAMOdometry
+            if use_px4_tilt or survey_normals != 'central2':
+                raise ValueError('sparse SLAM does not use survey normals or PX4 tilt')
+            self.estimator = SLAMOdometry(launch_position_enu, launch_orientation_wxyz)
+        else:
+            raise ValueError('localizer must be survey or sparse')
         self._formats = (RGB_INT8, R_FLOAT32)
         self._lock, self._pairs = Lock(), CapturePairs()
         self._clock_usec = None
@@ -617,13 +626,14 @@ def main():
     import json
     import time
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--localizer', choices=('survey', 'sparse'), default='survey')
     parser.add_argument('--launch-position', type=float, nargs=3, required=True,
                         metavar=('X', 'Y', 'Z'), help='known stationary base_link ENU position, metres')
     parser.add_argument('--launch-quaternion', type=float, nargs=4, default=(1., 0, 0, 0),
                         metavar=('W', 'X', 'Y', 'Z'))
     parser.add_argument('--seconds', type=float, default=20., help='wall-clock observation duration')
     args = parser.parse_args()
-    vision = Vision(args.launch_position, args.launch_quaternion)
+    vision = Vision(args.launch_position, args.launch_quaternion, localizer=args.localizer)
     end = time.monotonic() + args.seconds
     try:
         while time.monotonic() < end:

@@ -436,14 +436,84 @@
       <sensor name="imu_sensor" type="imu">
         <always_on>true</always_on>
         <update_rate>250</update_rate>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.0008726646</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.0008726646</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.0008726646</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00637</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00637</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00637</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
       </sensor>
       <sensor name="air_pressure_sensor" type="air_pressure">
         <always_on>true</always_on>
         <update_rate>50</update_rate>
+        <air_pressure>
+          <pressure>
+            <noise type="gaussian">
+              <mean>0</mean>
+              <stddev>3.0</stddev>
+            </noise>
+          </pressure>
+        </air_pressure>
       </sensor>
       <sensor name="magnetometer_sensor" type="magnetometer">
         <always_on>true</always_on>
         <update_rate>100</update_rate>
+        <magnetometer>
+          <x>
+            <noise type="gaussian">
+              <mean>0</mean>
+              <stddev>0.0001</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0</mean>
+              <stddev>0.0001</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0</mean>
+              <stddev>0.0001</stddev>
+            </noise>
+          </z>
+        </magnetometer>
       </sensor>
     </link>
     <link name="rotor_0">

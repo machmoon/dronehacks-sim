@@ -3,7 +3,8 @@
 This is an independent geometric prototype, NOT distilled DPVO or a replacement
 for cuVSLAM. Metric depth must come from a calibrated, synchronized camera. The
 map starts in the first optical frame; relocalization may correct its pose, so
-outputs are deliberately NOT connected to PX4 or the flight interface.
+raw outputs must not be sent directly to PX4. slam_odometry supplies a
+SITL-only bridge that rejects recovery jumps and latches tracking loss.
 """
 from dataclasses import dataclass
 import time

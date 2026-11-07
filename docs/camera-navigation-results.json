@@ -1,0 +1,348 @@
+{
+  "scope": "Sky Beta Gazebo/PX4 SITL, ideal RGBD depth; not hardware or collision certification",
+  "tests": {
+    "passed": 87,
+    "environment": "PX4 container: Python 3, OpenCV 4.6.0, NumPy 1.26.4",
+    "host_tests_also_passed": true,
+    "skybeta_frame_tests_passed": 10,
+    "sdf_validation": "Valid"
+  },
+  "flights": [
+    {
+      "airframe": "PX4 skybeta",
+      "localizer": "survey",
+      "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+      "result": "completed",
+      "fault": null,
+      "elapsed_sim_s": 21.000000000000004,
+      "landed_and_disarmed": true,
+      "waypoints_reached": 1,
+      "waypoint_count": 1,
+      "hover_settled_sim_s": 3.004000000000005,
+      "truth_used_for_control": false,
+      "truth_samples": 5788,
+      "clearance_or_collision_certified": false,
+      "evidence_sha256": {
+        "telemetry.jsonl": "8027475d42ecbc70acc3586d07181c92175384674a7c6cce4bb887a92ce41667",
+        "telemetry.summary.json": "19e38e93a579bb5e7e98f8d8044419f477966f66a2df648567ad1d49c8668041",
+        "observer/truth.jsonl": "2e6a804081aa00c05a0f31a094a8af05115557485e4340fc353aa290c088b9d6"
+      },
+      "camera": {
+        "aligned_samples": 322,
+        "position_rmse_m": 0.0019068982373718682,
+        "position_p95_m": 0.0036115240693769682,
+        "position_max_m": 0.003889208242309833,
+        "armed_samples": 188,
+        "armed_position_rmse_m": 0.002264572298415794,
+        "armed_position_p95_m": 0.003646112680400909,
+        "timestamp_alignment": "Linear interpolation at measurement time; gaps >100 ms rejected"
+      },
+      "px4": {
+        "aligned_samples": 327,
+        "position_rmse_m": 0.4188953266074579,
+        "position_p95_m": 0.04173992829468001,
+        "position_max_m": 2.677206150854212,
+        "armed_samples": 189,
+        "armed_position_rmse_m": 0.015302400191457755,
+        "armed_position_p95_m": 0.03437906449794162,
+        "timestamp_alignment": "Linear interpolation at measurement time; gaps >100 ms rejected"
+      },
+      "landed_after_fault": false,
+      "run_directory": "artifacts/camera-slam/hover-02",
+      "static_survey_used": true,
+      "navigation_audit": {
+        "type": "event",
+        "message": "Navigation source audit passed",
+        "world_and_model_sources": [
+          {
+            "path": "/tmp/dronehacks-px4.sdf",
+            "sha256": "f45bbebae2a9f88cd234e0c679732b1e047c645d00eca951b919d568b17109c6"
+          },
+          {
+            "path": "/workspace/models/course_v3/model.sdf",
+            "sha256": "5398deee1064e48743a5c32db241303211cdf40b38572bd485cd84bc96fd88c3"
+          }
+        ],
+        "truth_topic": "/model/course_quad/odometry_with_covariance",
+        "truth_topic_publishers": 0,
+        "topic_audit": "No publishers on topic [/model/course_quad/odometry_with_covariance]\nSubscribers [Address, Message Type]:\n  tcp://127.0.0.1:36923, gz.msgs.OdometryWithCovariance",
+        "artificial_landmark_models": 0,
+        "position_aiding": "MAVLink camera/depth estimate only; EKF parameters verified separately",
+        "static_survey_used": true,
+        "live_simulator_position_used": false
+      },
+      "verified_parameters": {
+        "EKF2_GPS_CTRL": 0,
+        "EKF2_EV_CTRL": 11,
+        "EKF2_HGT_REF": 3,
+        "EKF2_BARO_CTRL": 0,
+        "EKF2_RNG_CTRL": 0,
+        "EKF2_OF_CTRL": 0,
+        "EKF2_MAG_TYPE": 5,
+        "EKF2_DELAY_MAX": 500.0,
+        "EKF2_EVP_NOISE": 0.029999999329447746
+      },
+      "runtime_px4": {
+        "executable_path": "/opt/px4/bin/px4",
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "build_manifest": {
+          "schema_version": 1,
+          "base_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+          "patches": [
+            {
+              "path": "patches/px4-posix-hrt-serialization.patch",
+              "sha256": "3d7560bf9154091b0c7a2ce5230ac06af719cb51a15e4aa6ab0b65a1fbe0d61c"
+            }
+          ],
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "build_adjustments": [
+            "mavlink_loopback_only",
+            "unused_gz_optical_flow_plugin_disabled"
+          ],
+          "build_script_sha256": "cc3e0b9b66ed24ca3a75482c09fafd9abacef7ded7d451d7ec2381facde3ccc3",
+          "base_build_script_sha256": "0f7ec7f2cab668bd7d66b985aa2f5f25db80813c2a4480a11daca65c122be6df",
+          "build_target": "px4_sitl",
+          "compiler_jobs": 1,
+          "runtime_base_image_id": "sha256:1a143b37658705117b3f3b494509b3d86f879da253137afdbe580e6eaa9294df",
+          "package_script_sha256": "618e85ac498adeb0d2432b4094a4896cd82f018f79110b98ebd60618a786451d"
+        },
+        "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+        "manifest_verified": true,
+        "scope": "On-disk SITL executable; launch script starts this path. Not hardware firmware."
+      }
+    },
+    {
+      "airframe": "PX4 skybeta",
+      "localizer": "survey",
+      "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+      "result": "failed",
+      "fault": "rgbd_pose_unavailable:tracking_lost:capture_gap",
+      "elapsed_sim_s": 7.760000000000002,
+      "landed_and_disarmed": false,
+      "waypoints_reached": 0,
+      "waypoint_count": 15,
+      "hover_settled_sim_s": 0.0,
+      "truth_used_for_control": false,
+      "truth_samples": 3892,
+      "clearance_or_collision_certified": false,
+      "evidence_sha256": {
+        "telemetry.jsonl": "daa35bec9cf90d9e35a6b9af4f6a1365611ab8e94a278c64cdf0a8440cc3e9d1",
+        "telemetry.summary.json": "83fa3358cc6313f439e6d0445d5368d0fe6fec39a5825df92042224f0eb8bdd7",
+        "observer/truth.jsonl": "9508eb9819ad5bb6b0d586b4de92b2872a4b2ed742e7c470a3a57e9401426ee4"
+      },
+      "camera": {
+        "aligned_samples": 201,
+        "position_rmse_m": 0.00123575207862053,
+        "position_p95_m": 0.0012421632527381942,
+        "position_max_m": 0.0012968441043563334,
+        "armed_samples": 68,
+        "armed_position_rmse_m": 0.0012231845178598565,
+        "armed_position_p95_m": 0.0012558731961871618,
+        "timestamp_alignment": "Linear interpolation at measurement time; gaps >100 ms rejected"
+      },
+      "px4": {
+        "aligned_samples": 207,
+        "position_rmse_m": 0.492802022863559,
+        "position_p95_m": 0.09155640124712386,
+        "position_max_m": 2.6771318046082895,
+        "armed_samples": 70,
+        "armed_position_rmse_m": 0.010402454196804507,
+        "armed_position_p95_m": 0.01381635385891609,
+        "timestamp_alignment": "Linear interpolation at measurement time; gaps >100 ms rejected"
+      },
+      "landed_after_fault": true,
+      "run_directory": "artifacts/camera-slam/course-01",
+      "static_survey_used": true,
+      "navigation_audit": {
+        "type": "event",
+        "message": "Navigation source audit passed",
+        "world_and_model_sources": [
+          {
+            "path": "/tmp/dronehacks-px4.sdf",
+            "sha256": "f45bbebae2a9f88cd234e0c679732b1e047c645d00eca951b919d568b17109c6"
+          },
+          {
+            "path": "/workspace/models/course_v3/model.sdf",
+            "sha256": "5398deee1064e48743a5c32db241303211cdf40b38572bd485cd84bc96fd88c3"
+          }
+        ],
+        "truth_topic": "/model/course_quad/odometry_with_covariance",
+        "truth_topic_publishers": 0,
+        "topic_audit": "No publishers on topic [/model/course_quad/odometry_with_covariance]\nSubscribers [Address, Message Type]:\n  tcp://127.0.0.1:36277, gz.msgs.OdometryWithCovariance",
+        "artificial_landmark_models": 0,
+        "position_aiding": "MAVLink camera/depth estimate only; EKF parameters verified separately",
+        "static_survey_used": true,
+        "live_simulator_position_used": false
+      },
+      "verified_parameters": {
+        "EKF2_GPS_CTRL": 0,
+        "EKF2_EV_CTRL": 11,
+        "EKF2_HGT_REF": 3,
+        "EKF2_BARO_CTRL": 0,
+        "EKF2_RNG_CTRL": 0,
+        "EKF2_OF_CTRL": 0,
+        "EKF2_MAG_TYPE": 5,
+        "EKF2_DELAY_MAX": 500.0,
+        "EKF2_EVP_NOISE": 0.029999999329447746
+      },
+      "runtime_px4": {
+        "executable_path": "/opt/px4/bin/px4",
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "build_manifest": {
+          "schema_version": 1,
+          "base_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+          "patches": [
+            {
+              "path": "patches/px4-posix-hrt-serialization.patch",
+              "sha256": "3d7560bf9154091b0c7a2ce5230ac06af719cb51a15e4aa6ab0b65a1fbe0d61c"
+            }
+          ],
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "build_adjustments": [
+            "mavlink_loopback_only",
+            "unused_gz_optical_flow_plugin_disabled"
+          ],
+          "build_script_sha256": "cc3e0b9b66ed24ca3a75482c09fafd9abacef7ded7d451d7ec2381facde3ccc3",
+          "base_build_script_sha256": "0f7ec7f2cab668bd7d66b985aa2f5f25db80813c2a4480a11daca65c122be6df",
+          "build_target": "px4_sitl",
+          "compiler_jobs": 1,
+          "runtime_base_image_id": "sha256:1a143b37658705117b3f3b494509b3d86f879da253137afdbe580e6eaa9294df",
+          "package_script_sha256": "618e85ac498adeb0d2432b4094a4896cd82f018f79110b98ebd60618a786451d"
+        },
+        "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+        "manifest_verified": true,
+        "scope": "On-disk SITL executable; launch script starts this path. Not hardware firmware."
+      }
+    },
+    {
+      "airframe": "PX4 skybeta",
+      "localizer": "sparse",
+      "navigation_source": "Sparse RGBD SLAM + PX4 EKF2",
+      "result": "failed",
+      "fault": "rgbd_pose_unavailable:tracking_lost:relocalization_requires_stationary_reset",
+      "elapsed_sim_s": 5.116000000000003,
+      "landed_and_disarmed": false,
+      "landed_after_fault": true,
+      "waypoints_reached": 0,
+      "waypoint_count": 1,
+      "hover_settled_sim_s": 0.0,
+      "truth_used_for_control": false,
+      "truth_samples": 9846,
+      "clearance_or_collision_certified": false,
+      "evidence_sha256": {
+        "telemetry.jsonl": "855102e7c11fc6ec5b453ee243b686fcb54002625d21b771dd260598b9c1f97f",
+        "telemetry.summary.json": "fe85fbcf24cfe03a78d58bf1ede14a5bea2fa75c0c26f9abede79924053932d7",
+        "observer/truth.jsonl": "1cea2d737a106b16c668f4aed4a5b434df2b007528e7ea3d60187c032a02cdcf"
+      },
+      "camera": {
+        "aligned_samples": 180,
+        "position_rmse_m": 0.004366119595926891,
+        "position_p95_m": 0.004437231795372424,
+        "position_max_m": 0.020282802129583253,
+        "armed_samples": 47,
+        "armed_position_rmse_m": 0.006893800006634839,
+        "armed_position_p95_m": 0.018100730233279932,
+        "timestamp_alignment": "Linear interpolation at measurement time; gaps >100 ms rejected"
+      },
+      "px4": {
+        "aligned_samples": 188,
+        "position_rmse_m": 0.6474205239172194,
+        "position_p95_m": 2.676055653428512,
+        "position_max_m": 2.6769079211558466,
+        "armed_samples": 47,
+        "armed_position_rmse_m": 0.0034515179419011594,
+        "armed_position_p95_m": 0.0049560312115430405,
+        "timestamp_alignment": "Linear interpolation at measurement time; gaps >100 ms rejected"
+      },
+      "run_directory": "artifacts/camera-slam/sparse-hover-02",
+      "static_survey_used": false,
+      "navigation_audit": {
+        "type": "event",
+        "message": "Navigation source audit passed",
+        "world_and_model_sources": [
+          {
+            "path": "/tmp/dronehacks-px4.sdf",
+            "sha256": "13f486fc4516a6f306f23015b4710c1238ef58034cd1238944746889cc3aa7a6"
+          },
+          {
+            "path": "/workspace/models/course_v3/model.sdf",
+            "sha256": "5398deee1064e48743a5c32db241303211cdf40b38572bd485cd84bc96fd88c3"
+          }
+        ],
+        "truth_topic": "/model/course_quad/odometry_with_covariance",
+        "truth_topic_publishers": 0,
+        "topic_audit": "No publishers on topic [/model/course_quad/odometry_with_covariance]\nSubscribers [Address, Message Type]:\n  tcp://127.0.0.1:40263, gz.msgs.OdometryWithCovariance",
+        "artificial_landmark_models": 0,
+        "position_aiding": "MAVLink camera/depth estimate only; EKF parameters verified separately",
+        "static_survey_used": false,
+        "live_simulator_position_used": false
+      },
+      "verified_parameters": {
+        "EKF2_GPS_CTRL": 0,
+        "EKF2_EV_CTRL": 11,
+        "EKF2_HGT_REF": 3,
+        "EKF2_BARO_CTRL": 0,
+        "EKF2_RNG_CTRL": 0,
+        "EKF2_OF_CTRL": 0,
+        "EKF2_MAG_TYPE": 5,
+        "EKF2_DELAY_MAX": 500.0,
+        "EKF2_EVP_NOISE": 0.029999999329447746
+      },
+      "runtime_px4": {
+        "executable_path": "/opt/px4/bin/px4",
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "build_manifest": {
+          "schema_version": 1,
+          "base_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+          "patches": [
+            {
+              "path": "patches/px4-posix-hrt-serialization.patch",
+              "sha256": "3d7560bf9154091b0c7a2ce5230ac06af719cb51a15e4aa6ab0b65a1fbe0d61c"
+            }
+          ],
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "build_adjustments": [
+            "mavlink_loopback_only",
+            "unused_gz_optical_flow_plugin_disabled"
+          ],
+          "build_script_sha256": "cc3e0b9b66ed24ca3a75482c09fafd9abacef7ded7d451d7ec2381facde3ccc3",
+          "base_build_script_sha256": "0f7ec7f2cab668bd7d66b985aa2f5f25db80813c2a4480a11daca65c122be6df",
+          "build_target": "px4_sitl",
+          "compiler_jobs": 1,
+          "runtime_base_image_id": "sha256:1a143b37658705117b3f3b494509b3d86f879da253137afdbe580e6eaa9294df",
+          "package_script_sha256": "618e85ac498adeb0d2432b4094a4896cd82f018f79110b98ebd60618a786451d"
+        },
+        "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+        "manifest_verified": true,
+        "scope": "On-disk SITL executable; launch script starts this path. Not hardware firmware."
+      }
+    }
+  ],
+  "sparse_preflight": {
+    "captures": 29,
+    "valid": 28,
+    "first_capture_reason": "waiting_for_observable_capture:insufficient_texture",
+    "sha256": "17d07f7806055ab6de2178f200fa1e0eea0506da6ed6ba7b6f8107d48d94472d"
+  },
+  "incomplete_attempts": [
+    {
+      "run": "hover-01",
+      "reason": "Ideal constant sensors triggered PX4 stuck-value detection; interrupted disarmed before adding representative Gaussian noise"
+    },
+    {
+      "run": "course-02",
+      "reason": "Host disk full before arming; no completed evidence summary"
+    },
+    {
+      "run": "sparse-hover-01",
+      "reason": "Telemetry logging failed on full host disk; new guard stopped the mission before arming"
+    }
+  ],
+  "limitations": [
+    "Sparse mapper initializes and provides external vision, but requires relocalization during takeoff; bridge rejects it and lands.",
+    "No completed full Sky Beta course run.",
+    "Camera depth, sensor noise, mass and motor coefficients are simulation approximations.",
+    "No Sky Beta contact sensors in this model: no collision-free claim.",
+    "All-run PX4 accuracy includes initialization before external-vision alignment; armed metrics are separate."
+  ]
+}

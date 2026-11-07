@@ -4,6 +4,8 @@ Gazebo Harmonic and PX4 SITL for the DroneHacks window route, running locally on
 
 The public repository is [machmoon/dronehacks-sim](https://github.com/machmoon/dronehacks-sim). The team integration branch is `patrick`. Marker-free flight uses the x500 surrogate; the separately selectable Sky Beta CAD model is not yet flight-calibrated.
 
+The [Sky Beta camera/SLAM integration](docs/camera-slam.md) adds calibrated RGBD navigation and an explicit sparse-mapping backend. Its flight evidence is separate from the x500 results below.
+
 ## Verified flights
 
 | Run | Controller | Arm to landing and disarm | Verified waypoints | Minimum modeled window clearance |

@@ -29,6 +29,11 @@ from .runtime_provenance import px4_runtime_provenance
 from .survey_startup import SurveyStartup
 
 NAVIGATION = 'RGBD depth registration to supplied course map + PX4 EKF2'
+
+
+def navigation_source(args):
+    return ('Sparse RGBD SLAM + PX4 EKF2' if getattr(args, 'localizer', 'survey') == 'sparse'
+            else NAVIGATION)
 REQUIRED_PARAMS.update(EKF2_DELAY_MAX=500., EKF2_EVP_NOISE=.03)
 HOVER_SECONDS = 3.0
 POLICY_MAX_AGE_S = .45
@@ -105,23 +110,28 @@ class Log:
 
         args.output.parent.mkdir(parents=True, exist_ok=True)
         self.file = args.output.open('w', buffering=1)
+        self.write_error = None
         self.summary_path = args.output.with_suffix('.summary.json')
         self.summary_path.unlink(missing_ok=True)
         self.run_id = uuid4().hex
         self.common = dict(run_id=self.run_id, world='dronehacks', vehicle='course_quad',
-                           vehicle_model='PX4 x500', task=args.task, launch=launch,
-                           source=NAVIGATION, navigation_source=NAVIGATION,
+                           vehicle_model='PX4 '+(os.environ.get('SIM_AIRFRAME') or 'x500'),
+                           localizer=getattr(args, 'localizer', 'survey'), task=args.task, launch=launch,
+                           source=navigation_source(args), navigation_source=navigation_source(args),
                            simulator_position_used_for_control=False,
                            inertial_tilt_prior_enabled=args.use_px4_tilt,
                            require_survey_startup=getattr(args, 'require_survey_startup', False),
                            survey_startup_config={'min_span_s': 3.0, 'max_gap_s': .12}
                                if getattr(args, 'require_survey_startup', False) else None,
-                           survey_normals=survey_normal_config(args.survey_normals),
+                           survey_normals=(survey_normal_config(args.survey_normals)
+                                           if getattr(args, 'localizer', 'survey') == 'survey' else None),
+                           static_survey_used=getattr(args, 'localizer', 'survey') == 'survey',
                            sitl_power_watchdog_enabled=True,
                            policy_boundary_brake_enabled=boundary_brake is not None,
                            policy_checkpoint_sha256=args.policy_sha256,
                            policy_depth_mode=args.policy_depth_mode if args.task == 'policy' else None,
-                           vision_max_capture_gap_s=vision_gates.max_gap_s,
+                           vision_max_capture_gap_s=(.25 if getattr(args, 'localizer', 'survey') == 'sparse'
+                                                     else vision_gates.max_gap_s),
                            vision_max_capture_age_s=vision_gates.max_age_s)
         diagnostic_path = Path('/tmp/dronehacks-rgbd-depth-noise.json')
         sensor_diagnostic = (json.loads(diagnostic_path.read_text()) if diagnostic_path.exists()
@@ -139,7 +149,7 @@ class Log:
                                                max_setpoint_gap_s=POLICY_MAX_SETPOINT_GAP_S,
                                                scope='Predictive planar bound guard; no formal safety guarantee')
                                           if boundary_brake is not None else None),
-                   camera_method='Forward RGBD depth registration',
+                   camera_method=navigation_source(args),
                    camera_resolution_px=[CAMERA_WIDTH, CAMERA_HEIGHT],
                    camera_translation_flu_m=camera_translation,
                    waypoint_count=len(course['waypoints']), waypoints=course['waypoints'],
@@ -149,16 +159,35 @@ class Log:
                    landing=course['landing'])
 
     def write(self, **row):
-        self.file.write(json.dumps(row, allow_nan=False, separators=(',', ':')) + '\n')
+        if self.write_error is not None:
+            return
+        try:
+            self.file.write(json.dumps(row, allow_nan=False, separators=(',', ':')) + '\n')
+        except OSError as error:
+            # A full evidence disk must not prevent the control loop from
+            # requesting Land or monitoring touchdown. Abort on the next tick.
+            self.write_error = str(error)
+            self._console('Telemetry logging failed: '+self.write_error)
+
+    def _console(self, message):
+        try:
+            print(message, flush=True)
+        except OSError as error:
+            self.write_error = self.write_error or str(error)
 
     def event(self, message, **fields):
-        print(message, flush=True)
+        self._console(message)
         self.write(type='event', message=message, **fields)
 
     def finish(self, **fields):
         row = dict(type='summary', **self.common, **fields)
         self.write(**row)
-        write_json(self.summary_path, row)
+        if self.write_error is None:
+            try:
+                write_json(self.summary_path, row)
+            except OSError as error:
+                self.write_error = str(error)
+                self._console('Summary logging failed: '+self.write_error)
 
 
 class MarkerFreeLink(Link):
@@ -177,6 +206,8 @@ class MarkerFreeLink(Link):
                    for k, v in REQUIRED_PARAMS.items())
 
     def vision(self, observation):
+        if not observation.get('valid'):
+            raise ValueError('invalid localization must not reach PX4 external vision')
         p, rpy = camera_pose_to_px4(observation['position_enu'],
                                    observation['orientation_enu_flu_wxyz'])
         p, rpy = vector(p), vector(rpy)
@@ -297,7 +328,8 @@ def prepare_course(args, launch):
         proof = json.loads(args.hover_summary.read_text())
         if not (proof.get('task') == 'hover' and proof.get('result') == 'completed'
                 and proof.get('landed_and_disarmed') is True and proof.get('route_completed') is True
-                and proof.get('navigation_source') == NAVIGATION
+                and proof.get('navigation_source') == navigation_source(args)
+                and proof.get('vehicle_model', 'PX4 x500') == 'PX4 '+(os.environ.get('SIM_AIRFRAME') or 'x500')
                 and proof.get('simulator_position_used_for_control') is False
                 and proof.get('inertial_tilt_prior_enabled', False) == getattr(args, 'use_px4_tilt', False)
                 and (proof.get('survey_normals') or {}).get('method', 'central2')
@@ -367,7 +399,7 @@ def run(args):
     survey_startup_at_arm = None
     try:
         try:
-            audit = audit_navigation_sources()
+            audit = audit_navigation_sources(static_survey_used=getattr(args, 'localizer', 'survey') == 'survey')
         except Exception as error:
             raise FlightFault(f'navigation_source_audit_failed:{error}') from error
         log.event('Navigation source audit passed', **audit)
@@ -375,7 +407,8 @@ def run(args):
         link = MarkerFreeLink(log)
         vision = CameraWorker(Vision(launch['position_enu'], rotation,
                                      rejected_frame_dir=args.output.parent/'vision-diagnostics',
-                                     use_px4_tilt=args.use_px4_tilt, survey_normals=args.survey_normals))
+                                     use_px4_tilt=args.use_px4_tilt, survey_normals=args.survey_normals,
+                                     localizer=getattr(args, 'localizer', 'survey')))
         if args.task == 'policy':
             client = PolicyClient(args.policy_dir, args.policy_sha256, log.run_id, args.policy_timeout)
             if tuple(RGBD_TRANSLATION[1:]) != (0., 0.):
@@ -386,6 +419,8 @@ def run(args):
             now = time.monotonic()
             link.sim_usec_now = vision.sim_usec_now
             link.drain()
+            if log.write_error is not None:
+                raise FlightFault('telemetry_logging_failed')
             record_px4_tilt(link, vision)
             sim_s = link.boot_s
             power_health = health.status(sim_s, now)
@@ -621,13 +656,14 @@ def run(args):
                           waypoint_index=takeoff.waypoint_index + (route.waypoint_index if route else 0),
                           waypoint_count=len(course['waypoints']), target=command.target if command else None,
                           px4_armed=link.armed, px4_offboard=link.offboard, landed_state=link.landed_state,
-                          navigation_source=NAVIGATION, vision_valid=bool(camera_fresh),
+                          navigation_source=navigation_source(args), vision_valid=bool(camera_fresh),
                           vision_age_sim_s=sim_s-valid_sim if valid_sim is not None else None,
                           vision_measurements_sent=sent, timesync_responses=link.timesync_responses,
                           sitl_power_health=power_health,
                           vision_reason=(frame or {}).get('reason'),
                           vision_quality=(frame or {}).get('quality'),
                           vision_backend=(frame or {}).get('source'),
+                          vision_slam=(frame or {}).get('slam'),
                           vision_depth_normals=(frame or {}).get('depth_normals'),
                           vision_position_std_m=(frame or {}).get('position_std_m'),
                           px4_tilt_prior_status=(frame or {}).get('px4_tilt_prior_status'),
@@ -696,8 +732,11 @@ def run(args):
             health.close()
         if vision is not None:
             vision.close()
-        log.file.close()
-    return 1 if fault else 0
+        try:
+            log.file.close()
+        except OSError:
+            pass  # the failure is already recorded; never interrupt cleanup
+    return 1 if fault or log.write_error else 0
 
 
 def main():
@@ -718,6 +757,8 @@ def main():
     parser.add_argument('--speed-scale', type=float, default=1.0)
     parser.add_argument('--heading-lookahead', type=float, default=1.8,
                         help='Metres before a turn to begin looking into the next corridor; 0 disables')
+    parser.add_argument('--localizer', choices=('survey', 'sparse'), default='survey',
+                        help='survey matches known course geometry; sparse builds its own bounded RGBD map')
     parser.add_argument('--use-px4-tilt', action='store_true',
                         help='Optional capture-aligned inertial roll/pitch prior for weak depth geometry')
     parser.add_argument('--require-survey-startup', action='store_true',
@@ -731,6 +772,10 @@ def main():
     parser.add_argument('--pad-radius', type=float, default=.762)
     parser.add_argument('--landing-timeout', type=float, default=30.0)
     args = parser.parse_args()
+    if args.localizer == 'sparse' and (args.use_px4_tilt or args.require_survey_startup or args.survey_normals != 'central2'):
+        parser.error('sparse SLAM does not use survey startup, normals or PX4 tilt')
+    if args.task == 'policy' and (os.environ.get('SIM_AIRFRAME') or 'x500') != 'x500':
+        parser.error('the learned checkpoint is only validated for the x500 surrogate')
     if not math.isfinite(args.launch_yaw_deg):
         parser.error('--launch-yaw-deg must be finite')
     if not math.isfinite(args.heading_lookahead) or args.heading_lookahead < 0:

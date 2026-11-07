@@ -49,8 +49,8 @@ def assert_no_truth_publisher():
     return output.strip()
 
 
-def audit_navigation_sources(world='/tmp/dronehacks-px4.sdf'):
-    if os.environ.get('DRONEHACKS_SITL') != '1' or os.environ.get('GZ_PARTITION') != 'dronehacks_markerfree':
+def audit_navigation_sources(world='/tmp/dronehacks-px4.sdf', *, static_survey_used=True):
+    if os.environ.get('DRONEHACKS_SITL') != '1' or os.environ.get('GZ_PARTITION') not in ('dronehacks_markerfree', 'dronehacks_camera_slam'):
         raise RuntimeError('navigation audit requires the isolated marker-free SITL partition')
     roots = os.environ.get('GZ_SIM_RESOURCE_PATH', '').split(':')
     sources = _read_model_sources(world, roots)
@@ -59,7 +59,7 @@ def audit_navigation_sources(world='/tmp/dronehacks-px4.sdf'):
             'truth_topic_publishers': 0, 'topic_audit': topic_state,
             'artificial_landmark_models': 0,
             'position_aiding': 'MAVLink camera/depth estimate only; EKF parameters verified separately',
-            'static_survey_used': True, 'live_simulator_position_used': False}
+            'static_survey_used': bool(static_survey_used), 'live_simulator_position_used': False}
 
 
 if __name__ == '__main__':

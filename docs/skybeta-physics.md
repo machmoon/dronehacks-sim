@@ -1,6 +1,6 @@
 # Sky Beta physics profile
 
-The default marker-free PX4 scene uses the official **Sky Beta** aircraft geometry
+The default camera-preview PX4 scene uses the official **Sky Beta** aircraft geometry
 from `sky-beta-cad.zip`, rather than a stock x500. The supplied course archive is
 byte-identical to `assets/course-v3.zip`; no course geometry was replaced.
 
@@ -46,7 +46,8 @@ Their lens positions are inferred from the enclosure; their intrinsics are nomin
 The left stream retains `/dronehacks/down_camera` for viewer compatibility despite
 now facing forward. The right stream is `/dronehacks/oak/right`. This does not
 implement DepthAI or cuVSLAM, and marker-free autonomous navigation remains pending.
-The existing RGBD odometry diagnostic explicitly retains its downward x500 fixture.
+The RGBD navigation scene supports both the forward x500 baseline and the Sky Beta
+left-camera geometry; see [camera-driven navigation](camera-slam.md).
 
 ## Reproduce and improve
 
@@ -103,3 +104,8 @@ The live PX4 process was checked disarmed, with `CA_ROTOR0_PX=0.0959` and
 `MPC_THR_HOVER=0.5564`, matching the generated profile. The forward camera stream
 is live. No autonomous Sky Beta flight or physical-aircraft calibration was
 performed by these checks.
+
+The later [camera integration](camera-slam.md) adds provisional sensor noise to
+avoid PX4 stuck-value rejection at rest, and records a camera-guided Sky Beta
+hover and landing. Earlier force-balance results above remain historical; real
+aircraft calibration is still outstanding.
