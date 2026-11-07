@@ -4,6 +4,8 @@ Gazebo Harmonic and PX4 SITL for the DroneHacks window route, running locally on
 
 The public repository is [machmoon/dronehacks-sim](https://github.com/machmoon/dronehacks-sim). The team integration branch is `patrick`. Marker-free flight uses the x500 surrogate; the separately selectable Sky Beta CAD model is not yet flight-calibrated.
 
+The merged `patrick` branch has a fresh **85-second marker-free full-course run**, including landing/disarm and all eight independent geometry checks. See the [team integration report](docs/patrick-integration.md), [replay](docs/media/patrick-full-course.mp4), and [setup instructions](docs/mac-quickstart.md).
+
 ## Verified flights
 
 | Run | Controller | Arm to landing and disarm | Verified waypoints | Minimum modeled window clearance |

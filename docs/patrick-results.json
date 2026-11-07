@@ -1,0 +1,79 @@
+{
+  "source_revision": "1e426b1fdd6583cf4b4e131641590d1f09494f37",
+  "run_id": "dd5a4cf8d437416bb778064611a40a24",
+  "task": "waypoint baseline (not learned policy)",
+  "result": "completed",
+  "elapsed_sim_s": 85.0,
+  "waypoints_reached": 15,
+  "landed_and_disarmed": true,
+  "full_route_verified_by_geometry": true,
+  "checks": {
+    "controller_reports_all_waypoints": true,
+    "truth_complete_during_flight": true,
+    "truth_reaches_all_waypoints_in_order": true,
+    "truth_crosses_window_with_full_envelope": true,
+    "truth_multipart_path_certified_clear": true,
+    "truth_transit_floor_checked": true,
+    "px4_ground_and_disarm_confirmed": true,
+    "truth_touchdown_inside_pad": true
+  },
+  "window": {
+    "full_envelope_crossed": true,
+    "min_aperture_clearance_m": 0.10366850231961061,
+    "direction": "entry_to_exit",
+    "valid_forward_crossings": 1,
+    "forward_attempts": 1,
+    "valid_reverse_crossings": 0,
+    "margin_m": 0.015,
+    "path_assumption": "Linear translation, shortest-arc attitude, conservative inflated component supports."
+  },
+  "landing": {
+    "px4_confirmed_ground_and_disarm": true,
+    "truth_time_sim_s": 102.42,
+    "truth_base_link_enu_m": [
+      -2.0123059054917127,
+      -0.8144504873853914,
+      0.22699973265652026
+    ],
+    "pad_center_enu_m": [
+      -2.0422,
+      -0.7925,
+      0.0
+    ],
+    "pad_radius_m": 0.762,
+    "horizontal_footprint_radius_bound_m": 0.4081546507290498,
+    "horizontal_envelope_clearance_m": 0.31675787452641385,
+    "ground_height_error_vs_launch_m": -8.340664425787736e-08,
+    "px4_landing_error_enu_m": [
+      -7.540973961051023e-05,
+      0.0006786434751741011,
+      -0.005680936379474061
+    ],
+    "truth_envelope_inside_pad": true,
+    "truth_height_consistent_with_touchdown": true
+  },
+  "contact_coverage": "partial_topic_coverage",
+  "hover_checks": {
+    "controller_reports_all_waypoints": true,
+    "truth_complete_during_flight": true,
+    "truth_reaches_all_waypoints_in_order": true,
+    "truth_crosses_window_with_full_envelope": false,
+    "truth_multipart_path_certified_clear": true,
+    "truth_transit_floor_checked": true,
+    "px4_ground_and_disarm_confirmed": true,
+    "truth_touchdown_inside_pad": true
+  },
+  "source_hashes": {
+    "artifacts/markerfree/patrick-course-01/telemetry.jsonl": "a77b5d3f5f9eeaf7bf0efa494fed010c91d1ed091402bdbf1a73aff9d7a37abb",
+    "artifacts/markerfree/patrick-course-01/telemetry.summary.json": "8dfd34cbe62386b4d3f080bf9e7a76aa566c2eca00048e944e61ea948d7e23e0",
+    "artifacts/markerfree/patrick-course-01/score.json": "d12db331ab7463cec231d9068b1e8f44299965f3ac20866b5cfbc1ba264b8738",
+    "artifacts/markerfree/patrick-course-01/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b"
+  },
+  "raw_archive": "artifacts/markerfree/patrick-course-01",
+  "limits": [
+    "x500 surrogate and ideal rendered depth, not physical Sky Beta flight.",
+    "Known published course survey used for localization; no simulator truth supplied to navigation.",
+    "Partial contact-topic coverage; geometric checks are not proof of zero physical collisions.",
+    "One integration repeat, not a reliability estimate; under 60 seconds remains unverified."
+  ]
+}

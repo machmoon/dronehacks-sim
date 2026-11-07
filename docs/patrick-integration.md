@@ -34,8 +34,28 @@ checks passed for the simulator startup scripts.
 Historical full-route results, including 77–78-second learned-policy runs and
 82–83-second waypoint baselines, are retained with their source hashes in the
 [flight inventory](flight-trials.md). They do not automatically validate this
-merge. Fresh branch integration results will be recorded separately below.
+merge. Fresh branch integration results are recorded below.
 
 Physical flight and a sub-60-second marker-free finish remain unverified. The
 rendered-net removal experiment still exposes a localization limitation; see
 [the transfer notes](net-transfer-next-steps.md).
+
+
+## Fresh integration flight
+
+Revision `1e426b1` completed the recorded `patrick-course-01` waypoint baseline
+in **85.000 simulated seconds**, including landing and disarm. All 15 waypoints
+and all eight independent score checks passed. The full modeled envelope crossed
+the window with 103.669 mm minimum aperture clearance after 15 mm inflation.
+The preceding fresh hover passed all seven applicable checks and settled for
+three seconds. No marker fixture or simulator truth was used for navigation.
+
+This is one fresh integration repeat, not a reliability estimate. Contact-topic
+coverage remains partial. The successful result uses the x500 surrogate and
+rendered depth, and does not demonstrate physical Sky Beta flight or a finish
+under one minute.
+
+[Watch the recorded RGB/depth run](media/patrick-full-course.mp4) or inspect the
+[machine-readable result](patrick-results.json). Raw logs remain under
+`artifacts/markerfree/patrick-course-01` locally; the public result includes their
+hashes. The source revision above predates only this result and video publication.
