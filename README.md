@@ -16,6 +16,7 @@ The public repository is [machmoon/dronehacks-sim](https://github.com/machmoon/d
 | Policy-08 | Packaged v1, nominal depth, FALS7, 120 ms continuity limit | 78.000 s | 15/15 | 92.3 mm |
 | Policy-09 | Packaged v1, Gaussian 10 mm noise, FALS7, 120 ms continuity limit | 78.000 s | 15/15 | 95.3 mm |
 | Policy-10 | Same noisy-depth configuration, +40 mm declared launch-position error | 78.000 s | 15/15 | 94.7 mm |
+| Policy-11 | Noisy-depth control for the net-visual experiment | 77.000 s | 15/15 | 82.6 mm |
 
 All listed runs passed the eight independent route, multipart geometry, window and landing checks. Times use simulation timestamps and include takeoff and touchdown. Window clearances include 15 mm inflation of the modeled x500 envelope. Contact-topic coverage was partial; these geometry results do not establish zero physical collisions or hardware readiness.
 
@@ -39,6 +40,12 @@ The later [learned-policy camera-aid loss test](docs/experiments/policy-blackout
 The [repeat with improved recording](docs/experiments/policy-blackout-03/README.md) certified the modeled abort path but also failed one strict check: a pre-cutoff camera sample reached PX4 4 ms after injection. The send count stayed fixed and no later updates appeared. Both attempts are preserved rather than combined into a single passing result.
 
 The [launch-prior diagnostic](docs/experiments/launch-prior-01/README.md) passed a hover prerequisite and the full route with a 40 mm error in the declared launch position. The simulated spawn stayed fixed. Policy-10 took 78 simulated seconds and passed all eight independent checks; its [RGB/depth replay](docs/media/window-policy-launch-prior.mp4) includes the paired ToF reading. This supports that one initialization-error case, not broader reliability.
+
+The [net-visual ablation](docs/experiments/net-visual-ablation-01/README.md) exposed a transfer limitation. Its control completed the route in 77 seconds. Removing the rendered net surfaces while retaining their collisions caused a large depth-image change, and the treatment hover lost tracking 5.332 seconds after arming. PX4 confirmed touchdown and disarm after abort; the treatment route was not attempted. The current stack has not demonstrated flight in that missing-net-return scene. This is a simulator stress case, not a physical net optical model.
+
+## Net-visual ablation flight sequence
+
+The passive rendered A/B capture passed its registered depth-change gate (48.48% of image pixels changed). Control flights hover-10 and policy-11 passed their registered checks; policy-11 completed 15/15 waypoints in 77 simulated seconds with 82.6 mm minimum modeled window clearance. Treatment hover-11 failed RGB-D pose tracking 5.332 simulated seconds after arming. PX4 later confirmed abort touchdown and disarm, but the flight did not satisfy the normal hover acceptance; policy-12 was not run under the preregistered stop rule. The paired policy flight comparison is incomplete, and the treatment failure is not evidence that net removal caused the estimator fault. Contact-topic coverage was partial. See the [control policy replay](docs/media/window-policy-net-control.mp4), [treatment hover-failure replay](docs/media/net-removed-hover-failure.mp4), [flight sequence evidence](docs/experiments/net-visual-ablation-01/flight-results.json), and [passive A/B analysis](docs/experiments/net-visual-ablation-01/results.json).
 
 ## Run locally
 

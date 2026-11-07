@@ -2,7 +2,7 @@
 
 This branch runs the Gazebo Harmonic course with a forward-facing rendered RGB-D camera and one downward range sensor. The camera is 384×256, 90° horizontal field of view, 20 Hz, mounted 0.34 m forward of the PX4 x500 body. The ToF emulation is one downward 1×1 range ray. Artificial markers are disabled. Each RGB-D capture first attempts point-to-plane depth registration against the supplied static CAD survey; if that is unobservable, it tries previous-frame depth registration, then RGB feature registration. The downward range assists surveyed depth matching. The resulting visual estimate is sent to PX4 EKF2. GPS, barometer, range-aiding, and optical-flow fusion are disabled in the SITL configuration. PX4 estimates, camera captures, and independent Gazebo truth/contact observations are logged separately.
 
-The navigation-source audit checks the running world/model sources, absence of artificial landmarks, and zero publishers on `/model/course_quad/odometry_with_covariance`. It records `simulator_position_used_for_control: false`. `/world/dronehacks/dynamic_pose/info` remains available to the separate truth observer for scoring; that observer does not feed the estimator, controller, or policy.
+The navigation-source audit checks the running world/model sources, absence of artificial landmarks, and zero publishers on `/model/course_quad/odometry_with_covariance`. It records `simulator_position_used_for_control: false`. `/world/dronehacks/dynamic_pose/info` remains available to the separate truth observer for scoring; that observer does not feed the estimator, controller, or policy. The runtime source map is a broad file inventory rather than execution tracing; see the [provenance note](evidence-provenance.md).
 
 ## Start, view, and record
 

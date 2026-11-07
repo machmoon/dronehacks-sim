@@ -2,7 +2,7 @@
 
 This quickstart targets the repository branch `codex/markerfree-flight` on an Apple Silicon Mac. It starts the Gazebo Harmonic/PX4 SITL project and describes the current learned-policy reproduction path. It does not establish transfer to a physical camera or aircraft.
 
-A fresh clone does not include run artifacts, Docker images, or the optional patched PX4 image. The commands below describe the expected setup; a complete clean-clone build has not been run and verified today. The Ubuntu image tag and OSRF apt packages are not version-locked, even though the PX4 source revision is pinned.
+A fresh clone does not include run artifacts, Docker images, or the optional patched PX4 image. The commands below describe the expected setup; a complete clean-clone build has not been run and verified today. The Ubuntu image tag and OSRF apt packages are not version-locked, even though the PX4 source revision is pinned. Read the [runtime source-map scope](evidence-provenance.md) before treating preserved run hashes as a clean-clone check.
 
 ## Clone and build the simulator images
 
