@@ -66,6 +66,9 @@ def _controller_profile(metadata: dict[str, Any]) -> dict[str, Any] | None:
     limits = metadata.get('course_limits')
     if not isinstance(waypoints, list) or not waypoints or not isinstance(limits, dict):
         return None
+    px4_runtime = metadata.get('px4_runtime')
+    if px4_runtime is not None and not isinstance(px4_runtime, dict):
+        return None
     # speed_scale changes each effective waypoint speed and is part of the
     # controller profile even though the raw logged waypoints remain unchanged.
     profile = {
@@ -77,6 +80,13 @@ def _controller_profile(metadata: dict[str, Any]) -> dict[str, Any] | None:
         'heading_lookahead_m': metadata.get('heading_lookahead_m'),
         'policy_boundary_brake_enabled': metadata.get('policy_boundary_brake_enabled'),
         'localizer': metadata.get('localizer', 'survey'),
+        'inertial_tilt_prior_enabled': metadata.get('inertial_tilt_prior_enabled'),
+        'survey_normals': metadata.get('survey_normals'),
+        'vision_max_capture_gap_s': metadata.get('vision_max_capture_gap_s'),
+        'vision_max_capture_age_s': metadata.get('vision_max_capture_age_s'),
+        'camera_resolution_px': metadata.get('camera_resolution_px'),
+        'camera_translation_flu_m': metadata.get('camera_translation_flu_m'),
+        'px4_binary_sha256': (px4_runtime or {}).get('px4_binary_sha256'),
     }
     try:
         _canonical_sha256(profile)
@@ -163,7 +173,7 @@ def audit_attempt(directory: str | Path) -> dict[str, Any]:
             row['elapsed_sim_s'] = float(elapsed)
         else:
             errors.append('elapsed_time_not_finite_number')
-        if summary.get('run_id') is None or not isinstance(score, dict) or score.get('run_id') != summary.get('run_id'):
+        if not isinstance(summary.get('run_id'), str) or not summary.get('run_id', '').strip() or not isinstance(score, dict) or score.get('run_id') != summary.get('run_id'):
             errors.append('score_summary_run_id_mismatch')
         if summary.get('result') != 'completed' or summary.get('route_completed') is not True:
             errors.append('route_not_completed')
@@ -196,6 +206,8 @@ def audit_attempt(directory: str | Path) -> dict[str, Any]:
             errors.append('truth_navigation_not_explicitly_false')
     if isinstance(metadata, dict):
         row['metadata_run_id'] = metadata.get('run_id')
+        row['sensor_diagnostic'] = metadata.get('sensor_diagnostic')
+        row['launch'] = metadata.get('launch')
         if row['run_id'] is None or metadata.get('run_id') != row['run_id']:
             errors.append('metadata_summary_run_id_mismatch')
         profile = _controller_profile(metadata)
