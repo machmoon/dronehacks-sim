@@ -84,6 +84,42 @@ class FlightTrialsInventoryTests(unittest.TestCase):
             self.assertIn("`current` is an identical alias of `policy-05`", markdown(inventory))
             self.assertEqual(inventory["inventory"]["unique_run_ids"], 2)
 
+    def test_export_alias_remains_named_when_current_sorts_after_it(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            export = root / "export"
+            target = write_run(export, "policy-01", "export-run")
+            archives = root / "artifacts/markerfree"
+            archives.mkdir(parents=True)
+            for name in ("clean-export-policy-01", "current"):
+                (archives / name).symlink_to(target, target_is_directory=True)
+            inventory = build_inventory(root)
+            item = inventory["groups"]["full_route_attempts"][0]
+            self.assertEqual(item["archive"], "artifacts/markerfree/clean-export-policy-01")
+            self.assertIn("`current` is an identical alias of `clean-export-policy-01`", markdown(inventory))
+
+    def test_canonical_record_does_not_take_fields_from_different_duplicate(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_run(root, "a-run", "same-id", summary={"result": "failed", "fault": "preserved"})
+            write_run(root, "z-copy", "same-id", summary={"result": "completed"})
+            inventory = build_inventory(root)
+            item = inventory["groups"]["full_route_attempts"][0]
+            self.assertEqual(item["archive"], "artifacts/markerfree/a-run")
+            self.assertEqual(item["result"], "failed")
+            self.assertEqual(item["fault"], "preserved")
+
+    def test_mismatched_summary_is_not_claimed_as_result_provenance(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive = write_run(root, "policy-01", "this-run")
+            (archive / "telemetry.summary.json").write_text(json.dumps({
+                "run_id": "another-run", "result": "completed"}))
+            item = build_inventory(root)["groups"]["full_route_attempts"][0]
+            self.assertEqual(item["result"], "in_progress")
+            self.assertFalse(item["reproducibility"]["summary_run_id_matched"])
+            self.assertIsNone(item["reproducibility"]["summary_sha256"])
+
 
 if __name__ == "__main__":
     unittest.main()

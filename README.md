@@ -17,6 +17,7 @@ The public repository is [machmoon/dronehacks-sim](https://github.com/machmoon/d
 | Policy-09 | Packaged v1, Gaussian 10 mm noise, FALS7, 120 ms continuity limit | 78.000 s | 15/15 | 95.3 mm |
 | Policy-10 | Same noisy-depth configuration, +40 mm declared launch-position error | 78.000 s | 15/15 | 94.7 mm |
 | Policy-11 | Noisy-depth control for the net-visual experiment | 77.000 s | 15/15 | 82.6 mm |
+| Clean-export policy-01 | Tracked source export, noisy depth, separate v1 inference service | 78.000 s | 15/15 | 98.2 mm |
 
 All listed runs passed the eight independent route, multipart geometry, window and landing checks. Times use simulation timestamps and include takeoff and touchdown. Window clearances include 15 mm inflation of the modeled x500 envelope. Contact-topic coverage was partial; these geometry results do not establish zero physical collisions or hardware readiness.
 
@@ -24,7 +25,7 @@ Policy-03 accepted 364 learned actions. Its separate braking guard changed 193 o
 
 The [complete trial inventory](docs/flight-trials.md) also includes failed attempts and separate hover and blackout diagnostics. Earlier attempts include a takeoff stop when PX4's periodic battery/power publications froze and policy-06's noisy maze observability failure; both remain documented. Policy-07 subsequently completed a noisy-depth route, passing all eight independent checks. Policy-09 repeated that result with the tighter 120 ms camera-continuity limit in 78.000 simulated seconds and 95.3 mm minimum modeled aperture clearance. It used synthetic zero-mean Gaussian depth noise (10 mm standard deviation), FALS7 survey normals, the separate boundary-braking guard, and patched PX4. These are individual simulator trials, not a reliability estimate or physical-camera results. Contact-topic coverage was partial, so it does not establish zero collisions.
 
-[Watch the learned-policy RGB/depth replay](docs/media/window-policy.mp4), the [baseline replay](docs/media/window-baseline.mp4), or the [noisy policy-09 replay](docs/media/window-policy-noisy-120ms.mp4). The [policy score](docs/markerfree-policy-results.json) records the checkpoint, guard settings, sensor timestamps and source hashes. Read the [flight evidence and reproduction commands](docs/markerfree-rgbd.md), [baseline score](docs/markerfree-results.json), and [braking model and limits](docs/policy-braking.md). The [section comparison](docs/flight-comparison.md) separates cruise time from takeoff and landing. Timings can be reproduced with:
+[Watch the learned-policy RGB/depth replay](docs/media/window-policy.mp4), the [baseline replay](docs/media/window-baseline.mp4), or the [noisy policy-09 replay](docs/media/window-policy-noisy-120ms.mp4). The [Policy-03 score](docs/markerfree-policy-results.json) records the checkpoint, guard settings, sensor timestamps and source hashes. Read the [flight evidence and reproduction commands](docs/markerfree-rgbd.md), [baseline score](docs/markerfree-results.json), and [braking model and limits](docs/policy-braking.md). The [section comparison](docs/flight-comparison.md) separates cruise time from takeoff and landing. The matched FALS7 [control](docs/fals7-control-results.json) and [noisy-depth](docs/fals7-noisy-120ms-results.json) records cover Policy-08/09. For locally retained run artifacts, the original three-run timing subset can be regenerated with:
 
 ```sh
 python3 -m tools.section_timings artifacts/markerfree/course-08 \
@@ -41,24 +42,25 @@ The [repeat with improved recording](docs/experiments/policy-blackout-03/README.
 
 The [launch-prior diagnostic](docs/experiments/launch-prior-01/README.md) passed a hover prerequisite and the full route with a 40 mm error in the declared launch position. The simulated spawn stayed fixed. Policy-10 took 78 simulated seconds and passed all eight independent checks; its [RGB/depth replay](docs/media/window-policy-launch-prior.mp4) includes the paired ToF reading. This supports that one initialization-error case, not broader reliability.
 
-The [net-visual ablation](docs/experiments/net-visual-ablation-01/README.md) exposed a transfer limitation. Its control completed the route in 77 seconds. Removing the rendered net surfaces while retaining their collisions caused a large depth-image change, and the treatment hover lost tracking 5.332 seconds after arming. PX4 confirmed touchdown and disarm after abort; the treatment route was not attempted. The current stack has not demonstrated flight in that missing-net-return scene. This is a simulator stress case, not a physical net optical model.
+The [net-visual ablation](docs/experiments/net-visual-ablation-01/README.md) showed a localization failure in the simulated treatment scene. Its control completed the route in 77 seconds. Removing the rendered net surfaces while retaining their collisions caused a large depth-image change, and the treatment hover lost tracking 5.332 seconds after arming. PX4 confirmed touchdown and disarm after abort; the treatment route was not attempted. The current stack has not demonstrated flight in that missing-net-return scene. This is a simulator stress case, not a physical net optical model.
 
-## Net-visual ablation flight sequence
+The [net-removal failure replay](docs/media/net-removed-hover-failure.mp4) and [frame diagnostic](docs/experiments/net-visual-ablation-01/observability.json) preserve the failure. The rejected depth fit lacked a north–south translation constraint. This single control/treatment pair does not establish repeatability or separate missing net returns from the deliberate map/sensor mismatch and tracker fallback. The [OAK stereo handoff](docs/net-transfer-next-steps.md) identifies the existing cuVSLAM localization path and the separate depth-adapter work still required.
 
-The passive rendered A/B capture passed its registered depth-change gate (48.48% of image pixels changed). Control flights hover-10 and policy-11 passed their registered checks; policy-11 completed 15/15 waypoints in 77 simulated seconds with 82.6 mm minimum modeled window clearance. Treatment hover-11 failed RGB-D pose tracking 5.332 simulated seconds after arming. PX4 later confirmed abort touchdown and disarm, but the flight did not satisfy the normal hover acceptance; policy-12 was not run under the preregistered stop rule. The paired policy flight comparison is incomplete, and the treatment failure is not evidence that net removal caused the estimator fault. Contact-topic coverage was partial. See the [control policy replay](docs/media/window-policy-net-control.mp4), [treatment hover-failure replay](docs/media/net-removed-hover-failure.mp4), [flight sequence evidence](docs/experiments/net-visual-ablation-01/flight-results.json), and [passive A/B analysis](docs/experiments/net-visual-ablation-01/results.json).
+The [tracked-export reproduction](docs/experiments/clean-export-01/README.md) ran the collector, hover, scorer and policy from an export containing only committed files. Its full route passed all eight checks in 78 simulated seconds with 98.2 mm modeled window clearance. It reused the installed simulator image and Python dependencies; it was not a clean-machine build. [Watch that flight](docs/media/window-policy-clean-export.mp4).
 
 ## Run locally
 
 For a fresh clone, follow the [Apple Silicon setup guide](docs/mac-quickstart.md) to build the Gazebo/PX4 images and install the host policy dependencies. The commands below assume those images already exist. The Mac setup uses Docker and Colima in a separate Compose project. Start the simulator and viewer in separate terminals:
 
 ```sh
-./runtime/run-markerfree.sh
+SIM_PX4_IMAGE=dronehacks-markerfree:hrt-v1.16.2 \
+  SIM_RGBD_DEPTH_NOISE=gaussian-10mm ./runtime/run-markerfree.sh
 python3 -m web.server
 ```
 
 Open [http://127.0.0.1:8083](http://127.0.0.1:8083). Starting the simulator does not arm the aircraft. Follow the [runbook](docs/markerfree-rgbd.md) for explicit hover, course, frozen-policy and independent-scoring commands. The viewer follows `artifacts/markerfree/current` and identifies the controller and guard intervention count.
 
-The [tested checkpoint package](docs/policy-checkpoint.md) is included for reproduction without retraining. Policy-05 used the [separate patched PX4 image](docs/px4-hrt-backport.md), selected explicitly with `SIM_PX4_IMAGE=dronehacks-markerfree:hrt-v1.16.2`.
+The [tested checkpoint package](docs/policy-checkpoint.md) is included for reproduction without retraining. The latest verified flights used the [separate patched PX4 image](docs/px4-hrt-backport.md), selected explicitly with `SIM_PX4_IMAGE=dronehacks-markerfree:hrt-v1.16.2`.
 
 The lightweight [unit-test workflow](.github/workflows/markerfree-tests.yml) runs on Ubuntu. Torch-dependent tests are skipped in that job; Gazebo flight results are recorded separately.
 

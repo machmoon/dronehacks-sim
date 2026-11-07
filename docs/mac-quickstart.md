@@ -2,7 +2,7 @@
 
 This quickstart targets the repository branch `codex/markerfree-flight` on an Apple Silicon Mac. It starts the Gazebo Harmonic/PX4 SITL project and describes the current learned-policy reproduction path. It does not establish transfer to a physical camera or aircraft.
 
-A fresh clone does not include run artifacts, Docker images, or the optional patched PX4 image. The commands below describe the expected setup; a complete clean-clone build has not been run and verified today. The Ubuntu image tag and OSRF apt packages are not version-locked, even though the PX4 source revision is pinned. Read the [runtime source-map scope](evidence-provenance.md) before treating preserved run hashes as a clean-clone check.
+A fresh clone does not include run artifacts, Docker images, or the optional patched PX4 image. The [tracked-export runtime check](experiments/clean-export-01/README.md) passed a hover and full policy route using existing dependencies and the installed simulator image. The commands below describe the expected setup; a complete clean-clone build has not been run and verified today. The Ubuntu image tag and OSRF apt packages are not version-locked, even though the PX4 source revision is pinned. Read the [runtime source-map scope](evidence-provenance.md) before treating preserved run hashes as a clean-clone check.
 
 ## Clone and build the simulator images
 
@@ -29,7 +29,7 @@ docker --context colima-dronehacks-sim image tag \
 
 ## Build and select the tested HRT image
 
-The latest Policy-05/07/08/09 reproductions use the separately patched PX4 HRT image. It is not included in a fresh clone. Follow [the HRT build and verification instructions](px4-hrt-backport.md) after creating `dronehacks-markerfree:base`. The build uses an isolated container and a PX4 source compile. The recorded smoke, publisher soak, and hover are finite checks; they do not prove that the intermittent scheduler issue is eliminated.
+The latest policy reproductions use the separately patched PX4 HRT image. It is not included in a fresh clone. Follow [the HRT build and verification instructions](px4-hrt-backport.md) after creating `dronehacks-markerfree:base`. The build uses an isolated container and a PX4 source compile. The recorded smoke, publisher soak, and hover are finite checks; they do not prove that the intermittent scheduler issue is eliminated.
 
 The unpatched `dronehacks-markerfree:base` image remains the launcher default and can behave differently around PX4 battery/system-power publication. Select the patched image explicitly for the latest-policy reproductions:
 
@@ -123,6 +123,8 @@ docker --context colima-dronehacks-sim exec -w /workspace "$MARKERFREE_CONTAINER
   --launch-position -2.5146 0.9144 0.24 --launch-yaw-deg 90 \
   --use-px4-tilt --survey-normals fals7
 ```
+
+The current gates default to a 120 ms maximum accepted capture gap and 300 ms maximum capture age. Verify `vision_max_capture_gap_s: 0.12` and `vision_max_capture_age_s: 0.3` in the resulting telemetry metadata and summary before comparing against the recorded FALS7 runs.
 
 The waypoint baseline does not need the host policy service. Replace `--task policy` with `--task course` and omit the policy-specific options to run that controller with the same hover summary and FALS7 setting.
 

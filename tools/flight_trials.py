@@ -177,7 +177,8 @@ def _run_record(archive: Path, root: Path) -> dict | None:
             "metadata_record_sha256": _canonical_hash(metadata),
             "runtime_source_hash_map_sha256": _canonical_hash(source_map) if source_map else None,
             "runtime_source_hash_count": len(source_map or {}),
-            "summary_sha256": _sha(summary_path),
+            "summary_sha256": _sha(summary_path) if summary else None,
+            "summary_run_id_matched": bool(summary),
             "score_sha256": _sha(score_path) if score_path else None,
         },
         "key_events": [{"sim_time_s": _at(e), "message": e.get("message")} for e in signals],
@@ -198,13 +199,14 @@ def build_inventory(root: Path = ROOT) -> dict:
 
     duplicates = []
     for run_id, copies in grouped.items():
-        # If `current` resolves to an archived run directory, that is the
-        # authoritative canonical name. Otherwise prefer a named run archive.
-        resolved = {p.resolve(): p for p in copies}
-        preferred = next((p for p in copies if p.name == "current" and p.resolve() in resolved), None)
-        canonical = resolved[preferred.resolve()] if preferred else next((p for p in copies if p.name != "current"), copies[0])
-        item = records[run_id]
-        item["archive"] = str(canonical.relative_to(root))
+        # A stable run name remains canonical even when both it and `current`
+        # are symlinks into an exported checkout outside this archive directory.
+        current = next((p for p in copies if p.name == "current"), None)
+        named = [p for p in copies if p.name != "current"]
+        targets = [p for p in named if current and p.resolve() == current.resolve()]
+        canonical = next(iter(targets or named or copies))
+        item = _run_record(canonical, root)
+        records[run_id] = item
         aliases = [p for p in copies if p != canonical]
         item["archive_aliases"] = [p.name for p in aliases]
         for alias in aliases:

@@ -513,6 +513,6 @@
       "run": "policy-12"
     }
   ],
-  "sequence_conclusion": "The control hover and route passed their registered gates. The treatment hover lost RGB-D tracking, so the paired policy comparison stopped before policy-12. This controlled visual ablation exposed a failure in the treatment scene; one pair does not establish repeatability, isolate missing depth constraints from the deliberate map/sensor mismatch and tracker fallback, or predict physical camera behavior.",
+  "sequence_conclusion": "The control hover and route passed their registered gates. The first treatment flight failed its RGB-D pose-tracking prerequisite, so the paired policy comparison was not completed. This single pair does not establish repeatability or isolate the direct effect of missing net returns from the treatment\u2019s intentional static-map/sensor mismatch and estimator fallback behavior.",
   "status": "treatment_hover_failed_policy12_not_run"
 }

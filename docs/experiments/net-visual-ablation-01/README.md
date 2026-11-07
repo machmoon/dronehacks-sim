@@ -93,3 +93,9 @@ With NumPy installed, recompute it without Gazebo:
 python3 docs/experiments/net-visual-ablation-01/observability.py \
   --output /tmp/net-visual-observability.json
 ```
+
+## Startup observation
+
+A [post-hoc comparison of sampled pre-arm telemetry](prearm-comparison.json) found 133/133 valid control-hover samples reporting `depth_survey_tof`, versus 145/145 valid treatment-hover samples reporting `rgbd_odometry`. The later tracked-export control had 134/134 valid samples reporting `depth_survey_tof`. These counts are sampled telemetry, not a complete per-capture ledger; they cannot exclude a short intervening survey success.
+
+The current arming gate requires fresh valid camera pose and PX4 state, but does not separately qualify recent accepted absolute survey updates. A candidate improvement is to record accepted survey updates at capture cadence and require a stable recent qualification before arming. That change is not implemented or validated here, and would not solve loss of geometric constraints later in flight. The failed treatment and its acceptance criteria remain unchanged.

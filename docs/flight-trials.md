@@ -1,11 +1,12 @@
 # Marker-free flight trials
 
-This inventory contains 28 unique run IDs across 29 flight telemetry archive paths; `current` is an identical alias of `policy-09`. No overall reliability percentage is inferred across changing code, configuration, and diagnostic protocols.
+This inventory contains 37 unique run IDs across 38 flight telemetry archive paths; `current` is an identical alias of `clean-export-policy-01`. No overall reliability percentage is inferred across changing code, configuration, and diagnostic protocols.
 
 ## Full-route attempts
 
 | Archive | Controller / checkpoint | Outcome / fault | Controller waypoints | Independent truth | Landing |
 |---|---|---|---:|---:|---|
+| clean-export-policy-01 | learned policy / `a1919ecd` | completed | 15/15 | 15/15 ordered | confirmed touchdown and disarm |
 | course-01 | waypoint course controller / `—` | odometry_jump | 1/15 | not scored | not confirmed in archived telemetry/summary |
 | course-02 | waypoint course controller / `—` | rgbd_pose_unavailable:tracking_lost:survey:unobservable_depth_geometry:0.0035633;depth:unobservable_depth_geometry:3.4445e-11;rgb:insufficient_correspondences | 1/15 | 1/15 | confirmed touchdown and disarm |
 | course-03 | waypoint course controller / `—` | rgbd_pose_unavailable:tracking_lost:survey:unobservable_depth_geometry:0.0039908;depth:unobservable_depth_geometry:5.5805e-11;rgb:insufficient_correspondences | 1/15 | 1/15 | confirmed touchdown and disarm |
@@ -25,11 +26,14 @@ This inventory contains 28 unique run IDs across 29 flight telemetry archive pat
 | policy-07 | learned policy / `a1919ecd` | completed | 15/15 | 15/15 ordered | confirmed touchdown and disarm |
 | policy-08 | learned policy / `a1919ecd` | completed | 15/15 | 15/15 ordered | confirmed touchdown and disarm |
 | policy-09 | learned policy / `a1919ecd` | completed | 15/15 | 15/15 ordered | confirmed touchdown and disarm |
+| policy-10 | learned policy / `a1919ecd` | completed | 15/15 | 15/15 ordered | confirmed touchdown and disarm |
+| policy-11 | learned policy / `a1919ecd` | completed | 15/15 | 15/15 ordered | confirmed touchdown and disarm |
 
 ## Independent score details
 
 Only a score file whose run ID matches its telemetry archive is joined. Abort-landing clearance and contact coverage are reported separately from route completion.
 
+- **clean-export-policy-01:** truth 15/15 ordered=True.
 - **course-02:** truth 1/15 ordered=False.
 - **course-03:** truth 1/15 ordered=False.
 - **course-04:** truth 10/15 ordered=False.
@@ -47,11 +51,14 @@ Only a score file whose run ID matches its telemetry archive is joined. Abort-la
 - **policy-07:** truth 15/15 ordered=True.
 - **policy-08:** truth 15/15 ordered=True.
 - **policy-09:** truth 15/15 ordered=True.
+- **policy-10:** truth 15/15 ordered=True.
+- **policy-11:** truth 15/15 ordered=True.
 
 ## Diagnostic hovers
 
 | Archive | Outcome | Fault | Landing | Independent score |
 |---|---|---|---|---|
+| clean-export-hover-01 | completed | none | confirmed touchdown and disarm | matched |
 | hover-01 | completed | none | confirmed touchdown and disarm | not scored |
 | hover-02 | completed | none | confirmed touchdown and disarm | matched |
 | hover-03 | completed | none | confirmed touchdown and disarm | matched |
@@ -60,12 +67,17 @@ Only a score file whose run ID matches its telemetry archive is joined. Abort-la
 | hover-06 | completed | none | confirmed touchdown and disarm | matched |
 | hover-07 | completed | none | confirmed touchdown and disarm | matched |
 | hover-08 | completed | none | confirmed touchdown and disarm | matched |
+| hover-09 | completed | none | confirmed touchdown and disarm | matched |
+| hover-10 | completed | none | confirmed touchdown and disarm | matched |
+| hover-11 | failed | rgbd_pose_unavailable:tracking_lost:survey:unobservable_depth_geometry:-4.2137e-18;depth:insufficient_depth_overlap;rgb:insufficient_inliers | confirmed touchdown and disarm | matched |
 
 ## Blackout diagnostic
 
 | Archive | Outcome | Injection/fault | Controller waypoints | Independent truth | Landing |
 |---|---|---|---:|---:|---|
 | blackout-01 | failed | rgbd_pose_unavailable:stale_capture | 1/15 | 1/15 | confirmed touchdown and disarm |
+| blackout-02 | failed | stale_policy_action | 1/15 | 1/15 | confirmed touchdown and disarm |
+| blackout-03 | failed | stale_policy_action | 1/15 | 1/15 | confirmed touchdown and disarm |
 
 ## Interpretation and provenance
 
