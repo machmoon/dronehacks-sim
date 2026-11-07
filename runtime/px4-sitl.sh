@@ -18,14 +18,30 @@ export PX4_PARAM_EKF2_BARO_CTRL=0
 export PX4_PARAM_EKF2_RNG_CTRL=0
 export PX4_PARAM_EKF2_OF_CTRL=0
 export PX4_PARAM_EKF2_EV_CTRL=11
+if [[ ${SIM_EV_VELOCITY:-0} == 1 ]]; then
+    export PX4_PARAM_EKF2_EV_CTRL=15
+    export PX4_PARAM_EKF2_EVV_NOISE=0.05
+fi
 export PX4_PARAM_EKF2_HGT_REF=3
 export PX4_PARAM_EKF2_MAG_TYPE=5
 export PX4_PARAM_EKF2_EV_DELAY=0
 export PX4_PARAM_COM_RC_IN_MODE=4
 
-# The pinned x500 and camera weigh 2.0693 kg. Four rotors at
-# 8.54858e-6 N/(rad/s)^2 each need 770 rad/s to balance gravity.
-# The x500 airframe maps normalized motor output linearly from 150 to 1000 rad/s.
-export PX4_PARAM_MPC_THR_HOVER=0.73
+# Use one physical profile for the Gazebo rotors and the PX4 mixer.
+airframe=${SIM_AIRFRAME:-skybeta}
+if [[ ${SIM_TEST_MARKERS:-0} == 1 && -z ${SIM_AIRFRAME:-} ]]; then
+    airframe=x500
+fi
+case "$airframe" in
+    skybeta)
+        # Fail the startup if the physical profile is invalid; never silently
+        # fall back to the stock x500 mixer or its hover throttle.
+        python3 -m vehicle.skybeta --shell > "$workdir/airframe.env"
+        source "$workdir/airframe.env"
+        ;;
+    # Historical 2.0693 kg x500 fixture, 150–1000 rad/s actuator range.
+    x500) export PX4_PARAM_MPC_THR_HOVER=0.73 ;;
+    *) echo "Unknown SIM_AIRFRAME: $airframe" >&2; exit 1 ;;
+esac
 
 exec /opt/px4/bin/px4 -d -w "$workdir" /opt/px4/etc

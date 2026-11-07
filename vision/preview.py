@@ -34,6 +34,8 @@ def main():
     signal.signal(signal.SIGINT, lambda *_: running.__setitem__(0, False))
     session = {'mode': 'marker_free_preview', 'started_at': time.time(),
                'source': CAMERA_TOPIC, 'navigation': 'not connected',
+               'airframe': os.environ.get('SIM_AIRFRAME') or 'skybeta',
+               'physics_calibration': 'provisional; see docs/skybeta-physics.md',
                'description': 'No artificial tags. Camera preview only; no flight commands.'}
     atomic_json(args.output / 'session.json', session)
     node = Node()

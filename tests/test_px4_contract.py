@@ -22,6 +22,49 @@ class FakeHeartbeat:
 
 
 class Px4ContractTests(unittest.TestCase):
+    def test_parameter_verification_handles_float_wire_precision(self):
+        link = px4_run.Link.__new__(px4_run.Link)
+        link.params = {'EKF2_EVV_NOISE': .050000000745}
+        with patch.dict(px4_run.REQUIRED_PARAMS, {'EKF2_EVV_NOISE': .05}, clear=True):
+            self.assertTrue(link.params_ok)
+            link.params['EKF2_EVV_NOISE'] = .1
+            self.assertFalse(link.params_ok)
+
+    def test_camera_velocity_odometry_preserves_frames_and_capture_time(self):
+        messages = []
+        link = px4_run.Link.__new__(px4_run.Link)
+        link.m = SimpleNamespace(MAV_FRAME_LOCAL_FRD=20, MAV_ESTIMATOR_TYPE_VISION=2)
+        link.link = SimpleNamespace(mav=SimpleNamespace(
+            odometry_send=lambda *args: messages.append(args)))
+        with patch.dict('os.environ', {'SIM_EV_VELOCITY': '1'}):
+            for i in range(7):
+                link.vision(dict(valid=True, sim_usec=round(i/30*1e6),
+                                 position_enu=[.6*i/30, 2, 1],
+                                 orientation_enu_flu_wxyz=[1, 0, 0, 0]))
+        message = messages[-1]
+        self.assertEqual(message[:3], (100000, 20, 20))
+        self.assertAlmostEqual(message[3], 2)
+        self.assertAlmostEqual(message[4], .06)
+        self.assertAlmostEqual(message[5], -1)
+        self.assertAlmostEqual(message[7], 0)
+        self.assertAlmostEqual(message[8], .6, places=5)
+        self.assertAlmostEqual(message[9], 0)
+
+    def test_timesync_count_cannot_replace_simulated_camera_warmup(self):
+        link = SimpleNamespace(position=SimpleNamespace(vx=0., vy=0., vz=0.),
+                               params_ok=True, boot_s=5., timesync_responses=5000)
+        check = lambda count: px4_run.estimator_ready_for_takeoff(
+            link, count, camera_fresh=True, state_fresh=True)
+        self.assertFalse(check(150))
+        self.assertFalse(check(400))
+        link.boot_s = 13.
+        self.assertFalse(check(150))
+        self.assertTrue(check(400))
+        link.position.vz = .04
+        self.assertFalse(check(400))
+        link.position.vz = float('nan')
+        self.assertFalse(check(400))
+
     def make_link(self, heartbeat):
         link = px4_run.Link.__new__(px4_run.Link)
         link.m = FakeMavlinkConstants

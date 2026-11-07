@@ -1,0 +1,73 @@
+{
+  "profile": "mission/course-flowing.json",
+  "profile_sha256": "408ee0f47754feb160eb7fdaabe7096fb0ef6d28a35e1d365aeb357260e777e0",
+  "baseline": {
+    "elapsed_sim_s": 59.0,
+    "summary": "artifacts/evaluation/damped-100-land.summary.json"
+  },
+  "accepted_runs": [
+    {
+      "run_id": "b3dbb0025bc24983b0e37799b7916a5b",
+      "accepted": true,
+      "checks": {
+        "mission_completed": true,
+        "all_waypoints": true,
+        "landed_and_disarmed": true,
+        "full_flight_recorded": true,
+        "bounded_recording_gaps": true,
+        "no_envelope_overlap": true,
+        "clearance_margin": true,
+        "window_envelope_crossed": true,
+        "window_margin": true,
+        "faster_than_baseline": true
+      },
+      "elapsed_sim_s": 55.0,
+      "baseline_sim_s": 59,
+      "required_clearance_m": 0.04,
+      "sampled_clearance_m": 0.04278025999573487,
+      "interpolated_path_clearance_lower_bound_m": 0.0426539244284398,
+      "window_clearance_m": 0.054629152909273934,
+      "flight_time_range_sim_s": [
+        15.02,
+        70.02
+      ],
+      "scope": "Recorded simulation, static CAD and assumed 0.36 m sphere; linear interpolation between truth observations. No hardware validation."
+    }
+  ],
+  "focused_tests": {
+    "passed": 32,
+    "command": "python3 -m unittest tests.test_camera_velocity tests.test_px4_contract tests.test_recorded_run_score tests.test_corner_braking tests.test_landing tests.test_px4_frames"
+  },
+  "validation_scope": "Recorded simulation, static CAD and assumed 0.36 m sphere; linear interpolation between truth observations. No hardware validation.",
+  "status": "experimental_repeatability_failed",
+  "promoted_to_default": false,
+  "repeatability_qualified": false,
+  "rejected_repeat": {
+    "run_id": "91a39f8015604bbd9f73e4bf82a1d9a2",
+    "accepted": false,
+    "checks": {
+      "mission_completed": true,
+      "all_waypoints": true,
+      "landed_and_disarmed": true,
+      "full_flight_recorded": true,
+      "bounded_recording_gaps": true,
+      "no_envelope_overlap": false,
+      "clearance_margin": false,
+      "window_envelope_crossed": false,
+      "window_margin": false,
+      "faster_than_baseline": true
+    },
+    "elapsed_sim_s": 56.0,
+    "baseline_sim_s": 59,
+    "required_clearance_m": 0.04,
+    "sampled_clearance_m": -0.11032575952700607,
+    "interpolated_path_clearance_lower_bound_m": -0.11141350008746041,
+    "window_clearance_m": -0.13734280271922988,
+    "flight_time_range_sim_s": [
+      16.02,
+      72.02
+    ],
+    "scope": "Recorded simulation, static CAD and assumed 0.36 m sphere; linear interpolation between truth observations. No hardware validation."
+  },
+  "best_recording": "artifacts/flowing-isolated/evaluation/dronehacks-flowing-55s.mp4"
+}

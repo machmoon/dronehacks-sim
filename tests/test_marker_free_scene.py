@@ -23,7 +23,7 @@ class MarkerFreeSceneTests(unittest.TestCase):
             self.assertIn('model://course_v3', [include.findtext('uri')
                                                for include in world.findall('include')])
             self.assertEqual(
-                world.findtext("model[@name='course_quad']/link/sensor[@name='down_camera']/topic"),
+                world.findtext("model[@name='course_quad']/link/sensor[@name='oak_left']/topic"),
                 CAMERA_TOPIC,
             )
             self.assertIsNone(world.find("model[@name='vision_landmarks']"))
@@ -42,7 +42,7 @@ class MarkerFreeSceneTests(unittest.TestCase):
                 scene.main()
 
                 generate.assert_called_once_with(
-                    Path('worlds/course.sdf'), Path('test.sdf'), 0.0, with_test_markers=expected,
+                    Path('worlds/course.sdf'), Path('test.sdf'), 0.0, with_test_markers=expected, airframe=None,
                 )
                 self.assertEqual(diagnostic.write.called, expected)
 

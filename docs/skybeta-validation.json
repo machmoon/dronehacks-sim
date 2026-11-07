@@ -1,0 +1,146 @@
+{
+  "airframe": {
+    "name": "Sky Beta \u2014 Stanford DroneHacks 2026",
+    "status": "CAD geometry; uncalibrated mass and propulsion estimates",
+    "profile_sha256": "c7fc4c357a7bf60d4d05152a62d6c3c9938a76d313d1ab35c77efda9cc24db0b",
+    "geometry_sha256": "64527fb207dba43822b040b966bf75b80bd901e79bb9c2861905faf8410ebac9",
+    "mass_kg": 1.4283786763050743,
+    "center_of_mass_flu_m": [
+      -0.012812452719906935,
+      7.184326418733491e-08,
+      -0.00438245335487489
+    ],
+    "inertia_kg_m2": [
+      [
+        0.007789328108280688,
+        6.468034273283897e-09,
+        3.992146485745751e-05
+      ],
+      [
+        6.468034273283897e-09,
+        0.008060976384391804,
+        1.1677587876873433e-08
+      ],
+      [
+        3.992146485745751e-05,
+        1.1677587876873433e-08,
+        0.012838996508087204
+      ]
+    ],
+    "hover_motor_rad_s": [
+      953.3044497613753,
+      804.7432565437397,
+      953.304847663444,
+      804.7427851859496
+    ],
+    "hover_thrust_n": [
+      4.089552182706774,
+      2.9142526902868044,
+      4.0895555966038,
+      2.9142492763897776
+    ],
+    "max_thrust_to_weight": 2.891285575085519,
+    "horizontal_radius_m": 0.2889048003782182,
+    "px4_parameters": {
+      "CA_ROTOR_COUNT": 4,
+      "MPC_THR_HOVER": 0.5564455962775908,
+      "CA_ROTOR0_PX": 0.09594618091843757,
+      "CA_ROTOR0_PY": 0.1596536022729611,
+      "CA_ROTOR0_PZ": -0.007389444011921958,
+      "CA_ROTOR0_KM": 0.016,
+      "SIM_GZ_EC_MIN1": 100.0,
+      "SIM_GZ_EC_MAX1": 1500.0,
+      "CA_ROTOR1_PX": -0.13464079779535534,
+      "CA_ROTOR1_PY": -0.13512749413353492,
+      "CA_ROTOR1_PZ": -0.008089444011921961,
+      "CA_ROTOR1_KM": 0.016,
+      "SIM_GZ_EC_MIN2": 100.0,
+      "SIM_GZ_EC_MAX2": 1500.0,
+      "CA_ROTOR2_PX": 0.09594618091843757,
+      "CA_ROTOR2_PY": -0.15965345858644692,
+      "CA_ROTOR2_PZ": -0.007389444011921958,
+      "CA_ROTOR2_KM": -0.016,
+      "SIM_GZ_EC_MIN3": 100.0,
+      "SIM_GZ_EC_MAX3": 1500.0,
+      "CA_ROTOR3_PX": -0.13464079779535534,
+      "CA_ROTOR3_PY": 0.1351276378200491,
+      "CA_ROTOR3_PZ": -0.008089444011921961,
+      "CA_ROTOR3_KM": -0.016,
+      "SIM_GZ_EC_MIN4": 100.0,
+      "SIM_GZ_EC_MAX4": 1500.0
+    }
+  },
+  "probes": [
+    {
+      "probe": "freefall",
+      "samples": 189,
+      "vertical_acceleration_m_s2": -9.806649999999918,
+      "expected_m_s2": -9.80665,
+      "error_m_s2": 8.171241461241152e-14,
+      "max_tilt_rad": 1.2557928361588284e-14,
+      "passed": true
+    },
+    {
+      "probe": "hover",
+      "samples": 189,
+      "vertical_acceleration_m_s2": 7.794658554223263e-11,
+      "expected_m_s2": 0,
+      "error_m_s2": 7.794658554223263e-11,
+      "max_tilt_rad": 1.0650965084650629e-08,
+      "passed": true
+    },
+    {
+      "probe": "climb",
+      "samples": 188,
+      "vertical_acceleration_m_s2": 2.0593965001259247,
+      "expected_m_s2": 2.0593964999999996,
+      "error_m_s2": 1.2592504816666406e-10,
+      "max_tilt_rad": 1.3329643840809035e-08,
+      "passed": true
+    },
+    {
+      "probe": "roll",
+      "samples": 188,
+      "vertical_acceleration_m_s2": 0.04785690873163899,
+      "expected_m_s2": 0,
+      "error_m_s2": 0.04785690873163899,
+      "max_tilt_rad": 0.11782011108007974,
+      "passed": true,
+      "angular_acceleration_rad_s2": [
+        0.1283779495569148,
+        5.585902940749924e-06,
+        -0.00039918670615107544
+      ],
+      "expected_angular_rad_s2": [
+        0.12838282358200312,
+        -1.0243460082552607e-07,
+        -0.00039919244276650183
+      ],
+      "angular_error_rad_s2": 7.490883623252503e-06,
+      "aero_drag_disabled": true
+    },
+    {
+      "probe": "yaw",
+      "samples": 188,
+      "vertical_acceleration_m_s2": 1.082270417279728e-06,
+      "expected_m_s2": 0,
+      "error_m_s2": 1.082270417279728e-06,
+      "max_tilt_rad": 0.00037484961491008017,
+      "passed": true,
+      "angular_acceleration_rad_s2": [
+        -0.000399169536623924,
+        -5.633410666175826e-06,
+        0.07788681858117881
+      ],
+      "expected_angular_rad_s2": [
+        -0.0003991924427665018,
+        -1.1251404367977557e-07,
+        0.07788894838615194
+      ],
+      "angular_error_rad_s2": 5.917507366386582e-06,
+      "aero_drag_disabled": true
+    }
+  ],
+  "passed": true,
+  "scope": "Gazebo rigid body and motor dynamics only; not PX4 flight or hardware calibration"
+}

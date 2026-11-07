@@ -1,0 +1,190 @@
+{
+  "name": "SITL flowing route with measured braking clearance",
+  "source": "User-supplied preliminary OBJ, metres Z-up; measured race layout and official checkpoint scoring not validated",
+  "start": [
+    -2.5146,
+    0.9144,
+    0.0
+  ],
+  "waypoints": [
+    {
+      "position": [
+        -2.5146,
+        0.9144,
+        0.75
+      ],
+      "phase": "TAKEOFF",
+      "speed": 0.4
+    },
+    {
+      "position": [
+        -2.5146,
+        2.545,
+        0.95
+      ],
+      "phase": "FIRST_CORRIDOR",
+      "speed": 0.495
+    },
+    {
+      "position": [
+        -1.3716,
+        2.545,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.495
+    },
+    {
+      "position": [
+        -1.3716,
+        1.015,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.495
+    },
+    {
+      "position": [
+        -0.254,
+        1.015,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.495
+    },
+    {
+      "position": [
+        -0.254,
+        2.545,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.495
+    },
+    {
+      "position": [
+        0.95,
+        2.545,
+        0.95
+      ],
+      "phase": "GATE_A",
+      "speed": 0.495
+    },
+    {
+      "position": [
+        2.3114,
+        2.2,
+        0.95
+      ],
+      "phase": "TUNNEL_ALIGN",
+      "speed": 0.75
+    },
+    {
+      "position": [
+        2.3114,
+        -0.72,
+        0.95
+      ],
+      "phase": "TUNNEL",
+      "speed": 0.85
+    },
+    {
+      "position": [
+        2.13,
+        -1.7,
+        0.95
+      ],
+      "phase": "CHICANE",
+      "speed": 0.7
+    },
+    {
+      "position": [
+        0.3,
+        -1.9,
+        0.762
+      ],
+      "phase": "WINDOW_APPROACH",
+      "speed": 0.6
+    },
+    {
+      "position": [
+        0.045893,
+        -2.460006,
+        0.762
+      ],
+      "phase": "WINDOW_ALIGN",
+      "speed": 0.4
+    },
+    {
+      "position": [
+        -0.987769,
+        -2.083784,
+        0.762
+      ],
+      "phase": "WINDOW_CROSS",
+      "speed": 0.45
+    },
+    {
+      "position": [
+        -2.0422,
+        -0.7925,
+        0.7
+      ],
+      "phase": "LANDING_APPROACH",
+      "speed": 0.65
+    }
+  ],
+  "limits": {
+    "max_speed": 1.0,
+    "max_accel": 0.8,
+    "arrival_radius": 0.08,
+    "odom_timeout": 0.25,
+    "state_timeout": 0.6,
+    "max_yaw_rate": 0.7,
+    "velocity_damping": 0.6,
+    "position_gain": 2
+  },
+  "landing": {
+    "position": [
+      -2.0422,
+      -0.7925,
+      0.0
+    ],
+    "approach_height": 0.7
+  },
+  "footprint_radius": 0.36,
+  "footprint_note": "0.36 m spherical x500 obstacle envelope; simulation proxy, not measured physical airframe.",
+  "bounds": {
+    "min": [
+      -3.048,
+      -3.048,
+      0.0
+    ],
+    "max": [
+      3.048,
+      3.048,
+      3.048
+    ]
+  },
+  "window": {
+    "center": [
+      -0.470938,
+      -2.271895,
+      0.762
+    ],
+    "normal_toward_entry": [
+      0.9396926207859084,
+      -0.3420201433256687,
+      0
+    ],
+    "horizontal_axis": [
+      0.3420201433256687,
+      0.9396926207859084,
+      0
+    ],
+    "width": 0.9144,
+    "height": 0.9144,
+    "thickness": 0.1016,
+    "source": "Inner aperture vertices of C2a chicane wall (window) in supplied OBJ; not field-calibrated"
+  }
+}

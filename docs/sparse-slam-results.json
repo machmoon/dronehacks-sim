@@ -1,0 +1,303 @@
+[
+  {
+    "scope": "Synthetic two-plane RGBD, 320x240; CPU only; no Jetson or real-camera claim",
+    "host": "macOS-26.5.1-arm64-arm-64bit",
+    "opencv": "5.0.0",
+    "numpy": "2.4.6",
+    "artifact": "sparse-map-host.json",
+    "scenarios": [
+      {
+        "seed": 71,
+        "dropout": false,
+        "depth_noise_std_m": 0.004,
+        "summary": {
+          "sparse_map": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.007283560315447364,
+            "latency_p50_ms": 7.198583000899816,
+            "latency_p95_ms": 27.13805975035936,
+            "latency_max_ms": 290.4571250001027,
+            "relocalizations": 0,
+            "final_valid": true,
+            "keyframes": 6,
+            "map_array_bytes": 129792,
+            "feature_budget": 192
+          },
+          "frame_to_frame_vo": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.010579480231942188,
+            "latency_p50_ms": 33.568603500498284,
+            "latency_p95_ms": 61.939779500062265,
+            "latency_max_ms": 130.22404200091842,
+            "relocalizations": 0,
+            "final_valid": true
+          },
+          "equal_budget_vo": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.011653940127891444,
+            "latency_p50_ms": 13.12006299940549,
+            "latency_p95_ms": 45.061686048939,
+            "latency_max_ms": 80.01529100147309,
+            "relocalizations": 0,
+            "final_valid": true
+          }
+        }
+      },
+      {
+        "seed": 71,
+        "dropout": true,
+        "depth_noise_std_m": 0.004,
+        "summary": {
+          "sparse_map": {
+            "valid_frames": 117,
+            "total_frames": 120,
+            "translation_rmse_m": 0.005281923764131482,
+            "latency_p50_ms": 7.602833500641282,
+            "latency_p95_ms": 29.276685400600392,
+            "latency_max_ms": 46.5847079995001,
+            "relocalizations": 1,
+            "final_valid": true,
+            "keyframes": 7,
+            "map_array_bytes": 151424,
+            "feature_budget": 192
+          },
+          "frame_to_frame_vo": {
+            "valid_frames": 40,
+            "total_frames": 120,
+            "translation_rmse_m": 0.00906600584331816,
+            "latency_p50_ms": 0.010771000233944505,
+            "latency_p95_ms": 42.31705269939994,
+            "latency_max_ms": 110.00929200054088,
+            "relocalizations": 0,
+            "final_valid": false
+          },
+          "equal_budget_vo": {
+            "valid_frames": 40,
+            "total_frames": 120,
+            "translation_rmse_m": 0.011116515572797846,
+            "latency_p50_ms": 0.0031459994715987705,
+            "latency_p95_ms": 19.76027920045452,
+            "latency_max_ms": 47.66283300159557,
+            "relocalizations": 0,
+            "final_valid": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "scope": "Synthetic two-plane RGBD, 320x240; CPU only; no Jetson or real-camera claim",
+    "source_sha256": {
+      "/Users/patliu/Desktop/dronehacks/dronehacks-sim/tools/benchmark_sparse_slam.py": "a8d9f02fc416d0038875399a1d1b1dacef57d8789927b1d9743dd5e5ee248b99",
+      "vision/sparse_slam.py": "f5b48585befb7751ad27885186e25c732b4c7a9293b4d96c43fa686b5442df52",
+      "vision/rgbd_odometry.py": "feef722285fe861d0074db05c9533a2eb5c75c43a824aa95adc88c19728fa21f"
+    },
+    "host": "macOS-26.5.1-arm64-arm-64bit",
+    "opencv": "5.0.0",
+    "numpy": "2.4.6",
+    "artifact": "sparse-map-seed-72.json",
+    "scenarios": [
+      {
+        "seed": 72,
+        "dropout": false,
+        "depth_noise_std_m": 0.004,
+        "summary": {
+          "sparse_map": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.005378308328930533,
+            "latency_p50_ms": 5.729874999815365,
+            "latency_p95_ms": 16.09833479933513,
+            "latency_max_ms": 223.65179199914564,
+            "frames_over_33ms": 1,
+            "valid_latency_p50_ms": 5.729874999815365,
+            "relocalizations": 0,
+            "final_valid": true,
+            "keyframes": 6,
+            "map_array_bytes": 129792,
+            "feature_budget": 192
+          },
+          "frame_to_frame_vo": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.010071297234411226,
+            "latency_p50_ms": 25.067104000299878,
+            "latency_p95_ms": 39.43100479955319,
+            "latency_max_ms": 66.32729100056167,
+            "frames_over_33ms": 15,
+            "valid_latency_p50_ms": 25.067104000299878,
+            "relocalizations": 0,
+            "final_valid": true
+          },
+          "equal_budget_vo": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.009779630150704387,
+            "latency_p50_ms": 9.999040999900899,
+            "latency_p95_ms": 17.78013094990456,
+            "latency_max_ms": 25.199707999490784,
+            "frames_over_33ms": 0,
+            "valid_latency_p50_ms": 9.999040999900899,
+            "relocalizations": 0,
+            "final_valid": true
+          }
+        }
+      },
+      {
+        "seed": 72,
+        "dropout": true,
+        "depth_noise_std_m": 0.004,
+        "summary": {
+          "sparse_map": {
+            "valid_frames": 117,
+            "total_frames": 120,
+            "translation_rmse_m": 0.00511460094987826,
+            "latency_p50_ms": 5.362062999665795,
+            "latency_p95_ms": 16.723800298950664,
+            "latency_max_ms": 39.179999999760184,
+            "frames_over_33ms": 1,
+            "valid_latency_p50_ms": 5.366542000047048,
+            "relocalizations": 1,
+            "final_valid": true,
+            "keyframes": 7,
+            "map_array_bytes": 151424,
+            "feature_budget": 192
+          },
+          "frame_to_frame_vo": {
+            "valid_frames": 40,
+            "total_frames": 120,
+            "translation_rmse_m": 0.009731058706636372,
+            "latency_p50_ms": 0.011103998986072838,
+            "latency_p95_ms": 34.88415480051117,
+            "latency_max_ms": 62.73283399968932,
+            "frames_over_33ms": 9,
+            "valid_latency_p50_ms": 25.817375500992057,
+            "relocalizations": 0,
+            "final_valid": false
+          },
+          "equal_budget_vo": {
+            "valid_frames": 40,
+            "total_frames": 120,
+            "translation_rmse_m": 0.006875861544413774,
+            "latency_p50_ms": 0.003166500391671434,
+            "latency_p95_ms": 15.822120851589716,
+            "latency_max_ms": 78.9722499994241,
+            "frames_over_33ms": 1,
+            "valid_latency_p50_ms": 10.226791500826948,
+            "relocalizations": 0,
+            "final_valid": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "scope": "Synthetic two-plane RGBD, 320x240; CPU only; no Jetson or real-camera claim",
+    "source_sha256": {
+      "/Users/patliu/Desktop/dronehacks/dronehacks-sim/tools/benchmark_sparse_slam.py": "a8d9f02fc416d0038875399a1d1b1dacef57d8789927b1d9743dd5e5ee248b99",
+      "vision/sparse_slam.py": "f5b48585befb7751ad27885186e25c732b4c7a9293b4d96c43fa686b5442df52",
+      "vision/rgbd_odometry.py": "feef722285fe861d0074db05c9533a2eb5c75c43a824aa95adc88c19728fa21f"
+    },
+    "host": "macOS-26.5.1-arm64-arm-64bit",
+    "opencv": "5.0.0",
+    "numpy": "2.4.6",
+    "artifact": "sparse-map-seed-73.json",
+    "scenarios": [
+      {
+        "seed": 73,
+        "dropout": false,
+        "depth_noise_std_m": 0.004,
+        "summary": {
+          "sparse_map": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.006269312483469643,
+            "latency_p50_ms": 4.612479499883193,
+            "latency_p95_ms": 6.289647900848632,
+            "latency_max_ms": 101.10087499924703,
+            "frames_over_33ms": 1,
+            "valid_latency_p50_ms": 4.612479499883193,
+            "relocalizations": 0,
+            "final_valid": true,
+            "keyframes": 6,
+            "map_array_bytes": 129792,
+            "feature_budget": 192
+          },
+          "frame_to_frame_vo": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.011612239873407388,
+            "latency_p50_ms": 19.52900000014779,
+            "latency_p95_ms": 21.918500299761945,
+            "latency_max_ms": 23.94766700126638,
+            "frames_over_33ms": 0,
+            "valid_latency_p50_ms": 19.52900000014779,
+            "relocalizations": 0,
+            "final_valid": true
+          },
+          "equal_budget_vo": {
+            "valid_frames": 120,
+            "total_frames": 120,
+            "translation_rmse_m": 0.013541359656172895,
+            "latency_p50_ms": 7.956979000482534,
+            "latency_p95_ms": 9.501033049218677,
+            "latency_max_ms": 10.291000000506756,
+            "frames_over_33ms": 0,
+            "valid_latency_p50_ms": 7.956979000482534,
+            "relocalizations": 0,
+            "final_valid": true
+          }
+        }
+      },
+      {
+        "seed": 73,
+        "dropout": true,
+        "depth_noise_std_m": 0.004,
+        "summary": {
+          "sparse_map": {
+            "valid_frames": 117,
+            "total_frames": 120,
+            "translation_rmse_m": 0.005267399377785103,
+            "latency_p50_ms": 5.019062499741267,
+            "latency_p95_ms": 9.218651449373283,
+            "latency_max_ms": 23.353249998763204,
+            "frames_over_33ms": 0,
+            "valid_latency_p50_ms": 5.0530829994386295,
+            "relocalizations": 1,
+            "final_valid": true,
+            "keyframes": 6,
+            "map_array_bytes": 129792,
+            "feature_budget": 192
+          },
+          "frame_to_frame_vo": {
+            "valid_frames": 40,
+            "total_frames": 120,
+            "translation_rmse_m": 0.010094770399476642,
+            "latency_p50_ms": 0.009895999937725719,
+            "latency_p95_ms": 22.528514550231193,
+            "latency_max_ms": 25.784292000025744,
+            "frames_over_33ms": 0,
+            "valid_latency_p50_ms": 20.771062499989057,
+            "relocalizations": 0,
+            "final_valid": false
+          },
+          "equal_budget_vo": {
+            "valid_frames": 40,
+            "total_frames": 120,
+            "translation_rmse_m": 0.011390257479830282,
+            "latency_p50_ms": 0.0028749991543008946,
+            "latency_p95_ms": 9.938504149795335,
+            "latency_max_ms": 13.776249999864376,
+            "frames_over_33ms": 0,
+            "valid_latency_p50_ms": 9.055750500010618,
+            "relocalizations": 0,
+            "final_valid": false
+          }
+        }
+      }
+    ]
+  }
+]

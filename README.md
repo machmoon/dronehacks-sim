@@ -2,6 +2,19 @@
 
 A local Gazebo Harmonic simulation of the DroneHacks course. The default world has **no artificial AprilTags**, matching the user's course constraint. Marker-free autonomous PX4 navigation is **not connected yet**. The current live view is a disarmed camera/course preview. The project is public at [machmoon/dronehacks-sim](https://github.com/machmoon/dronehacks-sim).
 
+## Sky Beta aircraft
+
+The default marker-free scene now uses the official Sky Beta CAD, component-based
+mass/inertia estimates, matching PX4 motor geometry, and forward stereo camera
+proxies. Physical coefficients remain uncalibrated. See [the physics profile and
+repeatable Gazebo checks](docs/skybeta-physics.md). Historical marker diagnostics
+still select the x500 explicitly; the learning simulator remains separate.
+
+A [compact SLAM experiment](docs/sparse-slam-experiment.md) adds bounded sparse
+metric mapping, relocalization, recorded-camera replay, and a reduced-budget DPVO
+profile. Local synthetic tests are available; Jetson and real-camera validation
+remain pending.
+
 ## Current course preview
 
 Install Docker CLI with Compose and [Colima](https://github.com/abiosoft/colima). From this directory, build and start the dedicated PX4 simulation once:

@@ -1,4 +1,4 @@
-"""Generate the x500 camera-equipped variant of the existing Gazebo course."""
+"""Generate the Sky Beta course, or the historical x500 marker diagnostic."""
 
 import argparse
 from contextlib import ExitStack
@@ -115,9 +115,56 @@ def add_x500(world, launch_z):
     value(clip, 'far', 8)
 
 
-def generate(world_path, output_path, launch_z, *, with_test_markers=False):
+def add_skybeta(world, launch_z):
+    from vehicle.skybeta import build_model, load
+
+    profile, geometry = load()
+    sdf, properties = build_model(profile, geometry)
+    model = sdf.find('model')
+    original = next((i for i in world.findall('include')
+                     if i.findtext('name') == 'course_quad'), None)
+    if original is None:
+        raise ValueError('the course world must include course_quad')
+    world.remove(original)
+    model.set('name', 'course_quad')
+    height = float(model.findtext('pose').split()[2]) + launch_z
+    model.find('pose').text = f'{LAUNCH_XY[0]} {LAUNCH_XY[1]} {height} 0 0 1.57079632679'
+    world.append(model)
+    camera_part = next(p for p in properties['parts'] if 'OAK-D2 Camera' in p['name'])
+    baseline = profile['camera']['baseline_m']
+    # Ideal stereo proxy. +X looks forward; optics sit just outside the CAD
+    # enclosure. Real intrinsics and lens/IMU extrinsics still need calibration.
+    for side, y, topic in (('left', baseline/2, CAMERA_TOPIC),
+                           ('right', -baseline/2, '/dronehacks/oak/right')):
+        pose = f'{camera_part["max_m"][0]+.002} {y} {camera_part["center"][2]} 0 0 0'
+        # Sensor mass belongs to the CAD body's component budget, so attach
+        # sensors directly to base_link and express their poses in that frame.
+        body = model.find("link[@name='base_link']")
+        sensor = ET.SubElement(body, 'sensor', name=f'oak_{side}', type='camera')
+        value(sensor, 'pose', pose)
+        value(sensor, 'always_on', 'true')
+        value(sensor, 'update_rate', profile['camera']['rate_hz'])
+        value(sensor, 'topic', topic)
+        camera = ET.SubElement(sensor, 'camera')
+        value(camera, 'horizontal_fov', profile['camera']['horizontal_fov_rad'])
+        image = ET.SubElement(camera, 'image')
+        value(image, 'width', CAMERA_WIDTH); value(image, 'height', CAMERA_HEIGHT)
+        value(image, 'format', 'R8G8B8')
+        clip = ET.SubElement(camera, 'clip')
+        value(clip, 'near', .02); value(clip, 'far', 8)
+
+
+def generate(world_path, output_path, launch_z, *, with_test_markers=False, airframe=None):
+    airframe = airframe or ('x500' if with_test_markers else 'skybeta')
+    if airframe not in ('x500', 'skybeta'):
+        raise ValueError('airframe must be skybeta or x500')
+    if with_test_markers and airframe != 'x500':
+        raise ValueError('marker diagnostic requires the calibrated x500 downward camera')
     tree = ET.parse(world_path)
     world = tree.getroot().find('world')
+    if airframe == 'skybeta' and world.find('gravity') is None:
+        from vehicle.skybeta import G
+        value(world, 'gravity', f'0 0 {-G}')
     view_pose = world.find('gui/plugin[@filename="MinimalScene"]/camera_pose')
     if view_pose is not None:
         view_pose.text = '-6 -6 8 0 0.724 0.785398163'
@@ -144,7 +191,7 @@ def generate(world_path, output_path, launch_z, *, with_test_markers=False):
                                name=f'gz::sim::systems::{system}')
         if system == 'Sensors':
             value(plugin, 'render_engine', 'ogre2')
-    add_x500(world, launch_z)
+    (add_skybeta if airframe == 'skybeta' else add_x500)(world, launch_z)
     if with_test_markers:
         add_markers(world, output_path.with_suffix('.assets'))
     ET.indent(tree, space='  ')
@@ -156,14 +203,16 @@ def main():
     parser.add_argument('--world', type=Path, default=Path('worlds/course.sdf'))
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--launch-z', type=float, default=0.0,
-                        help='x500 model root launch height in metres (base_link is 0.24 m above)')
+                        help='additional launch height above the airframe ground-rest pose')
+    parser.add_argument('--airframe', choices=('skybeta', 'x500'), default=os.environ.get('SIM_AIRFRAME') or None)
     parser.add_argument('--with-test-markers', action='store_true',
                         help='add synthetic AprilTags for diagnostics (also enabled by SIM_TEST_MARKERS=1)')
     args = parser.parse_args()
     with_test_markers = args.with_test_markers or os.environ.get('SIM_TEST_MARKERS') == '1'
     if with_test_markers:
         print('Adding synthetic AprilTag fixtures for diagnostic use.', file=sys.stderr)
-    generate(args.world, args.output, args.launch_z, with_test_markers=with_test_markers)
+    generate(args.world, args.output, args.launch_z, with_test_markers=with_test_markers,
+             airframe=args.airframe)
 
 
 if __name__ == '__main__':

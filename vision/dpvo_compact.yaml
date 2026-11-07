@@ -1,0 +1,16 @@
+# Experimental profile for princeton-vl/DPVO at
+# 0ac95b656d1fda91c271d2a106460d19ad966fc7. Not flight validated.
+# Input must be resized to 320x240 with correspondingly scaled intrinsics.
+# The pretrained network is unchanged: this is budget reduction, not distillation.
+BUFFER_SIZE: 4096
+PATCHES_PER_FRAME: 48
+PATCH_LIFETIME: 8
+REMOVAL_WINDOW: 12
+OPTIMIZATION_WINDOW: 6
+KEYFRAME_INDEX: 4
+KEYFRAME_THRESH: 12.5
+MOTION_MODEL: DAMPED_LINEAR
+MOTION_DAMPING: 0.5
+MIXED_PRECISION: true
+LOOP_CLOSURE: false
+CLASSIC_LOOP_CLOSURE: false

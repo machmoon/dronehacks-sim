@@ -1,6 +1,6 @@
 # Marker-free PX4 course
 
-The default PX4 scene uses the imported course geometry with an x500 and a downward RGB camera. Synthetic AprilTags are available only as an opt-in diagnostic fixture.
+The default PX4 scene uses the imported course geometry with the official Sky Beta CAD model and ideal forward stereo cameras. See the [physical profile and validation limits](skybeta-physics.md). Synthetic AprilTags are available only as an opt-in diagnostic fixture.
 
 ## Stationary camera preview
 
@@ -11,7 +11,7 @@ With the PX4 image built, start a fresh marker-free session from the repository 
 ./web/run.sh
 ```
 
-The viewer shows the course and the live camera while the x500 is disarmed at launch. The preview reads Gazebo RGB frames and writes the current image and frame metadata to `artifacts/preview/camera.jpg` and `artifacts/preview/latest.json`. The session status is in `artifacts/preview/session.json`. [Open the local viewer](http://127.0.0.1:8081/)
+The viewer shows the course and the live camera while Sky Beta is disarmed at launch. The preview reads Gazebo RGB frames and writes the current image and frame metadata to `artifacts/preview/camera.jpg` and `artifacts/preview/latest.json`. The session status is in `artifacts/preview/session.json`. [Open the local viewer](http://127.0.0.1:8081/)
 
 Autonomous PX4 flight on this scene is pending a marker-free localization source. The hardware uses a forward-facing OAK-D-S2 stereo camera and cuVSLAM visual-inertial odometry on Jetson. The stationary preview verifies the scene and the image stream.
 

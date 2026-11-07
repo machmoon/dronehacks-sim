@@ -1,0 +1,686 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <model name="skybeta" canonical_link="base_link">
+    <pose>0 0 0.07532795197 0 0 0</pose>
+    <self_collide>false</self_collide>
+    <link name="base_link">
+      <inertial>
+        <pose>-0.01253770689 7.286349061e-08 -0.00449235908 0 0 0</pose>
+        <mass>1.4083786763050745</mass>
+        <inertia>
+          <ixx>0.00731108086090265</ixx>
+          <iyy>0.007746771773184232</iyy>
+          <izz>0.012049032866947848</izz>
+          <ixy>6.496228519147857e-09</ixy>
+          <ixz>3.60771346237234e-05</ixz>
+          <iyz>1.1666309419881868e-08</iyz>
+        </inertia>
+      </inertial>
+      <visual name="cad_0">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/jetson_plate_bottom_1_5_mm_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_0_0">
+        <pose>-0.01100233764 4.900726974e-06 -0.07154999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1220474807 0.1300245927 0.001555904031</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_1">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/center_lower_plate_1_5_mm_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_1_0">
+        <pose>-0.002230363758 7.112366252e-15 -0.03504999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1374543787 0.1429810525 0.001664454041</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_2">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/front_arm_left_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_2_0">
+        <pose>0.0507812388 -0.08902652406 -0.03264999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1015751349 0.1781241689 0.003419156011</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_3">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/front_arm_right_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_3_0">
+        <pose>0.0507812388 0.08902652406 -0.03264999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1015751349 0.1781241689 0.003419156011</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_4">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/rear_arm_left_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_4_0">
+        <pose>-0.08294281191 -0.07676936643 -0.03229999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1658909726 0.1535864945 0.004058668209</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_5">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/rear_arm_right_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_5_0">
+        <pose>-0.08294281191 0.07676936643 -0.03229999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1658909726 0.1535864945 0.004058668209</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_6">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/gps_loop_upper_plate_1_5_mm_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_6_0">
+        <pose>-0.03669552016 8.632235759e-07 -0.02954999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2063840792 0.1429810525 0.00173777682</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_7">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/pixhawk_plate_upper_1_5_mm_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_7_0">
+        <pose>-0.01435757546 7.115835698e-15 0.00695000005 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1477406299 0.05502886784 0.001552486811</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_8">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/standoffs_35_mm_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.35 0.38 0.42 1</ambient>
+          <diffuse>0.35 0.38 0.42 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_8_0">
+        <pose>0.04499999995 -0.06 -0.05329999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="component_8_1">
+        <pose>-0.06000000005 -0.06 -0.05329999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="component_8_2">
+        <pose>0.04499999995 0.06 -0.05329999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="component_8_3">
+        <pose>-0.06000000005 0.06 -0.05329999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="component_8_4">
+        <pose>0.05499999995 -0.012 -0.01129999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="component_8_5">
+        <pose>-0.05500000005 -0.012 -0.01129999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="component_8_6">
+        <pose>0.05499999995 0.012 -0.01129999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="component_8_7">
+        <pose>-0.05500000005 0.012 -0.01129999995 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0060000002 0.006016777417 0.03501677742</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_9">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/pixhawk_6c_underside_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.35 0.38 0.42 1</ambient>
+          <diffuse>0.35 0.38 0.42 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_9_0">
+        <pose>3.615474924e-06 7.864488141e-10 -3.046770027e-06 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08403061729 0.04403784992 0.01242947988</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_10">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/oak_d2_camera_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.35 0.38 0.42 1</ambient>
+          <diffuse>0.35 0.38 0.42 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_10_0">
+        <pose>0.09156448938 -6.570499432e-07 0.02279401798 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02315846909 0.09702139701 0.03020370987</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_11">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/jetson_orin_nano_devkit_simplified.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.35 0.38 0.42 1</ambient>
+          <diffuse>0.35 0.38 0.42 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_11_0">
+        <pose>-0.003435129725 7.095019017e-15 -0.0533062802 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.09088349085 0.1030132315 0.0348446962</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_12">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/aero_selfie_45a_4_in_1_esc_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.35 0.38 0.42 1</ambient>
+          <diffuse>0.35 0.38 0.42 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_12_0">
+        <pose>-5.000426982e-11 7.105427358e-15 -0.02580279615 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0435000002 0.0440000002 0.006005592606</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_13">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/x2807_1500kv_motor_front_left_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_13_0">
+        <pose>0.0831337282 -0.1596535304 -0.01600419425 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0335000002 0.03359367299 0.03402236982</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_14">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/x2807_1500kv_motor_front_right_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_14_0">
+        <pose>0.0831337282 0.1596535304 -0.01600419425 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0335000002 0.03359367299 0.03402236982</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_15">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/x2807_1500kv_motor_rear_left_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_15_0">
+        <pose>-0.1474532505 -0.135127566 -0.01530419425 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0335000002 0.03359367299 0.03402236982</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_16">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/x2807_1500kv_motor_rear_right_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.16 1</ambient>
+          <diffuse>0.12 0.14 0.16 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_16_0">
+        <pose>-0.1474532505 0.135127566 -0.01530419425 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0335000002 0.03359367299 0.03402236982</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_17">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/ovonic_4s_5000mah_130c_lipo_1.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.16 0.30 0.65 1</ambient>
+          <diffuse>0.16 0.30 0.65 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_17_0">
+        <pose>-0.03150000005 7.105427358e-15 0.02576500005 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1580000002 0.0455000002 0.0361300002</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="cad_18">
+        <geometry>
+          <mesh>
+            <uri>model://skybeta/meshes/oak_d_camera_mount.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.35 0.38 0.42 1</ambient>
+          <diffuse>0.35 0.38 0.42 1</diffuse>
+        </material>
+      </visual>
+      <collision name="component_18_0">
+        <pose>0.06499999804 7.105427358e-15 0.01787464833 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03000000381 0.08619999695 0.02034929657</size>
+          </box>
+        </geometry>
+      </collision>
+      <sensor name="imu_sensor" type="imu">
+        <always_on>true</always_on>
+        <update_rate>250</update_rate>
+      </sensor>
+      <sensor name="air_pressure_sensor" type="air_pressure">
+        <always_on>true</always_on>
+        <update_rate>50</update_rate>
+      </sensor>
+      <sensor name="magnetometer_sensor" type="magnetometer">
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+      </sensor>
+    </link>
+    <link name="rotor_0">
+      <pose>0.0831337282 -0.1596535304 0.003006990657 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.885679166666668e-06</ixx>
+          <iyy>9.885679166666668e-06</iyy>
+          <izz>1.9758025e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1778 0.014 0.004</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+      <collision name="swept_propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0889</radius>
+            <length>0.004</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="rotor_0_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rotor_0</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_0_joint</jointName>
+      <linkName>rotor_0</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.025</timeConstantUp>
+      <timeConstantDown>0.05</timeConstantDown>
+      <maxRotVelocity>1500.0</maxRotVelocity>
+      <motorConstant>4.5e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>command/motor_speed</commandSubTopic>
+      <motorNumber>0</motorNumber>
+      <rotorDragCoefficient>8e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <link name="rotor_1">
+      <pose>-0.1474532505 0.135127566 0.003706990657 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.885679166666668e-06</ixx>
+          <iyy>9.885679166666668e-06</iyy>
+          <izz>1.9758025e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1778 0.014 0.004</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+      <collision name="swept_propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0889</radius>
+            <length>0.004</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="rotor_1_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rotor_1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_1_joint</jointName>
+      <linkName>rotor_1</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.025</timeConstantUp>
+      <timeConstantDown>0.05</timeConstantDown>
+      <maxRotVelocity>1500.0</maxRotVelocity>
+      <motorConstant>4.5e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>command/motor_speed</commandSubTopic>
+      <motorNumber>1</motorNumber>
+      <rotorDragCoefficient>8e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <link name="rotor_2">
+      <pose>0.0831337282 0.1596535304 0.003006990657 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.885679166666668e-06</ixx>
+          <iyy>9.885679166666668e-06</iyy>
+          <izz>1.9758025e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1778 0.014 0.004</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+      <collision name="swept_propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0889</radius>
+            <length>0.004</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="rotor_2_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rotor_2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_2_joint</jointName>
+      <linkName>rotor_2</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.025</timeConstantUp>
+      <timeConstantDown>0.05</timeConstantDown>
+      <maxRotVelocity>1500.0</maxRotVelocity>
+      <motorConstant>4.5e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>command/motor_speed</commandSubTopic>
+      <motorNumber>2</motorNumber>
+      <rotorDragCoefficient>8e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <link name="rotor_3">
+      <pose>-0.1474532505 -0.135127566 0.003706990657 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>9.885679166666668e-06</ixx>
+          <iyy>9.885679166666668e-06</iyy>
+          <izz>1.9758025e-05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1778 0.014 0.004</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+      <collision name="swept_propeller">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0889</radius>
+            <length>0.004</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="rotor_3_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rotor_3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor_3_joint</jointName>
+      <linkName>rotor_3</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.025</timeConstantUp>
+      <timeConstantDown>0.05</timeConstantDown>
+      <maxRotVelocity>1500.0</maxRotVelocity>
+      <motorConstant>4.5e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>command/motor_speed</commandSubTopic>
+      <motorNumber>3</motorNumber>
+      <rotorDragCoefficient>8e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+  </model>
+</sdf>

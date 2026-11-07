@@ -68,6 +68,9 @@ class CourseController:
         self.max_yaw_rate = float(limits.get('max_yaw_rate', 0.7))
         self.jump_margin = float(limits.get('jump_margin', 0.35))
         self.position_gain = float(limits.get('position_gain', 2.0))
+        self.velocity_damping = float(limits.get('velocity_damping', 0.0))
+        if not math.isfinite(self.velocity_damping) or self.velocity_damping < 0:
+            raise ValueError('velocity_damping must be finite and nonnegative')
         for name in ('max_speed', 'max_accel', 'arrival_radius', 'odom_timeout',
                      'state_timeout', 'max_yaw_rate', 'jump_margin', 'position_gain'):
             value = getattr(self, name)
@@ -88,10 +91,14 @@ class CourseController:
         self.waypoints = []
         for item in config['waypoints']:
             speed = float(item.get('speed', self.max_speed))
+            arrival = float(item.get('arrival_radius', self.arrival_radius))
+            if not math.isfinite(arrival) or not 0 < arrival <= self.arrival_radius:
+                raise ValueError('waypoint arrival_radius must be positive and no larger than the global radius')
             if not math.isfinite(speed) or speed <= 0:
                 raise ValueError('waypoint speeds must be positive and finite')
             self.waypoints.append({'position': vector(item['position']),
                                    'phase': str(item.get('phase', 'COURSE')),
+                                   'arrival_radius': arrival,
                                    'speed': min(self.max_speed, speed * speed_scale)})
         if not self.waypoints:
             raise ValueError('at least one waypoint is required')
@@ -106,7 +113,8 @@ class CourseController:
                 raise ValueError('terminal target must remain above the interface floor')
         if norm(sub(self.waypoints[-1]['position'], self.handoff_target)) > 1e-6:
             self.waypoints.append({'position': self.handoff_target,
-                                   'phase': 'LANDING_APPROACH', 'speed': min(0.3, self.max_speed)})
+                                   'phase': 'LANDING_APPROACH', 'speed': min(0.3, self.max_speed),
+                                   'arrival_radius': self.arrival_radius})
         self.waypoint_index = 0
         self.started = False
         self.done = False
@@ -179,7 +187,7 @@ class CourseController:
         self.started = True
         self.last_time = now
         self.last_position = position
-        if not self.done and norm(sub(target, position)) <= self.arrival_radius:
+        if not self.done and norm(sub(target, position)) <= self.waypoints[self.waypoint_index]['arrival_radius']:
             # At most one stage per observation prevents jumping over co-located
             # checkpoints and makes progress inspectable in logs.
             self.waypoint_index += 1
@@ -196,6 +204,13 @@ class CourseController:
         requested_speed = min(speed, self.position_gain * distance,
                               math.sqrt(2.0 * self.max_accel * distance))
         desired = tuple(x / distance * requested_speed for x in delta) if distance else ZERO
+        if self.velocity_damping:
+            # Damp measured motion near turns. Saturating after the feedback
+            # term preserves cruise speed far from a waypoint while braking
+            # before position-only tracking would reverse its command.
+            desired = limited(tuple(self.position_gain*x-self.velocity_damping*v
+                                    for x, v in zip(delta, velocity)),
+                              min(speed, math.sqrt(2.0*self.max_accel*distance)))
         change = limited(sub(desired, self.last_command), self.max_accel * dt)
         command = limited(tuple(a + b for a, b in zip(self.last_command, change)), self.max_speed)
         self.last_command = command

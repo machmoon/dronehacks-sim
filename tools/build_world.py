@@ -105,7 +105,7 @@ def build():
         uri = f'model://course_v3/meshes/{slug}.obj'
         if collides:
             geometry(add(link, 'collision', name=slug), uri)
-        visual = add(link, 'visual', name=slug)
+        visual = add(link, 'visual', name=f'{slug}_visual')
         geometry(visual, uri)
         if transparency:
             add(visual, 'transparency', str(transparency))

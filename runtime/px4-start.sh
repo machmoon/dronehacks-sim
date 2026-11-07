@@ -20,7 +20,7 @@ SIM_MISSION=0 SIM_WORLD=/tmp/dronehacks-px4.sdf SIM_HEADLESS_RENDERING=1 SIM_SEP
     /usr/local/bin/dronehacks-start &
 pids+=("$!")
 
-/usr/local/bin/px4-sitl.sh &
+bash /workspace/runtime/px4-sitl.sh &
 pids+=("$!")
 
 wait -n "${pids[@]}"
