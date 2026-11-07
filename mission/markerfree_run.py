@@ -26,6 +26,7 @@ from .px4_run import Link, REQUIRED_PARAMS, ROOT
 from .state_history import PolicyStateHistory
 from .sitl_health import SitlHealthMonitor
 from .runtime_provenance import px4_runtime_provenance
+from .survey_startup import SurveyStartup
 
 NAVIGATION = 'RGBD depth registration to supplied course map + PX4 EKF2'
 REQUIRED_PARAMS.update(EKF2_DELAY_MAX=500., EKF2_EVP_NOISE=.03)
@@ -112,6 +113,9 @@ class Log:
                            source=NAVIGATION, navigation_source=NAVIGATION,
                            simulator_position_used_for_control=False,
                            inertial_tilt_prior_enabled=args.use_px4_tilt,
+                           require_survey_startup=getattr(args, 'require_survey_startup', False),
+                           survey_startup_config={'min_span_s': 3.0, 'max_gap_s': .12}
+                               if getattr(args, 'require_survey_startup', False) else None,
                            survey_normals=survey_normal_config(args.survey_normals),
                            sitl_power_watchdog_enabled=True,
                            policy_boundary_brake_enabled=boundary_brake is not None,
@@ -298,6 +302,8 @@ def prepare_course(args, launch):
                 and proof.get('inertial_tilt_prior_enabled', False) == getattr(args, 'use_px4_tilt', False)
                 and (proof.get('survey_normals') or {}).get('method', 'central2')
                 == getattr(args, 'survey_normals', 'central2')
+                and proof.get('require_survey_startup', False)
+                == getattr(args, 'require_survey_startup', False)
                 and proof.get('launch') == launch
                 and proof.get('hover_settled_sim_s', 0) >= HOVER_SECONDS):
             raise ValueError('course requires a completed RGBD hover and landing at this launch pose')
@@ -357,6 +363,8 @@ def run(args):
     braking_interventions = braking_setpoints = 0
     max_stop_budget_deficit = 0.
     sim_s = 0.0
+    survey_startup = SurveyStartup() if getattr(args, 'require_survey_startup', False) else None
+    survey_startup_at_arm = None
     try:
         try:
             audit = audit_navigation_sources()
@@ -390,6 +398,10 @@ def run(args):
                 log.event('Injected RGBD capture loss; no further measurements sent', sim_time=sim_s)
             if fresh_frame is not None and not blackout:
                 frame = fresh_frame
+                if start is None and survey_startup is not None:
+                    survey_startup.update(fresh_frame)
+                    log.write(type='survey_startup_capture', source=fresh_frame.get('source'),
+                              valid=bool(fresh_frame.get('valid')), **survey_startup.status(sim_s))
                 if fresh_frame.get('valid') and link.ready:
                     link.vision(fresh_frame)
                     valid_wall, valid_sim = now, fresh_frame['sim_usec']/1e6
@@ -415,7 +427,8 @@ def run(args):
                     raise FlightFault('px4_already_armed')
                 sensors_ready = (state_fresh and camera_fresh and link.params_ok and power_health['healthy']
                                  and norm(sub(position_enu, launch['position_enu'])) <= .25
-                                 and norm(velocity_enu) <= .18)
+                                 and norm(velocity_enu) <= .18
+                                 and (survey_startup is None or survey_startup.ready(sim_s)))
                 if learned and sensors_ready and not learned.preflight_verified and client.connect():
                     if not client.contract_verified:
                         profile = validate_transfer_contract(
@@ -455,11 +468,13 @@ def run(args):
                         last_retry = sim_s
                     if link.armed and link.offboard:
                         start = sim_s
+                        survey_startup_at_arm = survey_startup.status(sim_s) if survey_startup else None
                         phase = 'TAKEOFF'
                         if learned:
                             learned.clear()
                         log.event('PX4 armed in Offboard with marker-free RGBD aiding',
-                                  sim_time=sim_s, verified_parameters=link.params)
+                                  sim_time=sim_s, verified_parameters=link.params,
+                                  survey_startup=survey_startup_at_arm)
                 else:
                     if link.armed:
                         raise FlightFault('flight_inputs_lost_during_arming')
@@ -470,7 +485,10 @@ def run(args):
                             link.link.mav.param_request_read_send(1, 1, name.encode(), -1)
                         last_retry = sim_s
                 if now-wall_start > args.startup_timeout:
-                    log.event('Startup inputs unavailable', sitl_power_health=power_health)
+                    log.event('Startup inputs unavailable', sitl_power_health=power_health,
+                              survey_startup=survey_startup.status(sim_s) if survey_startup else None)
+                    if survey_startup is not None and not survey_startup.ready(sim_s):
+                        raise FlightFault('absolute_survey_startup_unqualified')
                     raise FlightFault('rgbd_ekf_or_policy_startup_timeout')
             else:
                 if not power_health['healthy']:
@@ -596,6 +614,7 @@ def run(args):
                           vision_stamp_sim_s=(frame or {}).get('stamp_sim_s'),
                           tof_range_m=(frame or {}).get('tof_range_m'),
                           vision_source=(frame or {}).get('source'),
+                          survey_startup=survey_startup.status(sim_s) if survey_startup and start is None else None,
                           attitude_rpy_frd=[attitude.roll, attitude.pitch, attitude.yaw] if attitude_fresh else None,
                           command_velocity=sent_velocity if landing.started is None else ZERO,
                           command_yaw_enu=yaw_command, phase=phase,
@@ -656,6 +675,8 @@ def run(args):
                    route_elapsed_sim_s=route_time, route_completed=route_time is not None,
                    landed_and_disarmed=fault is None,
                    landed_after_fault=landed_after_fault,
+                   arm_request_sent=arm_requested,
+                   survey_startup_at_arm=survey_startup_at_arm,
                    landing_position_enu=position_enu if fault is None else None,
                    pad_radius_m=landing.pad_radius, aircraft_radius_m=landing.aircraft_radius,
                    waypoints_reached=takeoff.waypoint_index + (route.waypoint_index if route else 0),
@@ -699,6 +720,8 @@ def main():
                         help='Metres before a turn to begin looking into the next corridor; 0 disables')
     parser.add_argument('--use-px4-tilt', action='store_true',
                         help='Optional capture-aligned inertial roll/pitch prior for weak depth geometry')
+    parser.add_argument('--require-survey-startup', action='store_true',
+                        help='SITL opt-in: require 3 s of continuous absolute survey tracking before arming')
     parser.add_argument('--survey-normals', choices=('central2', 'fals7'), default='central2',
                         help='Absolute depth survey source normals. FALS requires OpenCV contrib.')
     parser.add_argument('--startup-timeout', type=float, default=240.0)

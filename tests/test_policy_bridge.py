@@ -375,6 +375,12 @@ class PrerequisiteTests(unittest.TestCase):
                 prepare_course(args, launch)
             write_json(proof, result | {'survey_normals': {'method': 'fals7'}})
             prepare_course(args, launch)
+            args.require_survey_startup = True
+            with self.assertRaisesRegex(ValueError, 'completed RGBD hover and landing'):
+                prepare_course(args, launch)
+            write_json(proof, result | {'survey_normals': {'method': 'fals7'},
+                                        'require_survey_startup': True})
+            prepare_course(args, launch)
 
 
 if __name__ == '__main__':
