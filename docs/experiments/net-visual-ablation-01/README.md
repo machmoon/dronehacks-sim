@@ -84,3 +84,12 @@ The [flight evidence](flight-results.json) preserves the complete sequence, hash
 The treatment's saved failure frame reports unobservable survey geometry, insufficient overlap for relative depth matching, and insufficient RGB tracking inliers. These are diagnostics from one rejected frame, not aggregate failure counts. The independent scorer certified the modeled abort path from the fault at 24.868 s through confirmed disarm at 29.536 s. Floor contact was permitted during landing. Contact-message coverage was partial, so this geometry result is not proof of zero physical contact.
 
 This controlled visual ablation exposed a failure in the treatment scene. It does not establish repeatability, isolate missing depth constraints from the deliberate map/sensor mismatch and tracker fallback, or predict physical camera behavior. No controller, estimator threshold, or policy was retuned to obtain a passing treatment run.
+
+The saved [rejected capture](first-rejected.npz) and [rank diagnostic](observability.json) are included for a small offline reproduction. At capture time 24.852 s, the fit had 322 matched depth samples and 10.32 mm plane residual, but its recorded linearized matrix had an exactly zero ENU-Y translation row and column. The surfaces supplied no north–south translation constraint in that fit, including its ToF and tilt terms. A numerically tiny negative eigenvalue is roundoff around this singular direction. Lowering the conditioning threshold would not supply the missing information. This statement concerns one recorded fit, not every possible estimator or the physical course.
+
+With NumPy installed, recompute it without Gazebo:
+
+```sh
+python3 docs/experiments/net-visual-ablation-01/observability.py \
+  --output /tmp/net-visual-observability.json
+```
