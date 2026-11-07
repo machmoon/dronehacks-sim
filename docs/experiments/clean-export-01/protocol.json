@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "registered_at_utc": "2026-11-07T18:20:11.195357+00:00",
+  "status_at_registration": "not_run",
+  "purpose": "Verify tracked source execution without local untracked helpers, using existing simulator and host dependencies. No image rebuild or clean-machine installation claim.",
+  "source_revision": "37696f60537d8a69ea029e603d3821c01f7e045c",
+  "export_metadata": "artifacts/clean-export-01/export.json",
+  "expected_source_inventory": {
+    "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+    "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+    "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+    "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+    "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+    "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+    "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+    "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+    "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+    "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+    "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+    "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+    "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+    "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+    "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+    "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+    "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+    "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+    "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+    "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+    "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+    "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+    "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+    "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+    "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+    "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+    "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+    "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+    "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+    "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+    "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+    "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+    "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+    "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+    "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+    "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69"
+  },
+  "steps": [
+    {
+      "task": "passive_collector_smoke",
+      "condition": "treatment",
+      "output": "artifacts/clean-export-01/repository/artifacts/markerfree/net-visual-ablation-01/treatment",
+      "requirements": [
+        "collector exit0",
+        "observer duration_complete, recording_complete, closed callbacks, zero overflow",
+        "32 synchronized RGBD captures",
+        "native uint8/float32/int64 capture arrays",
+        "exact registered treatment-world/binary/source checks from original net protocol"
+      ],
+      "claim": "Collector integration on existing disarmed treatment runtime only; not a second A/B experiment."
+    },
+    {
+      "task": "hover",
+      "output": "artifacts/clean-export-01/repository/artifacts/markerfree/hover-01",
+      "requirements": [
+        "fresh original default course world with gaussian-10mm seed4417 and patched PX4",
+        "completed and normally landed/disarmed",
+        "settled >=3sim seconds",
+        "all7 applicable hover score checks",
+        "zero unmatched/approximate error stamps",
+        "max HOVER_CHECK camera/PX4 position error <=0.08m",
+        "complete observer with zero overflow",
+        "zero received obstacle or transit-ground contact pairs",
+        "36-file tracked source inventory exactly matches export"
+      ]
+    },
+    {
+      "task": "policy",
+      "output": "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01",
+      "prerequisite": "hover acceptance passes",
+      "requirements": [
+        "fresh same default course runtime",
+        "packaged v1 SHA a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+        "separate host inference process importing tracked export sources",
+        "FALS7/tilt/120ms continuity/300ms capture age/raw depth/braking guard/heading1.8/speedscale1 unchanged",
+        "completed and landed/disarmed",
+        "15 of15 waypoints and all8 independent score checks",
+        "complete observer with zero overflow",
+        "zero received obstacle or transit-ground contact pairs",
+        "36-file tracked source inventory exactly matches export"
+      ]
+    }
+  ],
+  "failure_policy": "Retain any failed attempt; stop dependent flight steps at first failed prerequisite. Do not change estimator/controller/score thresholds.",
+  "limits": [
+    "Existing Colima/Gazebo/PX4 image and native host Torch environment are reused.",
+    "The simulator launcher runs from the original checkout; its source/model hashes must equal those in the tracked export. Flight/observer/scorer and the new host policy service run from exported code.",
+    "Original registered net-ablation data remain unchanged.",
+    "No physical aircraft or sensor is accessed."
+  ]
+}
