@@ -1,0 +1,35 @@
+{
+  "scope": "Local PX4/Gazebo x500 keyboard-control validation, not physical flight or a course benchmark",
+  "api_test": {
+    "takeoff": true,
+    "forward_and_hover_stayed_flying": true,
+    "landed_and_disarmed": true,
+    "max_altitude_estimate_m": 0.9332572221755981
+  },
+  "browser_test": {
+    "enable_did_not_arm": true,
+    "takeoff_button_reached_flying": true,
+    "forward_key_captured_samples": 17,
+    "north_position_range_m": [
+      0.9394352436065674,
+      0.9838950634002686
+    ],
+    "space_cleared_input": true,
+    "escape_landed_and_disarmed": true,
+    "left_controls_disabled": true
+  },
+  "unit_tests": 3,
+  "input_loss_timeout_wall_s": 0.6,
+  "control_transport": "loopback TCP, receipt age from monotonic clock under packet lock",
+  "source_sha256": {
+    "mission/keyboard_rc.py": "de73610ecda23c1f6e2d164b8546830428f58e27a977bf0a5d845281ae770cc0",
+    "mission/keyboard_input.py": "d1aded3338148c797e23a67bd2a57c1663b5d271e9fe45c7af8189a3f0d32fe7",
+    "web/rc_server.py": "855b2f465018599e7740c617a40819a2df305dd23217d92ff7df57b56da3929f",
+    "web/keyboard.html": "f6a278b244f66a2fca6e9470c4a16b7f66d6b24eb5532749261272816d51846f"
+  },
+  "artifact_sha256": {
+    "artifacts/keyboard/api-flight-records.json": "ce03182581efaac2adf78696e48775c4d25f3e0844e10b826115e353e0c8c25a",
+    "artifacts/keyboard/browser-takeoff.json": "969aca5166bb1ce0989220be6fe5f26f57f948cd39908bc1e4c5595a400d9b01",
+    "artifacts/keyboard/browser-key-records.json": "bbb5d60d8935473ba674264376d38fd5a684488b75df869d1faf87fa5d73eea9"
+  }
+}

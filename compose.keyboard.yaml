@@ -1,0 +1,8 @@
+services:
+  sim:
+    command: ["bash", "/workspace/runtime/keyboard-start.sh"]
+    ports:
+      - "127.0.0.1:8088:8088"
+    environment:
+      SIM_KEYBOARD_RC: "1"
+      SIM_GUI: "1"

@@ -8,6 +8,8 @@ The `patrick` branch now has **five consecutive marker-free full-course runs in 
 
 The [Sky Beta camera/SLAM integration](docs/camera-slam.md) adds calibrated RGBD navigation and an explicit sparse-mapping backend. Its flight evidence is separate from the x500 results below.
 
+For manual practice, use the [keyboard RC panel](docs/keyboard-rc.md): `bash runtime/run-keyboard.sh`, then open <http://127.0.0.1:8087>.
+
 ## Verified flights
 
 | Run | Controller | Arm to landing and disarm | Verified waypoints | Minimum modeled window clearance |
