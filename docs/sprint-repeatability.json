@@ -1,0 +1,1550 @@
+{
+  "achieved": true,
+  "achievement_rule": "at least 5 explicitly supplied runs, every attempt passes, all runs have the same logged waypoints, course limits, speed scale, and runtime source hashes, with unique directories and run IDs",
+  "attempts": [
+    {
+      "elapsed_sim_s": 58.00000000000001,
+      "failures": [],
+      "input_sha256": {
+        "recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "score.json": "e628955f8131929ee1470aad1d5905b42c7048c1e52a22db49f86585a662275d",
+        "telemetry.jsonl": "0eafacdbb75d004f202049d94b88c006754407030bae191d75a5e809fcf210bf",
+        "telemetry.summary.json": "a90ff7ee083a04931445ba4cbbed6ed5bbee0021224e1f5ef0cfd5e6819bb3ac"
+      },
+      "launch": {
+        "position_enu": [
+          -2.5146,
+          0.9144,
+          0.24
+        ],
+        "yaw_enu_deg": 90.0
+      },
+      "metadata_run_id": "f9d13dbab9004638ad1888344eb6c06a",
+      "passed": true,
+      "profile": {
+        "camera_resolution_px": [
+          384,
+          256
+        ],
+        "camera_translation_flu_m": [
+          0.34,
+          0.0,
+          0.0
+        ],
+        "course_limits": {
+          "arrival_radius": 0.08,
+          "max_accel": 2.0,
+          "max_speed": 1.25,
+          "max_yaw_rate": 1.0,
+          "odom_timeout": 0.6,
+          "position_gain": 3.2,
+          "state_timeout": 2.0,
+          "velocity_damping": 2.0
+        },
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "localizer": "survey",
+        "policy_boundary_brake_enabled": false,
+        "policy_checkpoint_sha256": null,
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        },
+        "task": "course",
+        "vision_max_capture_age_s": 0.3,
+        "vision_max_capture_gap_s": 0.12,
+        "waypoints": [
+          {
+            "arrival_radius": 0.06,
+            "phase": "TAKEOFF",
+            "position": [
+              -2.5146,
+              0.9144,
+              0.95
+            ],
+            "speed": 0.65,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "FIRST_CORRIDOR",
+            "position": [
+              -2.5146,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "GATE_A",
+            "position": [
+              0.95,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              2.2,
+              0.95
+            ],
+            "speed": 1.2000000000000002,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              1.6,
+              0.95
+            ],
+            "speed": 0.8,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL",
+            "position": [
+              2.3114,
+              -0.72,
+              0.95
+            ],
+            "speed": 1.25,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "CHICANE",
+            "position": [
+              2.13,
+              -1.7,
+              0.95
+            ],
+            "speed": 1.1199999999999999,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_APPROACH",
+            "position": [
+              0.3,
+              -1.9,
+              0.95
+            ],
+            "speed": 0.75,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_ALIGN",
+            "position": [
+              0.045893,
+              -2.460006,
+              0.9
+            ],
+            "speed": 0.37,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_CROSS",
+            "position": [
+              -0.987769,
+              -2.083784,
+              0.9
+            ],
+            "speed": 0.52,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "LANDING_APPROACH",
+            "position": [
+              -2.0422,
+              -0.7925,
+              0.7
+            ],
+            "speed": 1.15,
+            "verification_radius": 0.08
+          }
+        ]
+      },
+      "profile_sha256": "6830c5cd05cec513d3c2178b4b69c5a54e78694c492682eef44e04c2480eb381",
+      "recorder_exited_cleanly": true,
+      "run_dir": "artifacts/markerfree/sprint-final-01",
+      "run_id": "f9d13dbab9004638ad1888344eb6c06a",
+      "runtime_source_sha256": {
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "8ea89d88f7d5dc2466e78d187266ff934c42f038e5b155155b6fa2acfcde333d",
+        "mission/navigation_audit.py": "dba452d0f21c8620a72c1e907ab04cb820bbd3d1febef3fa817ed7e698612c1a",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "93f7e43f50f7b1106b6ab39acf5326b5a5a29aa86f0b30c94d3f19069902f283",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "mission/survey_startup.py": "35d74a04aa33e8c364adc734d29ff5b736b895b29782caa788b3724b44a8ccc2",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/observe.py": "9afc985ef1a143e7f24bbf8cdfd1f003e89c2c37f33d79b8e99a8879237cc09b",
+        "vision/preview.py": "fa476aae62882b84a7e9c65e6309fc0e57295a0a732d8d7b89e2e8fb6df4e8dc",
+        "vision/record.py": "c3090b5d70a66761a7e9cc63e55c24095881cef481d8c9cef85d8edb079a5e76",
+        "vision/rgbd_odometry.py": "0f27f994dc3a601c1b37a22d5e09f15bf6acde950524ea3deb879c53993f0d31",
+        "vision/rgbd_scene.py": "716f84a0866f267213cf74d56266a868c5346dc3abf8014c328ecb6bde05fb7a",
+        "vision/scene.py": "ddbd50f8e1e7ced73a63da5e26cfe5f149e805e7efcb1ff6f864bdd71b9988d2",
+        "vision/share_run.py": "a55d4f410dc99a5a65b456c3c22f11771ac223c82d16f3c6616b40f549034a87",
+        "vision/slam_odometry.py": "21e6c4966888a643b2a0b2ee2f9915a1ada3f08dee6de2665574ccf1a1270a97",
+        "vision/sparse_slam.py": "2dcc9f11bcaa5ff4179b2019f90f2d2f07dc7c108879bc9784ca5950329c5eff",
+        "vision/velocity.py": "af619c3c0a83204bc302243ab733098b2b71628603b394da15eaeb4a4a526aac",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "score_checks": {
+        "controller_reports_all_waypoints": true,
+        "px4_ground_and_disarm_confirmed": true,
+        "truth_complete_during_flight": true,
+        "truth_crosses_window_with_full_envelope": true,
+        "truth_multipart_path_certified_clear": true,
+        "truth_reaches_all_waypoints_in_order": true,
+        "truth_touchdown_inside_pad": true,
+        "truth_transit_floor_checked": true
+      },
+      "sensor_diagnostic": {
+        "mode": "off"
+      },
+      "truth_used_for_navigation": false
+    },
+    {
+      "elapsed_sim_s": 57.0,
+      "failures": [],
+      "input_sha256": {
+        "recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "score.json": "f4a9651edb644d6f4c76e4ba9605c8b8b8c819a3d2168f9def7fd0dbf9e6b97d",
+        "telemetry.jsonl": "42401109fcf3096f5052f1bfd2ae5b0db9550870dd9ed88bd1a57e20f070e55b",
+        "telemetry.summary.json": "65d8c2b5d2b94e4ee29bcb11f8f8b284386491cc0ff4eddc9e93f5f2b48a080f"
+      },
+      "launch": {
+        "position_enu": [
+          -2.5146,
+          0.9144,
+          0.24
+        ],
+        "yaw_enu_deg": 90.0
+      },
+      "metadata_run_id": "8855e45c27af448aa65e25d7f251f186",
+      "passed": true,
+      "profile": {
+        "camera_resolution_px": [
+          384,
+          256
+        ],
+        "camera_translation_flu_m": [
+          0.34,
+          0.0,
+          0.0
+        ],
+        "course_limits": {
+          "arrival_radius": 0.08,
+          "max_accel": 2.0,
+          "max_speed": 1.25,
+          "max_yaw_rate": 1.0,
+          "odom_timeout": 0.6,
+          "position_gain": 3.2,
+          "state_timeout": 2.0,
+          "velocity_damping": 2.0
+        },
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "localizer": "survey",
+        "policy_boundary_brake_enabled": false,
+        "policy_checkpoint_sha256": null,
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        },
+        "task": "course",
+        "vision_max_capture_age_s": 0.3,
+        "vision_max_capture_gap_s": 0.12,
+        "waypoints": [
+          {
+            "arrival_radius": 0.06,
+            "phase": "TAKEOFF",
+            "position": [
+              -2.5146,
+              0.9144,
+              0.95
+            ],
+            "speed": 0.65,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "FIRST_CORRIDOR",
+            "position": [
+              -2.5146,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "GATE_A",
+            "position": [
+              0.95,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              2.2,
+              0.95
+            ],
+            "speed": 1.2000000000000002,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              1.6,
+              0.95
+            ],
+            "speed": 0.8,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL",
+            "position": [
+              2.3114,
+              -0.72,
+              0.95
+            ],
+            "speed": 1.25,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "CHICANE",
+            "position": [
+              2.13,
+              -1.7,
+              0.95
+            ],
+            "speed": 1.1199999999999999,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_APPROACH",
+            "position": [
+              0.3,
+              -1.9,
+              0.95
+            ],
+            "speed": 0.75,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_ALIGN",
+            "position": [
+              0.045893,
+              -2.460006,
+              0.9
+            ],
+            "speed": 0.37,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_CROSS",
+            "position": [
+              -0.987769,
+              -2.083784,
+              0.9
+            ],
+            "speed": 0.52,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "LANDING_APPROACH",
+            "position": [
+              -2.0422,
+              -0.7925,
+              0.7
+            ],
+            "speed": 1.15,
+            "verification_radius": 0.08
+          }
+        ]
+      },
+      "profile_sha256": "6830c5cd05cec513d3c2178b4b69c5a54e78694c492682eef44e04c2480eb381",
+      "recorder_exited_cleanly": true,
+      "run_dir": "artifacts/markerfree/sprint-final-02",
+      "run_id": "8855e45c27af448aa65e25d7f251f186",
+      "runtime_source_sha256": {
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "8ea89d88f7d5dc2466e78d187266ff934c42f038e5b155155b6fa2acfcde333d",
+        "mission/navigation_audit.py": "dba452d0f21c8620a72c1e907ab04cb820bbd3d1febef3fa817ed7e698612c1a",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "93f7e43f50f7b1106b6ab39acf5326b5a5a29aa86f0b30c94d3f19069902f283",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "mission/survey_startup.py": "35d74a04aa33e8c364adc734d29ff5b736b895b29782caa788b3724b44a8ccc2",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/observe.py": "9afc985ef1a143e7f24bbf8cdfd1f003e89c2c37f33d79b8e99a8879237cc09b",
+        "vision/preview.py": "fa476aae62882b84a7e9c65e6309fc0e57295a0a732d8d7b89e2e8fb6df4e8dc",
+        "vision/record.py": "c3090b5d70a66761a7e9cc63e55c24095881cef481d8c9cef85d8edb079a5e76",
+        "vision/rgbd_odometry.py": "0f27f994dc3a601c1b37a22d5e09f15bf6acde950524ea3deb879c53993f0d31",
+        "vision/rgbd_scene.py": "716f84a0866f267213cf74d56266a868c5346dc3abf8014c328ecb6bde05fb7a",
+        "vision/scene.py": "ddbd50f8e1e7ced73a63da5e26cfe5f149e805e7efcb1ff6f864bdd71b9988d2",
+        "vision/share_run.py": "a55d4f410dc99a5a65b456c3c22f11771ac223c82d16f3c6616b40f549034a87",
+        "vision/slam_odometry.py": "21e6c4966888a643b2a0b2ee2f9915a1ada3f08dee6de2665574ccf1a1270a97",
+        "vision/sparse_slam.py": "2dcc9f11bcaa5ff4179b2019f90f2d2f07dc7c108879bc9784ca5950329c5eff",
+        "vision/velocity.py": "af619c3c0a83204bc302243ab733098b2b71628603b394da15eaeb4a4a526aac",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "score_checks": {
+        "controller_reports_all_waypoints": true,
+        "px4_ground_and_disarm_confirmed": true,
+        "truth_complete_during_flight": true,
+        "truth_crosses_window_with_full_envelope": true,
+        "truth_multipart_path_certified_clear": true,
+        "truth_reaches_all_waypoints_in_order": true,
+        "truth_touchdown_inside_pad": true,
+        "truth_transit_floor_checked": true
+      },
+      "sensor_diagnostic": {
+        "mode": "off"
+      },
+      "truth_used_for_navigation": false
+    },
+    {
+      "elapsed_sim_s": 58.0,
+      "failures": [],
+      "input_sha256": {
+        "recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "score.json": "e5a5665ef6bb6561c279e89d001c56313b68f0bffec7c884ad504f0d57584c1b",
+        "telemetry.jsonl": "5af245b2b1f063f66e7f86d36e23fec14bf54c77b431503b23502dca2fd35776",
+        "telemetry.summary.json": "ccaa7c9e1676993c3b2bcac24a3ffbb87133405eb15376ef392e0b5a404f5b0a"
+      },
+      "launch": {
+        "position_enu": [
+          -2.5146,
+          0.9144,
+          0.24
+        ],
+        "yaw_enu_deg": 90.0
+      },
+      "metadata_run_id": "fd921894b16a4c1b92aa86d32100381e",
+      "passed": true,
+      "profile": {
+        "camera_resolution_px": [
+          384,
+          256
+        ],
+        "camera_translation_flu_m": [
+          0.34,
+          0.0,
+          0.0
+        ],
+        "course_limits": {
+          "arrival_radius": 0.08,
+          "max_accel": 2.0,
+          "max_speed": 1.25,
+          "max_yaw_rate": 1.0,
+          "odom_timeout": 0.6,
+          "position_gain": 3.2,
+          "state_timeout": 2.0,
+          "velocity_damping": 2.0
+        },
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "localizer": "survey",
+        "policy_boundary_brake_enabled": false,
+        "policy_checkpoint_sha256": null,
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        },
+        "task": "course",
+        "vision_max_capture_age_s": 0.3,
+        "vision_max_capture_gap_s": 0.12,
+        "waypoints": [
+          {
+            "arrival_radius": 0.06,
+            "phase": "TAKEOFF",
+            "position": [
+              -2.5146,
+              0.9144,
+              0.95
+            ],
+            "speed": 0.65,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "FIRST_CORRIDOR",
+            "position": [
+              -2.5146,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "GATE_A",
+            "position": [
+              0.95,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              2.2,
+              0.95
+            ],
+            "speed": 1.2000000000000002,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              1.6,
+              0.95
+            ],
+            "speed": 0.8,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL",
+            "position": [
+              2.3114,
+              -0.72,
+              0.95
+            ],
+            "speed": 1.25,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "CHICANE",
+            "position": [
+              2.13,
+              -1.7,
+              0.95
+            ],
+            "speed": 1.1199999999999999,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_APPROACH",
+            "position": [
+              0.3,
+              -1.9,
+              0.95
+            ],
+            "speed": 0.75,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_ALIGN",
+            "position": [
+              0.045893,
+              -2.460006,
+              0.9
+            ],
+            "speed": 0.37,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_CROSS",
+            "position": [
+              -0.987769,
+              -2.083784,
+              0.9
+            ],
+            "speed": 0.52,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "LANDING_APPROACH",
+            "position": [
+              -2.0422,
+              -0.7925,
+              0.7
+            ],
+            "speed": 1.15,
+            "verification_radius": 0.08
+          }
+        ]
+      },
+      "profile_sha256": "6830c5cd05cec513d3c2178b4b69c5a54e78694c492682eef44e04c2480eb381",
+      "recorder_exited_cleanly": true,
+      "run_dir": "artifacts/markerfree/sprint-final-03",
+      "run_id": "fd921894b16a4c1b92aa86d32100381e",
+      "runtime_source_sha256": {
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "8ea89d88f7d5dc2466e78d187266ff934c42f038e5b155155b6fa2acfcde333d",
+        "mission/navigation_audit.py": "dba452d0f21c8620a72c1e907ab04cb820bbd3d1febef3fa817ed7e698612c1a",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "93f7e43f50f7b1106b6ab39acf5326b5a5a29aa86f0b30c94d3f19069902f283",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "mission/survey_startup.py": "35d74a04aa33e8c364adc734d29ff5b736b895b29782caa788b3724b44a8ccc2",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/observe.py": "9afc985ef1a143e7f24bbf8cdfd1f003e89c2c37f33d79b8e99a8879237cc09b",
+        "vision/preview.py": "fa476aae62882b84a7e9c65e6309fc0e57295a0a732d8d7b89e2e8fb6df4e8dc",
+        "vision/record.py": "c3090b5d70a66761a7e9cc63e55c24095881cef481d8c9cef85d8edb079a5e76",
+        "vision/rgbd_odometry.py": "0f27f994dc3a601c1b37a22d5e09f15bf6acde950524ea3deb879c53993f0d31",
+        "vision/rgbd_scene.py": "716f84a0866f267213cf74d56266a868c5346dc3abf8014c328ecb6bde05fb7a",
+        "vision/scene.py": "ddbd50f8e1e7ced73a63da5e26cfe5f149e805e7efcb1ff6f864bdd71b9988d2",
+        "vision/share_run.py": "a55d4f410dc99a5a65b456c3c22f11771ac223c82d16f3c6616b40f549034a87",
+        "vision/slam_odometry.py": "21e6c4966888a643b2a0b2ee2f9915a1ada3f08dee6de2665574ccf1a1270a97",
+        "vision/sparse_slam.py": "2dcc9f11bcaa5ff4179b2019f90f2d2f07dc7c108879bc9784ca5950329c5eff",
+        "vision/velocity.py": "af619c3c0a83204bc302243ab733098b2b71628603b394da15eaeb4a4a526aac",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "score_checks": {
+        "controller_reports_all_waypoints": true,
+        "px4_ground_and_disarm_confirmed": true,
+        "truth_complete_during_flight": true,
+        "truth_crosses_window_with_full_envelope": true,
+        "truth_multipart_path_certified_clear": true,
+        "truth_reaches_all_waypoints_in_order": true,
+        "truth_touchdown_inside_pad": true,
+        "truth_transit_floor_checked": true
+      },
+      "sensor_diagnostic": {
+        "mode": "off"
+      },
+      "truth_used_for_navigation": false
+    },
+    {
+      "elapsed_sim_s": 58.0,
+      "failures": [],
+      "input_sha256": {
+        "recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "score.json": "89004bfb1c313025e17f433d24b09ec988ce1a0a22fa5833e4c257865f4e869f",
+        "telemetry.jsonl": "50b47cfbaf082b6370980f5c32a6d554027a7796eb6cbfd1215b3a97ca5dc39c",
+        "telemetry.summary.json": "154e74c398a0726a3ffa4b1aeba1271d41a904246120d67081cc1fcca17b5f04"
+      },
+      "launch": {
+        "position_enu": [
+          -2.5146,
+          0.9144,
+          0.24
+        ],
+        "yaw_enu_deg": 90.0
+      },
+      "metadata_run_id": "182541a173d24758a70475e0c0b5d77c",
+      "passed": true,
+      "profile": {
+        "camera_resolution_px": [
+          384,
+          256
+        ],
+        "camera_translation_flu_m": [
+          0.34,
+          0.0,
+          0.0
+        ],
+        "course_limits": {
+          "arrival_radius": 0.08,
+          "max_accel": 2.0,
+          "max_speed": 1.25,
+          "max_yaw_rate": 1.0,
+          "odom_timeout": 0.6,
+          "position_gain": 3.2,
+          "state_timeout": 2.0,
+          "velocity_damping": 2.0
+        },
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "localizer": "survey",
+        "policy_boundary_brake_enabled": false,
+        "policy_checkpoint_sha256": null,
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        },
+        "task": "course",
+        "vision_max_capture_age_s": 0.3,
+        "vision_max_capture_gap_s": 0.12,
+        "waypoints": [
+          {
+            "arrival_radius": 0.06,
+            "phase": "TAKEOFF",
+            "position": [
+              -2.5146,
+              0.9144,
+              0.95
+            ],
+            "speed": 0.65,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "FIRST_CORRIDOR",
+            "position": [
+              -2.5146,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "GATE_A",
+            "position": [
+              0.95,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              2.2,
+              0.95
+            ],
+            "speed": 1.2000000000000002,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              1.6,
+              0.95
+            ],
+            "speed": 0.8,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL",
+            "position": [
+              2.3114,
+              -0.72,
+              0.95
+            ],
+            "speed": 1.25,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "CHICANE",
+            "position": [
+              2.13,
+              -1.7,
+              0.95
+            ],
+            "speed": 1.1199999999999999,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_APPROACH",
+            "position": [
+              0.3,
+              -1.9,
+              0.95
+            ],
+            "speed": 0.75,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_ALIGN",
+            "position": [
+              0.045893,
+              -2.460006,
+              0.9
+            ],
+            "speed": 0.37,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_CROSS",
+            "position": [
+              -0.987769,
+              -2.083784,
+              0.9
+            ],
+            "speed": 0.52,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "LANDING_APPROACH",
+            "position": [
+              -2.0422,
+              -0.7925,
+              0.7
+            ],
+            "speed": 1.15,
+            "verification_radius": 0.08
+          }
+        ]
+      },
+      "profile_sha256": "6830c5cd05cec513d3c2178b4b69c5a54e78694c492682eef44e04c2480eb381",
+      "recorder_exited_cleanly": true,
+      "run_dir": "artifacts/markerfree/sprint-final-04",
+      "run_id": "182541a173d24758a70475e0c0b5d77c",
+      "runtime_source_sha256": {
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "8ea89d88f7d5dc2466e78d187266ff934c42f038e5b155155b6fa2acfcde333d",
+        "mission/navigation_audit.py": "dba452d0f21c8620a72c1e907ab04cb820bbd3d1febef3fa817ed7e698612c1a",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "93f7e43f50f7b1106b6ab39acf5326b5a5a29aa86f0b30c94d3f19069902f283",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "mission/survey_startup.py": "35d74a04aa33e8c364adc734d29ff5b736b895b29782caa788b3724b44a8ccc2",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/observe.py": "9afc985ef1a143e7f24bbf8cdfd1f003e89c2c37f33d79b8e99a8879237cc09b",
+        "vision/preview.py": "fa476aae62882b84a7e9c65e6309fc0e57295a0a732d8d7b89e2e8fb6df4e8dc",
+        "vision/record.py": "c3090b5d70a66761a7e9cc63e55c24095881cef481d8c9cef85d8edb079a5e76",
+        "vision/rgbd_odometry.py": "0f27f994dc3a601c1b37a22d5e09f15bf6acde950524ea3deb879c53993f0d31",
+        "vision/rgbd_scene.py": "716f84a0866f267213cf74d56266a868c5346dc3abf8014c328ecb6bde05fb7a",
+        "vision/scene.py": "ddbd50f8e1e7ced73a63da5e26cfe5f149e805e7efcb1ff6f864bdd71b9988d2",
+        "vision/share_run.py": "a55d4f410dc99a5a65b456c3c22f11771ac223c82d16f3c6616b40f549034a87",
+        "vision/slam_odometry.py": "21e6c4966888a643b2a0b2ee2f9915a1ada3f08dee6de2665574ccf1a1270a97",
+        "vision/sparse_slam.py": "2dcc9f11bcaa5ff4179b2019f90f2d2f07dc7c108879bc9784ca5950329c5eff",
+        "vision/velocity.py": "af619c3c0a83204bc302243ab733098b2b71628603b394da15eaeb4a4a526aac",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "score_checks": {
+        "controller_reports_all_waypoints": true,
+        "px4_ground_and_disarm_confirmed": true,
+        "truth_complete_during_flight": true,
+        "truth_crosses_window_with_full_envelope": true,
+        "truth_multipart_path_certified_clear": true,
+        "truth_reaches_all_waypoints_in_order": true,
+        "truth_touchdown_inside_pad": true,
+        "truth_transit_floor_checked": true
+      },
+      "sensor_diagnostic": {
+        "mode": "off"
+      },
+      "truth_used_for_navigation": false
+    },
+    {
+      "elapsed_sim_s": 58.0,
+      "failures": [],
+      "input_sha256": {
+        "recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "score.json": "996aee38a5f2516a3db991155dd71cf27a63d6f1d7d8455ca4daf44e5a8719e1",
+        "telemetry.jsonl": "8caa71c5015bda15509d2389d1f4b4ff6df7bf877b12eddd57c0a186fcc00a39",
+        "telemetry.summary.json": "7dfce75e4978dc302bde8c6e6eb83f3c67868080d7c516f572fda57543a1f3e8"
+      },
+      "launch": {
+        "position_enu": [
+          -2.5146,
+          0.9144,
+          0.24
+        ],
+        "yaw_enu_deg": 90.0
+      },
+      "metadata_run_id": "078512f0199445158799eb48fcde4934",
+      "passed": true,
+      "profile": {
+        "camera_resolution_px": [
+          384,
+          256
+        ],
+        "camera_translation_flu_m": [
+          0.34,
+          0.0,
+          0.0
+        ],
+        "course_limits": {
+          "arrival_radius": 0.08,
+          "max_accel": 2.0,
+          "max_speed": 1.25,
+          "max_yaw_rate": 1.0,
+          "odom_timeout": 0.6,
+          "position_gain": 3.2,
+          "state_timeout": 2.0,
+          "velocity_damping": 2.0
+        },
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "localizer": "survey",
+        "policy_boundary_brake_enabled": false,
+        "policy_checkpoint_sha256": null,
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        },
+        "task": "course",
+        "vision_max_capture_age_s": 0.3,
+        "vision_max_capture_gap_s": 0.12,
+        "waypoints": [
+          {
+            "arrival_radius": 0.06,
+            "phase": "TAKEOFF",
+            "position": [
+              -2.5146,
+              0.9144,
+              0.95
+            ],
+            "speed": 0.65,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "FIRST_CORRIDOR",
+            "position": [
+              -2.5146,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -1.3716,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              0.97155,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "MAZE",
+            "position": [
+              -0.254,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "GATE_A",
+            "position": [
+              0.95,
+              2.58445,
+              0.95
+            ],
+            "speed": 0.7920000000000001,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              2.2,
+              0.95
+            ],
+            "speed": 1.2000000000000002,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL_ALIGN",
+            "position": [
+              2.3114,
+              1.6,
+              0.95
+            ],
+            "speed": 0.8,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "TUNNEL",
+            "position": [
+              2.3114,
+              -0.72,
+              0.95
+            ],
+            "speed": 1.25,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "CHICANE",
+            "position": [
+              2.13,
+              -1.7,
+              0.95
+            ],
+            "speed": 1.1199999999999999,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_APPROACH",
+            "position": [
+              0.3,
+              -1.9,
+              0.95
+            ],
+            "speed": 0.75,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_ALIGN",
+            "position": [
+              0.045893,
+              -2.460006,
+              0.9
+            ],
+            "speed": 0.37,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "WINDOW_CROSS",
+            "position": [
+              -0.987769,
+              -2.083784,
+              0.9
+            ],
+            "speed": 0.52,
+            "verification_radius": 0.08
+          },
+          {
+            "arrival_radius": 0.06,
+            "phase": "LANDING_APPROACH",
+            "position": [
+              -2.0422,
+              -0.7925,
+              0.7
+            ],
+            "speed": 1.15,
+            "verification_radius": 0.08
+          }
+        ]
+      },
+      "profile_sha256": "6830c5cd05cec513d3c2178b4b69c5a54e78694c492682eef44e04c2480eb381",
+      "recorder_exited_cleanly": true,
+      "run_dir": "artifacts/markerfree/sprint-final-05",
+      "run_id": "078512f0199445158799eb48fcde4934",
+      "runtime_source_sha256": {
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "8ea89d88f7d5dc2466e78d187266ff934c42f038e5b155155b6fa2acfcde333d",
+        "mission/navigation_audit.py": "dba452d0f21c8620a72c1e907ab04cb820bbd3d1febef3fa817ed7e698612c1a",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "93f7e43f50f7b1106b6ab39acf5326b5a5a29aa86f0b30c94d3f19069902f283",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "mission/survey_startup.py": "35d74a04aa33e8c364adc734d29ff5b736b895b29782caa788b3724b44a8ccc2",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/observe.py": "9afc985ef1a143e7f24bbf8cdfd1f003e89c2c37f33d79b8e99a8879237cc09b",
+        "vision/preview.py": "fa476aae62882b84a7e9c65e6309fc0e57295a0a732d8d7b89e2e8fb6df4e8dc",
+        "vision/record.py": "c3090b5d70a66761a7e9cc63e55c24095881cef481d8c9cef85d8edb079a5e76",
+        "vision/rgbd_odometry.py": "0f27f994dc3a601c1b37a22d5e09f15bf6acde950524ea3deb879c53993f0d31",
+        "vision/rgbd_scene.py": "716f84a0866f267213cf74d56266a868c5346dc3abf8014c328ecb6bde05fb7a",
+        "vision/scene.py": "ddbd50f8e1e7ced73a63da5e26cfe5f149e805e7efcb1ff6f864bdd71b9988d2",
+        "vision/share_run.py": "a55d4f410dc99a5a65b456c3c22f11771ac223c82d16f3c6616b40f549034a87",
+        "vision/slam_odometry.py": "21e6c4966888a643b2a0b2ee2f9915a1ada3f08dee6de2665574ccf1a1270a97",
+        "vision/sparse_slam.py": "2dcc9f11bcaa5ff4179b2019f90f2d2f07dc7c108879bc9784ca5950329c5eff",
+        "vision/velocity.py": "af619c3c0a83204bc302243ab733098b2b71628603b394da15eaeb4a4a526aac",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "score_checks": {
+        "controller_reports_all_waypoints": true,
+        "px4_ground_and_disarm_confirmed": true,
+        "truth_complete_during_flight": true,
+        "truth_crosses_window_with_full_envelope": true,
+        "truth_multipart_path_certified_clear": true,
+        "truth_reaches_all_waypoints_in_order": true,
+        "truth_touchdown_inside_pad": true,
+        "truth_transit_floor_checked": true
+      },
+      "sensor_diagnostic": {
+        "mode": "off"
+      },
+      "truth_used_for_navigation": false
+    }
+  ],
+  "interpretation": "Finite repeated simulator runs are evidence for these recorded attempts; they are not a physical-flight or reliability guarantee.",
+  "passed_runs": 5,
+  "same_controller_profile": true,
+  "same_runtime_source": true,
+  "schema_version": 1,
+  "times_sim_s": [
+    58.00000000000001,
+    57.0,
+    58.0,
+    58.0,
+    58.0
+  ],
+  "total": 5,
+  "worst_time_sim_s": 58.00000000000001
+}

@@ -1,6 +1,25 @@
 # Marker-free sprint validation
 
-Validation is in progress. Do not treat an individual fast run as repeatability.
+The frozen marker-free sprint profile completed **five consecutive full-course
+runs in 57–58 simulated seconds**, with all 15 waypoints, the window, autonomous
+landing/disarm and all eight independent score checks in every run. Each run
+started from a fresh simulator reset. There were no failed attempts in this
+five-run frozen batch. The [machine-readable audit](sprint-repeatability.json)
+checks unique run IDs, unchanged controller settings and identical runtime source
+hashes. Runtime source comes from `d0dd5f56b8ff943fb6278d5ec9d4e2bf46ab90fe`;
+the frozen sprint profile and auditing tools were added in `83e9f3a`.
+
+| Frozen trial | Armed-to-disarm time (s) | Minimum modeled window clearance (mm) | Checks |
+|---|---:|---:|---:|
+| 1 | 58.0 | 106.3 | 8/8 |
+| 2 | 57.0 | 108.8 | 8/8 |
+| 3 | 58.0 | 115.6 | 8/8 |
+| 4 | 58.0 | 109.6 | 8/8 |
+| 5 | 58.0 | 122.1 | 8/8 |
+
+This is repeatability on one rendered course, starting pose and sensor setup.
+It does not establish a population success rate or real-drone performance.
+Additional synthetic depth-noise trials are recorded separately when complete.
 
 The candidate keeps all 15 checkpoint positions, the 60 mm estimated arrival
 radius, the 80 mm independent route-verification radius, and the 15 mm inflated
