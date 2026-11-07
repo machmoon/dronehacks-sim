@@ -35,7 +35,7 @@ class MarkerFreeSceneTests(unittest.TestCase):
             (['--with-test-markers'], '0', True), ([], '1', True),
         ):
             with self.subTest(flag=flag, setting=setting), \
-                    patch.dict(os.environ, {'SIM_TEST_MARKERS': setting}), \
+                    patch.dict(os.environ, {'SIM_TEST_MARKERS': setting}, clear=True), \
                     patch.object(sys, 'argv', ['scene', '--output', 'test.sdf', *flag]), \
                     patch.object(scene, 'generate') as generate, \
                     patch.object(sys, 'stderr') as diagnostic:

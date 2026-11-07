@@ -19,13 +19,33 @@ the frozen sprint profile and auditing tools were added in `83e9f3a`.
 
 This is repeatability on one rendered course, starting pose and sensor setup.
 It does not establish a population success rate or real-drone performance.
-Additional synthetic depth-noise trials are recorded separately when complete.
+Two additional fresh-reset trials with 10 mm Gaussian depth noise also passed:
+
+| Noisy trial | Armed-to-disarm time (s) | Minimum modeled window clearance (mm) | Checks |
+|---|---:|---:|---:|
+| 1 | 58.0 | 115.6 | 8/8 |
+| 2 | 59.0 | 116.1 | 8/8 |
+
+Both used the same frozen controller and runtime source as the nominal runs,
+following a fresh noisy hover that passed all seven applicable checks. The
+[combined audit](sprint-all-results.json) retains all seven runs. Noise is
+zero-mean Gaussian, 0.010 m standard deviation, seed 4417, in rendered depth.
+Two resets under this one noise configuration do not represent varied noise
+seeds, missing depth returns, lighting changes, an unseen map or real OAK-D noise.
+
+[Watch the recorded fifth nominal run](media/sprint-full-course.mp4). Its flight
+lasted 58 seconds; the 74.6-second video also includes stationary preflight and
+uses recorded simulation timestamps without accelerating the flight. Full
+independent score records are published for that [nominal run](sprint-nominal-score.json)
+and the [last noisy run](sprint-noisy-score.json).
 
 The candidate keeps all 15 checkpoint positions, the 60 mm estimated arrival
 radius, the 80 mm independent route-verification radius, and the 15 mm inflated
 multipart x500 envelope. It still requires three seconds of settled hover after
 takeoff and ends only after PX4 confirms touchdown and disarm on the pad.
-Timing uses the entire armed interval in simulation seconds.
+Timing uses the entire armed interval in simulation seconds, ending when the
+mission monitor observes PX4 landed and disarmed. The scorer reuses that elapsed
+time; its interval comparison is an integrity check, not a separate timing sensor.
 
 ## Controller changes
 
@@ -84,3 +104,17 @@ surrogate. The separate Sky Beta model and physical OAK-D camera are not
 validated by the sprint results. Partial rotor contact-topic coverage remains;
 the clearance result comes from the independent geometric scorer. The known
 missing-net-return localization failure remains documented in the transfer notes.
+
+
+## Software checks
+
+The final simulator suite ran 333 tests: 328 passed and five PyTorch-dependent
+tests skipped in the image. This includes eight strict repeatability-audit tests.
+An initial suite invocation exposed ambient `SIM_AIRFRAME=x500` leaking into a
+CLI fixture test; isolating that test's environment fixed its five subcase
+failures. No flight code changed after the seven recorded runs.
+
+The local simulation image was `dronehacks-markerfree:hrt-v1.16.2`, arm64,
+image ID `sha256:7bd4a86400ddfef3bd846670059bfaa1057bc8eaa46dab45d581a33148376f3f`.
+The audit stores runtime file hashes; the image ID above describes the local test
+setup and is not a remotely published image download.

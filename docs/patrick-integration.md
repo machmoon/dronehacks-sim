@@ -36,8 +36,9 @@ Historical full-route results, including 77–78-second learned-policy runs and
 [flight inventory](flight-trials.md). They do not automatically validate this
 merge. Fresh branch integration results are recorded below.
 
-Physical flight and a sub-60-second marker-free finish remain unverified. The
-rendered-net removal experiment still exposes a localization limitation; see
+The later [frozen sprint batch](sprint-validation.md) completed five consecutive
+marker-free routes in 57–58 simulated seconds. Physical flight remains unverified.
+The rendered-net removal experiment still exposes a localization limitation; see
 [the transfer notes](net-transfer-next-steps.md).
 
 
