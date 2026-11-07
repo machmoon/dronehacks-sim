@@ -1,0 +1,255 @@
+{
+  "configuration": {
+    "accepted_sources": [
+      "depth_survey",
+      "depth_survey_tof",
+      "depth_survey_px4_tilt",
+      "depth_survey_tof_px4_tilt"
+    ],
+    "default_enabled": false,
+    "depth_noise": "gaussian-10mm",
+    "flag": "--require-survey-startup",
+    "max_capture_gap_and_age_s": 0.12,
+    "min_contiguous_capture_span_s": 3.0,
+    "noise_seed": 4417,
+    "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+    "px4_tilt": true,
+    "survey_normals": "fals7"
+  },
+  "control": {
+    "arm_event_survey_startup": {
+      "accepted_count": 315,
+      "last_capture_sim_s": 23.451999999999998,
+      "ready": true,
+      "reason": "ready",
+      "span_s": 15.7
+    },
+    "arm_request_sent": true,
+    "contact_observation": {
+      "interpretation": "Partial topic coverage; rotor-topic silence is not evidence of zero contact.",
+      "raw_pair_observations": {
+        "expected_ground": 5058,
+        "obstacle": 0,
+        "self": 0,
+        "transit_ground": 0
+      },
+      "status": "partial_topic_coverage",
+      "topics_with_messages": [
+        "/model/course_quad/contact/base_link"
+      ]
+    },
+    "elapsed_sim_s": 20.0,
+    "evidence": {
+      "observer/status.json": {
+        "path": "artifacts/markerfree/survey-startup-control-01/observer/status.json",
+        "sha256": "d99abbf5511b6bdbf3dbfefc66ff49519ff86538080893857a08889a9b82ed59"
+      },
+      "recording.json": {
+        "path": "artifacts/markerfree/survey-startup-control-01/recording.json",
+        "sha256": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b"
+      },
+      "registered-check.json": {
+        "path": "artifacts/markerfree/survey-startup-control-01/registered-check.json",
+        "sha256": "b8cac0af9555eb40f8a88fa4effa7e52c4735c3fd382789888da297100761e72"
+      },
+      "score.json": {
+        "path": "artifacts/markerfree/survey-startup-control-01/score.json",
+        "sha256": "99e73b059a9fa9852127b367ae60d12697850686a38bcf0bd779c7a639534109"
+      },
+      "telemetry.jsonl": {
+        "path": "artifacts/markerfree/survey-startup-control-01/telemetry.jsonl",
+        "sha256": "a93816dd3bb12800a1bf4620741ee31c2f21113c87a0a6e84d4d68b30bc2a7f3"
+      },
+      "telemetry.summary.json": {
+        "path": "artifacts/markerfree/survey-startup-control-01/telemetry.summary.json",
+        "sha256": "40254850ef0175de0b775cb815d3f771a510e478215462be78d2800412ef1ac1"
+      }
+    },
+    "fault": null,
+    "hover_check_max_position_error_m": {
+      "camera": 0.005103575966116217,
+      "px4": 0.004196750550542241
+    },
+    "hover_settled_sim_s": 3.0,
+    "independent_score_checks": {
+      "controller_reports_all_waypoints": true,
+      "px4_ground_and_disarm_confirmed": true,
+      "truth_complete_during_flight": true,
+      "truth_crosses_window_with_full_envelope": false,
+      "truth_multipart_path_certified_clear": true,
+      "truth_reaches_all_waypoints_in_order": true,
+      "truth_touchdown_inside_pad": true,
+      "truth_transit_floor_checked": true
+    },
+    "landed_and_disarmed": true,
+    "observer": {
+      "callback_acceptance_closed": true,
+      "contact_queue_overflow": 0,
+      "recording_complete": true,
+      "state": "stopped",
+      "truth_queue_overflow": 0,
+      "truth_samples": 4698
+    },
+    "outcome": "completed_hover",
+    "registered_check": {
+      "checks": {
+        "completed_hover": true,
+        "contact_counts": true,
+        "controller_reports_all_waypoints": true,
+        "observer": true,
+        "px4_ground_and_disarm_confirmed": true,
+        "qualification": true,
+        "run_ids": true,
+        "source_hashes": true,
+        "truth_complete_during_flight": true,
+        "truth_multipart_path_certified_clear": true,
+        "truth_reaches_all_waypoints_in_order": true,
+        "truth_touchdown_inside_pad": true,
+        "truth_transit_floor_checked": true,
+        "world": true
+      },
+      "passed": true,
+      "sha256": "b8cac0af9555eb40f8a88fa4effa7e52c4735c3fd382789888da297100761e72"
+    },
+    "route_completed": true,
+    "run_id": "8a24b47cb4424831add1d987dbc5ccd1",
+    "runtime": {
+      "artificial_landmark_models": 0,
+      "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+      "px4_manifest_verified": true,
+      "simulator_position_used_for_control": false,
+      "source_sha256_matches_protocol": true,
+      "truth_topic_publishers": 0,
+      "world_matches_protocol": true,
+      "world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+    },
+    "survey_capture_ledger_records": 315,
+    "survey_startup_at_arm": {
+      "accepted_count": 315,
+      "last_capture_sim_s": 23.451999999999998,
+      "ready": true,
+      "reason": "ready",
+      "span_s": 15.7
+    },
+    "task": "hover"
+  },
+  "experiment": "survey-startup-01",
+  "interpretation": "With the opt-in gate enabled, a control hover armed only after 315 uninterrupted accepted absolute-survey captures spanning 15.7 simulated seconds. In the net-visual-removed treatment, the estimator produced 701 rgbd_odometry captures and one stationary_launch capture, but no accepted absolute-survey source; the 120-second startup gate refused arming. This tests a prearm rejection policy, not recovery of navigation or a flight in the treatment world.",
+  "limits": [
+    "The flag is disabled by default. These two runs do not establish full-route performance or ongoing observability after takeoff.",
+    "The treatment is a rendered net visual-absence stress case with the estimator map still containing analytic net panels; it is not a realistic net optical model.",
+    "Contact-topic coverage is partial, so silence on rotor topics does not establish zero contact.",
+    "No physical aircraft or sensor was used."
+  ],
+  "protocol": {
+    "path": "docs/experiments/survey-startup-01/protocol.json",
+    "sha256": "89a2c10cd84c4c2603fa947cb6226dfe26d6d74d203e5ba9d7244a811f2e79ee"
+  },
+  "schema_version": 1,
+  "source_lock": {
+    "all_match": true,
+    "current_sources_match": {
+      "mission/markerfree_run.py": true,
+      "mission/survey_startup.py": true,
+      "vision/rgbd_odometry.py": true,
+      "vision/worker.py": true
+    },
+    "registered_sha256": {
+      "mission/markerfree_run.py": "0dca1b349a57a04a956fc07bcce2250942e83247f3416507e9cb32251a10a9d0",
+      "mission/survey_startup.py": "35d74a04aa33e8c364adc734d29ff5b736b895b29782caa788b3724b44a8ccc2",
+      "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+      "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+    }
+  },
+  "status": "both_registered_checks_passed",
+  "treatment": {
+    "arm_event_count": 0,
+    "arm_request_sent": false,
+    "capture_ledger": {
+      "all_ready_false": true,
+      "processed_captures": 702,
+      "ready_records": 0,
+      "records": 702,
+      "source_counts": {
+        "rgbd_odometry": 701,
+        "stationary_launch": 1
+      }
+    },
+    "elapsed_sim_s": 0.0,
+    "evidence": {
+      "observer/status.json": {
+        "path": "artifacts/markerfree/survey-startup-treatment-01/observer/status.json",
+        "sha256": "f8cefffc4399ca94158bcea39b04c61fd63d61c9c6fff5152ccbcb54a3de8622"
+      },
+      "recording.json": {
+        "path": "artifacts/markerfree/survey-startup-treatment-01/recording.json",
+        "sha256": "5b3ff5d1b5ca5e113fd4e37c8c7c3151993a03be32911250fa4750492148823b"
+      },
+      "registered-check.json": {
+        "path": "artifacts/markerfree/survey-startup-treatment-01/registered-check.json",
+        "sha256": "e284a3e13f127962233554dad5a7dfd47f096f88944a4f7cfe28dbe4eda8bc09"
+      },
+      "telemetry.jsonl": {
+        "path": "artifacts/markerfree/survey-startup-treatment-01/telemetry.jsonl",
+        "sha256": "e23440bbbe6447dbfecade9c4f8924298ed8d5857c7739888a0beefade80a18c"
+      },
+      "telemetry.summary.json": {
+        "path": "artifacts/markerfree/survey-startup-treatment-01/telemetry.summary.json",
+        "sha256": "b532174136eda749d290447182e16d69e56b4d44a74f8127e5e0fce9403ecc40"
+      }
+    },
+    "fault": "absolute_survey_startup_unqualified",
+    "final_landed_state": 1,
+    "observer": {
+      "callback_acceptance_closed": true,
+      "contact_queue_overflow": 0,
+      "recording_complete": true,
+      "state": "stopped",
+      "truth_queue_overflow": 0,
+      "truth_samples": 4630
+    },
+    "outcome": "expected_prearm_refusal",
+    "px4_armed_sample_count": 0,
+    "recording": {
+      "mission_exit_code": 1,
+      "note": "Read independent scoring output before making a completion or collision claim.",
+      "process_exit_codes": [
+        0,
+        0,
+        1
+      ],
+      "runner_error": null,
+      "truth_used_for_navigation": false
+    },
+    "registered_check": {
+      "checks": {
+        "capture_ledger": true,
+        "expected_fault": true,
+        "final_ground_state": true,
+        "no_arm_event": true,
+        "no_arm_request": true,
+        "no_armed_samples": true,
+        "observer": true,
+        "qualification_enabled": true,
+        "run_ids": true,
+        "runner": true,
+        "sources": true,
+        "world": true
+      },
+      "outcome": "expected_prearm_refusal",
+      "passed": true,
+      "sha256": "e284a3e13f127962233554dad5a7dfd47f096f88944a4f7cfe28dbe4eda8bc09"
+    },
+    "run_id": "b5bd32b04123445f9274cea6c2cb5017",
+    "runtime": {
+      "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+      "px4_manifest_verified": true,
+      "simulator_position_used_for_control": false,
+      "source_sha256_matches_protocol": true,
+      "world_matches_protocol": true,
+      "world_sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+    },
+    "survey_startup_at_arm": null,
+    "task": "hover"
+  }
+}

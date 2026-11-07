@@ -1,0 +1,9 @@
+# Learned-policy camera-aid loss repeat
+
+The repeat landed and disarmed, and the independent recording certified the entire modeled abort path. Its larger bounded queues reported zero overflow and completed their final drain. The observer also passed 23 focused tests and a separate 20-second passive Gazebo check before this flight.
+
+The strict fault diagnostic **still did not pass**: eight of nine checks passed. PX4 logged one visual-odometry receipt at 36.496 simulated seconds, 4 ms after the 36.492 s cutoff. That record's capture time was 36.452400 s, 39.6 ms before cutoff, matching the last controller frame. The send counter remained fixed at 661, and there were no later visual-odometry records. This is consistent with a pre-cutoff packet arriving late; individual send timestamps were not recorded, so its exact send time is not established.
+
+The expected policy freshness fault occurred at 36.908 s. PX4 entered Auto Land at 36.928 s, the first floor contact was recorded at 38.388 s, and PX4 disarmed at 50.072 s. The controller confirmed touchdown and disarm at 50.480 s. There were no logged vision updates during the abort itself, but the preregistered requirement was stricter: zero receipts after injection. That requirement was retained and the run remains failed under it.
+
+The [protocol](protocol.json) predates the flight. The [results](results.json) retain all checks, source and input hashes, queue accounting, and the late record's capture and receipt timestamps. The [passive recorder check](observer-smoke.json) covers only observer-side buffering and shutdown. Neither that check nor this flight proves complete upstream message delivery or hardware failure handling. The [previous attempt](../policy-blackout-02/README.md), which lacked complete abort truth coverage, is retained separately.

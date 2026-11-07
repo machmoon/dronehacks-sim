@@ -25,11 +25,24 @@ fi
 export PX4_PARAM_EKF2_HGT_REF=3
 export PX4_PARAM_EKF2_MAG_TYPE=5
 export PX4_PARAM_EKF2_EV_DELAY=0
+if [[ ${SIM_VISION_BACKEND:-legacy} == rgbd ]]; then
+    # Camera capture timestamps are accurate, but software-rendered RGBD and
+    # registration can arrive >300 ms late. Buffer enough IMU history to fuse
+    # those captures instead of dropping EV and resetting local position.
+    export PX4_PARAM_EKF2_DELAY_MAX=500
+    export PX4_PARAM_EKF2_EVP_NOISE=0.03
+fi
 export PX4_PARAM_COM_RC_IN_MODE=4
 
 # Use one physical profile for the Gazebo rotors and the PX4 mixer.
 airframe=${SIM_AIRFRAME:-skybeta}
-if [[ ${SIM_TEST_MARKERS:-0} == 1 && -z ${SIM_AIRFRAME:-} ]]; then
+if [[ ${SIM_VISION_BACKEND:-legacy} == rgbd ]]; then
+    if [[ -n ${SIM_AIRFRAME:-} && ${SIM_AIRFRAME} != x500 ]]; then
+        echo 'The RGBD flight fixture requires SIM_AIRFRAME=x500.' >&2
+        exit 1
+    fi
+    airframe=x500
+elif [[ ${SIM_TEST_MARKERS:-0} == 1 && -z ${SIM_AIRFRAME:-} ]]; then
     airframe=x500
 fi
 case "$airframe" in

@@ -1,0 +1,208 @@
+{
+  "aggregate_armed_intervals": {
+    "duplicate_capture_timestamp_pairs": 0,
+    "gt_120ms_count": 0,
+    "max_observed_positive_gap_ms": 52.026,
+    "nonmonotonic_capture_timestamp_pairs": 0,
+    "ordered_adjacent_pair_count": 2970,
+    "positive_capture_gap_pair_count": 2970,
+    "run_count": 4,
+    "scope": "Sum of the four separately identified armed intervals; not a pooled independent-trials reliability estimate."
+  },
+  "analysis_script_sha256": "3551ee7d693978d8a26b821a43ea4e77ea107136e10d3dd5a54d5443be9ade28",
+  "archive_5hz_note": "Recorded frames.jsonl replay is about 200 ms between frames (occasionally up to about 228 ms); it would be rejected by the proposed 120 ms gate and is not evidence of native camera cadence.",
+  "collected_date": "2026-11-07",
+  "method": {
+    "gap_calculation": "Keep ULog dataset record order; compute adjacent timestamp_sample differences without sorting or deduplication. Duplicate and nonmonotonic pairs are reported separately. Gap quantiles/counts include only positive adjacent differences.",
+    "parser_limitations": [
+      "ULog topics can be logged at lower rates or with dropped records; maxima are observed archived VVO sample gaps, not proof every RGB-D callback was present.",
+      "Mission frames.jsonl is throttled to about 5 Hz and is not the native continuity stream.",
+      "Only closed logs were parsed; archived topic records may still be incomplete relative to the camera stream.",
+      "Publication-minus-capture does not directly measure estimator processing age."
+    ],
+    "receive_capture_scope": "Report timestamp - timestamp_sample separately for armed records and full-log records; these are publication-minus-capture delays, not inter-capture gaps and not RGB-D estimator processing age.",
+    "source": "PX4 ULog vehicle_visual_odometry.timestamp_sample (capture time); records selected into armed interval by timestamp (publication time) using vehicle_status transitions.",
+    "ulog_parser": "Local minimal pyulog parser; module hashes below. Parsed vehicle_visual_odometry and vehicle_status datasets."
+  },
+  "non_claims": [
+    "Finite sample of four runs; does not establish a hard camera scheduling guarantee.",
+    "No simulator or flight was run for this analysis.",
+    "The 120 ms value is an engineering continuity threshold, not a formal safety guarantee."
+  ],
+  "parser_source_sha256": {
+    "/tmp/dronehacks_score_ulog/pyulog/core.py": "8a657809dff8ebfff7da8387927ed3173ad08c54501a326d76a470b1d1103ad6",
+    "/tmp/dronehacks_score_ulog/pyulog/exceptions.py": "b74c8a0fe7a6c2d8e5770f1db850061d6d6c9bf52c750bb08fdd428809f213bb"
+  },
+  "proposed_limits_s": {
+    "max_capture_age_at_processing": 0.3,
+    "max_inter_capture_gap": 0.12
+  },
+  "purpose": "Assess whether a 120 ms maximum inter-capture gap would reject cadence observed in closed native flights. This is source-timestamp evidence, not a claim about every camera callback or processing latency.",
+  "runs": {
+    "hover-05": {
+      "armed_interval_usec": [
+        17328000,
+        36660000
+      ],
+      "armed_receive_minus_capture_ms": {
+        "count": 387,
+        "max": 51.523,
+        "median": 31.691,
+        "p95": 39.684599999999996
+      },
+      "armed_vvo_record_count": 387,
+      "duplicate_capture_timestamp_pairs": 0,
+      "flight_source_sha256": {
+        "mission/markerfree_run.py": "0c780405f9ac7673d3d9a4d2ff0bd9ce8498469899d838af3113ccd8b01a8afa",
+        "vision/rgbd_odometry.py": "6774c8bf77589e0ed80aad41cd45a702fa03c00672be07521b776d4c363e06ee",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "full_log_receive_minus_capture_ms": {
+        "count": 694,
+        "max": 51.523,
+        "median": 31.385,
+        "p95": 39.610699999999994
+      },
+      "full_log_vvo_record_count": 694,
+      "nonmonotonic_capture_timestamp_pairs": 0,
+      "ordered_adjacent_pair_count": 386,
+      "parser_marked_corrupt": false,
+      "positive_capture_gap_ms": {
+        "gt_120ms_count": 0,
+        "max": 52.022,
+        "median": 50.0075,
+        "p95": 52.01,
+        "p99": 52.021
+      },
+      "positive_capture_gap_pair_count": 386,
+      "telemetry_jsonl_sha256": "91c905e15bd0ef65fb360e1e90b8b6b895892951313ba70e58b7cef199093476",
+      "ulog": "artifacts/px4/log/2026-11-07/14_49_06.ulg",
+      "ulog_dropouts_reported": 0,
+      "ulog_sha256": "a8be9706b3151cca57fca6ff35ecfad0c8ae3e9a197fc722326a7af106c44c17"
+    },
+    "hover-06": {
+      "armed_interval_usec": [
+        17212000,
+        36556000
+      ],
+      "armed_receive_minus_capture_ms": {
+        "count": 387,
+        "max": 55.649,
+        "median": 31.746,
+        "p95": 43.9118
+      },
+      "armed_vvo_record_count": 387,
+      "duplicate_capture_timestamp_pairs": 0,
+      "flight_source_sha256": {
+        "mission/markerfree_run.py": "7615df6de25968583c8bcc2ac80503aed2ab05d6716d76e2d129a4f3eac8993f",
+        "vision/rgbd_odometry.py": "d613b5ec9c6d51fb51cc1bc84e30c8a598ead047145fcd96298f0f2ab269b48b",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "full_log_receive_minus_capture_ms": {
+        "count": 695,
+        "max": 55.649,
+        "median": 27.557,
+        "p95": 43.8543
+      },
+      "full_log_vvo_record_count": 695,
+      "nonmonotonic_capture_timestamp_pairs": 0,
+      "ordered_adjacent_pair_count": 386,
+      "parser_marked_corrupt": false,
+      "positive_capture_gap_ms": {
+        "gt_120ms_count": 0,
+        "max": 52.023,
+        "median": 50.0095,
+        "p95": 52.01,
+        "p99": 52.011
+      },
+      "positive_capture_gap_pair_count": 386,
+      "telemetry_jsonl_sha256": "3af7355f5aa954df3f124bf746d26fe1d2862e1c1989a239b5442f83613acc8c",
+      "ulog": "artifacts/px4/log/2026-11-07/15_18_51.ulg",
+      "ulog_dropouts_reported": 0,
+      "ulog_sha256": "a8d85b72d6ad49559cf81ffd29bfbbeace561047fe3fea1d75df86da21bed726"
+    },
+    "policy-05": {
+      "armed_interval_usec": [
+        18312000,
+        94928000
+      ],
+      "armed_receive_minus_capture_ms": {
+        "count": 1532,
+        "max": 111.694,
+        "median": 43.5805,
+        "p95": 75.53425
+      },
+      "armed_vvo_record_count": 1532,
+      "duplicate_capture_timestamp_pairs": 0,
+      "flight_source_sha256": {
+        "mission/markerfree_run.py": "0c780405f9ac7673d3d9a4d2ff0bd9ce8498469899d838af3113ccd8b01a8afa",
+        "vision/rgbd_odometry.py": "1d88d04e1e89b35db571f2816cacefca151525ea6d0b03d81e94771aea03c5d8",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "full_log_receive_minus_capture_ms": {
+        "count": 1832,
+        "max": 111.694,
+        "median": 43.4565,
+        "p95": 75.42989999999999
+      },
+      "full_log_vvo_record_count": 1832,
+      "nonmonotonic_capture_timestamp_pairs": 0,
+      "ordered_adjacent_pair_count": 1531,
+      "parser_marked_corrupt": false,
+      "positive_capture_gap_ms": {
+        "gt_120ms_count": 0,
+        "max": 52.026,
+        "median": 51.993,
+        "p95": 52.009,
+        "p99": 52.02
+      },
+      "positive_capture_gap_pair_count": 1531,
+      "telemetry_jsonl_sha256": "ff04b5c9d8660a74e3241e3cc2d2a6287d336b7220db3923771d62bae5e00861",
+      "ulog": "artifacts/px4/log/2026-11-07/14_20_41.ulg",
+      "ulog_dropouts_reported": 0,
+      "ulog_sha256": "c61f99c3c65574f51301dd58691951bdcf8798d3308133268f8204f95004d9c8"
+    },
+    "policy-06": {
+      "armed_interval_usec": [
+        17480000,
+        56148000
+      ],
+      "armed_receive_minus_capture_ms": {
+        "count": 668,
+        "max": 87.507,
+        "median": 43.295,
+        "p95": 63.55165
+      },
+      "armed_vvo_record_count": 668,
+      "duplicate_capture_timestamp_pairs": 0,
+      "flight_source_sha256": {
+        "mission/markerfree_run.py": "0c780405f9ac7673d3d9a4d2ff0bd9ce8498469899d838af3113ccd8b01a8afa",
+        "vision/rgbd_odometry.py": "6774c8bf77589e0ed80aad41cd45a702fa03c00672be07521b776d4c363e06ee",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "full_log_receive_minus_capture_ms": {
+        "count": 960,
+        "max": 87.507,
+        "median": 39.0395,
+        "p95": 63.49725
+      },
+      "full_log_vvo_record_count": 960,
+      "nonmonotonic_capture_timestamp_pairs": 0,
+      "ordered_adjacent_pair_count": 667,
+      "parser_marked_corrupt": false,
+      "positive_capture_gap_ms": {
+        "gt_120ms_count": 0,
+        "max": 52.021,
+        "median": 48.021,
+        "p95": 52.008,
+        "p99": 52.013059999999996
+      },
+      "positive_capture_gap_pair_count": 667,
+      "telemetry_jsonl_sha256": "66faa426972d40a4cdcafbc70b3ab066aee7f8ada26fdda7f007eef97dee4960",
+      "ulog": "artifacts/px4/log/2026-11-07/14_51_45.ulg",
+      "ulog_dropouts_reported": 0,
+      "ulog_sha256": "895a1b8197df31195e484a42a5352345a444affd2e7828c8324e06d178174be1"
+    }
+  },
+  "title": "Native RGB-D visual odometry capture cadence evidence"
+}

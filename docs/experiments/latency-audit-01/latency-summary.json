@@ -1,0 +1,2518 @@
+{
+  "analysis_script_sha256": "de1c29a5e9d63da653ffbef08850b700853e63ccf76b01906002114594166ba2",
+  "definitions": {
+    "action_phase_assignment": "Assign each policy_action to the phase on the latest sample whose sim_time is less than or equal to the action sim_time.",
+    "archive_frame_gap_sim_ms": "Adjacent capture_sim_s gaps in camera/frames.jsonl. This is the throttled approximately 5 Hz archive recorder, not native camera cadence.",
+    "maximum_capture_gap_context": "For each run, select the last largest capture_interval_sim_s among adjacent accepted policy_action records (ties resolve to the later pair); retain both records, whether waypoint_index changed, their simulator-time acceptance interval, and sample rows within 250 ms before/after the pair. Samples contain only sim_time, phase, waypoint_index, policy_capture_usec, policy_velocity_flu, command_velocity, and policy_actions_received.",
+    "policy_capture_age_sim_ms": "1000 * policy_action.capture_age_sim_s; action acceptance sim_time minus originating capture timestamp, in the simulator timestamp domain.",
+    "policy_capture_gap_sim_ms": "1000 * policy_action.capture_interval_sim_s; gap between capture timestamps attached to consecutive accepted actions, not direct request-send cadence.",
+    "policy_latency_wall_ms": "1000 * policy_action.latency_wall_s; PolicyClient request submission to result acceptance, measured by the mission host monotonic clock. It includes local service/inference, exchange, and polling/scheduling time; it excludes image acquisition and any prior wait for an eligible frame.",
+    "sample_vision_age_sim_ms": "1000 * (sample.sim_time - sample.vision_stamp_sim_s); difference in the simulator timestamp domain.",
+    "setpoint_counts": "summary.policy_setpoints_sent counts route-loop setpoints emitted while policy_active and an action reply exists. route_elapsed_sim_s starts at arming, before takeoff/hover, so this count divided by route duration is not a setpoint frequency; only the aggregate count is reported."
+  },
+  "limitations": [
+    "Simulator timestamp differences are not a real-time Jetson benchmark and do not include camera exposure/readout, OAK transport, Jetson scheduling/inference, or deployment networking.",
+    "policy_action logs accepted responses, not every request send; exact request cadence and unresolved requests are unavailable from these fields.",
+    "camera/frames.jsonl is an approximately 5 Hz archive and must not be used to infer native approximately 20 Hz navigation cadence; see docs/native-capture-gap-evidence.json for separate native timestamp evidence.",
+    "Summary setpoint count and route_elapsed_sim_s have different scopes; no setpoint rate is inferred."
+  ],
+  "native_capture_evidence": {
+    "interpretation": "Separate PX4 vehicle_visual_odometry timestamp_sample analysis in the cited evidence file (four closed logs, median positive gaps approximately 48-52 ms). These native timestamp results are not derived from the throttled archive frame log and are not an end-to-end inference benchmark.",
+    "path": "docs/native-capture-gap-evidence.json",
+    "separate_evidence_summary": {
+      "hover-05": {
+        "gt_120ms_count": 0,
+        "max": 52.022,
+        "median": 50.0075,
+        "p95": 52.01,
+        "p99": 52.021
+      },
+      "hover-06": {
+        "gt_120ms_count": 0,
+        "max": 52.023,
+        "median": 50.0095,
+        "p95": 52.01,
+        "p99": 52.011
+      },
+      "policy-05": {
+        "gt_120ms_count": 0,
+        "max": 52.026,
+        "median": 51.993,
+        "p95": 52.009,
+        "p99": 52.02
+      },
+      "policy-06": {
+        "gt_120ms_count": 0,
+        "max": 52.021,
+        "median": 48.021,
+        "p95": 52.008,
+        "p99": 52.013059999999996
+      }
+    },
+    "sha256": "c020ec9fb8af676966f0ce78b5b3ed5ab4022619ed078abe18c4fc5540262956"
+  },
+  "per_run_compact": {
+    "policy-05": {
+      "accepted_policy_actions": 359,
+      "capture_age_sim_ms": {
+        "count": 359,
+        "max": 100.0,
+        "p50": 48.0,
+        "p95": 80.0
+      },
+      "capture_gap_sim_ms": {
+        "count": 358,
+        "max": 300.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_setpoints_sent_aggregate_only": 4536,
+      "route_elapsed_sim_s": 71.648,
+      "wall_latency_ms": {
+        "count": 359,
+        "max": 81.169,
+        "p50": 14.079,
+        "p95": 20.845
+      }
+    },
+    "policy-07": {
+      "accepted_policy_actions": 366,
+      "capture_age_sim_ms": {
+        "count": 366,
+        "max": 68.0,
+        "p50": 28.0,
+        "p95": 44.0
+      },
+      "capture_gap_sim_ms": {
+        "count": 365,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_setpoints_sent_aggregate_only": 4622,
+      "route_elapsed_sim_s": 72.632,
+      "wall_latency_ms": {
+        "count": 366,
+        "max": 26.79,
+        "p50": 12.419,
+        "p95": 18.581
+      }
+    },
+    "policy-08": {
+      "accepted_policy_actions": 364,
+      "capture_age_sim_ms": {
+        "count": 364,
+        "max": 92.0,
+        "p50": 28.0,
+        "p95": 60.0
+      },
+      "capture_gap_sim_ms": {
+        "count": 363,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_setpoints_sent_aggregate_only": 4612,
+      "route_elapsed_sim_s": 72.328,
+      "wall_latency_ms": {
+        "count": 364,
+        "max": 40.688,
+        "p50": 12.077,
+        "p95": 18.925
+      }
+    },
+    "policy-09": {
+      "accepted_policy_actions": 363,
+      "capture_age_sim_ms": {
+        "count": 363,
+        "max": 76.0,
+        "p50": 32.0,
+        "p95": 48.0
+      },
+      "capture_gap_sim_ms": {
+        "count": 362,
+        "max": 352.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_setpoints_sent_aggregate_only": 4604,
+      "route_elapsed_sim_s": 72.304,
+      "wall_latency_ms": {
+        "count": 363,
+        "max": 52.301,
+        "p50": 12.721,
+        "p95": 19.145
+      }
+    }
+  },
+  "pooled_phase_distributions": {
+    "AUTO_LAND": {
+      "sample_vision_age_sim_ms": {
+        "count": 197,
+        "max": 100.0,
+        "p50": 60.0,
+        "p95": 84.0
+      }
+    },
+    "CHICANE": {
+      "policy_capture_age_sim_ms": {
+        "count": 70,
+        "max": 84.0,
+        "p50": 32.0,
+        "p95": 68.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 70,
+        "max": 352.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 70,
+        "max": 20.599,
+        "p50": 13.56,
+        "p95": 19.276
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 100,
+        "max": 136.0,
+        "p50": 64.0,
+        "p95": 104.2
+      }
+    },
+    "FIRST_CORRIDOR": {
+      "policy_capture_age_sim_ms": {
+        "count": 129,
+        "max": 68.0,
+        "p50": 28.0,
+        "p95": 48.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 128,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 129,
+        "max": 26.79,
+        "p50": 12.709,
+        "p95": 20.274
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 188,
+        "max": 116.0,
+        "p50": 64.0,
+        "p95": 93.2
+      }
+    },
+    "GATE_A": {
+      "policy_capture_age_sim_ms": {
+        "count": 96,
+        "max": 52.0,
+        "p50": 28.0,
+        "p95": 48.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 96,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 96,
+        "max": 22.976,
+        "p50": 11.376,
+        "p95": 18.538
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 143,
+        "max": 116.0,
+        "p50": 64.0,
+        "p95": 87.6
+      }
+    },
+    "HOVER_CHECK": {
+      "policy_capture_age_sim_ms": {
+        "count": 3,
+        "max": 64.0,
+        "p50": 28.0,
+        "p95": 60.4
+      },
+      "policy_latency_wall_ms": {
+        "count": 3,
+        "max": 18.391,
+        "p50": 16.544,
+        "p95": 18.207
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 109,
+        "max": 100.0,
+        "p50": 60.0,
+        "p95": 84.0
+      }
+    },
+    "LANDING_APPROACH": {
+      "policy_capture_age_sim_ms": {
+        "count": 108,
+        "max": 52.0,
+        "p50": 28.0,
+        "p95": 48.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 108,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 108,
+        "max": 23.904,
+        "p50": 12.37,
+        "p95": 17.898
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 157,
+        "max": 100.0,
+        "p50": 64.0,
+        "p95": 89.6
+      }
+    },
+    "MAZE": {
+      "policy_capture_age_sim_ms": {
+        "count": 428,
+        "max": 100.0,
+        "p50": 32.0,
+        "p95": 68.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 428,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 428,
+        "max": 81.169,
+        "p50": 13.124,
+        "p95": 20.271
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 623,
+        "max": 136.0,
+        "p50": 68.0,
+        "p95": 100.0
+      }
+    },
+    "PRIMING_OFFBOARD": {
+      "sample_vision_age_sim_ms": {
+        "count": 74,
+        "max": 96.0,
+        "p50": 52.0,
+        "p95": 76.0
+      }
+    },
+    "TAKEOFF": {
+      "sample_vision_age_sim_ms": {
+        "count": 400,
+        "max": 100.0,
+        "p50": 60.0,
+        "p95": 76.0
+      }
+    },
+    "TUNNEL": {
+      "policy_capture_age_sim_ms": {
+        "count": 102,
+        "max": 84.0,
+        "p50": 32.0,
+        "p95": 52.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 102,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 102,
+        "max": 24.581,
+        "p50": 11.991,
+        "p95": 19.31
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 146,
+        "max": 104.0,
+        "p50": 68.0,
+        "p95": 99.0
+      }
+    },
+    "TUNNEL_ALIGN": {
+      "policy_capture_age_sim_ms": {
+        "count": 148,
+        "max": 84.0,
+        "p50": 44.0,
+        "p95": 72.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 148,
+        "max": 300.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 148,
+        "max": 30.1,
+        "p50": 13.226,
+        "p95": 19.738
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 218,
+        "max": 132.0,
+        "p50": 70.0,
+        "p95": 108.0
+      }
+    },
+    "WAIT_FOR_RGBD_AND_EKF": {
+      "sample_vision_age_sim_ms": {
+        "count": 474,
+        "max": 116.0,
+        "p50": 60.0,
+        "p95": 76.0
+      }
+    },
+    "WINDOW_ALIGN": {
+      "policy_capture_age_sim_ms": {
+        "count": 102,
+        "max": 64.0,
+        "p50": 28.0,
+        "p95": 48.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 102,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 102,
+        "max": 25.433,
+        "p50": 12.931,
+        "p95": 19.32
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 143,
+        "max": 100.0,
+        "p50": 64.0,
+        "p95": 84.0
+      }
+    },
+    "WINDOW_APPROACH": {
+      "policy_capture_age_sim_ms": {
+        "count": 147,
+        "max": 84.0,
+        "p50": 28.0,
+        "p95": 48.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 147,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 147,
+        "max": 60.101,
+        "p50": 12.0,
+        "p95": 19.53
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 210,
+        "max": 116.0,
+        "p50": 64.0,
+        "p95": 86.2
+      }
+    },
+    "WINDOW_CROSS": {
+      "policy_capture_age_sim_ms": {
+        "count": 119,
+        "max": 56.0,
+        "p50": 28.0,
+        "p95": 48.0
+      },
+      "policy_capture_gap_sim_ms": {
+        "count": 119,
+        "max": 200.0,
+        "p50": 152.0,
+        "p95": 200.0
+      },
+      "policy_latency_wall_ms": {
+        "count": 119,
+        "max": 19.736,
+        "p50": 12.218,
+        "p95": 18.081
+      },
+      "sample_vision_age_sim_ms": {
+        "count": 168,
+        "max": 104.0,
+        "p50": 64.0,
+        "p95": 84.0
+      }
+    }
+  },
+  "runs": {
+    "policy-05": {
+      "archive_frame_gap_sim_ms": {
+        "count": 471,
+        "max": 220.0,
+        "p50": 200.0,
+        "p95": 200.0
+      },
+      "configuration": {
+        "checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_depth_mode": "raw",
+        "sensor_diagnostic": {
+          "mode": "control",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.0,
+          "seed": 4417,
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987"
+        },
+        "speed_scale": 1.0,
+        "survey_normals": null
+      },
+      "counts": {
+        "accepted_policy_actions": 359,
+        "archive_frames": 472,
+        "policy_setpoints_sent_aggregate_only": 4536,
+        "telemetry_samples": 840,
+        "vision_measurements_sent": 1840
+      },
+      "maximum_capture_gap_context": {
+        "acceptance_interval_sim_ms": 324.0,
+        "capture_gap_sim_ms": 300.0,
+        "current_action": {
+          "capture_age_sim_s": 0.0519999999999996,
+          "capture_interval_sim_s": 0.3,
+          "capture_usec": 58552000,
+          "latency_wall_s": 0.013263159999041818,
+          "sim_time": 58.604,
+          "waypoint_index": 7
+        },
+        "nearby_samples": [
+          {
+            "command_velocity": [
+              -0.029402413079238823,
+              0.03200209320555944,
+              -0.02137950249016285
+            ],
+            "phase": "GATE_A",
+            "policy_actions_received": 160,
+            "policy_capture_usec": 57900000,
+            "policy_velocity_flu": [
+              -0.036733537912368774,
+              0.02322246879339218,
+              -0.02137950249016285
+            ],
+            "sim_time": 58.08,
+            "waypoint_index": 6
+          },
+          {
+            "command_velocity": [
+              -0.051112037133268014,
+              0.025353869735767667,
+              -0.01503024809062481
+            ],
+            "phase": "GATE_A",
+            "policy_actions_received": 161,
+            "policy_capture_usec": 58052000,
+            "policy_velocity_flu": [
+              -0.056094542145729065,
+              0.01042407751083374,
+              -0.01503024809062481
+            ],
+            "sim_time": 58.184,
+            "waypoint_index": 6
+          },
+          {
+            "command_velocity": [
+              -0.051112037133268014,
+              0.025353869735767667,
+              -0.01503024809062481
+            ],
+            "phase": "GATE_A",
+            "policy_actions_received": 162,
+            "policy_capture_usec": 58252000,
+            "policy_velocity_flu": [
+              -0.04544459283351898,
+              0.0008150488138198853,
+              -0.005123409908264875
+            ],
+            "sim_time": 58.3,
+            "waypoint_index": 6
+          },
+          {
+            "command_velocity": [
+              -0.04336656952071306,
+              0.013609407422014937,
+              -0.005123409908264875
+            ],
+            "phase": "GATE_A",
+            "policy_actions_received": 162,
+            "policy_capture_usec": 58252000,
+            "policy_velocity_flu": [
+              -0.04544459283351898,
+              0.0008150488138198853,
+              -0.005123409908264875
+            ],
+            "sim_time": 58.4,
+            "waypoint_index": 6
+          },
+          {
+            "command_velocity": [
+              -0.009992900539042414,
+              0.0031359975268171673,
+              -0.0011805804839965929
+            ],
+            "phase": "TUNNEL_ALIGN",
+            "policy_actions_received": 162,
+            "policy_capture_usec": null,
+            "policy_velocity_flu": null,
+            "sim_time": 58.5,
+            "waypoint_index": 7
+          },
+          {
+            "command_velocity": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "phase": "TUNNEL_ALIGN",
+            "policy_actions_received": 162,
+            "policy_capture_usec": null,
+            "policy_velocity_flu": null,
+            "sim_time": 58.604,
+            "waypoint_index": 7
+          },
+          {
+            "command_velocity": [
+              0.08916851455018907,
+              -0.02565004647254246,
+              0.0017003319879021843
+            ],
+            "phase": "TUNNEL_ALIGN",
+            "policy_actions_received": 163,
+            "policy_capture_usec": 58552000,
+            "policy_velocity_flu": [
+              0.7498602271080017,
+              0.0045562125742435455,
+              0.013741906732320786
+            ],
+            "sim_time": 58.712,
+            "waypoint_index": 7
+          },
+          {
+            "command_velocity": [
+              0.16602582832980053,
+              -0.04781615867616653,
+              0.0029636844310786774
+            ],
+            "phase": "TUNNEL_ALIGN",
+            "policy_actions_received": 164,
+            "policy_capture_usec": 58700000,
+            "policy_velocity_flu": [
+              0.7498409748077393,
+              0.0104270214214921,
+              0.01139140222221613
+            ],
+            "sim_time": 58.816,
+            "waypoint_index": 7
+          }
+        ],
+        "previous_action": {
+          "capture_age_sim_s": 0.027999999999998693,
+          "capture_interval_sim_s": 0.2,
+          "capture_usec": 58252000,
+          "latency_wall_s": 0.012403952001477592,
+          "sim_time": 58.28,
+          "waypoint_index": 6
+        },
+        "waypoint_changed": true
+      },
+      "phases": {
+        "AUTO_LAND": {
+          "sample_vision_age_sim_ms": {
+            "count": 48,
+            "max": 100.0,
+            "p50": 60.0,
+            "p95": 84.0
+          }
+        },
+        "CHICANE": {
+          "policy_capture_age_sim_ms": {
+            "count": 17,
+            "max": 84.0,
+            "p50": 52.0,
+            "p95": 84.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 17,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 17,
+            "max": 19.674,
+            "p50": 15.684,
+            "p95": 19.527
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 25,
+            "max": 136.0,
+            "p50": 84.0,
+            "p95": 116.0
+          }
+        },
+        "FIRST_CORRIDOR": {
+          "policy_capture_age_sim_ms": {
+            "count": 32,
+            "max": 68.0,
+            "p50": 36.0,
+            "p95": 52.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 32,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 32,
+            "max": 24.883,
+            "p50": 14.071,
+            "p95": 20.806
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 47,
+            "max": 116.0,
+            "p50": 68.0,
+            "p95": 100.0
+          }
+        },
+        "GATE_A": {
+          "policy_capture_age_sim_ms": {
+            "count": 22,
+            "max": 52.0,
+            "p50": 48.0,
+            "p95": 52.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 22,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 22,
+            "max": 22.976,
+            "p50": 15.337,
+            "p95": 20.078
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 34,
+            "max": 116.0,
+            "p50": 68.0,
+            "p95": 101.4
+          }
+        },
+        "HOVER_CHECK": {
+          "policy_capture_age_sim_ms": {
+            "count": 1,
+            "max": 64.0,
+            "p50": 64.0,
+            "p95": 64.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 1,
+            "max": 18.391,
+            "p50": 18.391,
+            "p95": 18.391
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 28,
+            "max": 84.0,
+            "p50": 52.0,
+            "p95": 82.6
+          }
+        },
+        "LANDING_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 24,
+            "max": 52.0,
+            "p50": 32.0,
+            "p95": 52.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 24,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 24,
+            "max": 18.38,
+            "p50": 11.518,
+            "p95": 17.958
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 36,
+            "max": 100.0,
+            "p50": 72.0,
+            "p95": 100.0
+          }
+        },
+        "MAZE": {
+          "policy_capture_age_sim_ms": {
+            "count": 107,
+            "max": 100.0,
+            "p50": 48.0,
+            "p95": 84.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 107,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 107,
+            "max": 81.169,
+            "p50": 14.242,
+            "p95": 21.743
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 156,
+            "max": 136.0,
+            "p50": 80.0,
+            "p95": 116.0
+          }
+        },
+        "PRIMING_OFFBOARD": {
+          "sample_vision_age_sim_ms": {
+            "count": 19,
+            "max": 68.0,
+            "p50": 48.0,
+            "p95": 68.0
+          }
+        },
+        "TAKEOFF": {
+          "sample_vision_age_sim_ms": {
+            "count": 100,
+            "max": 84.0,
+            "p50": 52.0,
+            "p95": 72.0
+          }
+        },
+        "TUNNEL": {
+          "policy_capture_age_sim_ms": {
+            "count": 26,
+            "max": 84.0,
+            "p50": 48.0,
+            "p95": 71.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 26,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 26,
+            "max": 23.386,
+            "p50": 13.16,
+            "p95": 21.254
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 37,
+            "max": 104.0,
+            "p50": 72.0,
+            "p95": 100.0
+          }
+        },
+        "TUNNEL_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 37,
+            "max": 84.0,
+            "p50": 60.0,
+            "p95": 84.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 37,
+            "max": 300.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 37,
+            "max": 30.1,
+            "p50": 13.263,
+            "p95": 19.968
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 54,
+            "max": 132.0,
+            "p50": 84.0,
+            "p95": 116.0
+          }
+        },
+        "WAIT_FOR_RGBD_AND_EKF": {
+          "sample_vision_age_sim_ms": {
+            "count": 122,
+            "max": 84.0,
+            "p50": 52.0,
+            "p95": 72.0
+          }
+        },
+        "WINDOW_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 26,
+            "max": 60.0,
+            "p50": 42.0,
+            "p95": 51.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 26,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 26,
+            "max": 23.396,
+            "p50": 14.968,
+            "p95": 19.731
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 37,
+            "max": 100.0,
+            "p50": 68.0,
+            "p95": 84.0
+          }
+        },
+        "WINDOW_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 37,
+            "max": 84.0,
+            "p50": 36.0,
+            "p95": 52.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 37,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 37,
+            "max": 60.101,
+            "p50": 13.025,
+            "p95": 21.564
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 53,
+            "max": 116.0,
+            "p50": 68.0,
+            "p95": 85.6
+          }
+        },
+        "WINDOW_CROSS": {
+          "policy_capture_age_sim_ms": {
+            "count": 30,
+            "max": 56.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 30,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 30,
+            "max": 19.736,
+            "p50": 14.538,
+            "p95": 18.81
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 43,
+            "max": 100.0,
+            "p50": 68.0,
+            "p95": 84.0
+          }
+        }
+      },
+      "result": {
+        "completed": "completed",
+        "fault": null,
+        "landed_and_disarmed": true,
+        "route_completed": true
+      },
+      "simulated_durations_s": {
+        "elapsed_sim_s": 77.0,
+        "route_elapsed_sim_s": 71.648
+      },
+      "source_sha256": {
+        "camera/frames.jsonl": "7abf7f382fd18ffdeb2114b0df401b98d95ca07ec90af4c6041b94e0167489ef",
+        "telemetry.jsonl": "ff04b5c9d8660a74e3241e3cc2d2a6287d336b7220db3923771d62bae5e00861"
+      }
+    },
+    "policy-07": {
+      "archive_frame_gap_sim_ms": {
+        "count": 475,
+        "max": 248.0,
+        "p50": 200.0,
+        "p95": 200.0
+      },
+      "configuration": {
+        "checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_depth_mode": "raw",
+        "sensor_diagnostic": {
+          "mode": "gaussian-10mm",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.01,
+          "seed": 4417,
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+        },
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        }
+      },
+      "counts": {
+        "accepted_policy_actions": 366,
+        "archive_frames": 476,
+        "policy_setpoints_sent_aggregate_only": 4622,
+        "telemetry_samples": 825,
+        "vision_measurements_sent": 1860
+      },
+      "maximum_capture_gap_context": {
+        "acceptance_interval_sim_ms": 200.0,
+        "capture_gap_sim_ms": 200.0,
+        "current_action": {
+          "capture_age_sim_s": 0.027999999999991587,
+          "capture_interval_sim_s": 0.2,
+          "capture_usec": 90400000,
+          "latency_wall_s": 0.004697830998338759,
+          "sim_time": 90.428,
+          "waypoint_index": 14
+        },
+        "nearby_samples": [
+          {
+            "command_velocity": [
+              -0.03670581232898705,
+              0.01159734601186754,
+              0.002976261079311371
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 360,
+            "policy_capture_usec": 90052000,
+            "policy_velocity_flu": [
+              -0.051859498023986816,
+              0.021697312593460083,
+              -0.000514104962348938
+            ],
+            "sim_time": 90.092,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              0.017531286726391107,
+              -0.0534119358832394,
+              -0.000514104962348938
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 360,
+            "policy_capture_usec": 90052000,
+            "policy_velocity_flu": [
+              -0.051859498023986816,
+              0.021697312593460083,
+              -0.000514104962348938
+            ],
+            "sim_time": 90.196,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              0.031740652062791204,
+              -0.06731388605315791,
+              -0.0076340362429618835
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 361,
+            "policy_capture_usec": 90200000,
+            "policy_velocity_flu": [
+              -0.07142937183380127,
+              0.020891938358545303,
+              -0.0076340362429618835
+            ],
+            "sim_time": 90.3,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              0.031740652062791204,
+              -0.06731388605315791,
+              -0.0076340362429618835
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 361,
+            "policy_capture_usec": 90200000,
+            "policy_velocity_flu": [
+              -0.07142937183380127,
+              0.020891938358545303,
+              -0.0076340362429618835
+            ],
+            "sim_time": 90.428,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              0.00875306224694527,
+              -0.032953745485900576,
+              -0.019691742956638336
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 362,
+            "policy_capture_usec": 90400000,
+            "policy_velocity_flu": [
+              -0.030196547508239746,
+              0.01583458110690117,
+              -0.019691742956638336
+            ],
+            "sim_time": 90.528,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              -0.009283217849794901,
+              -0.0054188064899584245,
+              -0.02851274237036705
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 363,
+            "policy_capture_usec": 90552000,
+            "policy_velocity_flu": [
+              0.0024158060550689697,
+              0.010474038310348988,
+              -0.02851274237036705
+            ],
+            "sim_time": 90.66,
+            "waypoint_index": 14
+          }
+        ],
+        "previous_action": {
+          "capture_age_sim_s": 0.027999999999991587,
+          "capture_interval_sim_s": 0.148,
+          "capture_usec": 90200000,
+          "latency_wall_s": 0.01388449400110403,
+          "sim_time": 90.228,
+          "waypoint_index": 14
+        },
+        "waypoint_changed": false
+      },
+      "phases": {
+        "AUTO_LAND": {
+          "sample_vision_age_sim_ms": {
+            "count": 47,
+            "max": 96.0,
+            "p50": 60.0,
+            "p95": 78.8
+          }
+        },
+        "CHICANE": {
+          "policy_capture_age_sim_ms": {
+            "count": 18,
+            "max": 64.0,
+            "p50": 28.0,
+            "p95": 47.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 18,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 18,
+            "max": 18.754,
+            "p50": 12.666,
+            "p95": 18.595
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 25,
+            "max": 108.0,
+            "p50": 64.0,
+            "p95": 92.0
+          }
+        },
+        "FIRST_CORRIDOR": {
+          "policy_capture_age_sim_ms": {
+            "count": 33,
+            "max": 64.0,
+            "p50": 28.0,
+            "p95": 29.6
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 32,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 33,
+            "max": 26.79,
+            "p50": 12.253,
+            "p95": 17.751
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 47,
+            "max": 76.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        },
+        "GATE_A": {
+          "policy_capture_age_sim_ms": {
+            "count": 25,
+            "max": 32.0,
+            "p50": 28.0,
+            "p95": 28.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 25,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 25,
+            "max": 18.463,
+            "p50": 9.498,
+            "p95": 17.464
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 36,
+            "max": 80.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        },
+        "HOVER_CHECK": {
+          "sample_vision_age_sim_ms": {
+            "count": 27,
+            "max": 76.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        },
+        "LANDING_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 28,
+            "max": 48.0,
+            "p50": 28.0,
+            "p95": 44.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 28,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 28,
+            "max": 22.863,
+            "p50": 13.756,
+            "p95": 18.032
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 40,
+            "max": 80.0,
+            "p50": 62.0,
+            "p95": 76.0
+          }
+        },
+        "MAZE": {
+          "policy_capture_age_sim_ms": {
+            "count": 108,
+            "max": 68.0,
+            "p50": 28.0,
+            "p95": 46.6
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 108,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 108,
+            "max": 24.086,
+            "p50": 12.813,
+            "p95": 18.803
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 155,
+            "max": 116.0,
+            "p50": 64.0,
+            "p95": 84.8
+          }
+        },
+        "PRIMING_OFFBOARD": {
+          "sample_vision_age_sim_ms": {
+            "count": 18,
+            "max": 96.0,
+            "p50": 62.0,
+            "p95": 96.0
+          }
+        },
+        "TAKEOFF": {
+          "sample_vision_age_sim_ms": {
+            "count": 99,
+            "max": 76.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        },
+        "TUNNEL": {
+          "policy_capture_age_sim_ms": {
+            "count": 26,
+            "max": 48.0,
+            "p50": 28.0,
+            "p95": 41.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 26,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 26,
+            "max": 23.078,
+            "p50": 11.156,
+            "p95": 18.016
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 35,
+            "max": 76.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        },
+        "TUNNEL_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 36,
+            "max": 48.0,
+            "p50": 28.0,
+            "p95": 44.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 36,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 36,
+            "max": 19.424,
+            "p50": 11.418,
+            "p95": 17.982
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 53,
+            "max": 80.0,
+            "p50": 64.0,
+            "p95": 77.6
+          }
+        },
+        "WAIT_FOR_RGBD_AND_EKF": {
+          "sample_vision_age_sim_ms": {
+            "count": 116,
+            "max": 80.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        },
+        "WINDOW_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 26,
+            "max": 32.0,
+            "p50": 28.0,
+            "p95": 31.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 26,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 26,
+            "max": 21.253,
+            "p50": 12.589,
+            "p95": 17.223
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 35,
+            "max": 80.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        },
+        "WINDOW_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 37,
+            "max": 44.0,
+            "p50": 28.0,
+            "p95": 44.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 37,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 37,
+            "max": 23.074,
+            "p50": 13.061,
+            "p95": 19.778
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 51,
+            "max": 108.0,
+            "p50": 64.0,
+            "p95": 78.0
+          }
+        },
+        "WINDOW_CROSS": {
+          "policy_capture_age_sim_ms": {
+            "count": 29,
+            "max": 44.0,
+            "p50": 28.0,
+            "p95": 30.4
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 29,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 29,
+            "max": 18.586,
+            "p50": 12.215,
+            "p95": 18.266
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 40,
+            "max": 80.0,
+            "p50": 64.0,
+            "p95": 76.0
+          }
+        }
+      },
+      "result": {
+        "completed": "completed",
+        "fault": null,
+        "landed_and_disarmed": true,
+        "route_completed": true
+      },
+      "simulated_durations_s": {
+        "elapsed_sim_s": 78.0,
+        "route_elapsed_sim_s": 72.632
+      },
+      "source_sha256": {
+        "camera/frames.jsonl": "8acc8e8476ff17d716795dcc0269fcbc8922c5decb9bd4bc773d16d1893b3e8a",
+        "telemetry.jsonl": "27cc2aab1604dad83666ff50fed8b648e97c298beaf62d0a8be2a71cffa9342e"
+      }
+    },
+    "policy-08": {
+      "archive_frame_gap_sim_ms": {
+        "count": 472,
+        "max": 244.0,
+        "p50": 200.0,
+        "p95": 200.0
+      },
+      "configuration": {
+        "checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_depth_mode": "raw",
+        "sensor_diagnostic": {
+          "mode": "control",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.0,
+          "seed": 4417,
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987"
+        },
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        }
+      },
+      "counts": {
+        "accepted_policy_actions": 364,
+        "archive_frames": 473,
+        "policy_setpoints_sent_aggregate_only": 4612,
+        "telemetry_samples": 847,
+        "vision_measurements_sent": 1861
+      },
+      "maximum_capture_gap_context": {
+        "acceptance_interval_sim_ms": 200.0,
+        "capture_gap_sim_ms": 200.0,
+        "current_action": {
+          "capture_age_sim_s": 0.02400000000000091,
+          "capture_interval_sim_s": 0.2,
+          "capture_usec": 88352000,
+          "latency_wall_s": 0.006633436998527031,
+          "sim_time": 88.376,
+          "waypoint_index": 14
+        },
+        "nearby_samples": [
+          {
+            "command_velocity": [
+              0.020603865812405843,
+              -0.05281860418649776,
+              -0.009288430213928223
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 359,
+            "policy_capture_usec": 87852000,
+            "policy_velocity_flu": [
+              -0.05323067307472229,
+              0.019514601677656174,
+              -0.009288430213928223
+            ],
+            "sim_time": 87.992,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              0.004361445956270968,
+              -0.028914232233363184,
+              -0.016235068440437317
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 360,
+            "policy_capture_usec": 88000000,
+            "policy_velocity_flu": [
+              -0.024324700236320496,
+              0.01622849330306053,
+              -0.016235068440437317
+            ],
+            "sim_time": 88.112,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              -0.00985479150366528,
+              -0.008456148850070476,
+              -0.022127896010017467
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 361,
+            "policy_capture_usec": 88152000,
+            "policy_velocity_flu": [
+              0.005626291036605835,
+              0.012229427695274353,
+              -0.023335829377174377
+            ],
+            "sim_time": 88.216,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              -0.012768887899753533,
+              -0.00426257602701258,
+              -0.023335829377174377
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 361,
+            "policy_capture_usec": 88152000,
+            "policy_velocity_flu": [
+              0.005626291036605835,
+              0.012229427695274353,
+              -0.023335829377174377
+            ],
+            "sim_time": 88.328,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              -0.01909868730212775,
+              0.006790609217721468,
+              -0.027098558843135834
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 362,
+            "policy_capture_usec": 88352000,
+            "policy_velocity_flu": [
+              0.018188804388046265,
+              0.008946486748754978,
+              -0.027098558843135834
+            ],
+            "sim_time": 88.448,
+            "waypoint_index": 14
+          },
+          {
+            "command_velocity": [
+              -0.01746777595804491,
+              0.006363375349065545,
+              -0.025622669607400894
+            ],
+            "phase": "LANDING_APPROACH",
+            "policy_actions_received": 363,
+            "policy_capture_usec": 88500000,
+            "policy_velocity_flu": [
+              0.016837142407894135,
+              0.007882028818130493,
+              -0.025622669607400894
+            ],
+            "sim_time": 88.56,
+            "waypoint_index": 14
+          }
+        ],
+        "previous_action": {
+          "capture_age_sim_s": 0.02400000000000091,
+          "capture_interval_sim_s": 0.152,
+          "capture_usec": 88152000,
+          "latency_wall_s": 0.010591016998660052,
+          "sim_time": 88.176,
+          "waypoint_index": 14
+        },
+        "waypoint_changed": false
+      },
+      "phases": {
+        "AUTO_LAND": {
+          "sample_vision_age_sim_ms": {
+            "count": 51,
+            "max": 84.0,
+            "p50": 56.0,
+            "p95": 74.0
+          }
+        },
+        "CHICANE": {
+          "policy_capture_age_sim_ms": {
+            "count": 18,
+            "max": 44.0,
+            "p50": 28.0,
+            "p95": 40.6
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 18,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 18,
+            "max": 20.599,
+            "p50": 12.934,
+            "p95": 17.836
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 25,
+            "max": 92.0,
+            "p50": 60.0,
+            "p95": 80.0
+          }
+        },
+        "FIRST_CORRIDOR": {
+          "policy_capture_age_sim_ms": {
+            "count": 32,
+            "max": 48.0,
+            "p50": 24.0,
+            "p95": 44.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 32,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 32,
+            "max": 21.655,
+            "p50": 11.796,
+            "p95": 17.491
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 47,
+            "max": 96.0,
+            "p50": 60.0,
+            "p95": 78.8
+          }
+        },
+        "GATE_A": {
+          "policy_capture_age_sim_ms": {
+            "count": 24,
+            "max": 48.0,
+            "p50": 28.0,
+            "p95": 47.4
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 24,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 24,
+            "max": 22.225,
+            "p50": 11.04,
+            "p95": 18.05
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 36,
+            "max": 80.0,
+            "p50": 60.0,
+            "p95": 72.0
+          }
+        },
+        "HOVER_CHECK": {
+          "policy_capture_age_sim_ms": {
+            "count": 1,
+            "max": 24.0,
+            "p50": 24.0,
+            "p95": 24.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 1,
+            "max": 16.544,
+            "p50": 16.544,
+            "p95": 16.544
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 27,
+            "max": 72.0,
+            "p50": 60.0,
+            "p95": 72.0
+          }
+        },
+        "LANDING_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 28,
+            "max": 40.0,
+            "p50": 24.0,
+            "p95": 37.2
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 28,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 28,
+            "max": 17.903,
+            "p50": 11.199,
+            "p95": 17.553
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 40,
+            "max": 84.0,
+            "p50": 60.0,
+            "p95": 80.0
+          }
+        },
+        "MAZE": {
+          "policy_capture_age_sim_ms": {
+            "count": 107,
+            "max": 92.0,
+            "p50": 28.0,
+            "p95": 64.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 107,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 107,
+            "max": 40.688,
+            "p50": 12.906,
+            "p95": 19.465
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 157,
+            "max": 124.0,
+            "p50": 64.0,
+            "p95": 108.0
+          }
+        },
+        "PRIMING_OFFBOARD": {
+          "sample_vision_age_sim_ms": {
+            "count": 19,
+            "max": 76.0,
+            "p50": 60.0,
+            "p95": 72.4
+          }
+        },
+        "TAKEOFF": {
+          "sample_vision_age_sim_ms": {
+            "count": 101,
+            "max": 76.0,
+            "p50": 60.0,
+            "p95": 72.0
+          }
+        },
+        "TUNNEL": {
+          "policy_capture_age_sim_ms": {
+            "count": 25,
+            "max": 48.0,
+            "p50": 28.0,
+            "p95": 47.2
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 25,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 25,
+            "max": 19.317,
+            "p50": 10.363,
+            "p95": 18.093
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 37,
+            "max": 92.0,
+            "p50": 64.0,
+            "p95": 84.0
+          }
+        },
+        "TUNNEL_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 38,
+            "max": 72.0,
+            "p50": 40.0,
+            "p95": 72.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 38,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 38,
+            "max": 24.888,
+            "p50": 13.725,
+            "p95": 19.902
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 56,
+            "max": 124.0,
+            "p50": 64.0,
+            "p95": 108.0
+          }
+        },
+        "WAIT_FOR_RGBD_AND_EKF": {
+          "sample_vision_age_sim_ms": {
+            "count": 117,
+            "max": 116.0,
+            "p50": 60.0,
+            "p95": 76.8
+          }
+        },
+        "WINDOW_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 25,
+            "max": 48.0,
+            "p50": 24.0,
+            "p95": 43.2
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 25,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 25,
+            "max": 17.44,
+            "p50": 11.676,
+            "p95": 16.555
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 36,
+            "max": 80.0,
+            "p50": 62.0,
+            "p95": 80.0
+          }
+        },
+        "WINDOW_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 36,
+            "max": 40.0,
+            "p50": 24.0,
+            "p95": 40.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 36,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 36,
+            "max": 20.25,
+            "p50": 10.465,
+            "p95": 16.648
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 53,
+            "max": 84.0,
+            "p50": 60.0,
+            "p95": 80.0
+          }
+        },
+        "WINDOW_CROSS": {
+          "policy_capture_age_sim_ms": {
+            "count": 30,
+            "max": 40.0,
+            "p50": 24.0,
+            "p95": 34.6
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 30,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 30,
+            "max": 15.726,
+            "p50": 12.139,
+            "p95": 15.521
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 43,
+            "max": 80.0,
+            "p50": 60.0,
+            "p95": 72.0
+          }
+        }
+      },
+      "result": {
+        "completed": "completed",
+        "fault": null,
+        "landed_and_disarmed": true,
+        "route_completed": true
+      },
+      "simulated_durations_s": {
+        "elapsed_sim_s": 78.0,
+        "route_elapsed_sim_s": 72.328
+      },
+      "source_sha256": {
+        "camera/frames.jsonl": "37867fd00df2e39f30219a25540c1211832f7f31c788e4434896fd242a762381",
+        "telemetry.jsonl": "b42331cf71440e20534fe34b8e9c2437e6ba3d5cf8b3306188d2190d47c2e781"
+      }
+    },
+    "policy-09": {
+      "archive_frame_gap_sim_ms": {
+        "count": 473,
+        "max": 212.0,
+        "p50": 200.0,
+        "p95": 200.0
+      },
+      "configuration": {
+        "checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_depth_mode": "raw",
+        "sensor_diagnostic": {
+          "mode": "gaussian-10mm",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.01,
+          "seed": 4417,
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+        },
+        "speed_scale": 1.0,
+        "survey_normals": {
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ],
+          "full_support_requires_valid_depth": true,
+          "full_support_window_px": 7,
+          "method": "fals7",
+          "normal_radius_px": 3,
+          "opencv_version": "4.6.0",
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "sample_stride_px": 8
+        }
+      },
+      "counts": {
+        "accepted_policy_actions": 363,
+        "archive_frames": 474,
+        "policy_setpoints_sent_aggregate_only": 4604,
+        "telemetry_samples": 844,
+        "vision_measurements_sent": 1857
+      },
+      "maximum_capture_gap_context": {
+        "acceptance_interval_sim_ms": 384.0,
+        "capture_gap_sim_ms": 352.0,
+        "current_action": {
+          "capture_age_sim_s": 0.04800000000000182,
+          "capture_interval_sim_s": 0.352,
+          "capture_usec": 67952000,
+          "latency_wall_s": 0.01359470399984275,
+          "sim_time": 68.0,
+          "waypoint_index": 10
+        },
+        "nearby_samples": [
+          {
+            "command_velocity": [
+              -0.008968338232914997,
+              -0.18554527014231645,
+              0.005269345810261178
+            ],
+            "phase": "TUNNEL",
+            "policy_actions_received": 224,
+            "policy_capture_usec": 67300000,
+            "policy_velocity_flu": [
+              -0.06988823413848877,
+              -0.02705060876905918,
+              0.010477486066520214
+            ],
+            "sim_time": 67.464,
+            "waypoint_index": 9
+          },
+          {
+            "command_velocity": [
+              -0.015773289807058482,
+              -0.10585534230302128,
+              0.005450017610062069
+            ],
+            "phase": "TUNNEL",
+            "policy_actions_received": 225,
+            "policy_capture_usec": 67452000,
+            "policy_velocity_flu": [
+              -0.2256753146648407,
+              -0.04197405278682709,
+              -0.001457206904888153
+            ],
+            "sim_time": 67.568,
+            "waypoint_index": 9
+          },
+          {
+            "command_velocity": [
+              -0.022828550703139987,
+              -0.013400562233443072,
+              0.0025469117316462724
+            ],
+            "phase": "TUNNEL",
+            "policy_actions_received": 226,
+            "policy_capture_usec": 67600000,
+            "policy_velocity_flu": [
+              -0.34584930539131165,
+              -0.032881490886211395,
+              -0.014026490971446037
+            ],
+            "sim_time": 67.684,
+            "waypoint_index": 9
+          },
+          {
+            "command_velocity": [
+              -0.026916610385577612,
+              0.06961025677380842,
+              -0.0012912773958013357
+            ],
+            "phase": "TUNNEL",
+            "policy_actions_received": 226,
+            "policy_capture_usec": 67600000,
+            "policy_velocity_flu": [
+              -0.34584930539131165,
+              -0.032881490886211395,
+              -0.014026490971446037
+            ],
+            "sim_time": 67.784,
+            "waypoint_index": 9
+          },
+          {
+            "command_velocity": [
+              -0.014780937128793085,
+              0.0553824142546304,
+              -0.0015716996465484315
+            ],
+            "phase": "CHICANE",
+            "policy_actions_received": 226,
+            "policy_capture_usec": null,
+            "policy_velocity_flu": null,
+            "sim_time": 67.9,
+            "waypoint_index": 10
+          },
+          {
+            "command_velocity": [
+              -0.0018244398252201851,
+              -0.01266596691530737,
+              0.00029103509169693914
+            ],
+            "phase": "CHICANE",
+            "policy_actions_received": 227,
+            "policy_capture_usec": 67952000,
+            "policy_velocity_flu": [
+              0.6921774744987488,
+              -0.10313565284013748,
+              0.01591598056256771
+            ],
+            "sim_time": 68.016,
+            "waypoint_index": 10
+          },
+          {
+            "command_velocity": [
+              -0.015051628558062073,
+              -0.1044942270512549,
+              0.0024010395064990365
+            ],
+            "phase": "CHICANE",
+            "policy_actions_received": 228,
+            "policy_capture_usec": 68100000,
+            "policy_velocity_flu": [
+              0.6915336847305298,
+              -0.10806763917207718,
+              0.010128449648618698
+            ],
+            "sim_time": 68.128,
+            "waypoint_index": 10
+          },
+          {
+            "command_velocity": [
+              -0.029901577965642398,
+              -0.18309701116382915,
+              0.003440910817586855
+            ],
+            "phase": "CHICANE",
+            "policy_actions_received": 228,
+            "policy_capture_usec": 68100000,
+            "policy_velocity_flu": [
+              0.6915336847305298,
+              -0.10806763917207718,
+              0.010128449648618698
+            ],
+            "sim_time": 68.232,
+            "waypoint_index": 10
+          }
+        ],
+        "previous_action": {
+          "capture_age_sim_s": 0.016000000000005343,
+          "capture_interval_sim_s": 0.148,
+          "capture_usec": 67600000,
+          "latency_wall_s": 0.01429387999814935,
+          "sim_time": 67.616,
+          "waypoint_index": 9
+        },
+        "waypoint_changed": true
+      },
+      "phases": {
+        "AUTO_LAND": {
+          "sample_vision_age_sim_ms": {
+            "count": 51,
+            "max": 100.0,
+            "p50": 64.0,
+            "p95": 98.0
+          }
+        },
+        "CHICANE": {
+          "policy_capture_age_sim_ms": {
+            "count": 17,
+            "max": 48.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 17,
+            "max": 352.0,
+            "p50": 152.0,
+            "p95": 230.4
+          },
+          "policy_latency_wall_ms": {
+            "count": 17,
+            "max": 20.313,
+            "p50": 13.367,
+            "p95": 19.275
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 25,
+            "max": 100.0,
+            "p50": 64.0,
+            "p95": 84.0
+          }
+        },
+        "FIRST_CORRIDOR": {
+          "policy_capture_age_sim_ms": {
+            "count": 32,
+            "max": 52.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 32,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 32,
+            "max": 20.425,
+            "p50": 12.736,
+            "p95": 19.306
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 47,
+            "max": 100.0,
+            "p50": 68.0,
+            "p95": 100.0
+          }
+        },
+        "GATE_A": {
+          "policy_capture_age_sim_ms": {
+            "count": 25,
+            "max": 48.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 25,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 25,
+            "max": 18.773,
+            "p50": 11.893,
+            "p95": 17.14
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 37,
+            "max": 100.0,
+            "p50": 64.0,
+            "p95": 90.4
+          }
+        },
+        "HOVER_CHECK": {
+          "policy_capture_age_sim_ms": {
+            "count": 1,
+            "max": 28.0,
+            "p50": 28.0,
+            "p95": 28.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 1,
+            "max": 7.117,
+            "p50": 7.117,
+            "p95": 7.117
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 27,
+            "max": 100.0,
+            "p50": 64.0,
+            "p95": 95.2
+          }
+        },
+        "LANDING_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 28,
+            "max": 48.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 28,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 28,
+            "max": 23.904,
+            "p50": 12.326,
+            "p95": 17.32
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 41,
+            "max": 100.0,
+            "p50": 64.0,
+            "p95": 100.0
+          }
+        },
+        "MAZE": {
+          "policy_capture_age_sim_ms": {
+            "count": 106,
+            "max": 68.0,
+            "p50": 32.0,
+            "p95": 64.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 106,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 106,
+            "max": 52.301,
+            "p50": 13.061,
+            "p95": 20.313
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 155,
+            "max": 120.0,
+            "p50": 68.0,
+            "p95": 100.0
+          }
+        },
+        "PRIMING_OFFBOARD": {
+          "sample_vision_age_sim_ms": {
+            "count": 18,
+            "max": 72.0,
+            "p50": 50.0,
+            "p95": 68.6
+          }
+        },
+        "TAKEOFF": {
+          "sample_vision_age_sim_ms": {
+            "count": 100,
+            "max": 100.0,
+            "p50": 54.0,
+            "p95": 84.2
+          }
+        },
+        "TUNNEL": {
+          "policy_capture_age_sim_ms": {
+            "count": 25,
+            "max": 68.0,
+            "p50": 32.0,
+            "p95": 51.2
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 25,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 25,
+            "max": 24.581,
+            "p50": 12.275,
+            "p95": 19.042
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 37,
+            "max": 100.0,
+            "p50": 68.0,
+            "p95": 87.2
+          }
+        },
+        "TUNNEL_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 37,
+            "max": 76.0,
+            "p50": 48.0,
+            "p95": 54.4
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 37,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 37,
+            "max": 25.183,
+            "p50": 13.46,
+            "p95": 19.019
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 55,
+            "max": 116.0,
+            "p50": 72.0,
+            "p95": 100.0
+          }
+        },
+        "WAIT_FOR_RGBD_AND_EKF": {
+          "sample_vision_age_sim_ms": {
+            "count": 119,
+            "max": 84.0,
+            "p50": 52.0,
+            "p95": 68.4
+          }
+        },
+        "WINDOW_ALIGN": {
+          "policy_capture_age_sim_ms": {
+            "count": 25,
+            "max": 64.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 25,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 25,
+            "max": 25.433,
+            "p50": 13.029,
+            "p95": 23.749
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 35,
+            "max": 100.0,
+            "p50": 64.0,
+            "p95": 91.6
+          }
+        },
+        "WINDOW_APPROACH": {
+          "policy_capture_age_sim_ms": {
+            "count": 37,
+            "max": 52.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 37,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 37,
+            "max": 20.818,
+            "p50": 10.814,
+            "p95": 17.469
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 53,
+            "max": 100.0,
+            "p50": 64.0,
+            "p95": 100.0
+          }
+        },
+        "WINDOW_CROSS": {
+          "policy_capture_age_sim_ms": {
+            "count": 30,
+            "max": 52.0,
+            "p50": 32.0,
+            "p95": 48.0
+          },
+          "policy_capture_gap_sim_ms": {
+            "count": 30,
+            "max": 200.0,
+            "p50": 152.0,
+            "p95": 200.0
+          },
+          "policy_latency_wall_ms": {
+            "count": 30,
+            "max": 18.731,
+            "p50": 12.007,
+            "p95": 17.402
+          },
+          "sample_vision_age_sim_ms": {
+            "count": 42,
+            "max": 104.0,
+            "p50": 64.0,
+            "p95": 100.0
+          }
+        }
+      },
+      "result": {
+        "completed": "completed",
+        "fault": null,
+        "landed_and_disarmed": true,
+        "route_completed": true
+      },
+      "simulated_durations_s": {
+        "elapsed_sim_s": 78.0,
+        "route_elapsed_sim_s": 72.304
+      },
+      "source_sha256": {
+        "camera/frames.jsonl": "82afbdfd97d00a74a5816c08604dc4d538bb077fba83b71a4e67b43db839475a",
+        "telemetry.jsonl": "882028daee12edcd1e751f3103d1c69d8453d2e34090f48146777b4717e727aa"
+      }
+    }
+  },
+  "schema_version": 1
+}

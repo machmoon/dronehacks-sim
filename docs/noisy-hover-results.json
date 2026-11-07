@@ -1,0 +1,205 @@
+{
+  "scope": "A verified 10 mm Gaussian depth perturbation on the patched PX4 image. The first noisy hover failed and confirmed an abort landing. It was not a completed noisy route.",
+  "static_capture": {
+    "patch_xywh": [
+      176,
+      64,
+      32,
+      32
+    ],
+    "captures": {
+      "control": {
+        "config": {
+          "mode": "control",
+          "seed": 4417,
+          "configured_renderer": "ogre2",
+          "depth_topic": "/dronehacks/rgbd/depth_image",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.0,
+          "world_path": "/tmp/dronehacks-px4.sdf",
+          "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987"
+        },
+        "capture_sha256": "f1910bc49d3f2b13dd8da04cfe61a657931ad6e3c155461e75c9b4dc4bba39b9",
+        "frames": 24,
+        "first_capture_ns": 5004000000,
+        "last_capture_ns": 6152000000
+      },
+      "gaussian-10mm": {
+        "config": {
+          "mode": "gaussian-10mm",
+          "seed": 4417,
+          "configured_renderer": "ogre2",
+          "depth_topic": "/dronehacks/rgbd/depth_image",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.01,
+          "world_path": "/tmp/dronehacks-px4.sdf",
+          "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+        },
+        "capture_sha256": "2d8931d7be651e7ea00c17047ef583b88c6425a7bbb6e3ce3110849e76b162ac",
+        "frames": 24,
+        "first_capture_ns": 4900000000,
+        "last_capture_ns": 6052000000
+      }
+    },
+    "model_sources": {
+      "/workspace/models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+      "/workspace/models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+      "/workspace/models/course_v3/model.sdf": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072"
+    },
+    "passed": true,
+    "checks": {
+      "control_plane": true,
+      "control_stationary": true,
+      "same_view": true,
+      "added_noise_in_range": true,
+      "not_global_frame_jitter": true
+    },
+    "control_plane_rms_m": 1.0145270378502234e-15,
+    "control_temporal_sigma_p95_m": 0.0,
+    "control_temporal_sigma_median_m": 0.0,
+    "noisy_temporal_sigma_median_m": 0.009869280482440453,
+    "added_temporal_sigma_m": 0.009869280482440453,
+    "mean_shift_p95_m": 0.003868602961301791,
+    "noisy_frame_mean_jitter_m": 0.0003046576058455367
+  },
+  "hover": {
+    "type": "summary",
+    "run_id": "cb7d2c99d7474a09bf14040646f94ba8",
+    "world": "dronehacks",
+    "vehicle": "course_quad",
+    "vehicle_model": "PX4 x500",
+    "task": "hover",
+    "launch": {
+      "position_enu": [
+        -2.5146,
+        0.9144,
+        0.24
+      ],
+      "yaw_enu_deg": 90.0
+    },
+    "source": "RGBD depth registration to supplied course map + PX4 EKF2",
+    "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+    "simulator_position_used_for_control": false,
+    "inertial_tilt_prior_enabled": true,
+    "sitl_power_watchdog_enabled": true,
+    "policy_boundary_brake_enabled": false,
+    "policy_checkpoint_sha256": null,
+    "policy_depth_mode": null,
+    "result": "failed",
+    "fault": "rgbd_pose_unavailable:tracking_lost:survey:insufficient_depth_overlap;depth:insufficient_depth_overlap;rgb:insufficient_inliers",
+    "elapsed_sim_s": 5.299999999999997,
+    "route_elapsed_sim_s": null,
+    "route_completed": false,
+    "landed_and_disarmed": false,
+    "landed_after_fault": true,
+    "landing_position_enu": null,
+    "pad_radius_m": 0.762,
+    "aircraft_radius_m": 0.401,
+    "waypoints_reached": 0,
+    "waypoint_count": 1,
+    "hover_settled_sim_s": 0.0,
+    "vision_measurements_sent": 422,
+    "policy_actions_received": 0,
+    "policy_setpoints_sent": 0,
+    "policy_boundary_braking_interventions": 0,
+    "policy_boundary_guard_setpoints": 0,
+    "policy_boundary_budget_max_deficit_m": 0.0,
+    "policy_training_camera_forward_m": null,
+    "policy_training_heading_lookahead_m": null,
+    "policy_service_session": null
+  },
+  "abort_landing": {
+    "fault_sim_s": 43.864,
+    "confirmed_disarm_sim_s": 48.564,
+    "controller_confirmed_ground_and_disarm": true,
+    "cad_proxy": {
+      "certified_clear": true,
+      "phases": {
+        "abort_landing": {
+          "interval_sim_s": [
+            43.864,
+            48.564
+          ],
+          "ground_checked": false,
+          "truth_complete": true,
+          "certified_clear": true,
+          "checked_subsegments": 598,
+          "first_unresolved": null
+        }
+      },
+      "margin_m": 0.015,
+      "component_count": 9,
+      "model": "SDF body/gear boxes and swept rotor cylinders against the course CAD proxy boxes and polygonal tunnel shell. Translation is linear and attitude follows the shortest arc.",
+      "interpretation": "Unresolved component separation can be a conservative false positive."
+    },
+    "contacts": {
+      "status": "partial_topic_coverage",
+      "topics_with_messages": [
+        "/model/course_quad/contact/base_link"
+      ],
+      "topics_expected": [
+        "/model/course_quad/contact/base_link",
+        "/model/course_quad/contact/rotor_0",
+        "/model/course_quad/contact/rotor_1",
+        "/model/course_quad/contact/rotor_2",
+        "/model/course_quad/contact/rotor_3"
+      ],
+      "topic_discovery_and_observations": {
+        "/model/course_quad/contact/base_link": {
+          "publisher_count_start": 5,
+          "publisher_count_end": 5,
+          "transport_messages_received": 13462,
+          "messages_with_contact_pairs": 13462,
+          "interpretation": "messages_received"
+        },
+        "/model/course_quad/contact/rotor_0": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_1": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_2": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_3": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        }
+      },
+      "raw_pair_observations": {
+        "obstacle": 0,
+        "transit_ground": 0,
+        "expected_ground": 2232,
+        "self": 0
+      },
+      "first_obstacle_observation": null,
+      "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact."
+    },
+    "certified_clear_through_disarm": true,
+    "scope": "Clearance covers the post-fault interval through controller-confirmed disarm. It compares the margin-inflated multipart envelope with course CAD obstacle proxies. Floor contact is permitted. Physical contact evidence is reported separately."
+  },
+  "sha256_by_file": {
+    "artifacts/markerfree/hover-04/telemetry.jsonl": "83196e575a6f10c5628a0b41194a38ac894d704466f5a5ee451b4b242731c12d",
+    "artifacts/markerfree/hover-04/telemetry.summary.json": "c05a05a045bbdd06072c0c4ed281a0ec66f71fb75f6b376f78c361ff1c5ad117",
+    "artifacts/markerfree/hover-04/score.json": "eff546146110e85ea05baaaf253182e3bf66f676792fb023b963e8ca40bdaffb"
+  }
+}

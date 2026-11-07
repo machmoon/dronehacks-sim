@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-07T17:40:07.106397+00:00",
+  "status_at_registration": "not_run",
+  "purpose": "Measure a visual-only net ablation with collisions retained, then conditionally test the unchanged depth-navigation stack. This is a missing net-surface-return stress case, not a real net optical model.",
+  "generation": {
+    "ablation": {
+      "all_course_collision_semantics_equal": true,
+      "all_other_world_semantics_equal_after_flattening": true,
+      "canonical_all_course_collisions_sha256": "78f0381a92acd0ec98a8408ab4013f5d30d4e9a188a1df4650bb126fd34ed6e0",
+      "canonical_net_collision_sha256": "b3c55a29a26b984e48e99885e4473747530f87e3710cbf5aec0beb8d60317adf",
+      "net_collision_names_retained": [
+        "net_side_east",
+        "net_side_north",
+        "net_side_south",
+        "net_side_west",
+        "net_roof"
+      ],
+      "net_collision_semantics_equal": true,
+      "removed_visual_names": [
+        "net_side_east",
+        "net_side_north",
+        "net_side_south",
+        "net_side_west",
+        "net_roof"
+      ],
+      "worlds_are_base_inputs_for_existing_vision_rgbd_scene": true
+    },
+    "claims_and_limits": [
+      "Treatment removes only the five named net visual elements; all collisions are retained.",
+      "Control retains all source visuals and flattens the unoverridden course_v3 include.",
+      "The expected course_quad include name and pose override is retained unchanged.",
+      "RGB and depth rendering both change; rays can return background or far-limit depth.",
+      "This is a rendered net-absence stress case, not a realistic wire-net rendering or real sensor model.",
+      "The estimator static survey still loads the original course model with analytic net panels; this intentional map/sensor mismatch remains.",
+      "No truth topic, segmentation labels, controller, flight policy, or collision geometry is added or altered."
+    ],
+    "inputs": {
+      "course_model": {
+        "path": "models/course_v3/model.sdf",
+        "sha256": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072"
+      },
+      "source_world": {
+        "path": "worlds/course.sdf",
+        "sha256": "5168d89e833ed170a0a9b3e75a013988f3ec78481daed01346097c03ea16fc74"
+      }
+    },
+    "outputs": {
+      "control.sdf": {
+        "bytes": 22529,
+        "path": "control.sdf",
+        "sha256": "c6f62df134539bb9b1e9871404040eee4d7476d233548ba235240a242fc5bc87"
+      },
+      "treatment.sdf": {
+        "bytes": 20305,
+        "path": "treatment.sdf",
+        "sha256": "90b7ae43d4b4e923c59334b22f421e8e2a32bfbab2c4ad47100b4de5a44c3a35"
+      }
+    },
+    "schema_version": 1,
+    "tool": {
+      "path": "tools/make_net_visual_ablation.py",
+      "sha256": "1ff0c9ff27a82547bd1ae265120bf26dcd6a6668875fc46c2b8cea746223f55f"
+    }
+  },
+  "expected_runtime_worlds": {
+    "control": {
+      "mode": "gaussian-10mm",
+      "seed": 4417,
+      "configured_renderer": "ogre2",
+      "depth_topic": "/dronehacks/rgbd/depth_image",
+      "noise_mean_m": 0.0,
+      "noise_stddev_m": 0.01,
+      "world_path": "/tmp/dronehacks-px4.sdf",
+      "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+      "source_world_sha256": "a71ae7deba7ed784d461b73e0b91f3327bd4b46d0cb55443881ee46eba3ef92d",
+      "world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+    },
+    "treatment": {
+      "mode": "gaussian-10mm",
+      "seed": 4417,
+      "configured_renderer": "ogre2",
+      "depth_topic": "/dronehacks/rgbd/depth_image",
+      "noise_mean_m": 0.0,
+      "noise_stddev_m": 0.01,
+      "world_path": "/tmp/dronehacks-px4.sdf",
+      "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+      "source_world_sha256": "011daf6e7fc0a311a8c90e74b53cbfa3cdd92b39228102acf9fc78c15675dad9",
+      "world_sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+    }
+  },
+  "fixed_configuration": {
+    "px4_image": "dronehacks-markerfree:hrt-v1.16.2",
+    "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+    "flight_source_sha256": {
+      "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+      "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+      "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+      "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+      "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+      "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+      "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+      "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+      "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+      "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+      "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+      "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+      "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+      "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+      "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+      "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+      "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+      "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+      "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+      "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+      "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+      "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+      "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+      "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+      "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+      "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+      "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+      "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+      "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+      "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+      "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+      "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+      "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+      "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+      "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+      "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+      "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69"
+    },
+    "course_file": "mission/course-window-x500.json",
+    "course_sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+    "checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+    "policy_depth_mode": "raw",
+    "policy_boundary_brake_enabled": true,
+    "heading_lookahead_m": 1.8,
+    "survey_normals": "fals7",
+    "use_px4_tilt": true,
+    "vision_max_capture_gap_s": 0.12,
+    "vision_max_capture_age_s": 0.3,
+    "launch_position_enu_m": [
+      -2.5146,
+      0.9144,
+      0.24
+    ],
+    "launch_yaw_enu_deg": 90.0,
+    "depth_noise": "gaussian-10mm",
+    "seed": 4417
+  },
+  "passive_capture": {
+    "per_condition_frames": 32,
+    "capture_tool": "vision.capture_rgbd",
+    "capture_source_sha256": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+    "rgbd_shape": [
+      256,
+      384
+    ],
+    "observer_seconds_wall": 30,
+    "minimum_sim_clock_before_capture_s": 2.0,
+    "no_flight_commands": true,
+    "requirements": {
+      "exact_runtime_world_hashes_match": true,
+      "all_course_and_net_collision_semantics_unchanged": true,
+      "zero_artificial_landmark_models_and_zero_truth_odometry_publishers": true,
+      "matching_rgb_depth_acquisition_stamps": true,
+      "strictly_increasing_capture_stamps_max_gap_s": 0.12,
+      "truth_brackets_all_capture_stamps_max_gap_s": 0.12,
+      "observer_final_complete_and_zero_known_queue_loss": true,
+      "within_each_capture_max_position_deviation_from_median_m": 0.002,
+      "between_condition_median_position_difference_m": 0.002,
+      "between_condition_median_orientation_difference_degrees": 0.1,
+      "changed_depth_pixel_fraction_of_full_image_min": 0.01
+    },
+    "depth_change_definition": "For each pixel use the median of its 32 native optical-depth samples. Count a change only if the control median is finite and in [0.1,8] metres and the treatment median is positive infinity or exceeds the control median by more than0.5 metres. Divide by all256*384 pixels. Report other finite/invalid/Inf statistics separately.",
+    "purpose_of_change_gate": "Confirm that removing visuals materially changed camera depth before making a flight ablation claim; if it does not, stop and retain a no-effect result.",
+    "capture_paths": {
+      "control": "artifacts/markerfree/net-visual-ablation-01/control/capture.npz",
+      "treatment": "artifacts/markerfree/net-visual-ablation-01/treatment/capture.npz"
+    }
+  },
+  "flight_sequence": [
+    {
+      "run": "hover-10",
+      "condition": "control",
+      "task": "hover",
+      "prerequisite": "All passive A/B requirements pass."
+    },
+    {
+      "run": "policy-11",
+      "condition": "control",
+      "task": "policy",
+      "prerequisite": "hover-10 passes the hover acceptance below."
+    },
+    {
+      "run": "hover-11",
+      "condition": "treatment",
+      "task": "hover",
+      "prerequisite": "policy-11 passes all independent full-route checks."
+    },
+    {
+      "run": "policy-12",
+      "condition": "treatment",
+      "task": "policy",
+      "prerequisite": "hover-11 passes the hover acceptance below."
+    }
+  ],
+  "hover_acceptance": {
+    "summary_completed_landed_disarmed_route_completed_and_settled_at_least_s": 3.0,
+    "all_seven_applicable_independent_hover_score_checks": true,
+    "window_crossing_not_required": true,
+    "score_and_telemetry_run_ids_match": true,
+    "capture_and_px4_error_timestamps_aligned_with_no_unmatched_samples": true,
+    "HOVER_CHECK_max_position_error_for_both_camera_and_px4_m": 0.08,
+    "received_obstacle_and_transit_ground_contact_counts": 0,
+    "observer_recording_complete_zero_overflow_and_closed_acceptance": true
+  },
+  "route_acceptance": {
+    "summary_completed_landed_and_disarmed": true,
+    "all_eight_independent_score_checks": true,
+    "score_and_telemetry_run_ids_match": true,
+    "observer_recording_complete_zero_overflow_and_closed_acceptance": true,
+    "received_obstacle_and_transit_ground_contact_counts": 0
+  },
+  "failure_policy": "Retain every failed/incomplete attempt. Stop the conditional flight sequence at the first failed prerequisite. Do not relax score thresholds or tune the controller for the treatment. No physical drone is involved.",
+  "claim_limits": [
+    "RGB and depth both change when visuals are removed. Background or far-limit returns may replace net-surface returns; this is not an all-invalid-depth injection.",
+    "The estimator continues loading the original static survey, including analytic net panels. That deliberate sensor/map mismatch is part of this test.",
+    "One pair of simulator trials cannot establish reliability, generalization, or real-camera transfer.",
+    "Independent truth is used only to verify the passive setup and offline flight scores. It is never forwarded to navigation."
+  ]
+}

@@ -124,7 +124,7 @@ class Link:
                     self.log.event('PX4 heartbeat connected on container loopback')
             elif kind == 'LOCAL_POSITION_NED':
                 self.position, self.position_wall = msg, time.monotonic()
-                self.boot_s = msg.time_boot_ms / 1000.0
+                self.boot_s = max(self.boot_s, msg.time_boot_ms / 1000.0)
             elif kind == 'SYSTEM_TIME':
                 self.boot_s = max(self.boot_s, msg.time_boot_ms / 1000.0)
             elif kind == 'ATTITUDE':

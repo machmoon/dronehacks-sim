@@ -1,0 +1,50 @@
+{
+  "scope": "Subsampled telemetry only; not a per-capture accepted-fit ledger. No flight gate changed.",
+  "runs": [
+    {
+      "path": "artifacts/markerfree/hover-10",
+      "run_id": "a8c95a894128413880436d9a50021d2b",
+      "arm_sim_s": 99.496,
+      "valid_sampled_prearm_rows": 133,
+      "source_counts": {
+        "depth_survey_tof": 133
+      },
+      "observability_without_tilt_range": [
+        0.02034396926125549,
+        0.02638901481344038
+      ],
+      "first_capture_sim_s": 84.452,
+      "last_capture_sim_s": 99.35199999999999,
+      "telemetry_sha256": "2b963d48c28f625887273271bba9fc63af81247b0f4655fae8a1584ae7128fe1"
+    },
+    {
+      "path": "artifacts/markerfree/hover-11",
+      "run_id": "ed0b6e15a79d4b478d02cce0d07a7249",
+      "arm_sim_s": 19.536,
+      "valid_sampled_prearm_rows": 145,
+      "source_counts": {
+        "rgbd_odometry": 145
+      },
+      "observability_without_tilt_range": null,
+      "first_capture_sim_s": 3.552,
+      "last_capture_sim_s": 19.451999999999998,
+      "telemetry_sha256": "456d15593d90b57c0f2d388b4819139753def8bbdd04a1e6602cd9fc7c628087"
+    },
+    {
+      "path": "artifacts/clean-export-01/repository/artifacts/markerfree/hover-01",
+      "run_id": "fc60b9d437bd4d2b8b8a5597979e058e",
+      "arm_sim_s": 19.52,
+      "valid_sampled_prearm_rows": 134,
+      "source_counts": {
+        "depth_survey_tof": 134
+      },
+      "observability_without_tilt_range": [
+        0.019871950082270537,
+        0.025688990491623948
+      ],
+      "first_capture_sim_s": 4.552,
+      "last_capture_sim_s": 19.4,
+      "telemetry_sha256": "cc29e11ae5083a71ce35538118fd87e9f7254ee2c761a6f7815cddd411d5b072"
+    }
+  ]
+}

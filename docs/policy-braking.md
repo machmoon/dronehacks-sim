@@ -1,0 +1,11 @@
+# Predictive boundary braking
+
+The learned policy proposes a velocity from camera depth and estimated state. Before PX4 receives it, a separate guard limits outward motion near the four surveyed horizontal course boundaries. It uses the current PX4 position and velocity estimate, the previously sent command, and the existing 0.8 m/s² vector slew limit. It does not consume the truth observer or replace the policy with a waypoint teacher.
+
+The stopping model uses a 0.80 s first-order velocity response, 0.40 s lead, and 40 mm position reserve inside the existing airframe-aware boundary. The lead budgets 240 ms command delay, at most 60 ms position-estimate age and at most 100 ms between setpoints. Stale estimates or larger gaps stop the mission through the existing landing path. The original hard boundary, camera validity and PX4 health checks remain active. Takeoff, hover and touchdown retain their existing controllers.
+
+This is a model-based heuristic, not a formal safety guarantee. It guards the course perimeter, not internal walls or the window aperture. It must be active from the first policy action: late activation in a combined delay, gain and position-bias replay still allowed a true boundary breach. Physics and camera errors outside the tested assumptions can invalidate its stopping budget.
+
+Metadata records the guard settings. Samples and summaries report accepted policy actions, guarded setpoints, actual braking corrections and stopping-budget deficits. The viewer labels the combined controller explicitly. Use `--no-policy-boundary-brake` only for an intentional unguarded diagnostic. A guarded success must not be reported as an unguarded actor success.
+
+The architecture follows the established idea of filtering learned actions before execution. The [Learning Systems and Robotics Lab safety-filter code](https://github.com/learnsyslab/safe-control-gym/tree/main/safe_control_gym/safety_filters) and [multi-step predictive safety-filter paper](https://arxiv.org/abs/2309.11453) provide fuller MPC-based approaches. This small scalar implementation does not reproduce their algorithms or inherit their proofs. [SAND.O's graph transition model](sando-reuse.md) also accounts for stopping distance, but does not model this command delay.

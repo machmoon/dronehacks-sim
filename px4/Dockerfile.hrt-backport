@@ -1,0 +1,4 @@
+ARG PX4_RUNTIME_BASE=dronehacks-markerfree:base
+FROM ${PX4_RUNTIME_BASE}
+COPY px4 /opt/px4/bin/px4
+COPY build-manifest.json /opt/px4/build-manifest.json

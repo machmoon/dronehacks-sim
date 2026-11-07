@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "protocol": "stereo-edge-visibility-and-finite-mismatch",
+  "source_selection": {
+    "native": "artifacts/markerfree/policy-06/vision-diagnostics/first-rejected.npz",
+    "synthetic_alias": "artifacts/markerfree/noisy-policy-probe-01/alias-69deg.npz",
+    "window_run": "artifacts/markerfree/policy-07",
+    "window_ulog_gzip": "artifacts/px4/log/2026-11-07/15_23_01.ulg.gz",
+    "window_phase_rule": "Find first and last telemetry sample with a WINDOW_ phase. In chronological camera-archive frames contained in that interval, take floor((2*i+1)*N/12) for i=0..5, before computing any fit.",
+    "window_bounds_sim_usec": [71960000, 86528000],
+    "window_candidate_count": 73,
+    "window_archive_frame_indices": [359, 371, 383, 395, 407, 419],
+    "prior_east_offsets_m": [-0.025, 0.0, 0.025],
+    "previous_capture_rule": "Use exact rejection NPZ prior for native. For each WINDOW image use the latest strictly earlier native vehicle_visual_odometry pose_frame=1 entry, recover its acquisition stamp on the 4ms Gazebo grid only when the EKF timestamp_sample is within 1ms, and require capture delta in (0,120ms]. Exclude unavailable priors before fitting. Use PX4 attitude brackets without extrapolation. Truth is loaded only after registration and gating.",
+    "synthetic_alias_prior_rule": "Use policy-06 previous sensor EV position and tilt, rotated to the synthetic case's commanded 69-degree heading. Use the native source's recorded capture interval as the declared synthetic test interval. The NPZ synthetic reference body position is used only for scoring."
+  },
+  "estimator": {
+    "method": "fals7",
+    "max_inter_capture_gap_usec": 120000,
+    "max_processing_age_usec": 300000,
+    "archive_processing_age_usec": 0,
+    "archive_scope": "5Hz selected JPEG and millimetre PNG image records with native 20Hz sensor-EV priors. This tests single capture survey admission. Native prior RGBD reference frames are unavailable for full fallback replay.",
+    "native_scope": "Exact float32 rejected frame, RGB, recorded prior transform and capture clock, recorded ToF and tilt. Prior RGBD frame unavailable.",
+    "alias_scope": "Existing synthetic CAD view and existing seeded Gaussian depth realization. No independent physical hardware measurement."
+  },
+  "stereo_diagnostic": {
+    "baseline_m_assumed": 0.075,
+    "horizontal_focal_length_px": "Use recorded fx in the same simulated image grid.",
+    "projection": "Rectified left reference. d=fx*B/Z. Pixel u projects to round(u-d) in the right view. For eligible valid finite source rays keep the maximum disparity in each right-view bin. A ray outside the right image is unavailable. An in-image ray with projected disparity more than 0.5px below the maximum at its bin is occluded.",
+    "projection_occlusion_difference_px": 0.5,
+    "horizontal_dilation_radius_px": 2,
+    "quantization_disparity_step_px": 0.125,
+    "quantization_metric_step_m": 0.001,
+    "far_mismatch_search_radius_px": 8,
+    "far_mismatch_min_difference_m": 0.10,
+    "far_mismatch_rule": "For finite foreground centers only, find the nearest same-row finite pixel within 8px having optical-Z at least 0.10m farther. Break ties in favor of the lower column index. Replace the center with that measured farther value. This is an intentionally adverse finite edge-correspondence stress, not a driver model. It never replaces an invalid return."
+  },
+  "matrix": ["control", "disparity_quantized", "geometric_occlusion", "occlusion_dilated", "finite_far_edge_mismatch"],
+  "nominal_matrix_count": 120,
+  "metrics": {
+    "register_depth_accepted": "Raw production survey registration result, including overlap, residual, observability and covariance gates.",
+    "survey_runtime_gates_accepted": "Passes current timing, motion and absolute survey uncertainty checks. No MAVLink is sent. A failed survey is reported separately from a full estimator fault because preceding native RGBD fallbacks are unavailable.",
+    "accepted_pose_counterexample_gt_m": 0.060,
+    "accepted_pose_warning_gt_m": 0.030,
+    "score_position_error": "3D Euclidean body position error, independently interpolated observation truth at the actual image stamp. Report horizontal error separately.",
+    "policy_near_z_ray_m": 1.5,
+    "policy_clear_z_ray_m": 3.0,
+    "policy_negative_control": "Separate actor-only check for erroneous NaN-hole to +Inf conversion. Run once per input using the dilated mask. Never send it to estimator or policy service.",
+    "report": "All attempts, exclusions, gates, masks, before/after valid counts and actually modified pixel counts, accepted pose error, reject reason, available weak Hessian direction, policy admission and changed near-to-far bins, observed versus false-safe categories, source SHA256, dependencies and configuration."
+  },
+  "scope_limits": [
+    "This is a deterministic perturbation of recorded Gazebo depth. It does not emulate the full OAK-D S2 stereo matcher, calibration, texture, illumination or temporal filtering.",
+    "The baseline is an explicit diagnostic assumption. Projected visibility and rounded disparity are sensitivity cases on the simulator's camera grid.",
+    "A sample set with zero counterexamples does not establish a deployment error bound or physical safety."
+  ],
+  "references": [
+    "https://docs.luxonis.com/hardware/platform/depth/configuring-stereo-depth",
+    "https://github.com/luxonis/depthai-core/blob/v3.7.1/include/depthai/pipeline/node/StereoDepth.hpp#L102-L107",
+    "https://github.com/luxonis/depthai-core/blob/v3.7.1/include/depthai/pipeline/node/StereoDepth.hpp#L253-L258"
+  ]
+}

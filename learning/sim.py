@@ -11,10 +11,12 @@ from pathlib import Path
 import numpy as np
 
 from mission.crossing import evaluate_window_crossing
+from mission.heading import route_yaw
 
 ROOT = Path(__file__).resolve().parents[1]
 HEIGHT, WIDTH = 16, 24
 HFOV_DEG, MAX_DEPTH = 90.0, 4.0
+DEFAULT_CAMERA_FORWARD_M = .08
 DT, ACCEL = .16, .8
 GOAL_RADIUS = .11
 MAX_STEPS = 640
@@ -67,6 +69,7 @@ class Scene:
     half: np.ndarray
     window: dict
     radius: float
+    camera_forward_m: float = DEFAULT_CAMERA_FORWARD_M
 
     def __post_init__(self):
         # Pack local rotations so one BLAS multiply projects the entire ray grid.
@@ -108,7 +111,7 @@ class Scene:
 
     def depth(self, position, rotation):
         rays = RAYS @ rotation.T
-        origin = position + rotation @ np.array([.08, 0., 0.])
+        origin = position + self.camera_forward_m * rotation[:, 0]
         # Cull objects entirely out of depth range before slab intersection.
         keep = np.linalg.norm(self.centers - origin, axis=1) <= MAX_DEPTH + np.linalg.norm(self.half, axis=1)
         axes = self.axes[keep]
@@ -124,7 +127,13 @@ class Scene:
 class Course:
     """Read the route and collision proxies directly from versioned assets."""
 
-    def __init__(self):
+    def __init__(self, camera_forward_m=DEFAULT_CAMERA_FORWARD_M, heading_lookahead_m=0.):
+        if not 0 <= camera_forward_m < 1:
+            raise ValueError("camera forward offset must be in [0, 1) metres")
+        if not math.isfinite(heading_lookahead_m) or not (heading_lookahead_m == 0 or heading_lookahead_m > .3):
+            raise ValueError("heading lookahead must be zero (disabled) or greater than 0.3 metres")
+        self.camera_forward_m = camera_forward_m
+        self.heading_lookahead_m = heading_lookahead_m
         self.route_path = ROOT / "mission/course-window-fast.json"
         self.mesh_dir = ROOT / "models/course_v3"
         self.groups_path = self.mesh_dir / "groups.json"
@@ -207,7 +216,8 @@ class Course:
 
         window = {**self.window, "center": (self.axes @ local_center).tolist(),
                   "width": width, "height": height}
-        return Scene(np.array(centers), np.array(axes), np.array(halves), window, self.radius)
+        return Scene(np.array(centers), np.array(axes), np.array(halves), window, self.radius,
+                     self.camera_forward_m)
 
 
 @dataclass(frozen=True)
@@ -257,13 +267,21 @@ class Flight:
         pose_est = self.p + self.bias + rng.normal(0, .008, 3) * noise
         v_est = self.v + rng.normal(0, .023, 3) * noise
         self.rotation = yaw_rotation(self.yaw + self.yaw_bias)
-        delta = self.course.goals[min(self.index, len(self.course.goals) - 1)] - pose_est
-        if np.linalg.norm(delta[:2]) > .08:
+        index = min(self.index, len(self.course.goals) - 1)
+        target = self.course.goals[index]
+        delta = target - pose_est
+        if self.course.heading_lookahead_m:
+            following = self.course.goals[index + 1] if index + 1 < len(self.course.goals) else None
+            heading = route_yaw(pose_est, target, following, self.course.phases[index],
+                                lookahead=self.course.heading_lookahead_m)
+            if heading is not None:
+                self.yaw_command = heading - self.yaw_bias
+        elif np.linalg.norm(delta[:2]) > .08:
             self.yaw_command = math.atan2(delta[1], delta[0]) - self.yaw_bias
         state = np.array([*(v_est @ self.rotation), *(delta @ self.rotation),
                           (self.roll + rng.normal(0, .01) * noise) * 5,
                           (self.pitch + rng.normal(0, .01) * noise) * 5,
-                          self.course.speeds[min(self.index, len(self.course.speeds) - 1)]], dtype=np.float32)
+                          self.course.speeds[index]], dtype=np.float32)
         if render:
             rng = self.camera_rng
             depth = self.scene.depth(self.p, camera_rotation(self.yaw, self.roll, self.pitch))

@@ -1,0 +1,67 @@
+{
+  "patch_xywh": [
+    176,
+    64,
+    32,
+    32
+  ],
+  "captures": {
+    "control": {
+      "config": {
+        "mode": "control",
+        "seed": 4417,
+        "configured_renderer": "ogre2",
+        "depth_topic": "/dronehacks/rgbd/depth_image",
+        "noise_mean_m": 0.0,
+        "noise_stddev_m": 0.0,
+        "world_path": "/tmp/dronehacks-px4.sdf",
+        "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+        "world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987"
+      },
+      "capture_sha256": "aa70a8a14197368afac86d54f00d170130c7e26416cb9b6570cf1a132bc57d85",
+      "frames": 24,
+      "first_capture_ns": 14568000000,
+      "last_capture_ns": 15700000000
+    },
+    "gaussian-10mm": {
+      "config": {
+        "mode": "gaussian-10mm",
+        "seed": 4417,
+        "configured_renderer": "ogre2",
+        "depth_topic": "/dronehacks/rgbd/depth_image",
+        "noise_mean_m": 0.0,
+        "noise_stddev_m": 0.01,
+        "world_path": "/tmp/dronehacks-px4.sdf",
+        "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+        "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+        "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+      },
+      "capture_sha256": "9ab6b6e47c9662c4b6a6e77ebaaa453f6eba298ef5c31e68ef83639301b18334",
+      "frames": 24,
+      "first_capture_ns": 4184000000,
+      "last_capture_ns": 5300000000
+    }
+  },
+  "model_sources": {
+    "/workspace/models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+    "/workspace/models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+    "/workspace/models/course_v3/model.sdf": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072"
+  },
+  "passed": true,
+  "checks": {
+    "control_plane": true,
+    "control_stationary": true,
+    "same_view": true,
+    "added_noise_in_range": true,
+    "not_global_frame_jitter": true
+  },
+  "control_plane_rms_m": 1.0145270378502234e-15,
+  "control_temporal_sigma_p95_m": 0.0,
+  "control_temporal_sigma_median_m": 0.0,
+  "noisy_temporal_sigma_median_m": 0.009806615070708683,
+  "added_temporal_sigma_m": 0.009806615070708683,
+  "mean_shift_p95_m": 0.00395763317743944,
+  "noisy_frame_mean_jitter_m": 0.00042577548965059024,
+  "verification_sha256": "a8adb2a2093190631fc5cae42535ae3add1424a3d09cc329acf3c567249fb47b",
+  "scope": "Unarmed paired static depth-stream verification; no noisy flight has been scored yet."
+}

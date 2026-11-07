@@ -1,51 +1,38 @@
-# Marker-free depth navigation experiment
+# Marker-free depth policy
 
-This experiment trains a small PyTorch policy to output bounded velocity
-setpoints from a forward synthetic depth image, estimated velocity, estimated
-attitude, and a relative waypoint. It follows the existing Window Fast plan
-from hover over the launch pad through the landing approach. It does not model
-takeoff or touchdown. There are no tags, landmark IDs, obstacle coordinates, or
-absolute positions in the policy input.
+The policy outputs bounded heading-aligned FLU velocity from a 24×16 synthetic depth image, estimated body velocity, estimated roll/pitch, and a relative waypoint. It receives no tags, landmark IDs, obstacle coordinates, or absolute position. Training covers the route from hover to landing approach; PX4 handles takeoff and touchdown separately.
 
-Run it from the repository root with a Python that has NumPy and PyTorch:
+## Train for the current x500 experiment
+
+Use a native Python environment with NumPy and PyTorch. Give every run a fresh output directory:
 
 ```sh
-python -u -m learning.train --output artifacts/learning/my-run --max-seconds 18000
+python -u -m learning.train --profile x500-transfer-delay --device mps --threads 1 \
+  --output artifacts/learning/my-run --max-seconds 18000 --eval-interval 300 --seed 45
 ```
 
-Use a fresh output directory. Try `--max-seconds 55 --eval-interval 12` for a
-short smoke run. The trainer defaults to two CPU threads; use `--device mps`
-on a supported Mac for faster training updates. The five-hour wall-time limit includes
-evaluation. Send SIGTERM or Ctrl-C to stop at the next safe point. The trainer
-refreshes `status.json` and retains an atomic `latest.pt`, a validation-selected
-`best.pt`, and bounded `metrics.json`. The training replay stays in memory.
+To warm-start, add `--init-checkpoint artifacts/learning/OLD/best.pt`. This loads weights only and creates a fresh optimizer, replay and step counter. Set `--max-seconds` to the remaining budget when continuing an interrupted run. The background supervisor in `runtime/train_overnight.py` provides a separate wall-clock cap and low-disk guard.
 
-The course comes from `mission/course-window-fast.json` and the checked-in CAD
-bounds and wall vertices. Straight walls use boxes, the rotated window wall
-has its measured opening, and a polygonal shell approximates the hollow oval
-tube. Boulders are conservative boxes and net faces are opaque proxies in the
-depth view. Randomized examples shift obstacles, move or resize the aperture,
-and perturb estimator readings, velocity response and wind. Later curriculum
-stages increase depth and estimator noise and include bursts of missing pixels. The 24×16
-forward pinhole camera has an assumed 90° horizontal field of view and produces
-analytic ray ranges with noise and dropout. It does not process RGB images or
-compute stereo depth. The estimator is a synthetic biased/noisy state source
-with local goal generation from the known route; it does not implement VIO.
+The `x500-transfer` profile uses `mission/course-window-x500.json`, the x500 SDF body/gear/rotor envelope with a 15 mm allowance, a 0.34 m forward camera, and 1.8 m heading lookahead. It samples velocity response from 0.50–0.80 seconds and applies 0.8 m/s² command slew. Each 160 ms policy step contains four 40 ms plant steps. Estimated waypoint arrival is 60 mm; truth verification is 80 mm. Window alignment keeps the opening in view.
 
-Training uses a privileged short-horizon geometry teacher to label velocity
-actions, including actions from student-driven rollouts (DAgger-style
-supervised imitation). There is no Dreamer/world-model or RL implementation.
-The student receives no geometry query or true pose. Its output is velocity
-in heading-aligned FLU: forward, left, and up in m/s. PX4 transport would need
-to rotate this into the requested NED frame, connect real state/depth inputs,
-and provide the separate yaw, takeoff, landing and safety logic.
+The explicit `x500-transfer-delay` profile adds a queue of commands after slew limiting, sampled delays of 0.12–0.24 seconds, and a horizontal velocity-gain stress of 1.00–1.08. The teacher predicts from the commands already in that queue. This revision follows a measured braking mismatch in policy-02; those ranges are stress assumptions, not a validated general model of PX4 or the physical drone. The original `x500-transfer` profile remains available unchanged. Checkpoints identify these as v2 and v1 respectively.
 
-Validation and final held-out seeds are disjoint from training and each
-other. Full-course rollouts measure route completion, continuous
-sphere-vs-box proxy contact, full aperture passage and simulated traversal
-time. Metrics compare the trained depth policy, the same policy with a blank
-image, a direct waypoint controller, and the privileged teacher. The blank
-image is an input ablation, so it is out of the training distribution.
-Per-scenario results and paired velocity changes for fixed state with visible
-versus blank depth are recorded. These are analytic simulation diagnostics,
-not Gazebo/PX4 integration results or hardware clearance measurements.
+Source hashes and the route, camera, airframe and control contract are stored in metadata and checkpoints. The live policy bridge rejects a checkpoint whose contract differs from the current route or vehicle. Do not edit those training sources during a run. The historical `legacy` profile remains the command-line default for reproducibility; it uses the old route and a 0.28 m sphere and is refused by the current x500 flight runner.
+
+## Method and evaluation
+
+Training uses privileged geometry-teacher labels and student-driven rollouts, a DAgger-style supervised imitation procedure. It is not reinforcement learning, Dreamer, or a learned world model. The teacher queries geometry; the actor only receives depth and estimated state. The trainer uses analytic ray casting and approximate dynamics, not Gazebo or PX4.
+
+The supplied CAD bounds and wall vertices define the scene. Straight walls and boulders use proxy boxes, the rotated wall contains the measured opening, and a polygonal shell approximates the hollow tube. Net faces are opaque depth proxies. Sensor stress adds estimator error, depth noise and missing pixels. Geometry changes are capped separately to avoid silently treating impossible x500 clearances as valid demonstrations. Invalid training proposals are counted and resampled within a fixed limit; validation and holdout keep invalid scenarios in their denominator.
+
+Validation seeds and final held-out seeds are disjoint from training and each other. Only validation selects `best.pt`. Metrics compare the policy, the same policy with blank depth, a direct waypoint controller, and the teacher. Blank depth is an out-of-distribution ablation. The x500 profile scores continuous multipart sweeps, full aperture passage, ordered truth waypoints, and traversal time. A conservative unresolved overlap counts as a failed clearance check. The trainer reserves the final 200 seconds, or 30% of a shorter budget, for held-out evaluation.
+
+`status.json`, `latest.pt`, `best.pt` and bounded metrics are updated atomically. Training replay stays in memory. SIGTERM requests checkpoint saving, but an interrupted run may have no final held-out result. Gazebo RGB-D/PX4 integration is tested separately using [the marker-free flight runbook](../docs/markerfree-rgbd.md). Ideal rendered depth, a known static survey, approximate latency and dynamics, and the x500 surrogate do not establish transfer to the physical aircraft.
+
+For Gazebo tests, learned actions pass through a separate [predictive boundary braking guard](../docs/policy-braking.md). The guard is not part of training and its interventions must be reported alongside the learned-policy result.
+
+## Completed training and paired review
+
+Four supervised jobs used 14,141.32 seconds (3.928 hours) cumulatively before the five-hour session cutoff. This is elapsed supervisor time across separate jobs, including initialization and evaluation, not five continuous hours. The last run completed normally and selected the validation checkpoint at step 48,440; its analytic held-out result was 7/8 with one collision. The [training ledger](../docs/training-ledger.json) retains the per-job intervals.
+
+The frozen v1 and v2 checkpoints were compared on the same eight analytic cases. Each completed 7/8 with one collision; v2 had a larger minimum successful window margin (34.25 mm vs. 23.79 mm) but a slower median success time (61.44 s vs. 60.00 s). The paired review did not promote v2. Its public-sanitized package preserves exactly 14 tensors and has never been flown. See the [paired results](../docs/paired-policy-results.json) and [v2 manifest](../checkpoints/window-depth-v2.manifest.json). Separately, the v1 baseline completed policy-07 once under synthetic 10 mm Gaussian depth noise; this Gazebo/PX4 result is not hardware transfer evidence and is described in the [sensor stress report](../docs/sensor-stress.md).

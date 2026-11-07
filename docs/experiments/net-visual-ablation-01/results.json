@@ -1,0 +1,1234 @@
+{
+  "analysis_source_sha256": "4825629a4909919621b143d4d8e1cc385d328f9fe03c71ef9234adc71f9696e1",
+  "artifacts_root": "artifacts/markerfree/net-visual-ablation-01",
+  "checks": {
+    "between_condition_median_pose_matches": {
+      "details": {
+        "maximum_allowed_orientation_difference_deg": 0.1,
+        "maximum_allowed_position_difference_m": 0.002,
+        "median_orientation_difference_deg": 0.0,
+        "median_position_difference_m": 0.0,
+        "passed": true
+      },
+      "passed": true
+    },
+    "capture_artifact_root_matches_protocol": {
+      "details": {
+        "actual": "artifacts/markerfree/net-visual-ablation-01",
+        "expected": "artifacts/markerfree/net-visual-ablation-01",
+        "protocol_capture_paths": {
+          "control": "artifacts/markerfree/net-visual-ablation-01/control/capture.npz",
+          "treatment": "artifacts/markerfree/net-visual-ablation-01/treatment/capture.npz"
+        }
+      },
+      "passed": true
+    },
+    "control_condition_passes_all_gates": {
+      "details": null,
+      "passed": true
+    },
+    "generated_world_manifest_and_collision_semantics": {
+      "details": {
+        "checks": {
+          "collision_and_ablation_semantics_match": true,
+          "current_generator_source_matches_protocol": true,
+          "current_source_inputs_match_protocol": true,
+          "generated_worlds_match_protocol_hashes": true,
+          "manifest_course_model_path_matches_protocol": true,
+          "manifest_course_model_sha256": true,
+          "manifest_generator_path_matches_protocol": true,
+          "manifest_generator_sha256": true,
+          "manifest_source_world_path_matches_protocol": true,
+          "manifest_source_world_sha256": true
+        },
+        "details": {
+          "ablation_checks": {
+            "all_course_collision_semantics_equal": true,
+            "all_other_world_semantics_equal_after_flattening": true,
+            "canonical_collision_hashes_match_protocol": true,
+            "net_collision_semantics_equal": true,
+            "removed_visual_names_match": true,
+            "retained_net_collision_names_match": true,
+            "worlds_are_registered_scene_base_inputs": true
+          },
+          "current_source_inputs": {
+            "models/course_v3/model.sdf": {
+              "actual_sha256": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072",
+              "expected_sha256": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072"
+            },
+            "worlds/course.sdf": {
+              "actual_sha256": "5168d89e833ed170a0a9b3e75a013988f3ec78481daed01346097c03ea16fc74",
+              "expected_sha256": "5168d89e833ed170a0a9b3e75a013988f3ec78481daed01346097c03ea16fc74"
+            }
+          },
+          "manifest_path": "artifacts/markerfree/net-visual-ablation-01/manifest.json",
+          "manifest_sha256": "8bc1003dad76dc16b1b2b2f561e7093c02960a2106b12f0c68d7124bb63d7fcc",
+          "output_checks": {
+            "control.sdf": {
+              "byte_count_matches_protocol": true,
+              "file_sha256_matches_protocol": true,
+              "manifest_path_matches_protocol": true,
+              "manifest_sha256_matches_protocol": true
+            },
+            "treatment.sdf": {
+              "byte_count_matches_protocol": true,
+              "file_sha256_matches_protocol": true,
+              "manifest_path_matches_protocol": true,
+              "manifest_sha256_matches_protocol": true
+            }
+          },
+          "output_sha256": {
+            "control.sdf": "c6f62df134539bb9b1e9871404040eee4d7476d233548ba235240a242fc5bc87",
+            "treatment.sdf": "90b7ae43d4b4e923c59334b22f421e8e2a32bfbab2c4ad47100b4de5a44c3a35"
+          }
+        }
+      },
+      "passed": true
+    },
+    "material_depth_change_gate": {
+      "details": {
+        "changed_pixel_fraction_of_full_image": 0.4847920735677083,
+        "changed_pixels": 47657,
+        "control_pixel_median_classes": {
+          "finite": 98304,
+          "finite_in_valid_depth_range": 98304,
+          "nan_invalid": 0,
+          "negative_infinity": 0,
+          "positive_infinity": 0
+        },
+        "control_raw_depth": {
+          "finite_count": 3145728,
+          "finite_fraction": 1.0,
+          "finite_max_m": 1.830770492553711,
+          "finite_median_m": 0.7695311903953552,
+          "finite_min_m": 0.3048452138900757,
+          "finite_outside_0_1_to_8m_count": 0,
+          "nan_count": 0,
+          "nan_fraction": 0.0,
+          "negative_infinity_count": 0,
+          "negative_infinity_fraction": 0.0,
+          "positive_infinity_count": 0,
+          "positive_infinity_fraction": 0.0,
+          "sample_values": 3145728
+        },
+        "definition": "For each pixel take the median of the 32 depth samples. A pixel changes only when the control median is finite in [0.1, 8] m and the treatment median is +Inf or more than 0.5 m farther. Divide by every image pixel, including invalid control pixels.",
+        "minimum_fraction": 0.01,
+        "passed": true,
+        "total_pixels_denominator": 98304,
+        "treatment_pixel_median_classes": {
+          "finite": 56656,
+          "nan_invalid": 0,
+          "negative_infinity": 0,
+          "positive_infinity": 41648
+        },
+        "treatment_raw_depth": {
+          "finite_count": 1812992,
+          "finite_fraction": 0.5763346354166666,
+          "finite_max_m": 6.949204444885254,
+          "finite_median_m": 0.6299615502357483,
+          "finite_min_m": 0.30389320850372314,
+          "finite_outside_0_1_to_8m_count": 0,
+          "nan_count": 0,
+          "nan_fraction": 0.0,
+          "negative_infinity_count": 0,
+          "negative_infinity_fraction": 0.0,
+          "positive_infinity_count": 1332736,
+          "positive_infinity_fraction": 0.4236653645833333,
+          "sample_values": 3145728
+        }
+      },
+      "passed": true
+    },
+    "navigation_model_sources_match_between_conditions": {
+      "details": {
+        "control": [
+          [
+            "models/flight_x500/model.sdf",
+            "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472"
+          ],
+          [
+            "models/flight_x500_base/model.sdf",
+            "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b"
+          ]
+        ],
+        "treatment": [
+          [
+            "models/flight_x500/model.sdf",
+            "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472"
+          ],
+          [
+            "models/flight_x500_base/model.sdf",
+            "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b"
+          ]
+        ]
+      },
+      "passed": true
+    },
+    "same_intrinsics_and_capture_shape": {
+      "details": {
+        "basis": "The captures do not embed separate K matrices. Pair equality is established from equal image shapes, the registered RGBD scene/odometry source hashes, and exact registered runtime-world hashes whose camera settings are part of those generated worlds.",
+        "both_runtime_worlds_match_registered_hashes": true,
+        "derived_camera_intrinsics_px": [
+          [
+            192.00000000000003,
+            0.0,
+            192.0
+          ],
+          [
+            0.0,
+            192.00000000000003,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "error": null,
+        "passed": true,
+        "rgbd_shape_height_width": [
+          256,
+          384
+        ],
+        "same_pair_intrinsics_and_shape": true,
+        "source_hash_checks": {
+          "vision/rgbd_odometry.py": {
+            "actual_sha256": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+            "expected_sha256": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+            "matches": true
+          },
+          "vision/rgbd_scene.py": {
+            "actual_sha256": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+            "expected_sha256": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+            "matches": true
+          }
+        }
+      },
+      "passed": true
+    },
+    "treatment_condition_passes_all_gates": {
+      "details": null,
+      "passed": true
+    }
+  },
+  "claim_limit": "This reports passive rendered RGBD and pose agreement only. It is not flight evidence, a realistic wire-net optical model, sensor reliability, or real-camera transfer.",
+  "conditions": {
+    "control": {
+      "capture": {
+        "depth_shape": [
+          32,
+          256,
+          384
+        ],
+        "max_capture_gap_s": 0.052000000000000005,
+        "rgb_shape": [
+          32,
+          256,
+          384,
+          3
+        ],
+        "stamp_ns": [
+          11856000000,
+          11900000000,
+          11952000000,
+          12000000000,
+          12052000000,
+          12100000000,
+          12152000000,
+          12200000000,
+          12252000000,
+          12300000000,
+          12352000000,
+          12400000000,
+          12452000000,
+          12500000000,
+          12552000000,
+          12600000000,
+          12652000000,
+          12700000000,
+          12752000000,
+          12800000000,
+          12852000000,
+          12900000000,
+          12952000000,
+          13000000000,
+          13052000000,
+          13100000000,
+          13152000000,
+          13200000000,
+          13252000000,
+          13300000000,
+          13352000000,
+          13400000000
+        ]
+      },
+      "checks": {
+        "capture_and_observer_sources_match": {
+          "details": {
+            "actual": {
+              "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+              "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046"
+            },
+            "expected": {
+              "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+              "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046"
+            }
+          },
+          "passed": true
+        },
+        "capture_count_shape_and_pairing": {
+          "details": {
+            "depth_dtype": "float32",
+            "depth_shape": [
+              32,
+              256,
+              384
+            ],
+            "dtype_checks": {
+              "depth_z_m_float32": true,
+              "rgb_uint8": true,
+              "stamp_ns_int64": true
+            },
+            "expected_depth_shape": [
+              32,
+              256,
+              384
+            ],
+            "expected_dtypes": {
+              "depth_z_m": "float32",
+              "rgb": "uint8",
+              "stamp_ns": "int64"
+            },
+            "expected_frames": 32,
+            "expected_rgb_shape": [
+              32,
+              256,
+              384,
+              3
+            ],
+            "frames": 32,
+            "rgb_dtype": "uint8",
+            "rgb_shape": [
+              32,
+              256,
+              384,
+              3
+            ],
+            "stamp_dtype": "int64"
+          },
+          "passed": true
+        },
+        "capture_timestamps_increasing_and_gap_bounded": {
+          "details": {
+            "count": 32,
+            "first_stamp_ns": 11856000000,
+            "last_stamp_ns": 13400000000,
+            "max_gap_s": 0.052000000000000005,
+            "maximum_allowed_s": 0.12,
+            "strictly_increasing": true
+          },
+          "passed": true
+        },
+        "clock_warmup_before_capture": {
+          "details": {
+            "first_capture_sim_s": 11.856,
+            "minimum_sim_clock_s": 2.0,
+            "pre_capture_imu_sim_s": 10.348
+          },
+          "passed": true
+        },
+        "navigation_audit_passes": {
+          "details": {
+            "audited_world": {
+              "path": "container:/tmp/dronehacks-px4.sdf",
+              "sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+            },
+            "checks": {
+              "artificial_landmark_models_zero": true,
+              "audited_runtime_world_hash_matches": true,
+              "live_simulator_position_not_used": true,
+              "truth_odometry_publisher_zero": true
+            },
+            "truth_topic": "/model/course_quad/odometry_with_covariance"
+          },
+          "passed": true
+        },
+        "observer_closed_complete_no_known_queue_loss": {
+          "details": {
+            "checks": {
+              "callback_acceptance_closed": true,
+              "closed_terminal_state": true,
+              "contact_pairs_per_topic_accounting": true,
+              "contact_queue_accounting": true,
+              "contact_receive_per_topic_accounting": true,
+              "contact_write_accounting": true,
+              "evidence_loss_false": true,
+              "no_pending_queue_entries": true,
+              "recording_complete": true,
+              "truth_dequeue_accounting": true,
+              "truth_received_queue_accounting": true,
+              "truth_subscribed_and_samples_present": true,
+              "zero_truth_and_contact_queue_overflow": true
+            },
+            "contact_messages_queued": 4380,
+            "contact_messages_received": 4380,
+            "contact_messages_written": 4380,
+            "contact_queue_overflow": 0,
+            "contact_queue_overflow_timestamp_range_ns": null,
+            "contact_topic_observation": {
+              "/model/course_quad/contact/base_link": {
+                "interpretation": "messages_received",
+                "messages_with_contact_pairs": 4380,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 5,
+                "publisher_count_start": 5,
+                "transport_messages_received": 4380
+              },
+              "/model/course_quad/contact/rotor_0": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              },
+              "/model/course_quad/contact/rotor_1": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              },
+              "/model/course_quad/contact/rotor_2": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              },
+              "/model/course_quad/contact/rotor_3": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              }
+            },
+            "passed": true,
+            "truth_messages_received": 1104,
+            "truth_queue_overflow": 0,
+            "truth_queue_overflow_timestamp_range_ns": null,
+            "truth_samples_written": 1104
+          },
+          "passed": true
+        },
+        "pose_stability_within_condition": {
+          "details": {
+            "max_position_deviation_m": 0.0,
+            "maximum_allowed_m": 0.002
+          },
+          "passed": true
+        },
+        "px4_binary_and_manifest_match": {
+          "details": {
+            "actual_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+            "expected_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+            "manifest_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+            "manifest_verified": true
+          },
+          "passed": true
+        },
+        "runtime_world_configuration_exact": {
+          "details": {
+            "actual": {
+              "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+              "configured_renderer": "ogre2",
+              "depth_topic": "/dronehacks/rgbd/depth_image",
+              "mode": "gaussian-10mm",
+              "noise_mean_m": 0.0,
+              "noise_stddev_m": 0.01,
+              "seed": 4417,
+              "source_world_sha256": "a71ae7deba7ed784d461b73e0b91f3327bd4b46d0cb55443881ee46eba3ef92d",
+              "world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+            },
+            "expected": {
+              "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+              "configured_renderer": "ogre2",
+              "depth_topic": "/dronehacks/rgbd/depth_image",
+              "mode": "gaussian-10mm",
+              "noise_mean_m": 0.0,
+              "noise_stddev_m": 0.01,
+              "seed": 4417,
+              "source_world_sha256": "a71ae7deba7ed784d461b73e0b91f3327bd4b46d0cb55443881ee46eba3ef92d",
+              "world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+            },
+            "world_path_expected": "container:/tmp/dronehacks-px4.sdf"
+          },
+          "passed": true
+        },
+        "truth_brackets_every_capture": {
+          "details": {
+            "capture_count": 32,
+            "maximum_allowed_bracket_s": 0.12,
+            "truth_bracketed_count": 32
+          },
+          "passed": true
+        },
+        "truth_full_capture_span_continuous": {
+          "details": {
+            "full_span_covered": true,
+            "max_truth_gap_in_capture_span_s": 0.008000000000000895,
+            "maximum_allowed_gap_s": 0.12,
+            "truth_contiguous_parts_in_capture_span": 1,
+            "truth_rows": 1104
+          },
+          "passed": true
+        },
+        "truth_samples_match_observer_status": {
+          "details": {
+            "file_rows": 1104,
+            "status_samples": 1104
+          },
+          "passed": true
+        }
+      },
+      "condition": "control",
+      "input_sha256": {
+        "artifacts/markerfree/net-visual-ablation-01/control/capture.npz": "db109c45dbcf78883fd2400862f12f2622e3bc5160e5919556006c6d80362921",
+        "artifacts/markerfree/net-visual-ablation-01/control/observer/status.json": "e498a3bb701a66ecb6326820b1b76dd710074a05c571fda03f3947e3aae47a91",
+        "artifacts/markerfree/net-visual-ablation-01/control/observer/truth.jsonl": "376342829d9ecee56c07a35df2db5b0a4c7826ab264e9deb7fba542e2a4fbac8",
+        "artifacts/markerfree/net-visual-ablation-01/control/runtime.json": "002d0dbab417dbec2156048d692f50616afa9efdbef4bc35a82b6d06e5b21d4f"
+      },
+      "navigation_audit": {
+        "artificial_landmark_models": 0,
+        "audited_sources": [
+          {
+            "path": "container:/tmp/dronehacks-px4.sdf",
+            "sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+          },
+          {
+            "path": "models/flight_x500/model.sdf",
+            "sha256": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472"
+          },
+          {
+            "path": "models/flight_x500_base/model.sdf",
+            "sha256": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b"
+          }
+        ],
+        "live_simulator_position_used": false,
+        "truth_topic": "/model/course_quad/odometry_with_covariance",
+        "truth_topic_publishers": 0
+      },
+      "observer": {
+        "checks": {
+          "callback_acceptance_closed": true,
+          "closed_terminal_state": true,
+          "contact_pairs_per_topic_accounting": true,
+          "contact_queue_accounting": true,
+          "contact_receive_per_topic_accounting": true,
+          "contact_write_accounting": true,
+          "evidence_loss_false": true,
+          "no_pending_queue_entries": true,
+          "recording_complete": true,
+          "truth_dequeue_accounting": true,
+          "truth_received_queue_accounting": true,
+          "truth_subscribed_and_samples_present": true,
+          "zero_truth_and_contact_queue_overflow": true
+        },
+        "contact_messages_queued": 4380,
+        "contact_messages_received": 4380,
+        "contact_messages_written": 4380,
+        "contact_queue_overflow": 0,
+        "contact_queue_overflow_timestamp_range_ns": null,
+        "contact_topic_observation": {
+          "/model/course_quad/contact/base_link": {
+            "interpretation": "messages_received",
+            "messages_with_contact_pairs": 4380,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 5,
+            "publisher_count_start": 5,
+            "transport_messages_received": 4380
+          },
+          "/model/course_quad/contact/rotor_0": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          },
+          "/model/course_quad/contact/rotor_1": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          },
+          "/model/course_quad/contact/rotor_2": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          },
+          "/model/course_quad/contact/rotor_3": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          }
+        },
+        "passed": true,
+        "truth_messages_received": 1104,
+        "truth_queue_overflow": 0,
+        "truth_queue_overflow_timestamp_range_ns": null,
+        "truth_samples_written": 1104
+      },
+      "passed": true,
+      "paths": {
+        "capture": "artifacts/markerfree/net-visual-ablation-01/control/capture.npz",
+        "observer_status": "artifacts/markerfree/net-visual-ablation-01/control/observer/status.json",
+        "runtime": "artifacts/markerfree/net-visual-ablation-01/control/runtime.json",
+        "truth": "artifacts/markerfree/net-visual-ablation-01/control/observer/truth.jsonl"
+      },
+      "pose": {
+        "max_orientation_deviation_from_median_deg": 0.0,
+        "max_position_deviation_from_median_m": 0.0,
+        "median_orientation_xyzw_sign_aligned_component_median": [
+          -4.319284146888458e-10,
+          4.31928428106648e-10,
+          0.7071067811865475,
+          0.7071067811865476
+        ],
+        "median_position_enu_m": [
+          -2.5146,
+          0.914400000277122,
+          0.22699981606316452
+        ],
+        "sample_count": 32
+      },
+      "px4_runtime": {
+        "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+        "manifest_verified": true,
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31"
+      },
+      "source_sha256": {
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046"
+      },
+      "truth_alignment": {
+        "all_capture_stamps_bracketed": true,
+        "bracketed_capture_count": 32,
+        "capture_count": 32,
+        "full_capture_span_continuous": true,
+        "max_truth_gap_allowed_s": 0.12,
+        "max_truth_gap_in_capture_span_s": 0.008000000000000895,
+        "passed": true,
+        "pose": {
+          "max_orientation_deviation_from_median_deg": 0.0,
+          "max_position_deviation_from_median_m": 0.0,
+          "median_orientation_xyzw_sign_aligned_component_median": [
+            -4.319284146888458e-10,
+            4.31928428106648e-10,
+            0.7071067811865475,
+            0.7071067811865476
+          ],
+          "median_position_enu_m": [
+            -2.5146,
+            0.914400000277122,
+            0.22699981606316452
+          ],
+          "sample_count": 32
+        },
+        "truth_contiguous_parts_in_capture_span": 1
+      }
+    },
+    "treatment": {
+      "capture": {
+        "depth_shape": [
+          32,
+          256,
+          384
+        ],
+        "max_capture_gap_s": 0.052000000000000005,
+        "rgb_shape": [
+          32,
+          256,
+          384,
+          3
+        ],
+        "stamp_ns": [
+          6252000000,
+          6300000000,
+          6352000000,
+          6400000000,
+          6452000000,
+          6500000000,
+          6552000000,
+          6600000000,
+          6652000000,
+          6700000000,
+          6752000000,
+          6800000000,
+          6852000000,
+          6900000000,
+          6952000000,
+          7000000000,
+          7052000000,
+          7100000000,
+          7152000000,
+          7200000000,
+          7252000000,
+          7300000000,
+          7352000000,
+          7400000000,
+          7452000000,
+          7500000000,
+          7552000000,
+          7600000000,
+          7652000000,
+          7700000000,
+          7752000000,
+          7800000000
+        ]
+      },
+      "checks": {
+        "capture_and_observer_sources_match": {
+          "details": {
+            "actual": {
+              "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+              "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046"
+            },
+            "expected": {
+              "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+              "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046"
+            }
+          },
+          "passed": true
+        },
+        "capture_count_shape_and_pairing": {
+          "details": {
+            "depth_dtype": "float32",
+            "depth_shape": [
+              32,
+              256,
+              384
+            ],
+            "dtype_checks": {
+              "depth_z_m_float32": true,
+              "rgb_uint8": true,
+              "stamp_ns_int64": true
+            },
+            "expected_depth_shape": [
+              32,
+              256,
+              384
+            ],
+            "expected_dtypes": {
+              "depth_z_m": "float32",
+              "rgb": "uint8",
+              "stamp_ns": "int64"
+            },
+            "expected_frames": 32,
+            "expected_rgb_shape": [
+              32,
+              256,
+              384,
+              3
+            ],
+            "frames": 32,
+            "rgb_dtype": "uint8",
+            "rgb_shape": [
+              32,
+              256,
+              384,
+              3
+            ],
+            "stamp_dtype": "int64"
+          },
+          "passed": true
+        },
+        "capture_timestamps_increasing_and_gap_bounded": {
+          "details": {
+            "count": 32,
+            "first_stamp_ns": 6252000000,
+            "last_stamp_ns": 7800000000,
+            "max_gap_s": 0.052000000000000005,
+            "maximum_allowed_s": 0.12,
+            "strictly_increasing": true
+          },
+          "passed": true
+        },
+        "clock_warmup_before_capture": {
+          "details": {
+            "first_capture_sim_s": 6.252000000000001,
+            "minimum_sim_clock_s": 2.0,
+            "pre_capture_imu_sim_s": 4.544
+          },
+          "passed": true
+        },
+        "navigation_audit_passes": {
+          "details": {
+            "audited_world": {
+              "path": "container:/tmp/dronehacks-px4.sdf",
+              "sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+            },
+            "checks": {
+              "artificial_landmark_models_zero": true,
+              "audited_runtime_world_hash_matches": true,
+              "live_simulator_position_not_used": true,
+              "truth_odometry_publisher_zero": true
+            },
+            "truth_topic": "/model/course_quad/odometry_with_covariance"
+          },
+          "passed": true
+        },
+        "observer_closed_complete_no_known_queue_loss": {
+          "details": {
+            "checks": {
+              "callback_acceptance_closed": true,
+              "closed_terminal_state": true,
+              "contact_pairs_per_topic_accounting": true,
+              "contact_queue_accounting": true,
+              "contact_receive_per_topic_accounting": true,
+              "contact_write_accounting": true,
+              "evidence_loss_false": true,
+              "no_pending_queue_entries": true,
+              "recording_complete": true,
+              "truth_dequeue_accounting": true,
+              "truth_received_queue_accounting": true,
+              "truth_subscribed_and_samples_present": true,
+              "zero_truth_and_contact_queue_overflow": true
+            },
+            "contact_messages_queued": 4418,
+            "contact_messages_received": 4418,
+            "contact_messages_written": 4418,
+            "contact_queue_overflow": 0,
+            "contact_queue_overflow_timestamp_range_ns": null,
+            "contact_topic_observation": {
+              "/model/course_quad/contact/base_link": {
+                "interpretation": "messages_received",
+                "messages_with_contact_pairs": 4418,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 5,
+                "publisher_count_start": 5,
+                "transport_messages_received": 4418
+              },
+              "/model/course_quad/contact/rotor_0": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              },
+              "/model/course_quad/contact/rotor_1": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              },
+              "/model/course_quad/contact/rotor_2": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              },
+              "/model/course_quad/contact/rotor_3": {
+                "interpretation": "publisher_advertised_no_messages_observed",
+                "messages_with_contact_pairs": 0,
+                "observer_queue_overflow": 0,
+                "observer_queue_overflow_timestamp_range_ns": null,
+                "publisher_count_end": 1,
+                "publisher_count_start": 1,
+                "transport_messages_received": 0
+              }
+            },
+            "passed": true,
+            "truth_messages_received": 1112,
+            "truth_queue_overflow": 0,
+            "truth_queue_overflow_timestamp_range_ns": null,
+            "truth_samples_written": 1112
+          },
+          "passed": true
+        },
+        "pose_stability_within_condition": {
+          "details": {
+            "max_position_deviation_m": 0.0,
+            "maximum_allowed_m": 0.002
+          },
+          "passed": true
+        },
+        "px4_binary_and_manifest_match": {
+          "details": {
+            "actual_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+            "expected_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+            "manifest_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+            "manifest_verified": true
+          },
+          "passed": true
+        },
+        "runtime_world_configuration_exact": {
+          "details": {
+            "actual": {
+              "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+              "configured_renderer": "ogre2",
+              "depth_topic": "/dronehacks/rgbd/depth_image",
+              "mode": "gaussian-10mm",
+              "noise_mean_m": 0.0,
+              "noise_stddev_m": 0.01,
+              "seed": 4417,
+              "source_world_sha256": "011daf6e7fc0a311a8c90e74b53cbfa3cdd92b39228102acf9fc78c15675dad9",
+              "world_sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+            },
+            "expected": {
+              "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+              "configured_renderer": "ogre2",
+              "depth_topic": "/dronehacks/rgbd/depth_image",
+              "mode": "gaussian-10mm",
+              "noise_mean_m": 0.0,
+              "noise_stddev_m": 0.01,
+              "seed": 4417,
+              "source_world_sha256": "011daf6e7fc0a311a8c90e74b53cbfa3cdd92b39228102acf9fc78c15675dad9",
+              "world_sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+            },
+            "world_path_expected": "container:/tmp/dronehacks-px4.sdf"
+          },
+          "passed": true
+        },
+        "truth_brackets_every_capture": {
+          "details": {
+            "capture_count": 32,
+            "maximum_allowed_bracket_s": 0.12,
+            "truth_bracketed_count": 32
+          },
+          "passed": true
+        },
+        "truth_full_capture_span_continuous": {
+          "details": {
+            "full_span_covered": true,
+            "max_truth_gap_in_capture_span_s": 0.008000000000000007,
+            "maximum_allowed_gap_s": 0.12,
+            "truth_contiguous_parts_in_capture_span": 1,
+            "truth_rows": 1112
+          },
+          "passed": true
+        },
+        "truth_samples_match_observer_status": {
+          "details": {
+            "file_rows": 1112,
+            "status_samples": 1112
+          },
+          "passed": true
+        }
+      },
+      "condition": "treatment",
+      "input_sha256": {
+        "artifacts/markerfree/net-visual-ablation-01/treatment/capture.npz": "a031ebc710a41da5da0c580bdda64d6d6111c3e871ca786082df83dbf2d6cd2c",
+        "artifacts/markerfree/net-visual-ablation-01/treatment/observer/status.json": "390765e111a5e6eade849be6feda9a0fbfc2fa0f4524c8aaec23974c4078ed34",
+        "artifacts/markerfree/net-visual-ablation-01/treatment/observer/truth.jsonl": "e54ee82618fee0f4543766960f9a0ef5d55e762ae71b98b9b7fa461284d9f972",
+        "artifacts/markerfree/net-visual-ablation-01/treatment/runtime.json": "1427c50c30177c3389a279a0f2c08612304dbf8f45f75995863dc814837b1698"
+      },
+      "navigation_audit": {
+        "artificial_landmark_models": 0,
+        "audited_sources": [
+          {
+            "path": "container:/tmp/dronehacks-px4.sdf",
+            "sha256": "91b8640d797a18640a098fa562e40da7e03f446ad7ff28fda95f868e8c564f8d"
+          },
+          {
+            "path": "models/flight_x500/model.sdf",
+            "sha256": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472"
+          },
+          {
+            "path": "models/flight_x500_base/model.sdf",
+            "sha256": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b"
+          }
+        ],
+        "live_simulator_position_used": false,
+        "truth_topic": "/model/course_quad/odometry_with_covariance",
+        "truth_topic_publishers": 0
+      },
+      "observer": {
+        "checks": {
+          "callback_acceptance_closed": true,
+          "closed_terminal_state": true,
+          "contact_pairs_per_topic_accounting": true,
+          "contact_queue_accounting": true,
+          "contact_receive_per_topic_accounting": true,
+          "contact_write_accounting": true,
+          "evidence_loss_false": true,
+          "no_pending_queue_entries": true,
+          "recording_complete": true,
+          "truth_dequeue_accounting": true,
+          "truth_received_queue_accounting": true,
+          "truth_subscribed_and_samples_present": true,
+          "zero_truth_and_contact_queue_overflow": true
+        },
+        "contact_messages_queued": 4418,
+        "contact_messages_received": 4418,
+        "contact_messages_written": 4418,
+        "contact_queue_overflow": 0,
+        "contact_queue_overflow_timestamp_range_ns": null,
+        "contact_topic_observation": {
+          "/model/course_quad/contact/base_link": {
+            "interpretation": "messages_received",
+            "messages_with_contact_pairs": 4418,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 5,
+            "publisher_count_start": 5,
+            "transport_messages_received": 4418
+          },
+          "/model/course_quad/contact/rotor_0": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          },
+          "/model/course_quad/contact/rotor_1": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          },
+          "/model/course_quad/contact/rotor_2": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          },
+          "/model/course_quad/contact/rotor_3": {
+            "interpretation": "publisher_advertised_no_messages_observed",
+            "messages_with_contact_pairs": 0,
+            "observer_queue_overflow": 0,
+            "observer_queue_overflow_timestamp_range_ns": null,
+            "publisher_count_end": 1,
+            "publisher_count_start": 1,
+            "transport_messages_received": 0
+          }
+        },
+        "passed": true,
+        "truth_messages_received": 1112,
+        "truth_queue_overflow": 0,
+        "truth_queue_overflow_timestamp_range_ns": null,
+        "truth_samples_written": 1112
+      },
+      "passed": true,
+      "paths": {
+        "capture": "artifacts/markerfree/net-visual-ablation-01/treatment/capture.npz",
+        "observer_status": "artifacts/markerfree/net-visual-ablation-01/treatment/observer/status.json",
+        "runtime": "artifacts/markerfree/net-visual-ablation-01/treatment/runtime.json",
+        "truth": "artifacts/markerfree/net-visual-ablation-01/treatment/observer/truth.jsonl"
+      },
+      "pose": {
+        "max_orientation_deviation_from_median_deg": 0.0,
+        "max_position_deviation_from_median_m": 0.0,
+        "median_orientation_xyzw_sign_aligned_component_median": [
+          -4.319284146888458e-10,
+          4.31928428106648e-10,
+          0.7071067811865475,
+          0.7071067811865476
+        ],
+        "median_position_enu_m": [
+          -2.5146,
+          0.914400000277122,
+          0.22699981606316452
+        ],
+        "sample_count": 32
+      },
+      "px4_runtime": {
+        "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+        "manifest_verified": true,
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31"
+      },
+      "source_sha256": {
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046"
+      },
+      "truth_alignment": {
+        "all_capture_stamps_bracketed": true,
+        "bracketed_capture_count": 32,
+        "capture_count": 32,
+        "full_capture_span_continuous": true,
+        "max_truth_gap_allowed_s": 0.12,
+        "max_truth_gap_in_capture_span_s": 0.008000000000000007,
+        "passed": true,
+        "pose": {
+          "max_orientation_deviation_from_median_deg": 0.0,
+          "max_position_deviation_from_median_m": 0.0,
+          "median_orientation_xyzw_sign_aligned_component_median": [
+            -4.319284146888458e-10,
+            4.31928428106648e-10,
+            0.7071067811865475,
+            0.7071067811865476
+          ],
+          "median_position_enu_m": [
+            -2.5146,
+            0.914400000277122,
+            0.22699981606316452
+          ],
+          "sample_count": 32
+        },
+        "truth_contiguous_parts_in_capture_span": 1
+      }
+    }
+  },
+  "input_sha256": {
+    "artifacts/markerfree/net-visual-ablation-01/control.sdf": "c6f62df134539bb9b1e9871404040eee4d7476d233548ba235240a242fc5bc87",
+    "artifacts/markerfree/net-visual-ablation-01/manifest.json": "8bc1003dad76dc16b1b2b2f561e7093c02960a2106b12f0c68d7124bb63d7fcc",
+    "artifacts/markerfree/net-visual-ablation-01/treatment.sdf": "90b7ae43d4b4e923c59334b22f421e8e2a32bfbab2c4ad47100b4de5a44c3a35",
+    "docs/experiments/net-visual-ablation-01/protocol.json": "b1a971901d1eeb05e639bd5477eadec256e23aca04516848fe5fbd7bfa219061",
+    "models/course_v3/model.sdf": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072",
+    "tools/make_net_visual_ablation.py": "1ff0c9ff27a82547bd1ae265120bf26dcd6a6668875fc46c2b8cea746223f55f",
+    "worlds/course.sdf": "5168d89e833ed170a0a9b3e75a013988f3ec78481daed01346097c03ea16fc74"
+  },
+  "limits": {
+    "between_condition_median_orientation_max_deg": 0.1,
+    "between_condition_median_position_max_m": 0.002,
+    "capture_gap_max_s": 0.12,
+    "minimum_changed_depth_fraction": 0.01,
+    "position_deviation_from_median_max_m": 0.002,
+    "truth_bracket_gap_max_s": 0.12
+  },
+  "overall_pass": true,
+  "pair": {
+    "depth_change": {
+      "changed_pixel_fraction_of_full_image": 0.4847920735677083,
+      "changed_pixels": 47657,
+      "control_pixel_median_classes": {
+        "finite": 98304,
+        "finite_in_valid_depth_range": 98304,
+        "nan_invalid": 0,
+        "negative_infinity": 0,
+        "positive_infinity": 0
+      },
+      "control_raw_depth": {
+        "finite_count": 3145728,
+        "finite_fraction": 1.0,
+        "finite_max_m": 1.830770492553711,
+        "finite_median_m": 0.7695311903953552,
+        "finite_min_m": 0.3048452138900757,
+        "finite_outside_0_1_to_8m_count": 0,
+        "nan_count": 0,
+        "nan_fraction": 0.0,
+        "negative_infinity_count": 0,
+        "negative_infinity_fraction": 0.0,
+        "positive_infinity_count": 0,
+        "positive_infinity_fraction": 0.0,
+        "sample_values": 3145728
+      },
+      "definition": "For each pixel take the median of the 32 depth samples. A pixel changes only when the control median is finite in [0.1, 8] m and the treatment median is +Inf or more than 0.5 m farther. Divide by every image pixel, including invalid control pixels.",
+      "minimum_fraction": 0.01,
+      "passed": true,
+      "total_pixels_denominator": 98304,
+      "treatment_pixel_median_classes": {
+        "finite": 56656,
+        "nan_invalid": 0,
+        "negative_infinity": 0,
+        "positive_infinity": 41648
+      },
+      "treatment_raw_depth": {
+        "finite_count": 1812992,
+        "finite_fraction": 0.5763346354166666,
+        "finite_max_m": 6.949204444885254,
+        "finite_median_m": 0.6299615502357483,
+        "finite_min_m": 0.30389320850372314,
+        "finite_outside_0_1_to_8m_count": 0,
+        "nan_count": 0,
+        "nan_fraction": 0.0,
+        "negative_infinity_count": 0,
+        "negative_infinity_fraction": 0.0,
+        "positive_infinity_count": 1332736,
+        "positive_infinity_fraction": 0.4236653645833333,
+        "sample_values": 3145728
+      }
+    },
+    "intrinsics_and_shape": {
+      "basis": "The captures do not embed separate K matrices. Pair equality is established from equal image shapes, the registered RGBD scene/odometry source hashes, and exact registered runtime-world hashes whose camera settings are part of those generated worlds.",
+      "both_runtime_worlds_match_registered_hashes": true,
+      "derived_camera_intrinsics_px": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "error": null,
+      "passed": true,
+      "rgbd_shape_height_width": [
+        256,
+        384
+      ],
+      "same_pair_intrinsics_and_shape": true,
+      "source_hash_checks": {
+        "vision/rgbd_odometry.py": {
+          "actual_sha256": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+          "expected_sha256": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+          "matches": true
+        },
+        "vision/rgbd_scene.py": {
+          "actual_sha256": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+          "expected_sha256": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+          "matches": true
+        }
+      }
+    },
+    "median_pose_match": {
+      "maximum_allowed_orientation_difference_deg": 0.1,
+      "maximum_allowed_position_difference_m": 0.002,
+      "median_orientation_difference_deg": 0.0,
+      "median_position_difference_m": 0.0,
+      "passed": true
+    }
+  },
+  "protocol_path": "docs/experiments/net-visual-ablation-01/protocol.json",
+  "protocol_sha256": "b1a971901d1eeb05e639bd5477eadec256e23aca04516848fe5fbd7bfa219061",
+  "schema_version": 1,
+  "status": "pass"
+}

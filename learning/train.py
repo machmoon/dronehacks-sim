@@ -3,9 +3,9 @@ import argparse
 from collections import deque
 from datetime import datetime, timezone
 import hashlib
+import io
 import json
 import math
-import os
 from pathlib import Path
 import signal
 import statistics
@@ -18,7 +18,11 @@ import torch
 from torch.nn import functional as F
 
 from .policy import DepthPolicy
-from .sim import Course, Flight, HEIGHT, WIDTH, HFOV_DEG, MAX_DEPTH, DT, teacher, direct_velocity
+from .sim import (DEFAULT_CAMERA_FORWARD_M, DT, HFOV_DEG, HEIGHT, MAX_DEPTH, WIDTH,
+                  Course, Flight, direct_velocity, teacher)
+from .transfer import (CAMERA_FORWARD_M, DEFAULT_LOOKAHEAD_M, InfeasibleScenario, TransferCourse,
+                       X500_SDF)
+from .transfer_delay import DelayCourse, TRAIN_PROFILE as DELAY_PROFILE
 
 # Seeds for training are drawn below 1e9; these two banks are disjoint from
 # training and from each other. Only validation selects the best checkpoint.
@@ -29,6 +33,20 @@ HOLDOUT = [(2_000_071_000 + i, difficulty, stress) for i, (difficulty, stress) i
                       (.90, 1.), (1., 1.60), (1., 2.)])]
 ACTORS = ("depth_policy", "same_policy_blank_depth", "blind_waypoint", "geometry_teacher")
 METHOD = "DAgger-style supervised imitation of a geometry-aware velocity teacher"
+DEFAULT_SEED = 41
+TRANSFER_COURSES = {'x500-transfer': TransferCourse, DELAY_PROFILE: DelayCourse}
+
+
+def case_banks(seed, warm_start):
+    if seed == DEFAULT_SEED and not warm_start:
+        return VALIDATION, HOLDOUT
+    # Leave the legacy banks intact and dedicate sixteen seeds per run seed.
+    base = 2_100_000_000 + 16 * seed
+    validation = [(base + i, difficulty, stress)
+                  for i, (_, difficulty, stress) in enumerate(VALIDATION)]
+    holdout = [(base + 8 + i, difficulty, stress)
+               for i, (_, difficulty, stress) in enumerate(HOLDOUT)]
+    return validation, holdout
 
 
 def timestamp():
@@ -49,6 +67,27 @@ def atomic_torch(path, data):
     tmp = path.with_suffix(".tmp")
     torch.save(data, tmp)
     tmp.replace(path)
+
+
+def load_initial_weights(model, path):
+    """Hash the exact bytes loaded, even if a source latest.pt is replaced."""
+    path = path.resolve(strict=True)
+    contents = path.read_bytes()
+    checkpoint = torch.load(io.BytesIO(contents), map_location="cpu", weights_only=True)
+    if (not isinstance(checkpoint, dict) or checkpoint.get("format") != 1
+            or checkpoint.get("architecture") != "DepthPolicy" or not isinstance(checkpoint.get("model"), dict)):
+        raise ValueError("expected a format-1 DepthPolicy checkpoint")
+    model.load_state_dict(checkpoint["model"])
+    return {
+        "mode": "weights_only_warm_start",
+        "checkpoint": str(path),
+        "sha256": hashlib.sha256(contents).hexdigest(),
+        "source_steps": checkpoint.get("steps"),
+        "source_camera_forward_m": checkpoint.get("camera_forward_m", DEFAULT_CAMERA_FORWARD_M),
+        "source_heading_lookahead_m": checkpoint.get("heading_lookahead_m", 0.),
+        "source_profile": checkpoint.get("profile", "legacy"),
+        "source_route_sha256": checkpoint.get("route_sha256"),
+    }
 
 
 class Replay:
@@ -95,18 +134,44 @@ def cpu_model(model):
     return clone
 
 
+def make_flight(course, seed, difficulty, sensor_stress):
+    if isinstance(course, TransferCourse):
+        return course.make_flight(seed, difficulty, sensor_stress)
+    return Flight(course, seed, difficulty, sensor_stress)
+
+
+def instructor(flight):
+    if isinstance(flight.course, TransferCourse):
+        return flight.course.instructor(flight)
+    return teacher(flight)
+
+
 def evaluate(course, model, cases, stop):
     rows = {actor: [] for actor in ACTORS}
     response_deltas = []
+    rejected_cases = []
     for seed, difficulty, sensor_stress in cases:
-        for actor in ACTORS:
-            flight = Flight(course, seed, difficulty, sensor_stress)
+        if stop():
+            return None
+        case = dict(seed=seed, difficulty=difficulty, sensor_stress=sensor_stress)
+        try:
+            first_flight = make_flight(course, seed, difficulty, sensor_stress)
+        except InfeasibleScenario as error:
+            rejection = dict(**case, geometry_difficulty=error.geometry_difficulty, reason=error.detail)
+            rejected_cases.append(rejection)
+            for actor in ACTORS:
+                rows[actor].append(dict(**case, success=False, collision=False, window_crossed=False,
+                                        route_progress=0., sim_seconds=None,
+                                        phase_at_end="infeasible_scenario", scenario_rejection=rejection))
+            continue
+        for index, actor in enumerate(ACTORS):
+            flight = first_flight if index == 0 else make_flight(course, seed, difficulty, sensor_stress)
             while not flight.done:
                 if stop():
                     return None
                 obs = flight.observe(render=actor == "depth_policy")
                 if actor == "geometry_teacher":
-                    action = teacher(flight)
+                    action = instructor(flight)
                 elif actor == "blind_waypoint":
                     action = direct_velocity(obs.state[3:6], obs.state[-1])
                 else:
@@ -115,21 +180,23 @@ def evaluate(course, model, cases, stop):
                         blank = type(obs)(np.zeros_like(obs.depth), obs.state)
                         response_deltas.append(float(np.linalg.norm(action - infer(model, blank))))
                 flight.step(action)
-            rows[actor].append(dict(seed=seed, difficulty=difficulty, sensor_stress=sensor_stress,
-                                    **flight.result()))
+            rows[actor].append(dict(**case, **flight.result()))
     means = {}
     for actor, results in rows.items():
         times = [r["sim_seconds"] for r in results if r["success"]]
+        durations = [r["sim_seconds"] for r in results if r["sim_seconds"] is not None]
         means[actor] = dict(
             episodes=len(results), successes=len(times),
+            evaluated_episodes=len(durations), infeasible_scenarios=len(results)-len(durations),
             collisions=sum(r["collision"] for r in results),
             windows_crossed=sum(r["window_crossed"] for r in results),
             mean_route_progress=statistics.mean(r["route_progress"] for r in results),
             median_success_sim_seconds=statistics.median(times) if times else None,
-            median_episode_sim_seconds=statistics.median(r["sim_seconds"] for r in results),
+            median_episode_sim_seconds=statistics.median(durations) if durations else None,
         )
     return {"summary": means, "episodes": rows,
-            "paired_mean_depth_vs_blank_action_delta_mps": statistics.mean(response_deltas)}
+            "infeasible_scenarios": rejected_cases,
+            "paired_mean_depth_vs_blank_action_delta_mps": statistics.mean(response_deltas) if response_deltas else None}
 
 
 def score(evaluation):
@@ -152,14 +219,39 @@ class Experiment:
         self.holdout_state = "not_run"
         self.history = deque(maxlen=180)
         self.last_status = self.last_checkpoint = 0.
+        self.infeasible_training_rejections = 0
+        self.last_infeasible_training_case = None
         self.rng = np.random.default_rng(args.seed)
         torch.manual_seed(args.seed)
         torch.set_num_threads(args.threads)
-        self.course = Course()
+        self.profile = getattr(args, "profile", "legacy")
+        if self.profile in TRANSFER_COURSES:
+            self.course = TRANSFER_COURSES[self.profile](heading_lookahead_m=args.heading_lookahead)
+            transfer_profile = self.course.profile_metadata()
+        else:
+            self.course = Course(args.camera_forward, args.heading_lookahead)
+            transfer_profile = None
+        self.heading_sha256 = sha256(self.course.route_path.parents[1] / 'mission/heading.py')
+        self.profile_contract = {
+            "profile": self.profile, "transfer_profile": transfer_profile,
+            "route_sha256": transfer_profile["route_sha256"] if transfer_profile else sha256(self.course.route_path),
+            "heading_sha256": self.heading_sha256,
+        }
+        self.validation_cases, self.holdout_cases = case_banks(args.seed, args.init_checkpoint is not None)
         self.device = torch.device(args.device)
-        self.model = DepthPolicy().to(self.device)
+        self.model = DepthPolicy()
+        self.initialization = {"mode": "random_weights"}
+        if args.init_checkpoint is not None:
+            self.initialization = load_initial_weights(self.model, args.init_checkpoint)
+        self.model.to(self.device)
         self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=7e-4, weight_decay=1e-4)
         self.replay = Replay()
+
+    def depth_spec(self):
+        return {"height": HEIGHT, "width": WIDTH, "horizontal_fov_degrees": HFOV_DEG,
+                "max_range_m": MAX_DEPTH, "encoding": "1 - range / max_range",
+                "camera_forward_m": self.course.camera_forward_m,
+                "assumptions": "forward pinhole ray cast; synthetic metric depth with noise and dropout"}
 
     def interrupted(self, *, cutoff=None):
         return self.signal is not None or time.monotonic() >= (self.deadline if cutoff is None else cutoff)
@@ -172,10 +264,15 @@ class Experiment:
         if not force and now - self.last_status < 5:
             return
         atomic_json(self.output / "status.json", {
+            **self.profile_contract,
             "state": state, "phase": self.phase, "started_at": self.started_at, "updated_at": timestamp(),
             "elapsed_seconds": round(now - self.start, 2), "max_seconds": self.args.max_seconds,
             "cycles": self.cycles, "steps": self.steps, "samples": self.replay.count,
             "episodes": self.episodes, "replay_size": len(self.replay), "device": self.device.type,
+            "camera_forward_m": self.course.camera_forward_m, "initialization": self.initialization,
+            "heading_lookahead_m": self.course.heading_lookahead_m,
+            "infeasible_training_rejections": self.infeasible_training_rejections,
+            "last_infeasible_training_case": self.last_infeasible_training_case,
             "last_loss": self.last_loss, "latest_evaluation": self.latest_evaluation,
             "best_validation": self.best_validation, "final_holdout": self.final_holdout,
             "holdout_state": self.holdout_state,
@@ -187,30 +284,36 @@ class Experiment:
     def metadata(self):
         root = self.course.route_path.parents[1]
         sources = [
-            self.course.route_path, self.course.groups_path, root / "assets/course-v3.zip",
+            self.course.route_path, self.course.groups_path, root / "assets/course-v3.zip", root / "mission/heading.py",
             *(self.course.mesh_dir / "meshes" / f"{name}.obj" for name in
               ("c1_chicane_wall", "c2b_chicane_wall", "c2a_chicane_wall_window")),
             *(Path(__file__).with_name(name) for name in ("sim.py", "policy.py", "train.py")),
         ]
+        if self.profile in TRANSFER_COURSES:
+            sources.extend([Path(__file__).with_name("transfer.py"), root/"mission/airframe.py", X500_SDF])
+        if self.profile == DELAY_PROFILE:
+            sources.append(Path(__file__).with_name("transfer_delay.py"))
         atomic_json(self.output / "metadata.json", {
+            **self.profile_contract,
             "method": METHOD, "seed": self.args.seed, "max_seconds": self.args.max_seconds,
             "device": self.device.type, "torch_version": str(torch.__version__), "threads": self.args.threads,
+            "initialization": self.initialization,
             "trainable_parameters": sum(p.numel() for p in self.model.parameters()),
             "route": str(self.course.route_path.relative_to(root)),
-            "route_sha256": sha256(self.course.route_path),
             "cad_source_sha256": self.course.groups["source_sha256"],
             "source_sha256": {str(path.relative_to(root)): sha256(path) for path in sources},
             "train_endpoint": "hover over launch through final landing-approach waypoint; no takeoff or touchdown",
-            "validation_cases": VALIDATION, "held_out_cases": HOLDOUT,
-            "case_fields": ["seed", "geometry_and_state_difficulty", "sensor_noise_multiplier"],
+            "validation_cases": self.validation_cases, "held_out_cases": self.holdout_cases,
+            "case_fields": ["seed", "state_difficulty_geometry_capped_at_0.25"
+                            if self.profile in TRANSFER_COURSES else "geometry_and_state_difficulty",
+                            "sensor_noise_multiplier"],
             "best_checkpoint_selection": "validation cases only; final held-out cases never select weights",
-            "depth": {"height": HEIGHT, "width": WIDTH, "horizontal_fov_degrees": HFOV_DEG,
-                      "max_range_m": MAX_DEPTH, "encoding": "1 - range / max_range",
-                      "assumptions": "forward pinhole ray cast; synthetic metric depth with noise and dropout"},
+            "depth": self.depth_spec(),
+            "heading_lookahead_m": self.course.heading_lookahead_m,
             "state": ["estimated heading-frame velocity m/s (xyz)", "estimated heading-frame goal vector m (xyz)",
                       "estimated roll and pitch in radians x5", "setpoint speed cap m/s"],
             "action": "three velocity setpoints in yaw-aligned FLU, metres/second; rotate to PX4 NED for transport",
-            "sim_step_seconds": DT, "sphere_radius_m": self.course.radius,
+            "sim_step_seconds": DT, "sphere_radius_m": self.course.radius if self.profile == "legacy" else None,
             "limitations": [
                 "Approximate CAD obstacle boxes and hollow tube shell; opaque net proxy and box boulders.",
                 "No AprilTags, RGB texture, real stereo pipeline, VIO, Gazebo, or PX4 in training.",
@@ -222,7 +325,11 @@ class Experiment:
 
     def checkpoint(self, name):
         atomic_torch(self.output / name, {
+            **self.profile_contract,
             "format": 1, "architecture": "DepthPolicy", "model": self.model.state_dict(),
+            "camera_forward_m": self.course.camera_forward_m, "depth": self.depth_spec(), "state_size": 9,
+            "heading_lookahead_m": self.course.heading_lookahead_m,
+            "initialization": self.initialization,
             "selection_split": "validation" if name == "best.pt" else "latest_training_state",
             "steps": self.steps, "samples": self.replay.count, "cycles": self.cycles,
             "elapsed_seconds": time.monotonic() - self.start,
@@ -233,34 +340,49 @@ class Experiment:
     def collect(self, cutoff):
         self.phase = "collecting"
         self.status(force=True)
-        actor = cpu_model(self.model) if self.steps else None
+        actor = cpu_model(self.model) if self.steps or self.args.init_checkpoint is not None else None
         for episode in range(6):
-            if self.interrupted(cutoff=cutoff):
-                return
-            seed = int(self.rng.integers(1, 1_000_000_000))
-            level = .55 + .45 * min(1., self.cycles / 24)
-            difficulty = 0. if episode == 0 else float(self.rng.uniform(.30, level))
-            stress = 1.
-            if episode >= 3 and self.cycles >= 24:
-                # Continue sampling nominal cases while training against more
-                # aggressive sensor noise and occasional contiguous dropout.
-                stress += float(self.rng.uniform()) * min(1., (self.cycles - 24) / 36)
-            flight = Flight(self.course, seed, difficulty, stress)
+            for _ in range(8):
+                if self.interrupted(cutoff=cutoff):
+                    return
+                seed = int(self.rng.integers(1, 1_000_000_000))
+                level = .55 + .45 * min(1., self.cycles / 24)
+                difficulty = 0. if episode == 0 else float(self.rng.uniform(.30, level))
+                stress = 1.
+                if episode >= 3 and self.cycles >= 24:
+                    # Retain nominal cases while increasing noise and dropout.
+                    stress += float(self.rng.uniform()) * min(1., (self.cycles - 24) / 36)
+                try:
+                    flight = make_flight(self.course, seed, difficulty, stress)
+                except InfeasibleScenario as error:
+                    self.infeasible_training_rejections += 1
+                    self.last_infeasible_training_case = dict(seed=seed, difficulty=difficulty,
+                                                             geometry_difficulty=error.geometry_difficulty,
+                                                             reason=error.detail)
+                    self.status()
+                else:
+                    break
+            else:
+                self.status(force=True)
+                continue
             if episode in (4, 5):
                 # Additional closed-loop experience near the measured aperture
                 # without spending every expert query in long straightaways.
-                index = self.course.phases.index("WINDOW_APPROACH")
-                flight.index = flight.truth_index = index
-                flight.p = self.course.goals[index - 1].copy()
-                flight.path = [flight.p.copy()]
-                flight.min_clearance = float(flight.scene.clearance(flight.p))
-                delta = self.course.goals[index] - flight.p
-                flight.yaw = float(np.arctan2(delta[1], delta[0]))
+                if isinstance(self.course, TransferCourse):
+                    flight.start_at_window_approach()
+                else:
+                    index = self.course.phases.index("WINDOW_APPROACH")
+                    flight.index = flight.truth_index = index
+                    flight.p = self.course.goals[index - 1].copy()
+                    flight.path = [flight.p.copy()]
+                    flight.min_clearance = float(flight.scene.clearance(flight.p))
+                    delta = self.course.goals[index] - flight.p
+                    flight.yaw = float(np.arctan2(delta[1], delta[0]))
             while not flight.done:
                 if self.interrupted(cutoff=cutoff):
                     return
                 obs = flight.observe()
-                label = teacher(flight)
+                label = instructor(flight)
                 is_hard = self.course.phases[flight.index] in ("WINDOW_CROSS", "LANDING_APPROACH")
                 self.replay.add(obs, label, is_hard)
                 # Anneal the expert fraction while retaining regular full
@@ -315,12 +437,15 @@ class Experiment:
     def run(self):
         self.metadata()
         print(f"Training on the marker-free analytic CAD depth simulator ({self.device.type}); "
-              f"{METHOD}. Budget: {self.args.max_seconds:g} wall seconds.", flush=True)
+              f"{METHOD}. Budget: {self.args.max_seconds:g} wall seconds. "
+              f"Camera forward offset: {self.course.camera_forward_m:g} m. "
+              f"Heading lookahead: {self.course.heading_lookahead_m:g} m. "
+              f"Profile: {self.profile}. Initialization: {self.initialization['mode']}.", flush=True)
         self.status(force=True)
         last_validation = self.start - self.args.eval_interval
         # On a five-hour run, reserve a small tail for separately seeded
         # post-selection evaluation. Short diagnostic runs still train first.
-        reserve = min(22., self.args.max_seconds * .30)
+        reserve = min(200. if self.profile in TRANSFER_COURSES else 22., self.args.max_seconds * .30)
         training_cutoff = self.deadline - reserve
         while not self.interrupted(cutoff=training_cutoff):
             self.collect(training_cutoff)
@@ -335,16 +460,19 @@ class Experiment:
             if validate and not self.interrupted(cutoff=training_cutoff):
                 self.phase = "validating"
                 self.status(force=True)
-                evaluation = evaluate(self.course, cpu_model(self.model), VALIDATION,
+                evaluation = evaluate(self.course, cpu_model(self.model), self.validation_cases,
                                       lambda: self.interrupted(cutoff=training_cutoff))
                 if evaluation is not None:
                     self.latest_evaluation = evaluation["summary"]
-                    if self.best_validation is None or score(evaluation) > score(self.best_validation["evaluation"]):
+                    evaluated = evaluation["summary"]["depth_policy"]["evaluated_episodes"]
+                    if evaluated and (self.best_validation is None
+                                      or score(evaluation) > score(self.best_validation["evaluation"])):
                         self.best_validation = {"steps": self.steps, "evaluation": evaluation}
                         self.checkpoint("best.pt")
                     self.history.append({"steps": self.steps, "samples": self.replay.count,
                                          "elapsed_seconds": round(time.monotonic() - self.start, 2),
                                          "loss": self.last_loss, "validation": evaluation["summary"],
+                                         "infeasible_scenarios": evaluation["infeasible_scenarios"],
                                          "vision_action_delta_mps": evaluation["paired_mean_depth_vs_blank_action_delta_mps"]})
                     self.save_metrics()
                     learned = evaluation["summary"]["depth_policy"]
@@ -360,7 +488,7 @@ class Experiment:
             self.status(force=True)
             best = DepthPolicy().eval()
             best.load_state_dict(torch.load(self.output / "best.pt", map_location="cpu", weights_only=True)["model"])
-            self.final_holdout = evaluate(self.course, best, HOLDOUT, self.interrupted)
+            self.final_holdout = evaluate(self.course, best, self.holdout_cases, self.interrupted)
             self.holdout_state = "complete" if self.final_holdout is not None else "interrupted"
             if self.final_holdout:
                 print("Held-out summary:", json.dumps(self.final_holdout["summary"]), flush=True)
@@ -377,15 +505,34 @@ def main():
     parser.add_argument("--max-seconds", type=float, default=18_000)
     parser.add_argument("--device", choices=("cpu", "mps"), default="cpu")
     parser.add_argument("--threads", type=int, default=2, help="PyTorch CPU threads")
-    parser.add_argument("--seed", type=int, default=41)
+    parser.add_argument("--seed", type=int, help="run seed (default 41, or 42 with a warm start)")
+    parser.add_argument("--init-checkpoint", type=Path,
+                        help="load compatible model weights into a fresh run with a new optimizer and replay")
+    parser.add_argument("--profile", choices=("legacy", *TRANSFER_COURSES), default="legacy")
+    parser.add_argument("--camera-forward", type=float,
+                        help="forward camera offset in metres (legacy: .08, x500 profiles: .34)")
+    parser.add_argument("--heading-lookahead", type=float,
+                        help="turn toward next leg within this distance (legacy: 0, x500 profiles: 1.8)")
     parser.add_argument("--eval-interval", type=float, default=120, help="seconds between validation rounds")
     args = parser.parse_args()
+    if args.camera_forward is None:
+        args.camera_forward = CAMERA_FORWARD_M if args.profile in TRANSFER_COURSES else DEFAULT_CAMERA_FORWARD_M
+    if args.heading_lookahead is None:
+        args.heading_lookahead = DEFAULT_LOOKAHEAD_M if args.profile in TRANSFER_COURSES else 0.
+    if args.seed is None:
+        args.seed = DEFAULT_SEED + int(args.init_checkpoint is not None)
     if (not np.isfinite(args.max_seconds) or not 0 < args.max_seconds <= 18_000
             or not np.isfinite(args.eval_interval) or args.eval_interval <= 0
             or not 1 <= args.threads <= 8 or not 0 <= args.seed <= 2**32 - 1):
         parser.error("require 0 < max-seconds <= 18000, positive eval-interval, 1–8 threads and a uint32 seed")
     if args.device == "mps" and not torch.backends.mps.is_available():
         parser.error("PyTorch MPS is unavailable; use --device cpu")
+    if not 0 <= args.camera_forward < 1:
+        parser.error("--camera-forward must be in [0, 1) metres")
+    if args.profile in TRANSFER_COURSES and args.camera_forward != CAMERA_FORWARD_M:
+        parser.error("x500 profiles use the fixed .34 m camera mount")
+    if not math.isfinite(args.heading_lookahead) or not (args.heading_lookahead == 0 or args.heading_lookahead > .3):
+        parser.error("--heading-lookahead must be zero (disabled) or greater than 0.3 metres")
     args.output.mkdir(parents=True, exist_ok=True)
     if any(args.output.iterdir()):
         parser.error("--output must be a new or empty directory")

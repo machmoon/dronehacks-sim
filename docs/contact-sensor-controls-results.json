@@ -1,0 +1,4176 @@
+{
+  "run_id": "contact-controls-01",
+  "evidence_path": "artifacts/markerfree/contact-controls-01",
+  "fixture_manifest_path": "artifacts/markerfree/contact-controls-fixtures-01/manifest.json",
+  "fixture_manifest_sha256": "c7c3b2ca4201d34063727587a74c86d3ee363ce4904307c67cc9256072ac4749",
+  "run_summary_sha256": "dea86da7348627fb8cb10ac06e3a074407d0c0c0c53a824002c8b269b1021327",
+  "generated_fixture_count": 10,
+  "positive_passed": 9,
+  "negative_passed": 1,
+  "total_passed": 10,
+  "all_cases_passed": true,
+  "source_sha256": {
+    "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+    "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+    "worlds/course.sdf": "5168d89e833ed170a0a9b3e75a013988f3ec78481daed01346097c03ea16fc74"
+  },
+  "source_git_head": "cf807d0a0895ca5d6dcbf5dd3a53a25e4c845460",
+  "source_checkout_had_uncommitted_changes": true,
+  "runtime": {
+    "container_image_ref": "dronehacks-markerfree:hrt-v1.16.2",
+    "container_image_id": "sha256:7bd4a86400ddfef3bd846670059bfaa1057bc8eaa46dab45d581a33148376f3f",
+    "container_image_digest": "sha256:7bd4a86400ddfef3bd846670059bfaa1057bc8eaa46dab45d581a33148376f3f",
+    "gazebo_sim_version": "8.15.0",
+    "physics_engine": "DART",
+    "step_size_ns": 4000000
+  },
+  "procedure": {
+    "fixture_semantics": "Each fixture starts paused with 15 mm vertical clearance. A single setup iteration plus 40 bounded iterations advances 164 ms total at 4 ms/iteration. The one setup step is included in the total.",
+    "px4_started": false,
+    "motor_commands_sent": false,
+    "hardware_used": false,
+    "tested_source_collisions": 9,
+    "limitations": [
+      "Named source collision contact-sensor wiring only.",
+      "The short gravity drop and pedestal establish discrete contact reporting; they do not prove swept-rotor contact coverage, flight safety, or hardware behavior."
+    ]
+  },
+  "transport_diagnostics": {
+    "smoke01": {
+      "path": "artifacts/markerfree/contact-controls-smoke-01/base_link_collision_0/smoke-result.json",
+      "state": "worker_failed",
+      "worker_returncode": 1,
+      "failed_at": "one-step setup request before bounded drop",
+      "diagnostic": "The initial Python request path collapsed transport result and response Boolean, so the failure did not identify which was false."
+    },
+    "probes": {
+      "contact-transport-probe-01": {
+        "partition": "dronehacks_contact_probe_1fea9eac44874052a25e5f9cac0ea6a1",
+        "service": "/world/contact_base_link_collision_0/control",
+        "requests": [
+          {
+            "mode": "python",
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_wall_s": 0.10128522399827489
+          },
+          {
+            "mode": "cli",
+            "returncode": 0,
+            "response": "data: true\n\n",
+            "elapsed_wall_s": 0.43630765399939264
+          },
+          {
+            "mode": "python",
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_wall_s": 0.00259309399916674
+          }
+        ],
+        "server_returncode": 0
+      },
+      "contact-transport-probe-02": {
+        "partition": "dronehacks_contact_probe_9583525b797e4dbe9f24a36b3d0cb3b0",
+        "service": "/world/contact_base_link_collision_0/control",
+        "requests": [
+          {
+            "mode": "python",
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_wall_s": 0.10080229899904225,
+            "clocks_ns": []
+          },
+          {
+            "mode": "cli",
+            "returncode": 0,
+            "response": "data: true\n\n",
+            "elapsed_wall_s": 0.3319284360004531,
+            "clocks_ns": [
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              8000000
+            ]
+          },
+          {
+            "mode": "python",
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_wall_s": 0.00021733000176027417,
+            "clocks_ns": [
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              4000000,
+              8000000
+            ]
+          }
+        ],
+        "server_returncode": 0
+      },
+      "contact-transport-probe-03-python": {
+        "partition": "dronehacks_contact_probe_bcdb870652b64489ab600cc53492329c",
+        "mode": "python",
+        "requests": [
+          {
+            "steps": 0,
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_s": 0.1047534050012473
+          },
+          {
+            "steps": 1,
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_s": 0.00024489899806212634
+          },
+          {
+            "steps": 40,
+            "ok": false,
+            "response": "",
+            "elapsed_s": 2.003025208003237
+          }
+        ],
+        "setup_clock_ns": 4000000,
+        "final_clock_ns": 164000000,
+        "contact_message_counts": {
+          "/model/course_quad/contact/base_link": 27
+        }
+      },
+      "contact-transport-probe-03-cli": {
+        "partition": "dronehacks_contact_probe_2e6396d2515f402ca4c0edae3c0db36b",
+        "mode": "cli",
+        "requests": [
+          {
+            "steps": 0,
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_s": 0.10071520800192957
+          },
+          {
+            "steps": 1,
+            "ok": true,
+            "response": "data: true\n",
+            "elapsed_s": 0.0011133970001537818
+          },
+          {
+            "steps": 40,
+            "returncode": 0,
+            "response": "data: true\n\n",
+            "elapsed_s": 0.331419262001873
+          }
+        ],
+        "setup_clock_ns": 4000000,
+        "final_clock_ns": 164000000,
+        "contact_message_counts": {
+          "/model/course_quad/contact/base_link": 27
+        }
+      }
+    },
+    "interpretation": "Pause and single-step Python/CLI probes worked, including the subscribed-clock probe. The 40-step Python Node.request timed out at ~2.003 s even though the simulation reached 164 ms and recorded 27 contacts. The same bounded request through gz service returned data: true in ~0.331 s with the same 164 ms endpoint and 27 contacts. The runner therefore uses gz service subprocesses and never retries a timed-out multi-step request."
+  },
+  "cases": [
+    {
+      "fixture_id": "base_link_collision_0",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "base_link",
+      "collision_name": "base_link_collision_0",
+      "sensor_topic": "/model/course_quad/contact/base_link",
+      "expected_collider": "course_quad::base_link::base_link_collision_0",
+      "expected_probe": "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.0,
+        0.0,
+        0.20499999999999952
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "base_link_collision_0.sdf",
+      "world_sha256": "8d1cae5351ed6865c8771e0f5cb63a3da366b96747720f2aace4c29cf9e37ddb",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/base_link_collision_0/contacts.jsonl",
+      "contacts_sha256": "5e0daba45fac9975c022510904c6df201761bdd5d3583bdcfa3e4168386ec372",
+      "contact_record_count": 27,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 148000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 152000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 156000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 160000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 164000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 27,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_a67e7bbbc2fa44d9867a1692aef2a65c"
+    },
+    {
+      "fixture_id": "base_link_collision_1",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "base_link",
+      "collision_name": "base_link_collision_1",
+      "sensor_topic": "/model/course_quad/contact/base_link",
+      "expected_collider": "course_quad::base_link::base_link_collision_1",
+      "expected_probe": "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.0,
+        -0.008872374969908755,
+        0.1275059911598143
+      ],
+      "model_pose_rpy_rad": [
+        -0.6108652381980153,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.002795265173800132,
+        "blocking_collisions": []
+      },
+      "world_file": "base_link_collision_1.sdf",
+      "world_sha256": "b68e2d47ff7554ffe794a90d947de167f8c6d816f4fc2a56d7c9b261bf743a14",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/base_link_collision_1/contacts.jsonl",
+      "contacts_sha256": "e5aacbaf93cad2f98de7e494c328ac9c0c5c18ebcab51ae11d0ff632c8e94c73",
+      "contact_record_count": 27,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 148000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 152000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 156000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 160000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 164000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_1",
+              "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 27,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_ff2871afb62644619e062e5898ceb4d2"
+    },
+    {
+      "fixture_id": "base_link_collision_2",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "base_link",
+      "collision_name": "base_link_collision_2",
+      "sensor_topic": "/model/course_quad/contact/base_link",
+      "expected_collider": "course_quad::base_link::base_link_collision_2",
+      "expected_probe": "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.0,
+        0.008872374969908755,
+        0.1275059911598143
+      ],
+      "model_pose_rpy_rad": [
+        0.6108652381980153,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.002795265173800132,
+        "blocking_collisions": []
+      },
+      "world_file": "base_link_collision_2.sdf",
+      "world_sha256": "9f85c341cb464d3df3366df4f6e5d32c527edcb50f8aca378d3a1376538b27e1",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/base_link_collision_2/contacts.jsonl",
+      "contacts_sha256": "9af5eb03290744721b91a4aef5edab8aa163679dadbb5a2654be3091ca17724f",
+      "contact_record_count": 27,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 148000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 152000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 156000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 160000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 164000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_2",
+              "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 27,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_fc95111cf00c42f0bbd6ea999f8d2d5d"
+    },
+    {
+      "fixture_id": "base_link_collision_3",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "base_link",
+      "collision_name": "base_link_collision_3",
+      "sensor_topic": "/model/course_quad/contact/base_link",
+      "expected_collider": "course_quad::base_link::base_link_collision_3",
+      "expected_probe": "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.1,
+        -0.132,
+        -0.004000000000000099
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "base_link_collision_3.sdf",
+      "world_sha256": "e17486c38491b27dfda8bdca40547cc4a2cbdec0ca5ab1ed810e452a1203c858",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/base_link_collision_3/contacts.jsonl",
+      "contacts_sha256": "a5c8057345132f9d797c56d140b2a5da1704617885c2cbf30f67b1c51698e03d",
+      "contact_record_count": 27,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 148000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 152000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 156000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 160000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 164000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_3",
+              "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 27,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_78fbaef8d2a94b8fbd9d7dbd7c3d0e88"
+    },
+    {
+      "fixture_id": "base_link_collision_4",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "base_link",
+      "collision_name": "base_link_collision_4",
+      "sensor_topic": "/model/course_quad/contact/base_link",
+      "expected_collider": "course_quad::base_link::base_link_collision_4",
+      "expected_probe": "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.1,
+        0.132,
+        -0.004000000000000099
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "base_link_collision_4.sdf",
+      "world_sha256": "f11ad66cd0f6712940fb586b5df7c67cd79a1c3eab3a3ded4dcbdd9037290f19",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/base_link_collision_4/contacts.jsonl",
+      "contacts_sha256": "f236a3da8cbd9b1f5cb8e9feb0678f5c533815f664047841ee3ebae35d212e2c",
+      "contact_record_count": 27,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 148000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 152000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 156000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 160000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 164000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_4",
+              "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 27,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_30087e95c9a34d73aca55db8c9ff8112"
+    },
+    {
+      "fixture_id": "rotor_0_collision",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "rotor_0",
+      "collision_name": "rotor_0_collision",
+      "sensor_topic": "/model/course_quad/contact/rotor_0",
+      "expected_collider": "course_quad::rotor_0::rotor_0_collision",
+      "expected_probe": "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.254,
+        -0.174,
+        0.2825769230769234
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "rotor_0_collision.sdf",
+      "world_sha256": "c006d870a5bd1191e7183c8afa4b76583be0920c089974c1fcf63e16b7a6c54c",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/rotor_0_collision/contacts.jsonl",
+      "contacts_sha256": "6ca0ec34d35d204faecb4f15f94f368c93c0c426a823b584f9ecaec63a8fe5c6",
+      "contact_record_count": 22,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_0",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::rotor_0::rotor_0_collision",
+              "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 22,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_5294f2e4ee6d492996a5795f955e2dc6"
+    },
+    {
+      "fixture_id": "rotor_1_collision",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "rotor_1",
+      "collision_name": "rotor_1_collision",
+      "sensor_topic": "/model/course_quad/contact/rotor_1",
+      "expected_collider": "course_quad::rotor_1::rotor_1_collision",
+      "expected_probe": "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        -0.254,
+        0.174,
+        0.2825769230769234
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "rotor_1_collision.sdf",
+      "world_sha256": "5da067ea842a58824c4fd53817b4a30692a549eec0e775f3a4fdbd5d673330cb",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/rotor_1_collision/contacts.jsonl",
+      "contacts_sha256": "4b821dbe76d19b403e995b4e705e1c05224f0a9352d5a818c6ed69b951c87677",
+      "contact_record_count": 22,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_1",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::rotor_1::rotor_1_collision",
+              "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 22,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_2e8e2a4af33e4d4594ef82c90181edc5"
+    },
+    {
+      "fixture_id": "rotor_2_collision",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "rotor_2",
+      "collision_name": "rotor_2_collision",
+      "sensor_topic": "/model/course_quad/contact/rotor_2",
+      "expected_collider": "course_quad::rotor_2::rotor_2_collision",
+      "expected_probe": "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.254,
+        0.174,
+        0.2825769230769234
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "rotor_2_collision.sdf",
+      "world_sha256": "1433c59292fb99eee05d771a31b46ba558a25deb479d8f188a84b2cc7c6ce3c6",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/rotor_2_collision/contacts.jsonl",
+      "contacts_sha256": "24699f38ae28606e316acceed3342f4a0b0b4c488f04342442d70d5451037d06",
+      "contact_record_count": 22,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_2",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::rotor_2::rotor_2_collision",
+              "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 22,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_d955b7db0015471a8eba128dc4262d54"
+    },
+    {
+      "fixture_id": "rotor_3_collision",
+      "kind": "positive",
+      "source_fixture_id": null,
+      "link_name": "rotor_3",
+      "collision_name": "rotor_3_collision",
+      "sensor_topic": "/model/course_quad/contact/rotor_3",
+      "expected_collider": "course_quad::rotor_3::rotor_3_collision",
+      "expected_probe": "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision",
+      "reference_pedestal": null,
+      "displaced_pedestal": null,
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        -0.254,
+        -0.174,
+        0.2825769230769234
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "rotor_3_collision.sdf",
+      "world_sha256": "bcbe911112cf4ae7ab7f9c4a8131a48d78214f50d9990ace96c4d81d577ad81c",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/rotor_3_collision/contacts.jsonl",
+      "contacts_sha256": "2726073e50bdbf75a98f0b5e013b40fa11ede0def0c83f489af62d98622a19d6",
+      "contact_record_count": 22,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/rotor_3",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::rotor_3::rotor_3_collision",
+              "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 22,
+      "reference_pair_observations": null,
+      "score_outcome": "positive_pair_observed",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_468fe5eab52d42959d96d3ea01862490"
+    },
+    {
+      "fixture_id": "base_link_collision_0__negative_displaced",
+      "kind": "negative_displaced_pedestal",
+      "source_fixture_id": "base_link_collision_0",
+      "link_name": "base_link",
+      "collision_name": "base_link_collision_0",
+      "sensor_topic": "/model/course_quad/contact/base_link",
+      "expected_collider": "course_quad::base_link::base_link_collision_0",
+      "expected_probe": "contact_probe_base_link_collision_0__negative_displaced::probe_link::probe_base_link_collision_0__negative_displaced_collision",
+      "reference_pedestal": {
+        "model_name": "contact_probe_base_link_collision_0__negative_displaced__reference",
+        "link_name": "probe_link",
+        "collision_name": "probe_base_link_collision_0__negative_displaced__reference_collision",
+        "scoped_name": "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision",
+        "pose_world_m": [
+          0.0,
+          0.0,
+          0.20499999999999952
+        ],
+        "displacement_xy_m": [
+          0.0,
+          0.0
+        ]
+      },
+      "displaced_pedestal": {
+        "model_name": "contact_probe_base_link_collision_0__negative_displaced",
+        "link_name": "probe_link",
+        "collision_name": "probe_base_link_collision_0__negative_displaced_collision",
+        "scoped_name": "contact_probe_base_link_collision_0__negative_displaced::probe_link::probe_base_link_collision_0__negative_displaced_collision",
+        "pose_world_m": [
+          0.5,
+          0.5,
+          0.20499999999999952
+        ],
+        "displacement_xy_m": [
+          0.5,
+          0.5
+        ]
+      },
+      "initial_clearance_m": 0.015,
+      "probe_pose_world_m": [
+        0.5,
+        0.5,
+        0.20499999999999952
+      ],
+      "model_pose_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "geometry_validation": {
+        "valid": true,
+        "clearance_m": 0.015000000000000013,
+        "support_spread_m": 0.0,
+        "blocking_collisions": []
+      },
+      "world_file": "base_link_collision_0__negative_displaced.sdf",
+      "world_sha256": "845cb63f7d83282425c35ef3eddf67fd46d2a81b4bc8d4b128d9260b634942d5",
+      "contacts_file": "artifacts/markerfree/contact-controls-01/base_link_collision_0__negative_displaced/contacts.jsonl",
+      "contacts_sha256": "42edb273df63ef556bec978e6dbdf0451925c6ca19251d7e7f1e5f8d3fa87a1f",
+      "contact_record_count": 27,
+      "contact_records": [
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 60000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 64000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 68000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 72000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 76000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 80000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 84000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 88000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 92000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 96000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 100000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 104000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 108000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 112000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 116000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 120000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 124000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 128000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 132000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 136000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 140000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 144000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 148000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 152000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 156000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 160000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        },
+        {
+          "topic": "/model/course_quad/contact/base_link",
+          "sim_time_ns": 164000000,
+          "pairs": [
+            [
+              "course_quad::base_link::base_link_collision_0",
+              "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision"
+            ]
+          ]
+        }
+      ],
+      "expected_pair_observations": 0,
+      "reference_pair_observations": 27,
+      "score_outcome": "negative_control_passed_reference_only",
+      "passed": true,
+      "final_sim_time_ns": 164000000,
+      "worker_returncode": 0,
+      "timed_out": false,
+      "partition": "dronehacks_contact_probe_07339a8b284646558b8780aa194597b1"
+    }
+  ],
+  "fixture_manifest": {
+    "schema_version": 1,
+    "purpose": "Gazebo contact sensor wiring positive controls only; no flight safety claim",
+    "world_step_size_s": 0.004,
+    "physics_engine": "DART",
+    "gravity_m_s2": [
+      0.0,
+      0.0,
+      -9.8
+    ],
+    "target_model_name": "course_quad",
+    "flight_include_uri": "model://flight_x500",
+    "px4_plugins_or_models": [],
+    "motor_commands_sent": false,
+    "source_sha256": {
+      "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+      "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+      "worlds/course.sdf": "5168d89e833ed170a0a9b3e75a013988f3ec78481daed01346097c03ea16fc74"
+    },
+    "fixtures": [
+      {
+        "fixture_id": "base_link_collision_0",
+        "kind": "positive",
+        "link_name": "base_link",
+        "sensor_name": "flight_contact_base_link_collision_0",
+        "topic": "/model/course_quad/contact/base_link",
+        "collision_name": "base_link_collision_0",
+        "collider_scoped_name": "course_quad::base_link::base_link_collision_0",
+        "collision_size_m": [
+          0.35355339059327373,
+          0.35355339059327373,
+          0.05
+        ],
+        "collision_center_model_m": [
+          0.0,
+          0.0,
+          0.247
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.0,
+          0.0,
+          0.222
+        ],
+        "underside_z_model_m": 0.222,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.0,
+          0.0
+        ],
+        "target_surface_min_z_at_probe_m": 0.22199999999999953,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.0,
+          0.0,
+          0.20499999999999952
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_base_link_collision_0",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_base_link_collision_0_collision",
+        "probe_scoped_name": "contact_probe_base_link_collision_0::probe_link::probe_base_link_collision_0_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.20699999999999952,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "base_link_collision_0.sdf",
+        "world_sha256": "8d1cae5351ed6865c8771e0f5cb63a3da366b96747720f2aace4c29cf9e37ddb"
+      },
+      {
+        "fixture_id": "base_link_collision_1",
+        "kind": "positive",
+        "link_name": "base_link",
+        "sensor_name": "flight_contact_base_link_collision_1",
+        "topic": "/model/course_quad/contact/base_link",
+        "collision_name": "base_link_collision_1",
+        "collider_scoped_name": "course_quad::base_link::base_link_collision_1",
+        "collision_size_m": [
+          0.015,
+          0.015,
+          0.21
+        ],
+        "collision_center_model_m": [
+          0.0,
+          -0.098,
+          0.11699999999999999
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.9393727128473789,
+            0.34289780745545134
+          ],
+          [
+            0.0,
+            -0.34289780745545134,
+            0.9393727128473789
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.0,
+          -0.12695897443646706,
+          0.015794131595109326
+        ],
+        "underside_z_model_m": 0.015794131595109326,
+        "model_pose_rpy_rad": [
+          -0.6108652381980153,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.0,
+          -0.008872374969908755
+        ],
+        "target_surface_min_z_at_probe_m": 0.14450599115981433,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.0,
+          -0.008872374969908755,
+          0.1275059911598143
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.002795265173800132,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_base_link_collision_1",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_base_link_collision_1_collision",
+        "probe_scoped_name": "contact_probe_base_link_collision_1::probe_link::probe_base_link_collision_1_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.12950599115981432,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "base_link_collision_1.sdf",
+        "world_sha256": "b68e2d47ff7554ffe794a90d947de167f8c6d816f4fc2a56d7c9b261bf743a14"
+      },
+      {
+        "fixture_id": "base_link_collision_2",
+        "kind": "positive",
+        "link_name": "base_link",
+        "sensor_name": "flight_contact_base_link_collision_2",
+        "topic": "/model/course_quad/contact/base_link",
+        "collision_name": "base_link_collision_2",
+        "collider_scoped_name": "course_quad::base_link::base_link_collision_2",
+        "collision_size_m": [
+          0.015,
+          0.015,
+          0.21
+        ],
+        "collision_center_model_m": [
+          0.0,
+          0.098,
+          0.11699999999999999
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.9393727128473789,
+            -0.34289780745545134
+          ],
+          [
+            0.0,
+            0.34289780745545134,
+            0.9393727128473789
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.0,
+          0.12695897443646706,
+          0.015794131595109326
+        ],
+        "underside_z_model_m": 0.015794131595109326,
+        "model_pose_rpy_rad": [
+          0.6108652381980153,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.0,
+          0.008872374969908755
+        ],
+        "target_surface_min_z_at_probe_m": 0.14450599115981433,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.0,
+          0.008872374969908755,
+          0.1275059911598143
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.002795265173800132,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_base_link_collision_2",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_base_link_collision_2_collision",
+        "probe_scoped_name": "contact_probe_base_link_collision_2::probe_link::probe_base_link_collision_2_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.12950599115981432,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "base_link_collision_2.sdf",
+        "world_sha256": "9f85c341cb464d3df3366df4f6e5d32c527edcb50f8aca378d3a1376538b27e1"
+      },
+      {
+        "fixture_id": "base_link_collision_3",
+        "kind": "positive",
+        "link_name": "base_link",
+        "sensor_name": "flight_contact_base_link_collision_3",
+        "topic": "/model/course_quad/contact/base_link",
+        "collision_name": "base_link_collision_3",
+        "collider_scoped_name": "course_quad::base_link::base_link_collision_3",
+        "collision_size_m": [
+          0.25,
+          0.015,
+          0.015
+        ],
+        "collision_center_model_m": [
+          0.0,
+          -0.132,
+          0.02049999999999999
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.0,
+          -0.132,
+          0.01299999999999999
+        ],
+        "underside_z_model_m": 0.01299999999999999,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.1,
+          -0.132
+        ],
+        "target_surface_min_z_at_probe_m": 0.0129999999999999,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.1,
+          -0.132,
+          -0.004000000000000099
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_base_link_collision_3",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_base_link_collision_3_collision",
+        "probe_scoped_name": "contact_probe_base_link_collision_3::probe_link::probe_base_link_collision_3_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": -0.002000000000000099,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "base_link_collision_3.sdf",
+        "world_sha256": "e17486c38491b27dfda8bdca40547cc4a2cbdec0ca5ab1ed810e452a1203c858"
+      },
+      {
+        "fixture_id": "base_link_collision_4",
+        "kind": "positive",
+        "link_name": "base_link",
+        "sensor_name": "flight_contact_base_link_collision_4",
+        "topic": "/model/course_quad/contact/base_link",
+        "collision_name": "base_link_collision_4",
+        "collider_scoped_name": "course_quad::base_link::base_link_collision_4",
+        "collision_size_m": [
+          0.25,
+          0.015,
+          0.015
+        ],
+        "collision_center_model_m": [
+          0.0,
+          0.132,
+          0.02049999999999999
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.0,
+          0.132,
+          0.01299999999999999
+        ],
+        "underside_z_model_m": 0.01299999999999999,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.1,
+          0.132
+        ],
+        "target_surface_min_z_at_probe_m": 0.0129999999999999,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.1,
+          0.132,
+          -0.004000000000000099
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_base_link_collision_4",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_base_link_collision_4_collision",
+        "probe_scoped_name": "contact_probe_base_link_collision_4::probe_link::probe_base_link_collision_4_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": -0.002000000000000099,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "base_link_collision_4.sdf",
+        "world_sha256": "f11ad66cd0f6712940fb586b5df7c67cd79a1c3eab3a3ded4dcbdd9037290f19"
+      },
+      {
+        "fixture_id": "rotor_0_collision",
+        "kind": "positive",
+        "link_name": "rotor_0",
+        "sensor_name": "flight_contact_rotor_0_collision",
+        "topic": "/model/course_quad/contact/rotor_0",
+        "collision_name": "rotor_0_collision",
+        "collider_scoped_name": "course_quad::rotor_0::rotor_0_collision",
+        "collision_size_m": [
+          0.2792307692307692,
+          0.016923076923076923,
+          0.0008461538461538462
+        ],
+        "collision_center_model_m": [
+          0.174,
+          -0.174,
+          0.3
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.174,
+          -0.174,
+          0.2995769230769231
+        ],
+        "underside_z_model_m": 0.2995769230769231,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.254,
+          -0.174
+        ],
+        "target_surface_min_z_at_probe_m": 0.2995769230769234,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.254,
+          -0.174,
+          0.2825769230769234
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_rotor_0_collision",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_rotor_0_collision_collision",
+        "probe_scoped_name": "contact_probe_rotor_0_collision::probe_link::probe_rotor_0_collision_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.2845769230769234,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "rotor_0_collision.sdf",
+        "world_sha256": "c006d870a5bd1191e7183c8afa4b76583be0920c089974c1fcf63e16b7a6c54c"
+      },
+      {
+        "fixture_id": "rotor_1_collision",
+        "kind": "positive",
+        "link_name": "rotor_1",
+        "sensor_name": "flight_contact_rotor_1_collision",
+        "topic": "/model/course_quad/contact/rotor_1",
+        "collision_name": "rotor_1_collision",
+        "collider_scoped_name": "course_quad::rotor_1::rotor_1_collision",
+        "collision_size_m": [
+          0.2792307692307692,
+          0.016923076923076923,
+          0.0008461538461538462
+        ],
+        "collision_center_model_m": [
+          -0.174,
+          0.174,
+          0.3
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          -0.174,
+          0.174,
+          0.2995769230769231
+        ],
+        "underside_z_model_m": 0.2995769230769231,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          -0.254,
+          0.174
+        ],
+        "target_surface_min_z_at_probe_m": 0.2995769230769234,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          -0.254,
+          0.174,
+          0.2825769230769234
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_rotor_1_collision",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_rotor_1_collision_collision",
+        "probe_scoped_name": "contact_probe_rotor_1_collision::probe_link::probe_rotor_1_collision_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.2845769230769234,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "rotor_1_collision.sdf",
+        "world_sha256": "5da067ea842a58824c4fd53817b4a30692a549eec0e775f3a4fdbd5d673330cb"
+      },
+      {
+        "fixture_id": "rotor_2_collision",
+        "kind": "positive",
+        "link_name": "rotor_2",
+        "sensor_name": "flight_contact_rotor_2_collision",
+        "topic": "/model/course_quad/contact/rotor_2",
+        "collision_name": "rotor_2_collision",
+        "collider_scoped_name": "course_quad::rotor_2::rotor_2_collision",
+        "collision_size_m": [
+          0.2792307692307692,
+          0.016923076923076923,
+          0.0008461538461538462
+        ],
+        "collision_center_model_m": [
+          0.174,
+          0.174,
+          0.3
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.174,
+          0.174,
+          0.2995769230769231
+        ],
+        "underside_z_model_m": 0.2995769230769231,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.254,
+          0.174
+        ],
+        "target_surface_min_z_at_probe_m": 0.2995769230769234,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.254,
+          0.174,
+          0.2825769230769234
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_rotor_2_collision",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_rotor_2_collision_collision",
+        "probe_scoped_name": "contact_probe_rotor_2_collision::probe_link::probe_rotor_2_collision_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.2845769230769234,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "rotor_2_collision.sdf",
+        "world_sha256": "1433c59292fb99eee05d771a31b46ba558a25deb479d8f188a84b2cc7c6ce3c6"
+      },
+      {
+        "fixture_id": "rotor_3_collision",
+        "kind": "positive",
+        "link_name": "rotor_3",
+        "sensor_name": "flight_contact_rotor_3_collision",
+        "topic": "/model/course_quad/contact/rotor_3",
+        "collision_name": "rotor_3_collision",
+        "collider_scoped_name": "course_quad::rotor_3::rotor_3_collision",
+        "collision_size_m": [
+          0.2792307692307692,
+          0.016923076923076923,
+          0.0008461538461538462
+        ],
+        "collision_center_model_m": [
+          -0.174,
+          -0.174,
+          0.3
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          -0.174,
+          -0.174,
+          0.2995769230769231
+        ],
+        "underside_z_model_m": 0.2995769230769231,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          -0.254,
+          -0.174
+        ],
+        "target_surface_min_z_at_probe_m": 0.2995769230769234,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          -0.254,
+          -0.174,
+          0.2825769230769234
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "probe_model_name": "contact_probe_rotor_3_collision",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_rotor_3_collision_collision",
+        "probe_scoped_name": "contact_probe_rotor_3_collision::probe_link::probe_rotor_3_collision_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.2845769230769234,
+        "pedestal_displacement_xy_m": [
+          0.0,
+          0.0
+        ],
+        "world_file": "rotor_3_collision.sdf",
+        "world_sha256": "bcbe911112cf4ae7ab7f9c4a8131a48d78214f50d9990ace96c4d81d577ad81c"
+      },
+      {
+        "fixture_id": "base_link_collision_0__negative_displaced",
+        "kind": "negative_displaced_pedestal",
+        "link_name": "base_link",
+        "sensor_name": "flight_contact_base_link_collision_0",
+        "topic": "/model/course_quad/contact/base_link",
+        "collision_name": "base_link_collision_0",
+        "collider_scoped_name": "course_quad::base_link::base_link_collision_0",
+        "collision_size_m": [
+          0.35355339059327373,
+          0.35355339059327373,
+          0.05
+        ],
+        "collision_center_model_m": [
+          0.0,
+          0.0,
+          0.247
+        ],
+        "collision_rotation_model": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "underside_contact_point_model_m": [
+          0.0,
+          0.0,
+          0.222
+        ],
+        "underside_z_model_m": 0.222,
+        "model_pose_rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "probe_contact_xy_world_m": [
+          0.0,
+          0.0
+        ],
+        "target_surface_min_z_at_probe_m": 0.22199999999999953,
+        "initial_clearance_m": 0.015,
+        "probe_pose_world_m": [
+          0.5,
+          0.5,
+          0.20499999999999952
+        ],
+        "geometry_validation": {
+          "valid": true,
+          "clearance_m": 0.015000000000000013,
+          "support_spread_m": 0.0,
+          "blocking_collisions": []
+        },
+        "source_fixture_id": "base_link_collision_0",
+        "probe_model_name": "contact_probe_base_link_collision_0__negative_displaced",
+        "probe_link_name": "probe_link",
+        "probe_collision_name": "probe_base_link_collision_0__negative_displaced_collision",
+        "probe_scoped_name": "contact_probe_base_link_collision_0__negative_displaced::probe_link::probe_base_link_collision_0__negative_displaced_collision",
+        "probe_size_m": [
+          0.004,
+          0.004,
+          0.004
+        ],
+        "probe_top_z_world_m": 0.20699999999999952,
+        "pedestal_displacement_xy_m": [
+          0.5,
+          0.5
+        ],
+        "reference_pedestal": {
+          "model_name": "contact_probe_base_link_collision_0__negative_displaced__reference",
+          "link_name": "probe_link",
+          "collision_name": "probe_base_link_collision_0__negative_displaced__reference_collision",
+          "scoped_name": "contact_probe_base_link_collision_0__negative_displaced__reference::probe_link::probe_base_link_collision_0__negative_displaced__reference_collision",
+          "pose_world_m": [
+            0.0,
+            0.0,
+            0.20499999999999952
+          ],
+          "displacement_xy_m": [
+            0.0,
+            0.0
+          ]
+        },
+        "displaced_pedestal": {
+          "model_name": "contact_probe_base_link_collision_0__negative_displaced",
+          "link_name": "probe_link",
+          "collision_name": "probe_base_link_collision_0__negative_displaced_collision",
+          "scoped_name": "contact_probe_base_link_collision_0__negative_displaced::probe_link::probe_base_link_collision_0__negative_displaced_collision",
+          "pose_world_m": [
+            0.5,
+            0.5,
+            0.20499999999999952
+          ],
+          "displacement_xy_m": [
+            0.5,
+            0.5
+          ]
+        },
+        "world_file": "base_link_collision_0__negative_displaced.sdf",
+        "world_sha256": "845cb63f7d83282425c35ef3eddf67fd46d2a81b4bc8d4b128d9260b634942d5"
+      }
+    ]
+  }
+}

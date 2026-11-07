@@ -1,0 +1,72 @@
+{
+  "schema": "dronehacks.net_visual_ablation.observability.v1",
+  "analysis_source_sha256": "972f23eebc7f31363fe455683d611ebd2b2b5d13617939d3007b8eaa0cb4e431",
+  "capture": {
+    "file": "first-rejected.npz",
+    "sha256": "87668f266e3eecee49b53c98432c4e2c969b73d82c2c67a79ad4be3be19e2827",
+    "rgb_shape": [
+      256,
+      384,
+      3
+    ],
+    "depth_shape": [
+      256,
+      384
+    ],
+    "metadata_pickle_deserialization": false
+  },
+  "timing": {
+    "capture_sim_s": 24.852,
+    "clock_sim_s": 24.868,
+    "tof_capture_sim_s": 24.852,
+    "tilt_capture_sim_s": 24.852
+  },
+  "fit": {
+    "reason": "unobservable_depth_geometry:-4.2137e-18",
+    "depth_matches": 322,
+    "depth_overlap": 0.9669669669669669,
+    "depth_observability_recorded": -4.2136973353753084e-18,
+    "hessian_symmetric": true,
+    "hessian_symmetry_max_abs": 4.440892098500626e-16,
+    "hessian_eigenvalues": [
+      -1.2385887114748052e-15,
+      0.15713419639032578,
+      18.577314638373853,
+      30.888814055039195,
+      94.77503464116673,
+      287.6520801653945
+    ],
+    "eigenvalue_ratio": -4.305856960125719e-18,
+    "enu_y_translation_probe": [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hessian_times_enu_y": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "enu_y_residual_norm": 0.0
+  },
+  "auxiliary": {
+    "tof_range_m": 0.1692385971546173,
+    "tof_range_residual_m": 0.0031777990899883868,
+    "tilt_status": "capture_aligned",
+    "tilt_prior_status": "applied",
+    "tilt_bracket_usec": 36000,
+    "tilt_disagreement_rad": 0.016169424903932444
+  },
+  "source": {
+    "file": "vision/depth_odometry.py",
+    "sha256": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+    "jacobian_order": "[normal ENU translation xyz, cross(rotated optical point, normal)/2 rotation xyz]"
+  },
+  "interpretation": "This recorded linearized fit has an unconstrained ENU-Y translation direction. It does not identify the physical cause or establish failure of every future estimator fit."
+}

@@ -1,0 +1,114 @@
+{
+  "checks": {
+    "camera_aid_stopped_through_abort": true,
+    "independent_touchdown_observed": true,
+    "injection_fault_land_ack_disarm_events_ordered": true,
+    "intentional_stale_capture_fault": true,
+    "no_unexpected_contact_in_received_messages": true,
+    "pre_fault_and_abort_multipart_geometry_certified_clear": true,
+    "px4_auto_land_mode_observed": true,
+    "px4_ground_and_disarm_confirmed_after_fault": true
+  },
+  "fault_test_passed": true,
+  "independent_truth": {
+    "at_confirmed_disarm_enu_m": [
+      -2.5299997320259617,
+      1.924700322153324,
+      0.22699949380150708
+    ],
+    "at_fault_enu_m": [
+      -2.5089649599514052,
+      1.6921691509958445,
+      0.9458313090727453
+    ],
+    "at_first_floor_contact_enu_m": [
+      -2.5229077834397087,
+      1.9212317473811256,
+      0.22812025073961292
+    ],
+    "at_injection_enu_m": [
+      -2.512576544332638,
+      1.424446841883424,
+      0.9444502250993367
+    ],
+    "horizontal_displacement_fault_to_disarm_m": 0.23348063559125753,
+    "horizontal_displacement_injection_to_disarm_m": 0.500556801963118
+  },
+  "mission_fault": "rgbd_pose_unavailable:stale_capture",
+  "mission_result": "failed",
+  "provenance": {
+    "fault_timestamp_source": "Controller arming simulation time plus summary elapsed simulation time.",
+    "max_truth_interpolation_gap_s": 0.12,
+    "sha256_by_file": {
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/blackout-01/observer/contacts.jsonl": "44f3fee632b337402d06d4c2eccdb6ce758e38f305a9a11c85d9da6072851437",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/blackout-01/observer/status.json": "a05936d6eb55ce9ed34f07eb75680e9c88d11d732082e33d633663d2323b87f2",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/blackout-01/observer/truth.jsonl": "d5043d6361e7e98c4d06fe6fbc522bce6b1ad8a6a4f0575cd25fd011c6589052",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/markerfree/blackout-01/telemetry.jsonl": "4f81e491d943079b2a5543b14c95ff8364c771b42b5774a85662683661d174e1",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/artifacts/px4/log/2026-11-07/12_52_53.ulg": "f37dfb66fa7de7e3266ce5ece606023c2211ba5f6c53678462ff626fe5ce64af",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/mission/markerfree_run.py": "91116fbdb3e27b592b61e0b8681b4055ad9628452d54228ee1ab015f76d2f085",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/tools/score_blackout.py": "aa7ab6100b2d4c462ad1bf121c7e6686561ab257e67acb281fcf9d82d1801a89",
+      "/Users/patliu/Desktop/dronehacks/dronehacks-markerfree/tools/score_markerfree.py": "651fba3ba67957c266c583a690f774e0d3dc5ecc57cbfe02033a70c3ad422cb2"
+    }
+  },
+  "run_id": "58d58fe9e4af45d2a67203f70fff95d0",
+  "scope": "Injected RGBD aid loss followed by floor landing and disarm. The multipart proxy checks obstacles throughout and permits floor contact during takeoff and abort landing. Contact observations are limited to received sensor messages.",
+  "timeline_sim_s": {
+    "controller_armed_offboard": 19.472,
+    "controller_confirmed_ground_and_disarm": 49.48,
+    "independent_first_floor_contact": 37.472,
+    "injected_camera_aiding_stop": 35.48,
+    "px4_disarmed": 49.224,
+    "px4_entered_auto_land": 36.036,
+    "stale_capture_fault": 36.008
+  },
+  "vision_aiding": {
+    "controller_send_count_unchanged_in_recorded_samples_after_injection": true,
+    "controller_total_vision_measurements_sent": 620,
+    "interpretation": "The ULog count measures logged updates. Logger sampling and any unobserved records limit absence claims, including when no dropout mark is present.",
+    "px4_ulog": {
+      "coverage_sim_s": [
+        0.544,
+        50.216
+      ],
+      "dropout_records": [],
+      "dropout_records_overlapping_blackout": [],
+      "file_corruption_detected": false,
+      "last_visual_odometry_capture_sim_s": 35.40034,
+      "last_visual_odometry_receipt_sim_s": 35.436,
+      "logged_visual_odometry_records_after_injection": 0,
+      "px4_git_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+      "spans_blackout_without_reported_dropouts_or_corruption": true,
+      "vehicle_visual_odometry_record_count": 617
+    }
+  }
+}
