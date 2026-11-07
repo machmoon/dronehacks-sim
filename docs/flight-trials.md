@@ -1,6 +1,6 @@
 # Marker-free flight trials
 
-This inventory contains 37 unique run IDs across 38 flight telemetry archive paths; `current` is an identical alias of `clean-export-policy-01`. No overall reliability percentage is inferred across changing code, configuration, and diagnostic protocols.
+This inventory contains 39 unique run IDs across 40 flight telemetry archive paths; `current` is an identical alias of `survey-startup-treatment-01`. No overall reliability percentage is inferred across changing code, configuration, and diagnostic protocols.
 
 ## Full-route attempts
 
@@ -70,6 +70,8 @@ Only a score file whose run ID matches its telemetry archive is joined. Abort-la
 | hover-09 | completed | none | confirmed touchdown and disarm | matched |
 | hover-10 | completed | none | confirmed touchdown and disarm | matched |
 | hover-11 | failed | rgbd_pose_unavailable:tracking_lost:survey:unobservable_depth_geometry:-4.2137e-18;depth:insufficient_depth_overlap;rgb:insufficient_inliers | confirmed touchdown and disarm | matched |
+| survey-startup-control-01 | completed | none | confirmed touchdown and disarm | matched |
+| survey-startup-treatment-01 | failed | absolute_survey_startup_unqualified | no armed flight; touchdown not applicable | not scored |
 
 ## Blackout diagnostic
 

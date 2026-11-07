@@ -46,6 +46,8 @@ The [net-visual ablation](docs/experiments/net-visual-ablation-01/README.md) sho
 
 The [net-removal failure replay](docs/media/net-removed-hover-failure.mp4) and [frame diagnostic](docs/experiments/net-visual-ablation-01/observability.json) preserve the failure. The rejected depth fit lacked a north–south translation constraint. This single control/treatment pair does not establish repeatability or separate missing net returns from the deliberate map/sensor mismatch and tracker fallback. The [OAK stereo handoff](docs/net-transfer-next-steps.md) identifies the existing cuVSLAM localization path and the separate depth-adapter work still required.
 
+An optional [absolute-survey startup check](docs/experiments/survey-startup-01/README.md) subsequently passed the control hover and refused to arm in the net-removed scene. It requires three continuous seconds of accepted map tracking before arming. It remains opt-in and has not been evaluated on a full route; it does not restore navigation after tracking becomes unobservable.
+
 The [tracked-export reproduction](docs/experiments/clean-export-01/README.md) ran the collector, hover, scorer and policy from an export containing only committed files. Its full route passed all eight checks in 78 simulated seconds with 98.2 mm modeled window clearance. It reused the installed simulator image and Python dependencies; it was not a clean-machine build. [Watch that flight](docs/media/window-policy-clean-export.mp4).
 
 ## Run locally

@@ -130,7 +130,8 @@ def _run_record(archive: Path, root: Path) -> dict | None:
     result = summary.get("result") or ("completed" if route_done and touchdown else ("failed" if stopped else "in_progress"))
     confirmed = bool(touchdown or summary.get("landed_and_disarmed") or summary.get("landed_after_fault"))
     landing_status = ("confirmed touchdown and disarm" if confirmed else
-                      "no armed flight; touchdown not applicable" if task == "policy" and not armed else
+                      "no armed flight; touchdown not applicable" if not armed and
+                      (task == "policy" or summary.get("arm_request_sent") is False) else
                       "not confirmed in archived telemetry/summary")
     cp = metadata.get("policy_checkpoint_sha256")
     brake_present = "policy_boundary_brake_enabled" in metadata

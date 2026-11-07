@@ -120,6 +120,19 @@ class FlightTrialsInventoryTests(unittest.TestCase):
             self.assertFalse(item["reproducibility"]["summary_run_id_matched"])
             self.assertIsNone(item["reproducibility"]["summary_sha256"])
 
+    def test_explicit_prearm_hover_refusal_has_no_landing_to_confirm(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive = write_run(root, "startup-hover", "refusal", summary={
+                "result": "failed", "fault": "absolute_survey_startup_unqualified",
+                "arm_request_sent": False})
+            path = archive / "telemetry.jsonl"
+            path.write_text(path.read_text().replace('"task": "policy"', '"task": "hover"'))
+            item = build_inventory(root)["groups"]["diagnostic_hovers"][0]
+            self.assertEqual(item["result"], "failed")
+            self.assertFalse(item["landing"]["confirmed"])
+            self.assertEqual(item["landing"]["status"], "no armed flight; touchdown not applicable")
+
 
 if __name__ == "__main__":
     unittest.main()
