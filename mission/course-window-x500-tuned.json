@@ -1,0 +1,231 @@
+{
+  "name": "PX4 x500 window route with measured component envelope",
+  "source": "User-supplied preliminary OBJ in metres, ENU; nominal course and x500 SDF component geometry, not field-calibrated",
+  "start": [
+    -2.5146,
+    0.9144,
+    0.0
+  ],
+  "waypoints": [
+    {
+      "position": [
+        -2.5146,
+        0.9144,
+        0.95
+      ],
+      "phase": "TAKEOFF",
+      "speed": 0.315,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        -2.5146,
+        2.58445,
+        0.95
+      ],
+      "phase": "FIRST_CORRIDOR",
+      "speed": 0.54,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        -1.3716,
+        2.58445,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.55,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        -1.3716,
+        0.97155,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.55,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        -0.254,
+        0.97155,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.55,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        -0.254,
+        2.58445,
+        0.95
+      ],
+      "phase": "MAZE",
+      "speed": 0.55,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        0.95,
+        2.58445,
+        0.95
+      ],
+      "phase": "GATE_A",
+      "speed": 0.49500000000000005,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        2.3114,
+        2.2,
+        0.95
+      ],
+      "phase": "TUNNEL_ALIGN",
+      "speed": 0.75,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        2.3114,
+        1.6,
+        0.95
+      ],
+      "phase": "TUNNEL_ALIGN",
+      "speed": 0.5,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        2.3114,
+        -0.72,
+        0.95
+      ],
+      "phase": "TUNNEL",
+      "speed": 0.93,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        2.13,
+        -1.7,
+        0.95
+      ],
+      "phase": "CHICANE",
+      "speed": 0.7,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        0.3,
+        -1.9,
+        0.95
+      ],
+      "phase": "WINDOW_APPROACH",
+      "speed": 0.42,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        0.045893,
+        -2.460006,
+        0.9
+      ],
+      "phase": "WINDOW_ALIGN",
+      "speed": 0.23,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        -0.987769,
+        -2.083784,
+        0.9
+      ],
+      "phase": "WINDOW_CROSS",
+      "speed": 0.32,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    },
+    {
+      "position": [
+        -2.0422,
+        -0.7925,
+        0.7
+      ],
+      "phase": "LANDING_APPROACH",
+      "speed": 0.71,
+      "arrival_radius": 0.06,
+      "verification_radius": 0.08
+    }
+  ],
+  "limits": {
+    "max_speed": 1.0,
+    "max_accel": 0.8,
+    "arrival_radius": 0.08,
+    "odom_timeout": 0.25,
+    "state_timeout": 0.6,
+    "max_yaw_rate": 0.7,
+    "position_gain": 1.5,
+    "velocity_damping": 1.0
+  },
+  "landing": {
+    "position": [
+      -2.0422,
+      -0.7925,
+      0.0
+    ],
+    "approach_height": 0.7
+  },
+  "footprint_radius": 0.401,
+  "footprint_note": "Horizontal bound including 15 mm margin for course boundary and pad checks only. Obstacle and aperture certification use the SDF-derived body, gear, and swept rotor components in mission.airframe; do not treat this radius as a spherical body.",
+  "bounds": {
+    "min": [
+      -3.048,
+      -3.048,
+      0.0
+    ],
+    "max": [
+      3.048,
+      3.048,
+      3.048
+    ]
+  },
+  "window": {
+    "center": [
+      -0.470938,
+      -2.271895,
+      0.762
+    ],
+    "normal_toward_entry": [
+      0.9396926207859084,
+      -0.3420201433256687,
+      0
+    ],
+    "horizontal_axis": [
+      0.3420201433256687,
+      0.9396926207859084,
+      0
+    ],
+    "width": 0.9144,
+    "height": 0.9144,
+    "thickness": 0.1016,
+    "source": "Inner aperture vertices of C2a chicane wall (window) in supplied OBJ; not field-calibrated"
+  },
+  "maze_centerline_note": "Corridor midlines from m1/m2/m3 and barrier/net CAD faces: north y=2.58445, south y=.97155, internal x=-1.3716 and -.254. Assumes unchanged nominal CAD.",
+  "waypoint_tolerance_note": "Controller transitions inside 60 mm estimated distance; independent route verification requires 80 mm true distance. The 20 mm reserve covers part of the measured estimator error; these are internal route checks, not official competition scoring."
+}

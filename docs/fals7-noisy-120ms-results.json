@@ -1,0 +1,1908 @@
+{
+  "scope": "Matched Gaussian 10 mm depth-noise route with FALS7, a 120 ms capture-continuity gate, packaged v1 and boundary braking; compare policy-08 nominal control. Simulation evidence only.",
+  "summary": {
+    "type": "summary",
+    "run_id": "08cd4ca1a7b248d19e275ea042628f97",
+    "world": "dronehacks",
+    "vehicle": "course_quad",
+    "vehicle_model": "PX4 x500",
+    "task": "policy",
+    "launch": {
+      "position_enu": [
+        -2.5146,
+        0.9144,
+        0.24
+      ],
+      "yaw_enu_deg": 90.0
+    },
+    "source": "RGBD depth registration to supplied course map + PX4 EKF2",
+    "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+    "simulator_position_used_for_control": false,
+    "inertial_tilt_prior_enabled": true,
+    "survey_normals": {
+      "method": "fals7",
+      "opencv_version": "4.6.0",
+      "sample_stride_px": 8,
+      "sample_origin_uv_px": [
+        2,
+        2
+      ],
+      "normal_radius_px": 3,
+      "center_curvature_radii_px": [
+        1,
+        2
+      ],
+      "center_curvature_limit_m": [
+        0.014,
+        0.018
+      ],
+      "full_support_window_px": 7,
+      "full_support_requires_valid_depth": true,
+      "full_support_curvature_limit_m": [
+        0.085,
+        0.018
+      ]
+    },
+    "sitl_power_watchdog_enabled": true,
+    "policy_boundary_brake_enabled": true,
+    "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+    "policy_depth_mode": "raw",
+    "vision_max_capture_gap_s": 0.12,
+    "vision_max_capture_age_s": 0.3,
+    "result": "completed",
+    "fault": null,
+    "elapsed_sim_s": 78.0,
+    "route_elapsed_sim_s": 72.304,
+    "route_completed": true,
+    "landed_and_disarmed": true,
+    "landed_after_fault": false,
+    "landing_position_enu": [
+      -2.008995294570923,
+      -0.8175974488258362,
+      0.22557593882083893
+    ],
+    "pad_radius_m": 0.762,
+    "aircraft_radius_m": 0.401,
+    "waypoints_reached": 15,
+    "waypoint_count": 15,
+    "hover_settled_sim_s": 3.007999999999999,
+    "vision_measurements_sent": 1857,
+    "policy_actions_received": 363,
+    "policy_setpoints_sent": 4604,
+    "policy_boundary_braking_interventions": 237,
+    "policy_boundary_guard_setpoints": 4695,
+    "policy_boundary_budget_max_deficit_m": 0.030412235542505883,
+    "policy_training_camera_forward_m": 0.34,
+    "policy_training_heading_lookahead_m": 1.8,
+    "policy_service_session": "115cfc919e58495586ed037692ab6c9a"
+  },
+  "score": {
+    "run_id": "08cd4ca1a7b248d19e275ea042628f97",
+    "task": "policy",
+    "mission_result": "completed",
+    "mission_fault": null,
+    "full_route_verified_by_geometry": true,
+    "checks": {
+      "controller_reports_all_waypoints": true,
+      "truth_complete_during_flight": true,
+      "truth_reaches_all_waypoints_in_order": true,
+      "truth_crosses_window_with_full_envelope": true,
+      "truth_multipart_path_certified_clear": true,
+      "truth_transit_floor_checked": true,
+      "px4_ground_and_disarm_confirmed": true,
+      "truth_touchdown_inside_pad": true
+    },
+    "flight_interval_sim_s": [
+      17.5,
+      95.5
+    ],
+    "max_truth_interpolation_gap_s": 0.12,
+    "truth_sample_count": 11941,
+    "truth_flight_points": 9895,
+    "truth_contiguous_chunks": 1,
+    "route": {
+      "reached": 15,
+      "required": 15,
+      "arrivals": [
+        {
+          "index": 0,
+          "phase": "TAKEOFF",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 28.033483347774723,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 1,
+          "phase": "FIRST_CORRIDOR",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 36.44398908100425,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 2,
+          "phase": "MAZE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 40.256272469842344,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 3,
+          "phase": "MAZE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 44.71324302793105,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 4,
+          "phase": "MAZE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 48.35582437494777,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 5,
+          "phase": "MAZE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 53.37910588051484,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 6,
+          "phase": "GATE_A",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 57.53325148317392,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 7,
+          "phase": "TUNNEL_ALIGN",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 61.15153819932469,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 8,
+          "phase": "TUNNEL_ALIGN",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 63.60345013158874,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 9,
+          "phase": "TUNNEL",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 67.76654646707034,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 10,
+          "phase": "CHICANE",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 70.47379706533886,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 11,
+          "phase": "WINDOW_APPROACH",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 76.35092649128322,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 12,
+          "phase": "WINDOW_ALIGN",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 80.31800288580102,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 13,
+          "phase": "WINDOW_CROSS",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 85.0617951926899,
+          "verification_radius_m": 0.08
+        },
+        {
+          "index": 14,
+          "phase": "LANDING_APPROACH",
+          "arrival_radius_m": 0.06,
+          "sim_time_s": 89.48152211809851,
+          "verification_radius_m": 0.08
+        }
+      ]
+    },
+    "window": {
+      "full_envelope_crossed": true,
+      "min_aperture_clearance_m": 0.09534238053425942,
+      "direction": "entry_to_exit",
+      "valid_forward_crossings": 1,
+      "forward_attempts": 1,
+      "valid_reverse_crossings": 0,
+      "margin_m": 0.015,
+      "path_assumption": "Linear translation, shortest-arc attitude, conservative inflated component supports."
+    },
+    "cad_proxy": {
+      "certified_clear": true,
+      "phases": {
+        "takeoff": {
+          "interval_sim_s": [
+            17.5,
+            28.668
+          ],
+          "ground_checked": false,
+          "truth_complete": true,
+          "certified_clear": true,
+          "checked_subsegments": 1414,
+          "first_unresolved": null
+        },
+        "transit": {
+          "interval_sim_s": [
+            28.668,
+            89.804
+          ],
+          "ground_checked": true,
+          "truth_complete": true,
+          "certified_clear": true,
+          "checked_subsegments": 7753,
+          "first_unresolved": null
+        },
+        "landing": {
+          "interval_sim_s": [
+            89.804,
+            95.5
+          ],
+          "ground_checked": false,
+          "truth_complete": true,
+          "certified_clear": true,
+          "checked_subsegments": 729,
+          "first_unresolved": null
+        }
+      },
+      "margin_m": 0.015,
+      "component_count": 9,
+      "model": "SDF body/gear boxes and swept rotor cylinders against the course CAD proxy boxes and polygonal tunnel shell. Translation is linear and attitude follows the shortest arc.",
+      "interpretation": "Unresolved component separation can be a conservative false positive."
+    },
+    "legacy_sphere": {
+      "window": {
+        "full_envelope_crossed": false,
+        "min_aperture_clearance_m": -0.04242534097406753,
+        "direction": "entry_to_exit_blocked",
+        "valid_forward_crossings": 0,
+        "forward_attempts": 1,
+        "valid_reverse_crossings": 0,
+        "expanded_half_thickness_m": 0.4108,
+        "path_assumption": "Linear interpolation between supplied positions; conservative full-radius aperture erosion."
+      },
+      "cad_proxy": {
+        "sphere_radius_m": 0.36,
+        "checked_segments": 9894,
+        "hit_segment_count": 180,
+        "first_hit_segment_sim_s": [
+          82.548,
+          82.55600000000001
+        ],
+        "sampled_min_obstacle_clearance_m": -0.036949422159522294,
+        "first_transit_floor_overlap_segment_sim_s": null,
+        "model": "Continuous sphere sweeps over learning.sim CAD box and polygonal tunnel proxies, linear truth segments.",
+        "ground_treatment": "Floor scored separately from the start of hover verification to landing handoff."
+      },
+      "landing_horizontal_clearance_m": 0.3604053491136832
+    },
+    "landing": {
+      "px4_confirmed_ground_and_disarm": true,
+      "truth_time_sim_s": 95.5,
+      "truth_base_link_enu_m": [
+        -2.0098308752867506,
+        -0.8186219208262466,
+        0.22699915650878524
+      ],
+      "pad_center_enu_m": [
+        -2.0422,
+        -0.7925,
+        0.0
+      ],
+      "pad_radius_m": 0.762,
+      "horizontal_footprint_radius_bound_m": 0.4081546507290498,
+      "horizontal_envelope_clearance_m": 0.31225069838463343,
+      "ground_height_error_vs_launch_m": -6.595543792786707e-07,
+      "px4_landing_error_enu_m": [
+        0.0008355807158277884,
+        0.001024472000410448,
+        -0.0014232176879463154
+      ],
+      "truth_envelope_inside_pad": true,
+      "truth_height_consistent_with_touchdown": true
+    },
+    "abort_landing": null,
+    "contacts": {
+      "status": "partial_topic_coverage",
+      "topics_with_messages": [
+        "/model/course_quad/contact/base_link"
+      ],
+      "topics_expected": [
+        "/model/course_quad/contact/base_link",
+        "/model/course_quad/contact/rotor_0",
+        "/model/course_quad/contact/rotor_1",
+        "/model/course_quad/contact/rotor_2",
+        "/model/course_quad/contact/rotor_3"
+      ],
+      "topic_discovery_and_observations": {
+        "/model/course_quad/contact/base_link": {
+          "publisher_count_start": 5,
+          "publisher_count_end": 5,
+          "transport_messages_received": 13581,
+          "messages_with_contact_pairs": 13581,
+          "interpretation": "messages_received"
+        },
+        "/model/course_quad/contact/rotor_0": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_1": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_2": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        },
+        "/model/course_quad/contact/rotor_3": {
+          "publisher_count_start": 1,
+          "publisher_count_end": 1,
+          "transport_messages_received": 0,
+          "messages_with_contact_pairs": 0,
+          "interpretation": "publisher_advertised_no_messages_observed"
+        }
+      },
+      "raw_pair_observations": {
+        "obstacle": 0,
+        "transit_ground": 0,
+        "expected_ground": 5143,
+        "self": 0
+      },
+      "first_obstacle_observation": null,
+      "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact.",
+      "unexpected_contact_observed": false
+    },
+    "px4_position_error": {
+      "timestamp_field": "position_stamp_sim_s",
+      "approximate_loop_timestamp_samples": 0,
+      "unmatched_timestamp_count": 0,
+      "stats": {
+        "sample_count": 705,
+        "bias_enu_m": [
+          0.0006129783134704067,
+          0.0003553062749413071,
+          -0.002493341006080236
+        ],
+        "rmse_enu_m": [
+          0.002255178032361541,
+          0.0030963953534713573,
+          0.003229106243884679
+        ],
+        "first_error_enu_m": [
+          0.0022189231872560278,
+          0.00010417014066366193,
+          -0.010156047108887484
+        ],
+        "last_error_enu_m": [
+          0.0007509421202467337,
+          0.0008964412234329089,
+          -0.0014233965018806416
+        ],
+        "rmse_m": 0.005010051823777883,
+        "median_m": 0.003935856379720208,
+        "p95_m": 0.008694898635069765,
+        "max_m": 0.01192540485915019
+      },
+      "by_phase": {
+        "TAKEOFF": {
+          "sample_count": 100,
+          "bias_enu_m": [
+            0.0008217199544829823,
+            0.0003806380236535001,
+            -0.0036083324930223726
+          ],
+          "rmse_enu_m": [
+            0.0009990857442373025,
+            0.0010639963077737507,
+            0.004150435415751911
+          ],
+          "first_error_enu_m": [
+            0.0022189231872560278,
+            0.00010417014066366193,
+            -0.010156047108887484
+          ],
+          "last_error_enu_m": [
+            0.0005070988645177188,
+            0.0013603351484311466,
+            -0.0023623262436822667
+          ],
+          "rmse_m": 0.004399588004304735,
+          "median_m": 0.0035457404722861554,
+          "p95_m": 0.008178556101495243,
+          "max_m": 0.010396141803914093
+        },
+        "HOVER_CHECK": {
+          "sample_count": 27,
+          "bias_enu_m": [
+            0.0010519429911380596,
+            0.0009119599095652207,
+            -0.003076487690628713
+          ],
+          "rmse_enu_m": [
+            0.0011320788678051603,
+            0.0011402174627287824,
+            0.0031018428711456127
+          ],
+          "first_error_enu_m": [
+            0.0004845309319381208,
+            0.0014116640979429107,
+            -0.0023562438715190037
+          ],
+          "last_error_enu_m": [
+            0.0008523823652031304,
+            6.085027116142783e-05,
+            -0.002736235226950212
+          ],
+          "rmse_m": 0.0034932975284850177,
+          "median_m": 0.0033690615002704483,
+          "p95_m": 0.00425029638861125,
+          "max_m": 0.004313691551804848
+        },
+        "FIRST_CORRIDOR": {
+          "sample_count": 47,
+          "bias_enu_m": [
+            0.0018680791266817267,
+            -0.0015358919585834734,
+            -0.001988550500235089
+          ],
+          "rmse_enu_m": [
+            0.00212779633662462,
+            0.0026005450691294727,
+            0.002264252862591751
+          ],
+          "first_error_enu_m": [
+            0.0009729707871182214,
+            0.00012042570149062293,
+            -0.0026374784189202582
+          ],
+          "last_error_enu_m": [
+            0.000582362181889895,
+            -0.005322917665381066,
+            -0.0026318284997607355
+          ],
+          "rmse_m": 0.004051813536242963,
+          "median_m": 0.0037306098445217054,
+          "p95_m": 0.006367437364756599,
+          "max_m": 0.0065487469230859465
+        },
+        "MAZE": {
+          "sample_count": 155,
+          "bias_enu_m": [
+            0.00017908341598200792,
+            -0.000520393719298838,
+            -0.0023415626540104185
+          ],
+          "rmse_enu_m": [
+            0.0020910922960004556,
+            0.002018868971218873,
+            0.002911187568933478
+          ],
+          "first_error_enu_m": [
+            0.00031835929670576135,
+            -0.004384353375626926,
+            -0.002779953658862744
+          ],
+          "last_error_enu_m": [
+            0.0017795814685617195,
+            -0.0071850722518806975,
+            -0.008127228338204229
+          ],
+          "rmse_m": 0.004113819633243005,
+          "median_m": 0.0033780172292523524,
+          "p95_m": 0.008219748237735495,
+          "max_m": 0.01099290743749369
+        },
+        "GATE_A": {
+          "sample_count": 37,
+          "bias_enu_m": [
+            -0.0001926870573412912,
+            -0.004096902501021283,
+            -0.005493704416292791
+          ],
+          "rmse_enu_m": [
+            0.0008060398332009028,
+            0.004326241428723384,
+            0.005590758569716645
+          ],
+          "first_error_enu_m": [
+            0.0009560258463777171,
+            -0.007485377878306387,
+            -0.008073005522704957
+          ],
+          "last_error_enu_m": [
+            0.0007791315835565804,
+            -0.0033497929691272965,
+            -0.0035562168981349007
+          ],
+          "rmse_m": 0.007114959346136082,
+          "median_m": 0.006435070282300821,
+          "p95_m": 0.010651981979214836,
+          "max_m": 0.011050714256083432
+        },
+        "TUNNEL_ALIGN": {
+          "sample_count": 55,
+          "bias_enu_m": [
+            -0.00035498364310654237,
+            -0.001446419845651612,
+            -0.002014908723874434
+          ],
+          "rmse_enu_m": [
+            0.0029462180923524937,
+            0.005849413716494136,
+            0.002644495572588254
+          ],
+          "first_error_enu_m": [
+            0.0007297560920094259,
+            -0.003076922849023056,
+            -0.0031312260294388272
+          ],
+          "last_error_enu_m": [
+            0.0012797417552770085,
+            -0.003968507976545466,
+            -0.0019143679002142644
+          ],
+          "rmse_m": 0.0070632286319964035,
+          "median_m": 0.006042393000262039,
+          "p95_m": 0.01151649874813297,
+          "max_m": 0.01192540485915019
+        },
+        "TUNNEL": {
+          "sample_count": 37,
+          "bias_enu_m": [
+            -0.0015977835595724977,
+            0.002088266899266694,
+            -0.0028555278262191327
+          ],
+          "rmse_enu_m": [
+            0.0026625305740073935,
+            0.0031798256379165805,
+            0.003484339564567516
+          ],
+          "first_error_enu_m": [
+            0.0011886502424727219,
+            -0.00390455077051044,
+            -0.0010168200571099018
+          ],
+          "last_error_enu_m": [
+            -0.003986529624051549,
+            0.0026501656462665224,
+            -0.0025373549088718583
+          ],
+          "rmse_m": 0.005416731703369319,
+          "median_m": 0.005578151440687312,
+          "p95_m": 0.00740790320622087,
+          "max_m": 0.007473463433591103
+        },
+        "CHICANE": {
+          "sample_count": 25,
+          "bias_enu_m": [
+            -0.0017192299870958827,
+            0.00539937139087034,
+            -0.0014336978968656
+          ],
+          "rmse_enu_m": [
+            0.002221769944896055,
+            0.006367567937940774,
+            0.002008724898044327
+          ],
+          "first_error_enu_m": [
+            -0.0035818342145899074,
+            0.0024841523022502976,
+            -0.0024741516002959596
+          ],
+          "last_error_enu_m": [
+            0.0003784048606183532,
+            -0.0006340964505249236,
+            1.2332917467050564e-05
+          ],
+          "rmse_m": 0.007036842960330858,
+          "median_m": 0.0057263436235063525,
+          "p95_m": 0.011146536022023429,
+          "max_m": 0.011259653155556765
+        },
+        "WINDOW_APPROACH": {
+          "sample_count": 53,
+          "bias_enu_m": [
+            0.0011043764685864936,
+            0.0007783087321040997,
+            -0.0014659805955300705
+          ],
+          "rmse_enu_m": [
+            0.001853317143003778,
+            0.001724207779933077,
+            0.001582739922592792
+          ],
+          "first_error_enu_m": [
+            8.309631253888838e-05,
+            -0.0010064479535107917,
+            -0.0002740436023469517
+          ],
+          "last_error_enu_m": [
+            -0.0007023466892286945,
+            0.0008134295075010733,
+            -0.0011333719787508523
+          ],
+          "rmse_m": 0.0029854216726456703,
+          "median_m": 0.002508129666791084,
+          "p95_m": 0.0054011795136547185,
+          "max_m": 0.005869527700015418
+        },
+        "WINDOW_ALIGN": {
+          "sample_count": 35,
+          "bias_enu_m": [
+            -0.0005608531225551149,
+            0.003830366084294758,
+            -0.00235426792436246
+          ],
+          "rmse_enu_m": [
+            0.0017824866650728382,
+            0.0041232846401973045,
+            0.0024925379910754213
+          ],
+          "first_error_enu_m": [
+            -0.0010391257966426704,
+            0.0012592557418682482,
+            -0.0013630767617746065
+          ],
+          "last_error_enu_m": [
+            0.0013737979425204883,
+            0.005814283600929393,
+            -0.004460854333046771
+          ],
+          "rmse_m": 0.00513726391887781,
+          "median_m": 0.004904383016371259,
+          "p95_m": 0.00725525277338961,
+          "max_m": 0.007456033527256442
+        },
+        "WINDOW_CROSS": {
+          "sample_count": 42,
+          "bias_enu_m": [
+            0.0032678014855069297,
+            0.003788309797834632,
+            -0.0035869663860642344
+          ],
+          "rmse_enu_m": [
+            0.003613069729736154,
+            0.003822928918064813,
+            0.003611827642007416
+          ],
+          "first_error_enu_m": [
+            0.0013254827829197458,
+            0.0055678515186556865,
+            -0.004528084622230866
+          ],
+          "last_error_enu_m": [
+            0.0007213168987406648,
+            0.003721594498213854,
+            -0.0037506276442883513
+          ],
+          "rmse_m": 0.006380780304953364,
+          "median_m": 0.006294629670609614,
+          "p95_m": 0.007488285577826453,
+          "max_m": 0.007632509030432359
+        },
+        "LANDING_APPROACH": {
+          "sample_count": 41,
+          "bias_enu_m": [
+            0.003515481213855454,
+            -5.76429797207138e-05,
+            -0.0023116337264751643
+          ],
+          "rmse_enu_m": [
+            0.004463753586164875,
+            0.002187826930678649,
+            0.002570848214678373
+          ],
+          "first_error_enu_m": [
+            0.0004973940246837394,
+            0.0038484746485023535,
+            -0.0036748217835674835
+          ],
+          "last_error_enu_m": [
+            0.0004349265824785675,
+            -0.0019627549986349635,
+            0.0010870400679927616
+          ],
+          "rmse_m": 0.005596511708155136,
+          "median_m": 0.00534478526761696,
+          "p95_m": 0.008595611986513442,
+          "max_m": 0.008696508825203252
+        },
+        "AUTO_LAND": {
+          "sample_count": 51,
+          "bias_enu_m": [
+            0.0002840271279491321,
+            0.0005388559091453835,
+            7.07261307635582e-05
+          ],
+          "rmse_enu_m": [
+            0.0005409400274988529,
+            0.0016363943134926958,
+            0.003295402944883457
+          ],
+          "first_error_enu_m": [
+            0.00036932994100347116,
+            -0.00239174664096653,
+            0.0013301023105045662
+          ],
+          "last_error_enu_m": [
+            0.0007509421202467337,
+            0.0008964412234329089,
+            -0.0014233965018806416
+          ],
+          "rmse_m": 0.003718881959907877,
+          "median_m": 0.0018200979451562416,
+          "p95_m": 0.008362135940511247,
+          "max_m": 0.009472244327738848
+        }
+      }
+    },
+    "px4_attitude_error": {
+      "sample_count": 705,
+      "approximate_loop_timestamp_samples": 0,
+      "unmatched_timestamp_count": 0,
+      "rmse_deg": 0.1002147152826902,
+      "p95_deg": 0.1304501384828361,
+      "max_deg": 0.7238358202584934
+    },
+    "camera_position_error": {
+      "timestamp_field": "vision_stamp_sim_s",
+      "approximate_loop_timestamp_samples": 0,
+      "unmatched_timestamp_count": 0,
+      "stats": {
+        "sample_count": 705,
+        "bias_enu_m": [
+          0.0002091710435101883,
+          -4.454247948060263e-06,
+          -0.002110238556383897
+        ],
+        "rmse_enu_m": [
+          0.001380424195674253,
+          0.0022978119042827523,
+          0.0025303467400647445
+        ],
+        "first_error_enu_m": [
+          -0.0011994985931336188,
+          -0.0004916603602949099,
+          -0.0010541885870217482
+        ],
+        "last_error_enu_m": [
+          0.0006377555813115166,
+          0.0012922373898383022,
+          -0.0018318602908955484
+        ],
+        "rmse_m": 0.0036862128441562778,
+        "median_m": 0.0028471863045969347,
+        "p95_m": 0.006555110152787317,
+        "max_m": 0.013766693894899198
+      },
+      "by_phase": {
+        "TAKEOFF": {
+          "sample_count": 100,
+          "bias_enu_m": [
+            0.0012272524019983954,
+            0.0003510524161309858,
+            -0.0012976770906697687
+          ],
+          "rmse_enu_m": [
+            0.0015501267560013496,
+            0.0006767931689075815,
+            0.0017108818817957473
+          ],
+          "first_error_enu_m": [
+            -0.0011994985931336188,
+            -0.0004916603602949099,
+            -0.0010541885870217482
+          ],
+          "last_error_enu_m": [
+            0.0014132887284823425,
+            0.0003287423239461962,
+            -0.0034484136620386296
+          ],
+          "rmse_m": 0.00240583847475432,
+          "median_m": 0.0020303657065195253,
+          "p95_m": 0.003877260521702026,
+          "max_m": 0.00471021609531804
+        },
+        "HOVER_CHECK": {
+          "sample_count": 27,
+          "bias_enu_m": [
+            0.0012663231321361902,
+            0.000710869901363347,
+            -0.0027350659582967562
+          ],
+          "rmse_enu_m": [
+            0.0014872100036265748,
+            0.000778819399880953,
+            0.002854654374537672
+          ],
+          "first_error_enu_m": [
+            0.0006390535432916344,
+            0.0005784353231957917,
+            -0.004429010198654937
+          ],
+          "last_error_enu_m": [
+            0.0005054663615378097,
+            0.0008642260089049003,
+            -0.0019164029421068207
+          ],
+          "rmse_m": 0.0033117072410744513,
+          "median_m": 0.0032179130239450076,
+          "p95_m": 0.0045446602187258454,
+          "max_m": 0.004810606395253862
+        },
+        "FIRST_CORRIDOR": {
+          "sample_count": 47,
+          "bias_enu_m": [
+            0.0007907024127770183,
+            -0.0002644183513430306,
+            -0.001961812322466172
+          ],
+          "rmse_enu_m": [
+            0.0009510250249566168,
+            0.0008955720708651951,
+            0.0021472896196588743
+          ],
+          "first_error_enu_m": [
+            0.0009366531470180739,
+            0.00038006692674141807,
+            -0.0039826029034112365
+          ],
+          "last_error_enu_m": [
+            0.0005972539560819001,
+            0.0010209828863327886,
+            -0.0020294479668604426
+          ],
+          "rmse_m": 0.0025134340339269426,
+          "median_m": 0.0023489949749699117,
+          "p95_m": 0.0034645247360804376,
+          "max_m": 0.004293615644052946
+        },
+        "MAZE": {
+          "sample_count": 155,
+          "bias_enu_m": [
+            0.0001665692745057163,
+            -0.0010279551902539754,
+            -0.002084433873678495
+          ],
+          "rmse_enu_m": [
+            0.0014125216174888165,
+            0.0016079007453422096,
+            0.0024693684378107143
+          ],
+          "first_error_enu_m": [
+            0.0009590000489518857,
+            0.000799900093778394,
+            -0.0015236459215419718
+          ],
+          "last_error_enu_m": [
+            0.0014288338551096125,
+            -0.0032087636753077575,
+            -0.003634511708554111
+          ],
+          "rmse_m": 0.0032677733410383567,
+          "median_m": 0.002735075535262132,
+          "p95_m": 0.0057984207534085746,
+          "max_m": 0.00732240447564348
+        },
+        "GATE_A": {
+          "sample_count": 37,
+          "bias_enu_m": [
+            0.0001709217727360063,
+            -0.004058220293368877,
+            -0.0046473510096520605
+          ],
+          "rmse_enu_m": [
+            0.000766810702040439,
+            0.004118137686204148,
+            0.004755704616064905
+          ],
+          "first_error_enu_m": [
+            0.001512898391516193,
+            -0.003707815075458587,
+            -0.005003180678839203
+          ],
+          "last_error_enu_m": [
+            -0.0004161563029347892,
+            -0.004009906124966545,
+            -0.0041297065388380405
+          ],
+          "rmse_m": 0.006337490280115596,
+          "median_m": 0.006408476502411486,
+          "p95_m": 0.00753529412585534,
+          "max_m": 0.007805814892259706
+        },
+        "TUNNEL_ALIGN": {
+          "sample_count": 55,
+          "bias_enu_m": [
+            7.184245986119633e-05,
+            -0.003067050048647077,
+            -0.001610938129185186
+          ],
+          "rmse_enu_m": [
+            0.0011133641972934755,
+            0.004493362400403708,
+            0.0020636163385532504
+          ],
+          "first_error_enu_m": [
+            -0.000656034127011651,
+            -0.005005553265327034,
+            -0.003423129175942674
+          ],
+          "last_error_enu_m": [
+            0.0011478485651728043,
+            -0.0016199308079161145,
+            -0.00015158402646986424
+          ],
+          "rmse_m": 0.0050683723116914615,
+          "median_m": 0.0034970197480707213,
+          "p95_m": 0.008981842266572247,
+          "max_m": 0.013766693894899198
+        },
+        "TUNNEL": {
+          "sample_count": 37,
+          "bias_enu_m": [
+            -0.0011671043946379633,
+            -0.0007887889430903419,
+            -0.0031663881586743428
+          ],
+          "rmse_enu_m": [
+            0.0017542961304650635,
+            0.0009525745765752154,
+            0.0032703869374645714
+          ],
+          "first_error_enu_m": [
+            -0.0006081494792073983,
+            -0.0010482376656830716,
+            -0.0028582602224586084
+          ],
+          "last_error_enu_m": [
+            -0.0021346967928934646,
+            -0.001152272459005066,
+            -0.0032268343861284743
+          ],
+          "rmse_m": 0.0038314989179224685,
+          "median_m": 0.0038470948375263097,
+          "p95_m": 0.004838421369555566,
+          "max_m": 0.005294635462728371
+        },
+        "CHICANE": {
+          "sample_count": 25,
+          "bias_enu_m": [
+            -0.0017774703016651473,
+            0.0008506203797613932,
+            -0.0016038171173574068
+          ],
+          "rmse_enu_m": [
+            0.00227229395608488,
+            0.0012932375982854108,
+            0.002085079928564199
+          ],
+          "first_error_enu_m": [
+            -0.003287466541642914,
+            -0.000993764807741826,
+            -0.0024194142842191013
+          ],
+          "last_error_enu_m": [
+            -0.0010647935028820221,
+            0.0020101580328604207,
+            -0.0019009541211575387
+          ],
+          "rmse_m": 0.0033441503580102635,
+          "median_m": 0.0025809608813376966,
+          "p95_m": 0.005556842910906408,
+          "max_m": 0.0062191510242203644
+        },
+        "WINDOW_APPROACH": {
+          "sample_count": 53,
+          "bias_enu_m": [
+            -0.0006043790808480722,
+            0.0011293840060740401,
+            -0.0013514468320394628
+          ],
+          "rmse_enu_m": [
+            0.0008661712250115255,
+            0.0014505255358439125,
+            0.0016031421899062653
+          ],
+          "first_error_enu_m": [
+            -0.0006093263535658089,
+            0.0020381521173580275,
+            -0.00043102339506084775
+          ],
+          "last_error_enu_m": [
+            -0.002080545647667187,
+            0.0011099392770947958,
+            -0.002113575973797799
+          ],
+          "rmse_m": 0.0023290216405672773,
+          "median_m": 0.0021924631075767773,
+          "p95_m": 0.0031591222808234815,
+          "max_m": 0.006154643763100179
+        },
+        "WINDOW_ALIGN": {
+          "sample_count": 35,
+          "bias_enu_m": [
+            -0.0017617148796845387,
+            0.00223185177287283,
+            -0.0027040498581732994
+          ],
+          "rmse_enu_m": [
+            0.002016888996226623,
+            0.002433232014783889,
+            0.002875254382828679
+          ],
+          "first_error_enu_m": [
+            -0.0016461311551059787,
+            0.001574065819371473,
+            -0.0026908409304463587
+          ],
+          "last_error_enu_m": [
+            0.00019957026515722565,
+            0.0028142825162817964,
+            -0.0033589681454071485
+          ],
+          "rmse_m": 0.004272651053718853,
+          "median_m": 0.00435655975203039,
+          "p95_m": 0.0052169631708427235,
+          "max_m": 0.0055452196151498144
+        },
+        "WINDOW_CROSS": {
+          "sample_count": 42,
+          "bias_enu_m": [
+            0.0012279248433986931,
+            0.004235542830323104,
+            -0.0034078218809584318
+          ],
+          "rmse_enu_m": [
+            0.0014192953830136307,
+            0.004346411117831838,
+            0.0034831862578586516
+          ],
+          "first_error_enu_m": [
+            0.0011391020819190023,
+            0.003063878262399733,
+            -0.0034346093135245725
+          ],
+          "last_error_enu_m": [
+            -0.0005360703137791134,
+            0.0037542941538699637,
+            -0.0037383510534400033
+          ],
+          "rmse_m": 0.005747893135435921,
+          "median_m": 0.005555978996453269,
+          "p95_m": 0.006954978463824657,
+          "max_m": 0.0073496636762414545
+        },
+        "LANDING_APPROACH": {
+          "sample_count": 41,
+          "bias_enu_m": [
+            0.0008829049626644185,
+            0.0019824990649820245,
+            -0.0021205010035850735
+          ],
+          "rmse_enu_m": [
+            0.0011033929447840302,
+            0.0023531676198641858,
+            0.002451574940798209
+          ],
+          "first_error_enu_m": [
+            0.0009711688331455193,
+            0.005224844633595183,
+            -0.0020510032293181713
+          ],
+          "last_error_enu_m": [
+            -0.0007355253615406454,
+            0.0005585981148882313,
+            -0.0011419154918492769
+          ],
+          "rmse_m": 0.0035728271058261683,
+          "median_m": 0.0032652573702105824,
+          "p95_m": 0.00566095349995666,
+          "max_m": 0.00644558963354335
+        },
+        "AUTO_LAND": {
+          "sample_count": 51,
+          "bias_enu_m": [
+            0.000212406164702273,
+            0.0008614882994007097,
+            -0.0010719294349997004
+          ],
+          "rmse_enu_m": [
+            0.0009086463397503982,
+            0.0011649364917648696,
+            0.0012700415334811121
+          ],
+          "first_error_enu_m": [
+            0.0008285422644300766,
+            0.0014266044505528708,
+            0.0005264011257181123
+          ],
+          "last_error_enu_m": [
+            0.0006377555813115166,
+            0.0012922373898383022,
+            -0.0018318602908955484
+          ],
+          "rmse_m": 0.0019482609418027899,
+          "median_m": 0.0018797014248361867,
+          "p95_m": 0.0030324431153147657,
+          "max_m": 0.003759242485567665
+        }
+      }
+    },
+    "camera_capture_age_sim_s": {
+      "median": 0.06400000000000716,
+      "p95": 0.10000000000000142
+    },
+    "provenance": {
+      "sha256_by_file": {
+        "artifacts/markerfree/policy-09/telemetry.jsonl": "882028daee12edcd1e751f3103d1c69d8453d2e34090f48146777b4717e727aa",
+        "artifacts/markerfree/policy-09/observer/truth.jsonl": "a657a0e410eec2ca0daacbe9b8ef15d73749da387bdab091ee977a74d7bdaad7",
+        "artifacts/markerfree/policy-09/observer/contacts.jsonl": "f0c4980197d434af8d09808f27bba6ab5d833f7eb7f5c602e96c6c1e5edcea5e",
+        "artifacts/markerfree/policy-09/observer/status.json": "02ca2bfc596a6c287a9fe0ba59fef1a3493cee2ff99e4be83166e902f0e50c3d",
+        "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+        "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+        "models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+        "models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+        "models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+        "models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+        "models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+        "models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+        "models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+        "models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+        "models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+        "models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+        "models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+        "models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+        "models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+        "models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+        "models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+        "models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+        "models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+        "models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+        "models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+        "models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+        "models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+        "models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+        "models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+        "models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6"
+      },
+      "navigation_source_audit": {
+        "type": "event",
+        "message": "Navigation source audit passed",
+        "world_and_model_sources": [
+          {
+            "path": "/tmp/dronehacks-px4.sdf",
+            "sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+          },
+          {
+            "path": "models/flight_x500/model.sdf",
+            "sha256": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472"
+          },
+          {
+            "path": "models/flight_x500_base/model.sdf",
+            "sha256": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b"
+          },
+          {
+            "path": "models/course_v3/model.sdf",
+            "sha256": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072"
+          }
+        ],
+        "truth_topic": "/model/course_quad/odometry_with_covariance",
+        "truth_topic_publishers": 0,
+        "topic_audit": "No publishers on topic [/model/course_quad/odometry_with_covariance]\nSubscribers [Address, Message Type]:\n  tcp://127.0.0.1:35385, gz.msgs.OdometryWithCovariance",
+        "artificial_landmark_models": 0,
+        "position_aiding": "MAVLink camera/depth estimate only; EKF parameters verified separately",
+        "static_survey_used": true,
+        "live_simulator_position_used": false
+      },
+      "truth_source": "Independent Gazebo dynamic_pose/info observer, world ENU base_link.",
+      "estimate_source": "PX4 LOCAL_POSITION_NED converted to ENU in controller telemetry; camera ENU when logged.",
+      "error_sign": "Estimate minus truth; no fitted frame transform or time shift.",
+      "geometry_scope": "Simulated path, multipart x500 collision envelope, and course CAD proxies. Legacy sphere diagnostics do not determine the score. Geometry certification does not establish physical contacts or official scoring."
+    }
+  },
+  "hover_proof": {
+    "summary": {
+      "type": "summary",
+      "run_id": "f871e087c5214bf6a34954415e79d018",
+      "world": "dronehacks",
+      "vehicle": "course_quad",
+      "vehicle_model": "PX4 x500",
+      "task": "hover",
+      "launch": {
+        "position_enu": [
+          -2.5146,
+          0.9144,
+          0.24
+        ],
+        "yaw_enu_deg": 90.0
+      },
+      "source": "RGBD depth registration to supplied course map + PX4 EKF2",
+      "navigation_source": "RGBD depth registration to supplied course map + PX4 EKF2",
+      "simulator_position_used_for_control": false,
+      "inertial_tilt_prior_enabled": true,
+      "survey_normals": {
+        "method": "fals7",
+        "opencv_version": "4.6.0",
+        "sample_stride_px": 8,
+        "sample_origin_uv_px": [
+          2,
+          2
+        ],
+        "normal_radius_px": 3,
+        "center_curvature_radii_px": [
+          1,
+          2
+        ],
+        "center_curvature_limit_m": [
+          0.014,
+          0.018
+        ],
+        "full_support_window_px": 7,
+        "full_support_requires_valid_depth": true,
+        "full_support_curvature_limit_m": [
+          0.085,
+          0.018
+        ]
+      },
+      "sitl_power_watchdog_enabled": true,
+      "policy_boundary_brake_enabled": false,
+      "policy_checkpoint_sha256": null,
+      "policy_depth_mode": null,
+      "vision_max_capture_gap_s": 0.12,
+      "vision_max_capture_age_s": 0.3,
+      "result": "completed",
+      "fault": null,
+      "elapsed_sim_s": 20.0,
+      "route_elapsed_sim_s": 14.131999999999998,
+      "route_completed": true,
+      "landed_and_disarmed": true,
+      "landed_after_fault": false,
+      "landing_position_enu": [
+        -2.515918254852295,
+        0.912384569644928,
+        0.22576439380645752
+      ],
+      "pad_radius_m": 0.762,
+      "aircraft_radius_m": 0.401,
+      "waypoints_reached": 1,
+      "waypoint_count": 1,
+      "hover_settled_sim_s": 3.035999999999998,
+      "vision_measurements_sent": 701,
+      "policy_actions_received": 0,
+      "policy_setpoints_sent": 0,
+      "policy_boundary_braking_interventions": 0,
+      "policy_boundary_guard_setpoints": 0,
+      "policy_boundary_budget_max_deficit_m": 0.0,
+      "policy_training_camera_forward_m": null,
+      "policy_training_heading_lookahead_m": null,
+      "policy_service_session": null
+    },
+    "score": {
+      "run_id": "f871e087c5214bf6a34954415e79d018",
+      "task": "hover",
+      "mission_result": "completed",
+      "mission_fault": null,
+      "full_route_verified_by_geometry": false,
+      "checks": {
+        "controller_reports_all_waypoints": true,
+        "truth_complete_during_flight": true,
+        "truth_reaches_all_waypoints_in_order": true,
+        "truth_crosses_window_with_full_envelope": false,
+        "truth_multipart_path_certified_clear": true,
+        "truth_transit_floor_checked": true,
+        "px4_ground_and_disarm_confirmed": true,
+        "truth_touchdown_inside_pad": true
+      },
+      "flight_interval_sim_s": [
+        16.408,
+        36.408
+      ],
+      "max_truth_interpolation_gap_s": 0.12,
+      "truth_sample_count": 4620,
+      "truth_flight_points": 2542,
+      "truth_contiguous_chunks": 1,
+      "route": {
+        "reached": 1,
+        "required": 1,
+        "arrivals": [
+          {
+            "index": 0,
+            "phase": "TAKEOFF",
+            "arrival_radius_m": 0.06,
+            "sim_time_s": 26.93319426402102,
+            "verification_radius_m": 0.08
+          }
+        ]
+      },
+      "window": {
+        "full_envelope_crossed": false,
+        "min_aperture_clearance_m": null,
+        "direction": "incomplete",
+        "valid_forward_crossings": 0,
+        "forward_attempts": 0,
+        "valid_reverse_crossings": 0,
+        "margin_m": 0.015,
+        "path_assumption": "Linear translation, shortest-arc attitude, conservative inflated component supports."
+      },
+      "cad_proxy": {
+        "certified_clear": true,
+        "phases": {
+          "takeoff": {
+            "interval_sim_s": [
+              16.408,
+              27.504
+            ],
+            "ground_checked": false,
+            "truth_complete": true,
+            "certified_clear": true,
+            "checked_subsegments": 1411,
+            "first_unresolved": null
+          },
+          "transit": {
+            "interval_sim_s": [
+              27.504,
+              30.54
+            ],
+            "ground_checked": true,
+            "truth_complete": true,
+            "certified_clear": true,
+            "checked_subsegments": 389,
+            "first_unresolved": null
+          },
+          "landing": {
+            "interval_sim_s": [
+              30.54,
+              36.408
+            ],
+            "ground_checked": false,
+            "truth_complete": true,
+            "certified_clear": true,
+            "checked_subsegments": 742,
+            "first_unresolved": null
+          }
+        },
+        "margin_m": 0.015,
+        "component_count": 9,
+        "model": "SDF body/gear boxes and swept rotor cylinders against the course CAD proxy boxes and polygonal tunnel shell. Translation is linear and attitude follows the shortest arc.",
+        "interpretation": "Unresolved component separation can be a conservative false positive."
+      },
+      "legacy_sphere": {
+        "window": {
+          "full_envelope_crossed": false,
+          "min_aperture_clearance_m": null,
+          "direction": "incomplete",
+          "valid_forward_crossings": 0,
+          "forward_attempts": 0,
+          "valid_reverse_crossings": 0,
+          "expanded_half_thickness_m": 0.4108,
+          "path_assumption": "Linear interpolation between supplied positions; conservative full-radius aperture erosion."
+        },
+        "cad_proxy": {
+          "sphere_radius_m": 0.36,
+          "checked_segments": 2541,
+          "hit_segment_count": 0,
+          "first_hit_segment_sim_s": null,
+          "sampled_min_obstacle_clearance_m": 0.04206808012416474,
+          "first_transit_floor_overlap_segment_sim_s": null,
+          "model": "Continuous sphere sweeps over learning.sim CAD box and polygonal tunnel proxies, linear truth segments.",
+          "ground_treatment": "Floor scored separately from the start of hover verification to landing handoff."
+        },
+        "landing_horizontal_clearance_m": 0.3989955892769397
+      },
+      "landing": {
+        "px4_confirmed_ground_and_disarm": true,
+        "truth_time_sim_s": 36.408,
+        "truth_base_link_enu_m": [
+          -2.515912100729165,
+          0.91169724668729,
+          0.22699982021024365
+        ],
+        "pad_center_enu_m": [
+          -2.5146,
+          0.9144,
+          0.0
+        ],
+        "pad_radius_m": 0.762,
+        "horizontal_footprint_radius_bound_m": 0.4081546507290498,
+        "horizontal_envelope_clearance_m": 0.3508409385478899,
+        "ground_height_error_vs_launch_m": 4.147079124550146e-09,
+        "px4_landing_error_enu_m": [
+          -6.154123129764599e-06,
+          0.0006873229576379591,
+          -0.0012354264037861273
+        ],
+        "truth_envelope_inside_pad": true,
+        "truth_height_consistent_with_touchdown": true
+      },
+      "abort_landing": null,
+      "contacts": {
+        "status": "partial_topic_coverage",
+        "topics_with_messages": [
+          "/model/course_quad/contact/base_link"
+        ],
+        "topics_expected": [
+          "/model/course_quad/contact/base_link",
+          "/model/course_quad/contact/rotor_0",
+          "/model/course_quad/contact/rotor_1",
+          "/model/course_quad/contact/rotor_2",
+          "/model/course_quad/contact/rotor_3"
+        ],
+        "topic_discovery_and_observations": {
+          "/model/course_quad/contact/base_link": {
+            "publisher_count_start": 0,
+            "publisher_count_end": 5,
+            "transport_messages_received": 13229,
+            "messages_with_contact_pairs": 13229,
+            "interpretation": "messages_received"
+          },
+          "/model/course_quad/contact/rotor_0": {
+            "publisher_count_start": 0,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_1": {
+            "publisher_count_start": 0,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_2": {
+            "publisher_count_start": 0,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_3": {
+            "publisher_count_start": 0,
+            "publisher_count_end": 1,
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          }
+        },
+        "raw_pair_observations": {
+          "obstacle": 0,
+          "transit_ground": 0,
+          "expected_ground": 5031,
+          "self": 0
+        },
+        "first_obstacle_observation": null,
+        "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact.",
+        "unexpected_contact_observed": false
+      },
+      "px4_position_error": {
+        "timestamp_field": "position_stamp_sim_s",
+        "approximate_loop_timestamp_samples": 0,
+        "unmatched_timestamp_count": 0,
+        "stats": {
+          "sample_count": 182,
+          "bias_enu_m": [
+            0.0010833251212715887,
+            0.0007042486537552899,
+            -0.0018586931774332712
+          ],
+          "rmse_enu_m": [
+            0.001234650965226352,
+            0.001001913792710131,
+            0.0024191958662462044
+          ],
+          "first_error_enu_m": [
+            -0.0005302814483640894,
+            0.0007979086012044334,
+            -0.0007201699049461385
+          ],
+          "last_error_enu_m": [
+            -5.884462911120991e-05,
+            0.0004903296066552931,
+            -0.0011719921605839179
+          ],
+          "rmse_m": 0.0028949443678972287,
+          "median_m": 0.002160347835830671,
+          "p95_m": 0.004749869597772829,
+          "max_m": 0.005409249030274091
+        },
+        "by_phase": {
+          "TAKEOFF": {
+            "sample_count": 100,
+            "bias_enu_m": [
+              0.0011007850479145098,
+              0.0008337738663992922,
+              -0.0020815490390937628
+            ],
+            "rmse_enu_m": [
+              0.001296559132497822,
+              0.0010086727873111325,
+              0.0026150228374951156
+            ],
+            "first_error_enu_m": [
+              -0.0005302814483640894,
+              0.0007979086012044334,
+              -0.0007201699049461385
+            ],
+            "last_error_enu_m": [
+              0.001981423668450777,
+              0.0006275917706359824,
+              -0.002750987741838018
+            ],
+            "rmse_m": 0.003088175969167968,
+            "median_m": 0.002281618977325076,
+            "p95_m": 0.005131123455906927,
+            "max_m": 0.005409249030274091
+          },
+          "HOVER_CHECK": {
+            "sample_count": 28,
+            "bias_enu_m": [
+              0.0011154280055586385,
+              0.001365997628806229,
+              -0.0030071788642118402
+            ],
+            "rmse_enu_m": [
+              0.00118783716254036,
+              0.0015532018178909671,
+              0.0030267804225815177
+            ],
+            "first_error_enu_m": [
+              0.0018495858141376331,
+              0.00042435838282284255,
+              -0.002628312549925682
+            ],
+            "last_error_enu_m": [
+              0.001401670148019285,
+              0.0014939854718887258,
+              -0.0026460463178225035
+            ],
+            "rmse_m": 0.0036034417906127595,
+            "median_m": 0.0037086932145771255,
+            "p95_m": 0.004069610916457484,
+            "max_m": 0.004075986843943463
+          },
+          "AUTO_LAND": {
+            "sample_count": 54,
+            "bias_enu_m": [
+              0.001034345983784005,
+              0.00012125805068442848,
+              -0.0008504860404730982
+            ],
+            "rmse_enu_m": [
+              0.0011370910675749305,
+              0.0004982748593555711,
+              0.0015202517819066456
+            ],
+            "first_error_enu_m": [
+              0.0012654646116789792,
+              0.0013403920550523196,
+              -0.002596121147198649
+            ],
+            "last_error_enu_m": [
+              -5.884462911120991e-05,
+              0.0004903296066552931,
+              -0.0011719921605839179
+            ],
+            "rmse_m": 0.0019627581134247893,
+            "median_m": 0.001712801426607258,
+            "p95_m": 0.0035963534586465388,
+            "max_m": 0.003807279750571699
+          }
+        }
+      },
+      "px4_attitude_error": {
+        "sample_count": 182,
+        "approximate_loop_timestamp_samples": 0,
+        "unmatched_timestamp_count": 0,
+        "rmse_deg": 0.03743911599163609,
+        "p95_deg": 0.04461300875428081,
+        "max_deg": 0.05159110615744106
+      },
+      "camera_position_error": {
+        "timestamp_field": "vision_stamp_sim_s",
+        "approximate_loop_timestamp_samples": 0,
+        "unmatched_timestamp_count": 0,
+        "stats": {
+          "sample_count": 182,
+          "bias_enu_m": [
+            0.0009957643184061442,
+            0.0004700361627428238,
+            -0.0016008265817425524
+          ],
+          "rmse_enu_m": [
+            0.0012947845943082003,
+            0.0007253912841049356,
+            0.0019403795093402602
+          ],
+          "first_error_enu_m": [
+            0.000878089712824881,
+            0.000500375750237092,
+            -0.0013457039973227558
+          ],
+          "last_error_enu_m": [
+            0.0006685077590709021,
+            0.00013995025041391163,
+            -0.002060189723243483
+          ],
+          "rmse_m": 0.002442894246786137,
+          "median_m": 0.0020659789437266736,
+          "p95_m": 0.0038751895546059326,
+          "max_m": 0.005532195993046524
+        },
+        "by_phase": {
+          "TAKEOFF": {
+            "sample_count": 100,
+            "bias_enu_m": [
+              0.001079966782592594,
+              0.00041024155635921764,
+              -0.0014487354182265977
+            ],
+            "rmse_enu_m": [
+              0.0013729252162126481,
+              0.0007071555176766558,
+              0.0017581913127724528
+            ],
+            "first_error_enu_m": [
+              0.000878089712824881,
+              0.000500375750237092,
+              -0.0013457039973227558
+            ],
+            "last_error_enu_m": [
+              0.00013576035830054067,
+              0.0008465378904810583,
+              -0.0026192379847778113
+            ],
+            "rmse_m": 0.002340134455069111,
+            "median_m": 0.0020659789437266736,
+            "p95_m": 0.0037709395069738458,
+            "max_m": 0.004117137481206725
+          },
+          "HOVER_CHECK": {
+            "sample_count": 28,
+            "bias_enu_m": [
+              0.001059608929603614,
+              0.0008111390735523591,
+              -0.002905455630651766
+            ],
+            "rmse_enu_m": [
+              0.0013779482066974662,
+              0.0009066579130615211,
+              0.003027427079987194
+            ],
+            "first_error_enu_m": [
+              0.0007841276177509293,
+              0.0007800252409571051,
+              -0.0026920738019854396
+            ],
+            "last_error_enu_m": [
+              0.0019293188695246322,
+              0.0006261772052926773,
+              -0.0020317689751745416
+            ],
+            "rmse_m": 0.0034476201293497555,
+            "median_m": 0.0034691755023179803,
+            "p95_m": 0.004234919475767225,
+            "max_m": 0.005532195993046524
+          },
+          "AUTO_LAND": {
+            "sample_count": 54,
+            "bias_enu_m": [
+              0.0008067292159584752,
+              0.00040389873932974275,
+              -0.001206002562893245
+            ],
+            "rmse_enu_m": [
+              0.0010840587339641437,
+              0.0006489784725807088,
+              0.0014875454490904708
+            ],
+            "first_error_enu_m": [
+              0.0001267891832710255,
+              0.001389175371643403,
+              -0.0034044620417391647
+            ],
+            "last_error_enu_m": [
+              0.0006685077590709021,
+              0.00013995025041391163,
+              -0.002060189723243483
+            ],
+            "rmse_m": 0.0019517038350289992,
+            "median_m": 0.001766823065869358,
+            "p95_m": 0.0031974361173223473,
+            "max_m": 0.0038517543864831495
+          }
+        }
+      },
+      "camera_capture_age_sim_s": {
+        "median": 0.05600000000000094,
+        "p95": 0.0799999999999983
+      },
+      "provenance": {
+        "sha256_by_file": {
+          "artifacts/markerfree/hover-08/telemetry.jsonl": "1f9c04ceedc78d4b9130b04a78f365bd76aafa311e851f39f7143e30e748e82c",
+          "artifacts/markerfree/hover-08/observer/truth.jsonl": "798509f1f8d7faf0db5df54cf93188688e9f555ab4d3be842e124e21c383a4d0",
+          "artifacts/markerfree/hover-08/observer/contacts.jsonl": "a9615047f830e2ca9a2e59224f8cff40c46a542812da7ec76f7080c04f7c4766",
+          "artifacts/markerfree/hover-08/observer/status.json": "9ca162ab45041e97cb315a63d1be79e7cc1f60467a81496e164d8954334e6b25",
+          "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+          "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+          "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+          "mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+          "models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+          "models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+          "models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+          "models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+          "models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+          "models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+          "models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+          "models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+          "models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+          "models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+          "models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+          "models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+          "models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+          "models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+          "models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+          "models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+          "models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+          "models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+          "models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+          "models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+          "models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+          "models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+          "models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+          "models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+          "models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6"
+        },
+        "navigation_source_audit": {
+          "type": "event",
+          "message": "Navigation source audit passed",
+          "world_and_model_sources": [
+            {
+              "path": "/tmp/dronehacks-px4.sdf",
+              "sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+            },
+            {
+              "path": "models/flight_x500/model.sdf",
+              "sha256": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472"
+            },
+            {
+              "path": "models/flight_x500_base/model.sdf",
+              "sha256": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b"
+            },
+            {
+              "path": "models/course_v3/model.sdf",
+              "sha256": "3b45dbb0683aaf70e47c5e97849c54ad033880746704669877760239ed29b072"
+            }
+          ],
+          "truth_topic": "/model/course_quad/odometry_with_covariance",
+          "truth_topic_publishers": 0,
+          "topic_audit": "No publishers on topic [/model/course_quad/odometry_with_covariance]\nNo subscribers on topic [/model/course_quad/odometry_with_covariance]",
+          "artificial_landmark_models": 0,
+          "position_aiding": "MAVLink camera/depth estimate only; EKF parameters verified separately",
+          "static_survey_used": true,
+          "live_simulator_position_used": false
+        },
+        "truth_source": "Independent Gazebo dynamic_pose/info observer, world ENU base_link.",
+        "estimate_source": "PX4 LOCAL_POSITION_NED converted to ENU in controller telemetry; camera ENU when logged.",
+        "error_sign": "Estimate minus truth; no fitted frame transform or time shift.",
+        "geometry_scope": "Simulated path, multipart x500 collision envelope, and course CAD proxies. Legacy sphere diagnostics do not determine the score. Geometry certification does not establish physical contacts or official scoring."
+      }
+    }
+  },
+  "sensor_diagnostic": {
+    "mode": "gaussian-10mm",
+    "seed": 4417,
+    "configured_renderer": "ogre2",
+    "depth_topic": "/dronehacks/rgbd/depth_image",
+    "noise_mean_m": 0.0,
+    "noise_stddev_m": 0.01,
+    "world_path": "/tmp/dronehacks-px4.sdf",
+    "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+    "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+    "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+  },
+  "px4_runtime": {
+    "executable_path": "/opt/px4/bin/px4",
+    "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+    "build_manifest": {
+      "schema_version": 1,
+      "base_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+      "patches": [
+        {
+          "path": "patches/px4-posix-hrt-serialization.patch",
+          "sha256": "3d7560bf9154091b0c7a2ce5230ac06af719cb51a15e4aa6ab0b65a1fbe0d61c"
+        }
+      ],
+      "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+      "build_adjustments": [
+        "mavlink_loopback_only",
+        "unused_gz_optical_flow_plugin_disabled"
+      ],
+      "build_script_sha256": "cc3e0b9b66ed24ca3a75482c09fafd9abacef7ded7d451d7ec2381facde3ccc3",
+      "base_build_script_sha256": "0f7ec7f2cab668bd7d66b985aa2f5f25db80813c2a4480a11daca65c122be6df",
+      "build_target": "px4_sitl",
+      "compiler_jobs": 1,
+      "runtime_base_image_id": "sha256:1a143b37658705117b3f3b494509b3d86f879da253137afdbe580e6eaa9294df",
+      "package_script_sha256": "618e85ac498adeb0d2432b4094a4896cd82f018f79110b98ebd60618a786451d"
+    },
+    "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+    "manifest_verified": true,
+    "scope": "On-disk SITL executable; launch script starts this path. Not hardware firmware."
+  },
+  "runtime_source_sha256": {
+    "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+    "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+    "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+    "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+    "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+    "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+    "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+    "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+    "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+    "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+    "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+    "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+    "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+    "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+    "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+    "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+    "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+    "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+    "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+    "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+    "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+    "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+    "vision/flight_observe.py": "1d224332701763b45516e61465d9d75a24c597e4869d06beac6ccdec0ccf4dae",
+    "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+    "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+    "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+    "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+    "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+    "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+    "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+    "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+    "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+    "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+    "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+    "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+    "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+    "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69"
+  },
+  "evidence_sha256": {
+    "artifacts/markerfree/policy-09/telemetry.jsonl": "882028daee12edcd1e751f3103d1c69d8453d2e34090f48146777b4717e727aa",
+    "artifacts/markerfree/policy-09/telemetry.summary.json": "5d5804de96a4d9cfa43fb1eaa9ad3f844ff23b0cfefee73858013f460c1e6aee",
+    "artifacts/markerfree/policy-09/score.json": "ea94dc3ed7b449b0c1b5c5a9fcf4e3f41201c97884ef53660ffbd6bc77ac078a",
+    "artifacts/markerfree/policy-09/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+    "artifacts/markerfree/hover-08/telemetry.jsonl": "1f9c04ceedc78d4b9130b04a78f365bd76aafa311e851f39f7143e30e748e82c",
+    "artifacts/markerfree/hover-08/telemetry.summary.json": "1173aed1836ed1ee653142ca049507c88844dc655f113df4b464862fbadaec03",
+    "artifacts/markerfree/hover-08/score.json": "c915bb95234dec25be53dbe374aeb7d88e057eb3ff16169ad555b2ec6187c051",
+    "artifacts/markerfree/hover-08/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b"
+  },
+  "publication_note": "Local checkout prefixes were removed from displayed paths; source and evidence content hashes are unchanged."
+}

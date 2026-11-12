@@ -1,0 +1,75 @@
+POSIX-only candidate backport from PX4 9b62a1701de211fe8d9021f291d5668e8fb38b4e
+Base revision: PX4 54f0455ffcd755534539a7cf33a09a20bf71d29d
+
+--- a/platforms/posix/src/px4/common/drv_hrt.cpp
++++ b/platforms/posix/src/px4/common/drv_hrt.cpp
+@@ -45,7 +45,7 @@
+ #include <px4_platform_common/tasks.h>
+ #include <drivers/drv_hrt.h>
+ 
+-#include <semaphore.h>
++#include <pthread.h>
+ #include <time.h>
+ #include <string.h>
+ #include <errno.h>
+@@ -81,7 +81,7 @@
+ const uint16_t latency_buckets[LATENCY_BUCKET_COUNT] = { 1, 2, 5, 10, 20, 50, 100, 1000 };
+ __EXPORT uint32_t latency_counters[LATENCY_BUCKET_COUNT + 1];
+ 
+-static px4_sem_t 	_hrt_lock;
++static pthread_mutex_t	_hrt_lock;
+ static struct work_s	_hrt_work;
+ 
+ static void hrt_latency_update();
+@@ -91,13 +91,12 @@
+ 
+ static void hrt_lock()
+ {
+-	// loop as the wait may be interrupted by a signal
+-	do {} while (px4_sem_wait(&_hrt_lock) != 0);
++	pthread_mutex_lock(&_hrt_lock);
+ }
+ 
+ static void hrt_unlock()
+ {
+-	px4_sem_post(&_hrt_lock);
++	pthread_mutex_unlock(&_hrt_lock);
+ }
+ 
+ /*
+@@ -221,10 +220,15 @@
+ {
+ 	sq_init(&callout_queue);
+ 
+-	int sem_ret = px4_sem_init(&_hrt_lock, 0, 1);
+-
+-	if (sem_ret) {
+-		PX4_ERR("SEM INIT FAIL: %s", strerror(errno));
++	pthread_mutexattr_t attr;
++	pthread_mutexattr_init(&attr);
++	pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
++
++	const int init_result = pthread_mutex_init(&_hrt_lock, &attr);
++	pthread_mutexattr_destroy(&attr);
++
++	if (init_result != 0) {
++		PX4_ERR("hrt mutex init failed: %s", strerror(init_result));
+ 	}
+ 
+ 	memset(&_hrt_work, 0, sizeof(_hrt_work));
+@@ -440,13 +444,9 @@
+ 
+ 		/* invoke the callout (if there is one) */
+ 		if (call->callout) {
+-			// Unlock so we don't deadlock in callback
+-			hrt_unlock();
+-
+-			//PX4_INFO("call %p: %p(%p)", call, call->callout, call->arg);
++			// Serialize queue mutations until periodic reinsertion. The
++			// recursive lock permits this callback to schedule HRT work.
+ 			call->callout(call->arg);
+-
+-			hrt_lock();
+ 		}
+ 
+ 		/* if the callout has a non-zero period, it has to be re-entered */

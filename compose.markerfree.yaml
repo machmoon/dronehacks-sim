@@ -1,0 +1,14 @@
+# Runtime-only override; the pinned local PX4/Gazebo image is reused.
+name: dronehacks-markerfree
+services:
+  sim:
+    image: ${SIM_PX4_IMAGE:-dronehacks-markerfree:base}
+    command: ["bash", "/workspace/runtime/px4-start.sh"]
+    environment:
+      SIM_VISION_BACKEND: rgbd
+      SIM_TEST_MARKERS: "0"
+      SIM_CAMERA_WIDTH: "384"
+      SIM_CAMERA_HEIGHT: "256"
+      GZ_PARTITION: dronehacks_markerfree
+      SIM_REAL_TIME_FACTOR: ${SIM_REAL_TIME_FACTOR:-0.3}
+      SIM_RGBD_DEPTH_NOISE: ${SIM_RGBD_DEPTH_NOISE:-off}

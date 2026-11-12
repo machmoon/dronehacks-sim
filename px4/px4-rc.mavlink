@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Simulator companion only. No MAVLink FTP, forwarding or broadcast.
+mavlink start -u 14580 -o 14540 -t 127.0.0.1 -m onboard -r 500000
+mavlink stream -u 14580 -s LOCAL_POSITION_NED -r 30
+mavlink stream -u 14580 -s ATTITUDE -r 20

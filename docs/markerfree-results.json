@@ -1,0 +1,134 @@
+{
+  "run_id": "a7f96b9588a441b393cf9289d921a953",
+  "task": "waypoint_baseline_course",
+  "result": "completed",
+  "elapsed_sim_s": 83.0,
+  "route_elapsed_sim_s": 77.86399999999999,
+  "route_waypoints": {
+    "reached": 15,
+    "required": 15
+  },
+  "flight_interval_sim_s": [
+    18.364,
+    101.364
+  ],
+  "takeoff_and_disarm": {
+    "px4_confirmed_ground_and_disarm": true,
+    "truth_touchdown_inside_pad": true,
+    "truth_height_consistent_with_touchdown": true
+  },
+  "window": {
+    "full_envelope_crossed": true,
+    "minimum_aperture_clearance_m": 0.10629901882610049,
+    "inflation_margin_m": 0.015,
+    "valid_forward_crossings": 1
+  },
+  "landing": {
+    "truth_envelope_inside_pad": true,
+    "horizontal_envelope_clearance_m": 0.3139686632305629,
+    "pad_radius_m": 0.762,
+    "horizontal_footprint_radius_bound_m": 0.4081546507290498
+  },
+  "cad_proxy": {
+    "certified_clear": true,
+    "component_count": 9,
+    "inflation_margin_m": 0.015,
+    "phase_checks": {
+      "takeoff": {
+        "certified_clear": true,
+        "truth_complete": true,
+        "checked_subsegments": 1424
+      },
+      "transit": {
+        "certified_clear": true,
+        "truth_complete": true,
+        "checked_subsegments": 8649
+      },
+      "landing": {
+        "certified_clear": true,
+        "truth_complete": true,
+        "checked_subsegments": 658
+      }
+    }
+  },
+  "navigation_integrity": {
+    "truth_used_for_navigation": false,
+    "simulator_position_used_for_control": false,
+    "truth_topic_publishers": 0,
+    "artificial_landmark_models": 0,
+    "navigation_audit_passed": true
+  },
+  "contacts": {
+    "status": "partial_topic_coverage",
+    "topics_with_messages": [
+      "/model/course_quad/contact/base_link"
+    ],
+    "topics_expected": [
+      "/model/course_quad/contact/base_link",
+      "/model/course_quad/contact/rotor_0",
+      "/model/course_quad/contact/rotor_1",
+      "/model/course_quad/contact/rotor_2",
+      "/model/course_quad/contact/rotor_3"
+    ],
+    "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact."
+  },
+  "policy": {
+    "actions_received": 0,
+    "kind": "baseline waypoint controller; not a learned-policy run"
+  },
+  "limits": [
+    "Clearance and route certification use the simulated x500 multipart collision model and supplied course CAD proxy with linear translation, shortest-arc attitude, and 15 mm inflation.",
+    "The modeled envelope is not a measured Skybeta airframe/propeller envelope.",
+    "Contact sensor coverage was partial; silence on rotor contact topics does not establish zero collisions.",
+    "This result is simulator evidence, not official competition scoring or real-flight validation."
+  ],
+  "source_hashes_sha256": {
+    "artifacts/markerfree/course-08/telemetry.jsonl": "26495dfb204e4adf4808d5bef131f2589a72ab53dc9a9b42a192c4a19cb46a3c",
+    "artifacts/markerfree/course-08/observer/truth.jsonl": "269b4a9703b4b1cf041360ab9d6929ea983bb39a19e27b6dc4f0dd8f1dd037ae",
+    "artifacts/markerfree/course-08/observer/contacts.jsonl": "946629fc50e6403f186a5d017301a12197bfa3cef6f92f9b6e5b208a8cb063d6",
+    "artifacts/markerfree/course-08/observer/status.json": "2e125bda10d951ce063ff2a5fa23fa52fafc2b89a283bb03212adaca83903c03",
+    "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+    "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+    "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+    "mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+    "models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+    "models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+    "models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+    "models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+    "models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+    "models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+    "models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+    "models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+    "models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+    "models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+    "models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+    "models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+    "models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+    "models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+    "models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+    "models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+    "models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+    "models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+    "models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+    "models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+    "models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+    "models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+    "models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+    "models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+    "models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6"
+  },
+  "score_reference": "artifacts/markerfree/course-08/score.json",
+  "telemetry_reference": "artifacts/markerfree/course-08/telemetry.jsonl",
+  "recording_reference": "artifacts/markerfree/course-08/recording.json",
+  "full_route_verified_by_geometry": true,
+  "score_checks": {
+    "controller_reports_all_waypoints": true,
+    "truth_complete_during_flight": true,
+    "truth_reaches_all_waypoints_in_order": true,
+    "truth_crosses_window_with_full_envelope": true,
+    "truth_multipart_path_certified_clear": true,
+    "truth_transit_floor_checked": true,
+    "px4_ground_and_disarm_confirmed": true,
+    "truth_touchdown_inside_pad": true
+  }
+}

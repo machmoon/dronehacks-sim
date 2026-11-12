@@ -1,0 +1,364 @@
+{
+  "cad_proxy": {
+    "certified_clear": false,
+    "component_count": 9,
+    "interpretation": "Unresolved component separation can be a conservative false positive.",
+    "margin_m": 0.015,
+    "model": "SDF body/gear boxes and swept rotor cylinders against the course CAD proxy boxes and polygonal tunnel shell. Translation is linear and attitude follows the shortest arc.",
+    "phases": {
+      "abort_landing": {
+        "certified_clear": false,
+        "checked_subsegments": 1718,
+        "first_unresolved": null,
+        "ground_checked": false,
+        "interval_sim_s": [
+          36.868,
+          50.612
+        ],
+        "truth_complete": false
+      },
+      "takeoff": {
+        "certified_clear": true,
+        "checked_subsegments": 1400,
+        "first_unresolved": null,
+        "ground_checked": false,
+        "interval_sim_s": [
+          18.504,
+          29.58
+        ],
+        "truth_complete": true
+      },
+      "transit": {
+        "certified_clear": true,
+        "checked_subsegments": 925,
+        "first_unresolved": null,
+        "ground_checked": true,
+        "interval_sim_s": [
+          29.58,
+          36.868
+        ],
+        "truth_complete": true
+      }
+    }
+  },
+  "checks": {
+    "camera_aid_stopped_through_abort": true,
+    "expected_fault_observed": true,
+    "independent_touchdown_observed": true,
+    "injection_fault_land_ack_disarm_events_ordered": true,
+    "no_unexpected_contact_in_received_messages": true,
+    "policy_task_and_pre_injection_action_present": true,
+    "pre_fault_and_abort_multipart_geometry_certified_clear": false,
+    "px4_auto_land_mode_observed": true,
+    "px4_ground_and_disarm_confirmed_after_fault": true
+  },
+  "contacts_through_disarm": {
+    "first_abort_floor_contact": {
+      "pairs": [
+        [
+          "course_quad::base_link::base_link_collision_4",
+          "ground_plane::ground::floor"
+        ]
+      ],
+      "sim_time_s": 38.348,
+      "source": "Gazebo contact sensor; raw observations only",
+      "topic": "/model/course_quad/contact/base_link"
+    },
+    "first_obstacle_observation": null,
+    "interpretation": "Sensor observations only; counts can repeat. Publisher advertisement is not a health check, and silence cannot establish zero physical contact.",
+    "raw_pair_observations": {
+      "expected_ground": 8947,
+      "obstacle": 0,
+      "self": 0,
+      "transit_ground": 0
+    },
+    "status": "partial_topic_coverage",
+    "topic_discovery_and_observations": {
+      "/model/course_quad/contact/base_link": {
+        "interpretation": "messages_received",
+        "messages_with_contact_pairs": 17629,
+        "publisher_count_end": 5,
+        "publisher_count_start": 5,
+        "transport_messages_received": 17629
+      },
+      "/model/course_quad/contact/rotor_0": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      },
+      "/model/course_quad/contact/rotor_1": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      },
+      "/model/course_quad/contact/rotor_2": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      },
+      "/model/course_quad/contact/rotor_3": {
+        "interpretation": "publisher_advertised_no_messages_observed",
+        "messages_with_contact_pairs": 0,
+        "publisher_count_end": 1,
+        "publisher_count_start": 1,
+        "transport_messages_received": 0
+      }
+    },
+    "topics_expected": [
+      "/model/course_quad/contact/base_link",
+      "/model/course_quad/contact/rotor_0",
+      "/model/course_quad/contact/rotor_1",
+      "/model/course_quad/contact/rotor_2",
+      "/model/course_quad/contact/rotor_3"
+    ],
+    "topics_with_messages": [
+      "/model/course_quad/contact/base_link"
+    ]
+  },
+  "expected_fault": "stale_policy_action",
+  "fault_test_passed": false,
+  "independent_truth": {
+    "at_confirmed_disarm_enu_m": [
+      -2.5070884298899623,
+      2.4922473628606543,
+      0.22699931042304533
+    ],
+    "at_fault_enu_m": [
+      -2.5088804991548947,
+      2.4199645838950534,
+      0.9514962294832622
+    ],
+    "at_first_floor_contact_enu_m": [
+      -2.5070705824256416,
+      2.492499576502525,
+      0.2264856291620894
+    ],
+    "at_injection_enu_m": [
+      -2.5098358193767396,
+      2.335799096738337,
+      0.9482590685380952
+    ],
+    "horizontal_displacement_fault_to_disarm_m": 0.07230499047258236,
+    "horizontal_displacement_injection_to_disarm_m": 0.15647238772918193
+  },
+  "mission_fault": "stale_policy_action",
+  "mission_result": "failed",
+  "provenance": {
+    "fault_timestamp_source": "Controller arming simulation time plus summary elapsed simulation time.",
+    "max_truth_interpolation_gap_s": 0.12,
+    "sha256_by_file": {
+      "artifacts/markerfree/blackout-02/observer/contacts.jsonl": "2d89eaefd50f206bd72e8c53ae46270aac88faa4168ee9ecd2d8515a7b00905e",
+      "artifacts/markerfree/blackout-02/observer/status.json": "9051fb7412f618a3664a575e6b4fbc39dc13338afea760ca3927c743221bacec",
+      "artifacts/markerfree/blackout-02/observer/truth.jsonl": "15639c58e890ee1014a2cbba817cd0fac1915a5fdb658f41f50594dc69be2fca",
+      "artifacts/markerfree/blackout-02/telemetry.jsonl": "43d0651683ea2e6a55aa5ef3ed92dbd4124293c7f410777211da1e374323134f",
+      "artifacts/px4/log/2026-11-07/17_09_21.ulg": "40bfa86b80c70c8d1123c71225844c1175efe6fa476163eb7aa20a618995f912",
+      "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+      "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+      "mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+      "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+      "models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+      "models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+      "models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+      "models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+      "models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+      "models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+      "models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+      "models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+      "models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+      "models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+      "models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+      "models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+      "models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+      "models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+      "models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+      "models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6",
+      "models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+      "models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+      "models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+      "models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+      "models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+      "models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+      "models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+      "models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+      "models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+      "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+      "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+      "tools/score_blackout.py": "84c457cff91192041796d099b4015f687e79a389f710a54af24d3309bea44c03",
+      "tools/score_markerfree.py": "d276e14117862a1ea505a33f7d3dce1b4e782ae75f377773febfbe7db910dcf3"
+    }
+  },
+  "px4_transitions": {
+    "arming_state": [
+      {
+        "sim_time_s": 18.42,
+        "value": 2
+      },
+      {
+        "sim_time_s": 50.032,
+        "value": 1
+      }
+    ],
+    "barometer_height_aid": [
+      {
+        "sim_time_s": 0.452,
+        "value": 0
+      }
+    ],
+    "external_vision_height_aid": [
+      {
+        "sim_time_s": 3.984,
+        "value": 1
+      },
+      {
+        "sim_time_s": 37.244,
+        "value": 0
+      }
+    ],
+    "failsafe": [
+      {
+        "sim_time_s": 0.476,
+        "value": 0
+      },
+      {
+        "sim_time_s": 41.332,
+        "value": 1
+      },
+      {
+        "sim_time_s": 50.032,
+        "value": 0
+      }
+    ],
+    "land_detected": [
+      {
+        "sim_time_s": 20.112,
+        "value": 0
+      },
+      {
+        "sim_time_s": 40.036,
+        "value": 1
+      },
+      {
+        "sim_time_s": 41.852,
+        "value": 0
+      },
+      {
+        "sim_time_s": 48.024,
+        "value": 1
+      }
+    ],
+    "navigation_state": [
+      {
+        "sim_time_s": 18.42,
+        "value": 14
+      },
+      {
+        "sim_time_s": 36.892,
+        "value": 18
+      },
+      {
+        "sim_time_s": 41.332,
+        "value": 12
+      },
+      {
+        "sim_time_s": 50.032,
+        "value": 14
+      }
+    ],
+    "vertical_position_valid": [
+      {
+        "sim_time_s": 3.984,
+        "value": 1
+      },
+      {
+        "sim_time_s": 41.852,
+        "value": 0
+      }
+    ]
+  },
+  "run_id": "2ad1a3a99c3e43c0bc464cf7e1aed84a",
+  "scope": "Injected RGBD aid loss followed by floor landing and disarm. The multipart proxy checks obstacles throughout and permits floor contact during takeoff and abort landing. Contact observations are limited to received sensor messages.",
+  "timeline_sim_s": {
+    "controller_armed_offboard": 18.504,
+    "controller_confirmed_ground_and_disarm": 50.612,
+    "expected_fault": 36.868,
+    "independent_first_floor_contact": 38.348,
+    "injected_camera_aiding_stop": 36.512,
+    "px4_disarmed": 50.032,
+    "px4_entered_auto_land": 36.892
+  },
+  "vision_aiding": {
+    "controller_send_count_unchanged_in_recorded_samples_after_injection": true,
+    "controller_total_vision_measurements_sent": 660,
+    "interpretation": "The ULog count measures logged updates. Logger sampling and any unobserved records limit absence claims, including when no dropout mark is present.",
+    "px4_ulog": {
+      "coverage_sim_s": [
+        0.524,
+        51.02
+      ],
+      "dropout_records": [],
+      "dropout_records_overlapping_blackout": [],
+      "file_corruption_detected": false,
+      "last_visual_odometry_capture_sim_s": 36.45231,
+      "last_visual_odometry_receipt_sim_s": 36.5,
+      "logged_visual_odometry_records_after_injection": 0,
+      "px4_git_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+      "spans_blackout_without_reported_dropouts_or_corruption": true,
+      "vehicle_visual_odometry_record_count": 651
+    },
+    "source_guard": {
+      "checked_runner_source_sha256": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+      "interpretation": "Telemetry records runtime_source_sha256 when available. A missing hash means runner-source identity cannot be established for that historical run; the scorer hashes the currently checked source but does not retroactively attribute it to the run.",
+      "recorded_hash_matches_checked_source": true,
+      "recorded_runner_source_sha256": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77"
+    }
+  },
+  "registration_compliance": {
+    "protocol_sha256": "95fcd8202d52b15affa4b59a809bba78e96deb307c46e949110edfc31fe5a898",
+    "run_id": "2ad1a3a99c3e43c0bc464cf7e1aed84a",
+    "checks": {
+      "flight_source_hashes_match_registration": true,
+      "px4_binary_matches_registration": true,
+      "checkpoint_matches": true,
+      "noise_configuration_matches": true,
+      "task_matches": true,
+      "normals_match": true,
+      "capture_gap_matches": true,
+      "capture_age_matches": true,
+      "guard_matches": true,
+      "raw_policy_depth": true,
+      "heading_matches": true,
+      "launch_position_matches": true,
+      "launch_yaw_matches": true,
+      "injection_after_at_least_18s": true,
+      "fault_matches": true
+    },
+    "all_checks_passed": true,
+    "actual_injection_after_arming_sim_s": 18.008,
+    "trigger_overshoot_sim_s": 0.007999999999999119,
+    "note": "Trigger is evaluated in the mission loop; measured overshoot is reported, not retuned into an acceptance tolerance. This checks registration compliance; fault-test.json independently scores the response."
+  },
+  "abort_truth_gaps_over_120ms": [
+    {
+      "start_sim_s": 50.384,
+      "end_sim_s": 50.588,
+      "gap_sim_s": 0.20400000000000063
+    }
+  ],
+  "assessment": "Eight of nine fault-response checks passed. The full fault test did not pass because a 204ms independent truth gap lies within the abort interval. The geometry scorer reports incomplete evidence, with no unresolved obstacle separation in the observed segments. The original result is retained; no interpolation threshold was relaxed.",
+  "source_artifacts": {
+    "artifacts/markerfree/blackout-02/fault-test.json": "1881dddd5ccf1637585073041201bcea21b18ed383b279b03f20945d9ac8e5f9",
+    "artifacts/markerfree/blackout-02/protocol-check.json": "3c2707c892c25f426cadc78c2df81a46cad09122d4e8e5a15e7d8dd7c8af5310",
+    "artifacts/markerfree/blackout-02/telemetry.jsonl": "43d0651683ea2e6a55aa5ef3ed92dbd4124293c7f410777211da1e374323134f",
+    "artifacts/markerfree/blackout-02/telemetry.summary.json": "fbd37863ea89128c9d46faa0791bd236742e3a602876df7b6bb5fdbf91e3c56e",
+    "artifacts/markerfree/blackout-02/observer/truth.jsonl": "15639c58e890ee1014a2cbba817cd0fac1915a5fdb658f41f50594dc69be2fca",
+    "artifacts/markerfree/blackout-02/observer/contacts.jsonl": "2d89eaefd50f206bd72e8c53ae46270aac88faa4168ee9ecd2d8515a7b00905e",
+    "artifacts/markerfree/blackout-02/observer/status.json": "9051fb7412f618a3664a575e6b4fbc39dc13338afea760ca3927c743221bacec",
+    "artifacts/markerfree/blackout-02/recording.json": "5b3ff5d1b5ca5e113fd4e37c8c7c3151993a03be32911250fa4750492148823b"
+  }
+}

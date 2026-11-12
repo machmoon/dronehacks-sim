@@ -1,0 +1,105 @@
+{
+  "px4_version": "1.16.2",
+  "px4_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+  "vehicle": "Official PX4 Gazebo x500 with a downward RGB camera",
+  "navigation": "OpenCV AprilTag map pose -> MAVLink external vision -> PX4 EKF2 -> Offboard velocity control",
+  "ground_truth_position_used_for_control": false,
+  "verified_estimator_fusion": {
+    "external_vision_position": true,
+    "external_vision_height": true,
+    "external_vision_yaw": true,
+    "GNSS_position": false,
+    "GNSS_velocity": false,
+    "barometer_height": false,
+    "range_height": false,
+    "optical_flow": false
+  },
+  "runs": [
+    {
+      "id": "hover-camera",
+      "mode": "headless",
+      "camera_resolution": [
+        640,
+        480
+      ],
+      "speed_scale": 0.45,
+      "type": "summary",
+      "run_id": "eb37f20f4dd34638997029ace37510ed",
+      "result": "completed",
+      "elapsed_sim_s": 30.040000000000003,
+      "route_completed": true,
+      "waypoints_reached": 1,
+      "waypoint_count": 1,
+      "navigation_source": "camera + PX4 EKF2",
+      "vision_measurements_sent": 1051,
+      "simulator_position_used_for_control": false,
+      "note": "Estimator-based waypoint completion; collision/clearance not scored here"
+    },
+    {
+      "id": "course-camera-640",
+      "mode": "GUI",
+      "camera_resolution": [
+        640,
+        480
+      ],
+      "speed_scale": 0.45,
+      "type": "summary",
+      "run_id": "01685981ae184f3e837b8fc086f15e88",
+      "result": "completed",
+      "elapsed_sim_s": 94.696,
+      "route_completed": true,
+      "waypoints_reached": 15,
+      "waypoint_count": 15,
+      "navigation_source": "camera + PX4 EKF2",
+      "vision_measurements_sent": 2990,
+      "simulator_position_used_for_control": false,
+      "note": "Estimator-based waypoint completion; collision/clearance not scored here"
+    },
+    {
+      "id": "course-camera-480",
+      "mode": "GUI",
+      "camera_resolution": [
+        480,
+        360
+      ],
+      "desktop_resolution": [
+        800,
+        600
+      ],
+      "speed_scale": 0.45,
+      "type": "summary",
+      "run_id": "1c7b01aa97d64a46900d693a9cc0f72a",
+      "result": "completed",
+      "elapsed_sim_s": 96.376,
+      "route_completed": true,
+      "waypoints_reached": 15,
+      "waypoint_count": 15,
+      "navigation_source": "camera + PX4 EKF2",
+      "vision_measurements_sent": 3248,
+      "simulator_position_used_for_control": false,
+      "note": "Estimator-based waypoint completion; collision/clearance not scored here"
+    }
+  ],
+  "limits": [
+    "Added surveyed markers; not natural-scene stereo VIO.",
+    "Stock x500 dynamics and ideal camera; not a calibrated Skybeta model.",
+    "Completion is based on PX4 estimated waypoint arrival. Collisions and swept clearance are not scored for these runs.",
+    "All runs end at a position hold above the landing pad, not a landing.",
+    "No hardware validation."
+  ],
+  "camera_measurement_dropout_test": {
+    "result": "expected abort and landing observed",
+    "injected_at_mission_sim_s": 18,
+    "route_abort_delay_sim_s": 0.568,
+    "bridge_fault": "camera_tracking_lost",
+    "PX4_reported_landed": true,
+    "PX4_reported_disarmed": true,
+    "EV_fusion_stopped": true,
+    "injection": "Stop forwarding camera-derived pose messages to PX4; camera rendering itself continues.",
+    "flight_phase": "climb at approximately 0.5 m estimated body height",
+    "camera_resolution": [
+      480,
+      360
+    ]
+  }
+}

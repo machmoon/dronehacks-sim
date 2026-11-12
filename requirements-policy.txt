@@ -1,0 +1,4 @@
+# Host-only inference service tested on Apple Silicon macOS with Python 3.11.7.
+# Direct package pins only; this is not a transitive dependency lock.
+torch==2.15.0
+numpy==2.4.6

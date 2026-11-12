@@ -1,0 +1,147 @@
+{
+  "scope": "Finite simulation checks of a candidate upstream POSIX HRT backport; not proof of the historical fault cause or its elimination.",
+  "build_manifest": {
+    "schema_version": 1,
+    "base_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+    "patches": [
+      {
+        "path": "patches/px4-posix-hrt-serialization.patch",
+        "sha256": "3d7560bf9154091b0c7a2ce5230ac06af719cb51a15e4aa6ab0b65a1fbe0d61c"
+      }
+    ],
+    "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+    "build_adjustments": [
+      "mavlink_loopback_only",
+      "unused_gz_optical_flow_plugin_disabled"
+    ],
+    "build_script_sha256": "cc3e0b9b66ed24ca3a75482c09fafd9abacef7ded7d451d7ec2381facde3ccc3",
+    "base_build_script_sha256": "0f7ec7f2cab668bd7d66b985aa2f5f25db80813c2a4480a11daca65c122be6df",
+    "build_target": "px4_sitl",
+    "compiler_jobs": 1,
+    "runtime_base_image_id": "sha256:1a143b37658705117b3f3b494509b3d86f879da253137afdbe580e6eaa9294df",
+    "package_script_sha256": "618e85ac498adeb0d2432b4094a4896cd82f018f79110b98ebd60618a786451d"
+  },
+  "callback_smoke": {
+    "source": "PX4 v1.16.2 built-in hrt_test on patched disarmed SITL",
+    "callback_Test_lines": 6,
+    "final_called_output": true,
+    "final_cancelled_output": true,
+    "log_sha256": "bcd038ceef7184f6aa4328631144588f8a2c595501b3a7d6f3d2a4921d8e89ac",
+    "scope": "Same-thread callback re-entry smoke only; no proof that the intermittent queue race is eliminated.",
+    "passed": true
+  },
+  "publisher_soak": {
+    "passed": true,
+    "sample_count": 186,
+    "observed_sim_seconds": 60.256,
+    "requested_sim_seconds": 60.0,
+    "publishers_advanced": {
+      "battery_status": true,
+      "system_power": true,
+      "cpuload": true
+    },
+    "errors": [],
+    "wall_seconds": 200.9750536290012,
+    "log_sha256": "5d7ee4eca939942e8a98fb5424e5e4f17b60b34127ce2bf96f7bed2373d2887f",
+    "scope": "Finite passive SITL publisher soak. No arming-transition test or flight proof."
+  },
+  "hover": {
+    "run_id": "580a12e1fc18451f858793e65b1afd86",
+    "elapsed_sim_s": 19.0,
+    "landed_and_disarmed": true,
+    "cad_proxy_clear": true,
+    "landing": {
+      "px4_confirmed_ground_and_disarm": true,
+      "truth_time_sim_s": 121.34,
+      "truth_base_link_enu_m": [
+        -2.517203072604463,
+        0.9164499551829581,
+        0.22699881672214303
+      ],
+      "pad_center_enu_m": [
+        -2.5146,
+        0.9144,
+        0.0
+      ],
+      "pad_radius_m": 0.762,
+      "horizontal_footprint_radius_bound_m": 0.4081546507290498,
+      "horizontal_envelope_clearance_m": 0.35053199700530707,
+      "ground_height_error_vs_launch_m": -9.99341021490352e-07,
+      "px4_landing_error_enu_m": [
+        0.000839451846406547,
+        0.0006271093312020248,
+        -0.0011538225347879905
+      ],
+      "truth_envelope_inside_pad": true,
+      "truth_height_consistent_with_touchdown": true
+    }
+  },
+  "sha256_by_file": {
+    "artifacts/px4/hrt-backport-build/image/build-manifest.json": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+    "artifacts/markerfree/hrt-soak-01/telemetry.summary.json": "c0eb1c1331a525228678428d248a301b075e8a0e878c3adc069044fa6b6864b6",
+    "artifacts/markerfree/hrt-soak-01/reentrant-callback-smoke.json": "7c87e2f08314d854f6026920c3d9f9c4ba156c5900ad792bd3dcc5c8a813f3a1",
+    "artifacts/markerfree/hover-03/score.json": "12095e68f3997a73a74f528030939c813fd083d72f3ef675a56de22e040df335",
+    "artifacts/markerfree/hover-03/telemetry.summary.json": "f085c32eafa6551f1038c66d2f6f8d99f8f5bb29eaa64f3065029b77852f507f",
+    "artifacts/markerfree/hrt-soak-post-policy09/telemetry.jsonl": "fd41a59c7d7a25836956ab5c5cca89669fde5dae7fa4f9a32fa764f9f2b6dcc3",
+    "artifacts/markerfree/hrt-soak-post-policy09/telemetry.summary.json": "38785f56a7ec57c760f9883b5e6ce2ec3ad172095518957a7c47f31e4275e20b"
+  },
+  "post_policy09_publisher_soak": {
+    "preceding_run_id": "08cd4ca1a7b248d19e275ea042628f97",
+    "condition": "Same PX4 process after policy-09 landed/disarmed; passive listener sampling, no arming or parameter change during soak.",
+    "metadata": {
+      "type": "metadata",
+      "px4_runtime": {
+        "executable_path": "/opt/px4/bin/px4",
+        "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+        "build_manifest": {
+          "schema_version": 1,
+          "base_revision": "54f0455ffcd755534539a7cf33a09a20bf71d29d",
+          "patches": [
+            {
+              "path": "patches/px4-posix-hrt-serialization.patch",
+              "sha256": "3d7560bf9154091b0c7a2ce5230ac06af719cb51a15e4aa6ab0b65a1fbe0d61c"
+            }
+          ],
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "build_adjustments": [
+            "mavlink_loopback_only",
+            "unused_gz_optical_flow_plugin_disabled"
+          ],
+          "build_script_sha256": "cc3e0b9b66ed24ca3a75482c09fafd9abacef7ded7d451d7ec2381facde3ccc3",
+          "base_build_script_sha256": "0f7ec7f2cab668bd7d66b985aa2f5f25db80813c2a4480a11daca65c122be6df",
+          "build_target": "px4_sitl",
+          "compiler_jobs": 1,
+          "runtime_base_image_id": "sha256:1a143b37658705117b3f3b494509b3d86f879da253137afdbe580e6eaa9294df",
+          "package_script_sha256": "618e85ac498adeb0d2432b4094a4896cd82f018f79110b98ebd60618a786451d"
+        },
+        "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+        "manifest_verified": true,
+        "scope": "On-disk SITL executable; launch script starts this path. Not hardware firmware."
+      },
+      "script_sha256": "edcd09954aa994e0263e12174d5aeb89cc1a83ef50d783d3123e86b99d2f9ca3",
+      "source": "read-only px4-listener; no arm, setpoint, parameter or actuator commands",
+      "max_publication_age_sim_s": 0.8,
+      "timing": "Publication stamps bracketed by IMU reads; \u00b1200 ms future tolerance."
+    },
+    "result": {
+      "passed": true,
+      "sample_count": 1869,
+      "observed_sim_seconds": 600.108,
+      "requested_sim_seconds": 600.0,
+      "publishers_advanced": {
+        "battery_status": true,
+        "system_power": true,
+        "cpuload": true
+      },
+      "errors": [],
+      "wall_seconds": 2001.5905709619983,
+      "log_sha256": "fd41a59c7d7a25836956ab5c5cca89669fde5dae7fa4f9a32fa764f9f2b6dcc3",
+      "scope": "Finite passive SITL publisher soak. No arming-transition test or flight proof."
+    },
+    "assessment_recomputed_from_all_samples": true,
+    "sim_interval_usec": [
+      140732000,
+      740840000
+    ]
+  }
+}

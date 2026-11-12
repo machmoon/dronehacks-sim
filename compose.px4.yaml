@@ -1,0 +1,26 @@
+name: dronehacks-px4
+services:
+  sim:
+    image: dronehacks-px4:local
+    build:
+      context: .
+      dockerfile: Dockerfile.px4
+    init: true
+    shm_size: 256m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "2"
+    environment:
+      SIM_WORLD: ${SIM_WORLD:-worlds/course.sdf}
+      SIM_GUI: ${SIM_GUI:-1}
+      SIM_DESKTOP_SIZE: ${SIM_DESKTOP_SIZE:-800x600}
+      SIM_CAMERA_WIDTH: ${SIM_CAMERA_WIDTH:-480}
+      SIM_CAMERA_HEIGHT: ${SIM_CAMERA_HEIGHT:-360}
+      SIM_TEST_MARKERS: ${SIM_TEST_MARKERS:-0}
+    ports:
+      - "127.0.0.1:${GZ_GUI_PORT:-8080}:6080"
+    volumes:
+      - .:/workspace:ro
+      - ./artifacts:/workspace/artifacts

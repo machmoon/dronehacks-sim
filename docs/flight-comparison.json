@@ -1,0 +1,2183 @@
+{
+  "schema": "dronehacks.flight-comparison.v1",
+  "clock": "simulation time",
+  "scope": "Nine completed individual simulation runs; not a statistical reliability estimate.",
+  "timing_definition": "Armed flight starts at the PX4 armed event. Route begins at verified hover and ends at route-complete event; landing follows. Total is recorded armed-flight duration through completed landing.",
+  "runs": [
+    {
+      "run": "course-08",
+      "run_id": "a7f96b9588a441b393cf9289d921a953",
+      "controller": "waypoint controller",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "policy_checkpoint_sha256": null,
+      "policy_boundary_brake_enabled": false,
+      "policy_boundary_brake_flag_recorded": false,
+      "policy_actions_received": 0,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 14.032,
+        "verified_hover_to_route_complete": 63.832,
+        "route_complete_to_landing": 5.136,
+        "total_armed_flight": 83.0,
+        "arm_sim_time": 18.364,
+        "verified_hover_sim_time": 32.396,
+        "route_complete_sim_time": 96.228,
+        "landing_sim_time": 101.364,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault"
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.10629901882610049
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.3139686632305629
+        }
+      },
+      "sections": [
+        {
+          "phase": "HOVER_CHECK",
+          "waypoint_index": 1,
+          "duration_s": 0.1
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "duration_s": 5.2
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "duration_s": 4.136
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "duration_s": 4.732
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "duration_s": 4.2
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "duration_s": 5.0
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "duration_s": 4.4
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "duration_s": 4.332
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "duration_s": 3.068
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "duration_s": 4.964
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "duration_s": 3.4
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "duration_s": 6.332
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "duration_s": 4.036
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "duration_s": 5.268
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "duration_s": 4.664
+        }
+      ],
+      "input_sha256": {
+        "artifacts/markerfree/course-08/telemetry.jsonl": "26495dfb204e4adf4808d5bef131f2589a72ab53dc9a9b42a192c4a19cb46a3c",
+        "artifacts/markerfree/course-08/telemetry.summary.json": "46b06d0e16107d035c43a3a084273022bede440d768885b4f8fd16896999c18c",
+        "artifacts/markerfree/course-08/score.json": "9ae82f020fa294c3ac926e55dbc77420a9f7ab2cc90a2197482e8348c434fd57",
+        "artifacts/markerfree/course-08/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c"
+      },
+      "aggregate_section_timings_s": {
+        "maze": 18.068,
+        "gate_a": 4.4,
+        "tunnel_and_chicane": 15.764,
+        "window": 15.636,
+        "landing_approach": 4.664
+      }
+    },
+    {
+      "run": "course-09",
+      "run_id": "c832c9292ca3457aaf2b89ac7bd661a5",
+      "controller": "waypoint controller",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "policy_checkpoint_sha256": null,
+      "policy_boundary_brake_enabled": false,
+      "policy_boundary_brake_flag_recorded": false,
+      "policy_actions_received": 0,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 13.312,
+        "verified_hover_to_route_complete": 63.86,
+        "route_complete_to_landing": 4.828,
+        "total_armed_flight": 82.0,
+        "arm_sim_time": 23.512,
+        "verified_hover_sim_time": 36.824,
+        "route_complete_sim_time": 100.684,
+        "landing_sim_time": 105.512,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault"
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.10957369037847739
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.3173853598855277
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "duration_s": 0.036
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "duration_s": 5.1
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "duration_s": 4.132
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "duration_s": 5.2
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "duration_s": 4.1
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "duration_s": 5.0
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "duration_s": 4.436
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "duration_s": 4.284
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "duration_s": 2.912
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "duration_s": 5.0
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "duration_s": 3.6
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "duration_s": 6.288
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "duration_s": 3.98
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "duration_s": 5.132
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "duration_s": 4.66
+        }
+      ],
+      "input_sha256": {
+        "artifacts/markerfree/course-09/telemetry.jsonl": "750122eee5b5a6024455937c8d061d0b4ee7edd5dc280d1a06898f6ad26cd813",
+        "artifacts/markerfree/course-09/telemetry.summary.json": "ff4c10e9c59e6455b2496c68ca63c1014f5cef3579682146ecac6bad33ead355",
+        "artifacts/markerfree/course-09/score.json": "18c6195e27947118f71ba151d42d7e37d8618dbd512ff91bc09937ff3c053181",
+        "artifacts/markerfree/course-09/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c"
+      },
+      "aggregate_section_timings_s": {
+        "maze": 18.432,
+        "gate_a": 4.436,
+        "tunnel_and_chicane": 15.796,
+        "window": 15.4,
+        "landing_approach": 4.66
+      }
+    },
+    {
+      "run": "course-10",
+      "run_id": "dfa48ddec0d94b42badec092e300a685",
+      "controller": "waypoint controller",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500-tuned.json",
+        "sha256": "f4f834da84648e4657154ffe47d5d516b98e39288ae24bc9b36b3f6b13b43ca0",
+        "matches_launch_waypoints": true
+      },
+      "policy_checkpoint_sha256": null,
+      "policy_boundary_brake_enabled": false,
+      "policy_boundary_brake_flag_recorded": true,
+      "policy_actions_received": 0,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 14.132,
+        "verified_hover_to_route_complete": 62.636,
+        "route_complete_to_landing": 5.232,
+        "total_armed_flight": 82.0,
+        "arm_sim_time": 18.54,
+        "verified_hover_sim_time": 32.672,
+        "route_complete_sim_time": 95.308,
+        "landing_sim_time": 100.54,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault"
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.10845887255242762
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.3129742689023261
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "duration_s": 0.032
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "duration_s": 5.064
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "duration_s": 4.296
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "duration_s": 4.808
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "duration_s": 4.0
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "duration_s": 4.668
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "duration_s": 4.288
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "duration_s": 4.5
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "duration_s": 2.908
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "duration_s": 5.092
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "duration_s": 3.572
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "duration_s": 6.068
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "duration_s": 4.0
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "duration_s": 4.772
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "duration_s": 4.568
+        }
+      ],
+      "input_sha256": {
+        "artifacts/markerfree/course-10/telemetry.jsonl": "02e66e97879cf77fc5aba75ebf8a9a4c2943a4b76ce0c8bc5118b21bdd627ceb",
+        "artifacts/markerfree/course-10/telemetry.summary.json": "43953a7b5c56810f821731888d49484110e28649db925ee0832c7608a1089a06",
+        "artifacts/markerfree/course-10/score.json": "31fe3da281092869225b8ae61082ea9890f76470371209dd1c2bb38fc62d7a78",
+        "artifacts/markerfree/course-10/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "mission/course-window-x500-tuned.json": "f4f834da84648e4657154ffe47d5d516b98e39288ae24bc9b36b3f6b13b43ca0",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c"
+      },
+      "aggregate_section_timings_s": {
+        "maze": 17.772,
+        "gate_a": 4.288,
+        "tunnel_and_chicane": 16.072,
+        "window": 14.84,
+        "landing_approach": 4.568
+      }
+    },
+    {
+      "run": "policy-03",
+      "run_id": "38958b31e4a4456f8f522164f823342b",
+      "controller": "learned policy",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "policy_checkpoint_sha256": "3602a898cad3f3ec91be78786c0811aa1ab0bd2f2d3a6b8f909edcf64c0cdf56",
+      "policy_boundary_brake_enabled": true,
+      "policy_boundary_brake_flag_recorded": true,
+      "policy_actions_received": 364,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 13.332,
+        "verified_hover_to_route_complete": 58.16,
+        "route_complete_to_landing": 5.508,
+        "total_armed_flight": 77.0,
+        "arm_sim_time": 26.54,
+        "verified_hover_sim_time": 39.872,
+        "route_complete_sim_time": 98.032,
+        "landing_sim_time": 103.54,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault"
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.0932627394813233
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.311355781995304
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "duration_s": 0.068
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "duration_s": 5.224
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "duration_s": 4.108
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "duration_s": 4.668
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "duration_s": 3.436
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "duration_s": 5.164
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "duration_s": 3.96
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "duration_s": 3.368
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "duration_s": 2.54
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "duration_s": 3.932
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "duration_s": 2.456
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "duration_s": 5.904
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "duration_s": 4.096
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "duration_s": 4.808
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "duration_s": 4.428
+        }
+      ],
+      "input_sha256": {
+        "artifacts/markerfree/policy-03/telemetry.jsonl": "9d99eeef259055483e31805bff9067122b9b54b8feeb2545e8b4a77e0aee979a",
+        "artifacts/markerfree/policy-03/telemetry.summary.json": "a55978a894ca40f9428794d4f8d525e349c1c29f7cee36211fbfb2efbd1eb44b",
+        "artifacts/markerfree/policy-03/score.json": "f078aac57ce07722908e7ec698b0b2f0f8f0132bbaa8602b604fb3b43d8f045e",
+        "artifacts/markerfree/policy-03/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c"
+      },
+      "aggregate_section_timings_s": {
+        "maze": 17.376,
+        "gate_a": 3.96,
+        "tunnel_and_chicane": 12.296,
+        "window": 14.808,
+        "landing_approach": 4.428
+      },
+      "limitations": [
+        "Simulation evidence only, not a physical-flight or official competition result.",
+        "Independent route and clearance checks use offline simulated truth and modeled CAD envelopes.",
+        "Results are individual runs and do not estimate statistical reliability."
+      ]
+    },
+    {
+      "run": "policy-08",
+      "run_id": "8897b96383fd493bafc3d033ba78edf7",
+      "score_run_id_matches_telemetry": true,
+      "controller": "learned policy",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "policy_configuration": {
+        "policy_depth_mode": "raw",
+        "depth_normals": {
+          "method": "fals7",
+          "opencv_version": "4.6.0",
+          "sample_stride_px": 8,
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "normal_radius_px": 3,
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "full_support_window_px": 7,
+          "full_support_requires_valid_depth": true,
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ]
+        },
+        "sensor_diagnostic": {
+          "mode": "control",
+          "seed": 4417,
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.0,
+          "world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987"
+        },
+        "vision_max_capture_gap_s": 0.12,
+        "vision_max_capture_age_s": 0.3,
+        "speed_scale": 1.0,
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_boundary_brake": {
+          "response_s": 0.8,
+          "command_lead_s": 0.4,
+          "position_reserve_m": 0.04,
+          "max_estimate_age_s": 0.06,
+          "max_setpoint_gap_s": 0.1,
+          "scope": "Predictive planar bound guard; no formal safety guarantee"
+        }
+      },
+      "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+      "policy_boundary_brake_enabled": true,
+      "policy_boundary_brake_flag_recorded": true,
+      "policy_actions_received": 364,
+      "policy_setpoints_sent_aggregate_only": 4612,
+      "policy_boundary_braking_interventions": 200,
+      "policy_boundary_guard_setpoints": 4707,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 14.128,
+        "verified_hover_to_route_complete": 58.2,
+        "route_complete_to_landing": 5.672,
+        "total_armed_flight": 78.0,
+        "arm_sim_time": 16.416,
+        "verified_hover_sim_time": 30.544,
+        "route_complete_sim_time": 88.744,
+        "landing_sim_time": 94.416,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault",
+        "score_run_id_matches_telemetry": true
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.09232112721195665
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.3108803573827256
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "duration_s": 0.016
+        },
+        {
+          "phase": "HOVER_CHECK",
+          "waypoint_index": 1,
+          "duration_s": 0.1
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "duration_s": 5.132
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "duration_s": 3.72
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "duration_s": 4.504
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "duration_s": 3.66
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "duration_s": 5.216
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "duration_s": 3.888
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "duration_s": 3.468
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "duration_s": 2.576
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "duration_s": 4.036
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "duration_s": 2.784
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "duration_s": 5.9
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "duration_s": 4.0
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "duration_s": 4.78
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "duration_s": 4.42
+        }
+      ],
+      "input_sha256": {
+        "artifacts/markerfree/policy-08/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "artifacts/markerfree/policy-08/score.json": "1931dbe58cd20fa5554c6acaa10cc0d0478e4480e0525f4b9270ea9da961d7f4",
+        "artifacts/markerfree/policy-08/telemetry.jsonl": "b42331cf71440e20534fe34b8e9c2437e6ba3d5cf8b3306188d2190d47c2e781",
+        "artifacts/markerfree/policy-08/telemetry.summary.json": "3c45a63d04b877f6e2399ef0e3a0266ecffe344a7d25a0ce6747e922cd86d1fd",
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+        "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "1d224332701763b45516e61465d9d75a24c597e4869d06beac6ccdec0ccf4dae",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+        "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+        "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+        "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "aggregate_section_timings_s": {
+        "maze": 17.1,
+        "gate_a": 3.888,
+        "tunnel_and_chicane": 12.864,
+        "window": 14.68,
+        "landing_approach": 4.42
+      },
+      "limitations": [
+        "Simulation evidence only, not a physical-flight or official competition result.",
+        "Independent route and clearance checks use offline simulated truth and modeled CAD envelopes.",
+        "Results are individual runs and do not estimate statistical reliability.",
+        "Policy-08 and policy-09 share FALS7 and route settings but differ in configured depth noise; do not interpret their timing difference as a reliability or speed promotion."
+      ]
+    },
+    {
+      "run": "policy-09",
+      "run_id": "08cd4ca1a7b248d19e275ea042628f97",
+      "score_run_id_matches_telemetry": true,
+      "controller": "learned policy",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "policy_configuration": {
+        "policy_depth_mode": "raw",
+        "depth_normals": {
+          "method": "fals7",
+          "opencv_version": "4.6.0",
+          "sample_stride_px": 8,
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "normal_radius_px": 3,
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "full_support_window_px": 7,
+          "full_support_requires_valid_depth": true,
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ]
+        },
+        "sensor_diagnostic": {
+          "mode": "gaussian-10mm",
+          "seed": 4417,
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.01,
+          "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+        },
+        "vision_max_capture_gap_s": 0.12,
+        "vision_max_capture_age_s": 0.3,
+        "speed_scale": 1.0,
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_boundary_brake": {
+          "response_s": 0.8,
+          "command_lead_s": 0.4,
+          "position_reserve_m": 0.04,
+          "max_estimate_age_s": 0.06,
+          "max_setpoint_gap_s": 0.1,
+          "scope": "Predictive planar bound guard; no formal safety guarantee"
+        }
+      },
+      "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+      "policy_boundary_brake_enabled": true,
+      "policy_boundary_brake_flag_recorded": true,
+      "policy_actions_received": 363,
+      "policy_setpoints_sent_aggregate_only": 4604,
+      "policy_boundary_braking_interventions": 237,
+      "policy_boundary_guard_setpoints": 4695,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 14.104,
+        "verified_hover_to_route_complete": 58.2,
+        "route_complete_to_landing": 5.696,
+        "total_armed_flight": 78.0,
+        "arm_sim_time": 17.5,
+        "verified_hover_sim_time": 31.604,
+        "route_complete_sim_time": 89.804,
+        "landing_sim_time": 95.5,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault",
+        "score_run_id_matches_telemetry": true
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.09534238053425942
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.31225069838463343
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "duration_s": 0.064
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "duration_s": 5.148
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "duration_s": 3.716
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "duration_s": 4.4
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "duration_s": 3.652
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "duration_s": 5.22
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "duration_s": 4.012
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "duration_s": 3.5
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "duration_s": 2.5
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "duration_s": 4.084
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "duration_s": 2.784
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "duration_s": 5.932
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "duration_s": 4.0
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "duration_s": 4.668
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "duration_s": 4.52
+        }
+      ],
+      "input_sha256": {
+        "artifacts/markerfree/policy-09/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "artifacts/markerfree/policy-09/score.json": "ea94dc3ed7b449b0c1b5c5a9fcf4e3f41201c97884ef53660ffbd6bc77ac078a",
+        "artifacts/markerfree/policy-09/telemetry.jsonl": "882028daee12edcd1e751f3103d1c69d8453d2e34090f48146777b4717e727aa",
+        "artifacts/markerfree/policy-09/telemetry.summary.json": "5d5804de96a4d9cfa43fb1eaa9ad3f844ff23b0cfefee73858013f460c1e6aee",
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+        "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "1d224332701763b45516e61465d9d75a24c597e4869d06beac6ccdec0ccf4dae",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+        "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+        "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+        "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52"
+      },
+      "aggregate_section_timings_s": {
+        "maze": 16.988,
+        "gate_a": 4.012,
+        "tunnel_and_chicane": 12.868,
+        "window": 14.6,
+        "landing_approach": 4.52
+      },
+      "limitations": [
+        "Simulation evidence only, not a physical-flight or official competition result.",
+        "Independent route and clearance checks use offline simulated truth and modeled CAD envelopes.",
+        "Results are individual runs and do not estimate statistical reliability.",
+        "Policy-08 and policy-09 share FALS7 and route settings but differ in configured depth noise; do not interpret their timing difference as a reliability or speed promotion."
+      ]
+    },
+    {
+      "run": "policy-10",
+      "run_id": "ba4dda9c4208471a8dee0a8025eb62ff",
+      "score_run_id_matches_telemetry": true,
+      "controller": "learned policy",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "scorer_geometry_route": {
+        "file": "mission/course-window-fast.json",
+        "sha256": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "role": "Independent scorer CAD/course geometry import; not the flown route file."
+      },
+      "policy_configuration": {
+        "policy_depth_mode": "raw",
+        "depth_normals": {
+          "method": "fals7",
+          "opencv_version": "4.6.0",
+          "sample_stride_px": 8,
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "normal_radius_px": 3,
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "full_support_window_px": 7,
+          "full_support_requires_valid_depth": true,
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ]
+        },
+        "sensor_diagnostic": {
+          "mode": "gaussian-10mm",
+          "seed": 4417,
+          "configured_renderer": "ogre2",
+          "depth_topic": "/dronehacks/rgbd/depth_image",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.01,
+          "world_path": "/tmp/dronehacks-px4.sdf",
+          "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+        },
+        "vision_max_capture_gap_s": 0.12,
+        "vision_max_capture_age_s": 0.3,
+        "speed_scale": 1.0,
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_boundary_brake": {
+          "response_s": 0.8,
+          "command_lead_s": 0.4,
+          "position_reserve_m": 0.04,
+          "max_estimate_age_s": 0.06,
+          "max_setpoint_gap_s": 0.1,
+          "scope": "Predictive planar bound guard; no formal safety guarantee"
+        },
+        "launch": {
+          "position_enu": [
+            -2.4746,
+            0.9144,
+            0.24
+          ],
+          "yaw_enu_deg": 90.0
+        },
+        "launch_prior_diagnostic": {
+          "physical_spawn_base_link_enu_m": [
+            -2.5146,
+            0.9144,
+            0.24
+          ],
+          "declared_launch_prior_enu_m": [
+            -2.4746,
+            0.9144,
+            0.24
+          ],
+          "prior_offset_enu_m": [
+            0.04,
+            0.0,
+            0.0
+          ],
+          "yaw_deg": 90.0,
+          "interpretation": "The CLI launch value seeds Vision and is also the declared launch used by startup position qualification and the exact-match hover-proof contract. This is a bounded combined launch-prior/declared-launch perturbation, not an estimator-only intervention. Yaw is unchanged to avoid simultaneously changing the initial yaw command.",
+          "observer_source_amendment": {
+            "file": "vision/flight_observe.py",
+            "original_sha256": "1d224332701763b45516e61465d9d75a24c597e4869d06beac6ccdec0ccf4dae",
+            "planned_sha256": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+            "actual_recorded_sha256": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+            "truth_queue_capacity": 512,
+            "contact_queue_capacity": 2048
+          }
+        }
+      },
+      "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+      "policy_boundary_brake_enabled": true,
+      "policy_boundary_brake_flag_recorded": true,
+      "policy_actions_received": 369,
+      "policy_setpoints_sent_aggregate_only": 4657,
+      "policy_boundary_braking_interventions": 210,
+      "policy_boundary_guard_setpoints": 4761,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 14.092,
+        "verified_hover_to_route_complete": 59.004,
+        "route_complete_to_landing": 4.904,
+        "total_armed_flight": 78.0,
+        "arm_sim_time": 17.516,
+        "verified_hover_sim_time": 31.608,
+        "route_complete_sim_time": 90.612,
+        "landing_sim_time": 95.516,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault",
+        "score_run_id_matches_telemetry": true
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.09474755924285763
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.2984291757546418
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "start_sim_s": 31.608,
+          "end_sim_s": 31.692,
+          "duration_s": 0.08399999999999963
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "start_sim_s": 31.692,
+          "end_sim_s": 36.824,
+          "duration_s": 5.131999999999998
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "start_sim_s": 36.824,
+          "end_sim_s": 40.516,
+          "duration_s": 3.692
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "start_sim_s": 40.516,
+          "end_sim_s": 45.18,
+          "duration_s": 4.6640000000000015
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "start_sim_s": 45.18,
+          "end_sim_s": 48.792,
+          "duration_s": 3.612000000000002
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "start_sim_s": 48.792,
+          "end_sim_s": 53.924,
+          "duration_s": 5.131999999999998
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "start_sim_s": 53.924,
+          "end_sim_s": 57.824,
+          "duration_s": 3.8999999999999986
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "start_sim_s": 57.824,
+          "end_sim_s": 61.292,
+          "duration_s": 3.4680000000000035
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "start_sim_s": 61.292,
+          "end_sim_s": 64.016,
+          "duration_s": 2.7240000000000038
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "start_sim_s": 64.016,
+          "end_sim_s": 68.024,
+          "duration_s": 4.007999999999996
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "start_sim_s": 68.024,
+          "end_sim_s": 71.26,
+          "duration_s": 3.236000000000004
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "start_sim_s": 71.26,
+          "end_sim_s": 77.244,
+          "duration_s": 5.983999999999995
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "start_sim_s": 77.244,
+          "end_sim_s": 81.26,
+          "duration_s": 4.016000000000005
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "start_sim_s": 81.26,
+          "end_sim_s": 86.144,
+          "duration_s": 4.884
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "start_sim_s": 86.144,
+          "end_sim_s": 90.612,
+          "duration_s": 4.467999999999989
+        }
+      ],
+      "aggregate_section_timings_s": {
+        "first_corridor": 5.132,
+        "maze": 17.1,
+        "gate_a": 3.9,
+        "tunnel_and_chicane": 13.436,
+        "window": 14.884,
+        "landing_approach": 4.468
+      },
+      "input_sha256": {
+        "artifacts/markerfree/policy-10/telemetry.jsonl": "bd92704dc08dd344c444acee5674fb730420c83f168d67bce1c257911a13563e",
+        "artifacts/markerfree/policy-10/telemetry.summary.json": "44d2c96746a5bd3f913160b10a7304cc15518e0cc7c64fbaf8c69fdf77973fb9",
+        "artifacts/markerfree/policy-10/score.json": "a09683d2f30c7c6e508b65b3d139fc7d11f25445374178bc219a415a6f6d87f1",
+        "artifacts/markerfree/policy-10/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "artifacts/markerfree/policy-10/observer/truth.jsonl": "079012646959f32ade269a40f39c20d14d1b6b0b986c3aa67977a4c77b75ae6b",
+        "artifacts/markerfree/policy-10/observer/contacts.jsonl": "cdd3eea33a63456905b4d634073f208338099f45b592df6e695da5f17cd4f511",
+        "artifacts/markerfree/policy-10/observer/status.json": "251489e7f1e21379419ccbc17bbf42dd30753160fc96a1e0b7d9b2bda59b9e22",
+        "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c",
+        "mission/course-window-fast.json (scorer geometry only)": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "docs/experiments/launch-prior-01/protocol.json": "0ac20af264636850e7fb22650bd4abd99d02e0e22b61ef0a91f4255ac1160941",
+        "checkpoints/window-depth-v1.pt": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26"
+      },
+      "runtime_source_sha256_at_launch": {
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+        "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+        "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+        "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+        "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69"
+      },
+      "contact_coverage": {
+        "truth_messages": 12015,
+        "recording_complete": true,
+        "evidence_loss": false,
+        "truth_queue_overflow": 0,
+        "contact_queue_overflow": 0,
+        "topics": {
+          "/model/course_quad/contact/base_link": {
+            "transport_messages_received": 13155,
+            "messages_with_contact_pairs": 13155,
+            "interpretation": "messages_received"
+          },
+          "/model/course_quad/contact/rotor_0": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_1": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_2": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_3": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          }
+        },
+        "scope": "Observed Gazebo contact streams only; rotor-topic silence is not a zero-physical-contact claim."
+      },
+      "limitations": [
+        "One completed simulation run; no speed-promotion, causal, robustness, or reliability conclusion.",
+        "Independent route and clearance checks use offline Gazebo truth and modeled CAD envelopes.",
+        "Contact coverage is partial: the base-link topic carried messages while rotor topics had no messages observed; this does not establish zero physical contacts."
+      ],
+      "launch_prior_prerequisite_hover": {
+        "run": "hover-09",
+        "run_id": "123c3c168ec24e3c83b66621993b09d3",
+        "score_run_id_matches_telemetry": true,
+        "acceptance_passed": true,
+        "hover_settled_sim_s": 3.004000000000005,
+        "applicable_independent_checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "full_route_window_check_applicability": "Not required for a hover prerequisite.",
+        "HOVER_CHECK_max_position_error_m": {
+          "px4": 0.00405885861093422,
+          "camera": 0.004393562115149934,
+          "limit": 0.08
+        },
+        "unmatched_error_timestamps": 0,
+        "approximate_loop_timestamp_samples": 0,
+        "obstacle_and_transit_ground_contact_pairs": {
+          "obstacle": 0,
+          "transit_ground": 0
+        },
+        "observer_recording_complete_no_known_queue_loss": true,
+        "contact_scope": "Partial topic coverage; rotor silence is not a zero-physical-contact claim.",
+        "input_sha256": {
+          "artifacts/markerfree/hover-09/telemetry.jsonl": "93c1914656737e2a7e3051c8a63c7e409aa851a1170b6b13017bc2a63efe1943",
+          "artifacts/markerfree/hover-09/telemetry.summary.json": "feac7d3a4eca16592f2fff4913c87497015c9b93e510529fb949239c9f2759a0",
+          "artifacts/markerfree/hover-09/score.json": "99389ff2c8ff3a855d7d39100b244362c376743fdba0f6d60fb1a27a93e2a355",
+          "artifacts/markerfree/hover-09/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+          "artifacts/markerfree/hover-09/observer/truth.jsonl": "4c9e0ae916b1de03016403c06e125d4caa8478722807b4cc015ff8dbb214d342",
+          "artifacts/markerfree/hover-09/observer/contacts.jsonl": "33281e3985f9d7b573a43842fbd16214b6c250995e793b72fbc5bd7314a5f920",
+          "artifacts/markerfree/hover-09/observer/status.json": "dbf07f7bb325219750c537118ab2d3083876d7bd695ba7976dbdfc8853b82bab"
+        }
+      }
+    },
+    {
+      "run": "policy-11",
+      "run_id": "079bab46abe7432ca8c59d81dbbd124c",
+      "score_run_id_matches_telemetry": true,
+      "controller": "learned policy",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "scorer_geometry_route": {
+        "file": "mission/course-window-fast.json",
+        "sha256": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "role": "Independent scorer CAD/course geometry import; not the flown route file."
+      },
+      "policy_configuration": {
+        "policy_depth_mode": "raw",
+        "depth_normals": {
+          "method": "fals7",
+          "opencv_version": "4.6.0",
+          "sample_stride_px": 8,
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "normal_radius_px": 3,
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "full_support_window_px": 7,
+          "full_support_requires_valid_depth": true,
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ]
+        },
+        "sensor_diagnostic": {
+          "mode": "gaussian-10mm",
+          "seed": 4417,
+          "configured_renderer": "ogre2",
+          "depth_topic": "/dronehacks/rgbd/depth_image",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.01,
+          "world_path": "/tmp/dronehacks-px4.sdf",
+          "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+          "source_world_sha256": "a71ae7deba7ed784d461b73e0b91f3327bd4b46d0cb55443881ee46eba3ef92d",
+          "world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+        },
+        "vision_max_capture_gap_s": 0.12,
+        "vision_max_capture_age_s": 0.3,
+        "speed_scale": 1.0,
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_boundary_brake": {
+          "response_s": 0.8,
+          "command_lead_s": 0.4,
+          "position_reserve_m": 0.04,
+          "max_estimate_age_s": 0.06,
+          "max_setpoint_gap_s": 0.1,
+          "scope": "Predictive planar bound guard; no formal safety guarantee"
+        },
+        "launch": {
+          "position_enu": [
+            -2.5146,
+            0.9144,
+            0.24
+          ],
+          "yaw_enu_deg": 90.0
+        },
+        "world_condition": {
+          "condition": "net-ablation control; original net visuals present and collisions retained",
+          "treatment_world_was_not_flown_in_this_entry": true,
+          "protocol_world_sha256": "310294b72f716efdd11b25c6ac949d94a8065d6cc705c97e23e1cc97511110c0"
+        }
+      },
+      "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+      "policy_boundary_brake_enabled": true,
+      "policy_boundary_brake_flag_recorded": true,
+      "policy_actions_received": 361,
+      "policy_setpoints_sent_aggregate_only": 4598,
+      "policy_boundary_braking_interventions": 214,
+      "policy_boundary_guard_setpoints": 4658,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 14.172,
+        "verified_hover_to_route_complete": 57.636,
+        "route_complete_to_landing": 5.192,
+        "total_armed_flight": 77.0,
+        "arm_sim_time": 19.488,
+        "verified_hover_sim_time": 33.66,
+        "route_complete_sim_time": 91.296,
+        "landing_sim_time": 96.488,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault",
+        "score_run_id_matches_telemetry": true
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.0825705800917422
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.3036325739050393
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "start_sim_s": 33.66,
+          "end_sim_s": 33.732,
+          "duration_s": 0.07200000000000273
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "start_sim_s": 33.732,
+          "end_sim_s": 38.84,
+          "duration_s": 5.108000000000004
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "start_sim_s": 38.84,
+          "end_sim_s": 42.408,
+          "duration_s": 3.567999999999998
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "start_sim_s": 42.408,
+          "end_sim_s": 46.808,
+          "duration_s": 4.399999999999999
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "start_sim_s": 46.808,
+          "end_sim_s": 50.464,
+          "duration_s": 3.655999999999999
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "start_sim_s": 50.464,
+          "end_sim_s": 55.568,
+          "duration_s": 5.103999999999999
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "start_sim_s": 55.568,
+          "end_sim_s": 59.408,
+          "duration_s": 3.8400000000000034
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "start_sim_s": 59.408,
+          "end_sim_s": 62.84,
+          "duration_s": 3.432000000000002
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "start_sim_s": 62.84,
+          "end_sim_s": 65.376,
+          "duration_s": 2.5360000000000014
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "start_sim_s": 65.376,
+          "end_sim_s": 69.376,
+          "duration_s": 4.0
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "start_sim_s": 69.376,
+          "end_sim_s": 71.84,
+          "duration_s": 2.4639999999999986
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "start_sim_s": 71.84,
+          "end_sim_s": 77.696,
+          "duration_s": 5.8559999999999945
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "start_sim_s": 77.696,
+          "end_sim_s": 81.796,
+          "duration_s": 4.1000000000000085
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "start_sim_s": 81.796,
+          "end_sim_s": 86.676,
+          "duration_s": 4.8799999999999955
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "start_sim_s": 86.676,
+          "end_sim_s": 91.296,
+          "duration_s": 4.6200000000000045
+        }
+      ],
+      "aggregate_section_timings_s": {
+        "first_corridor": 5.108,
+        "maze": 16.728,
+        "gate_a": 3.84,
+        "tunnel_and_chicane": 12.432,
+        "window": 14.836,
+        "landing_approach": 4.62
+      },
+      "input_sha256": {
+        "artifacts/markerfree/policy-11/telemetry.jsonl": "8b9007ef30b3a5826ca8f20e6f6fcf1fd187cd391ad6771778367343c1870e28",
+        "artifacts/markerfree/policy-11/telemetry.summary.json": "a51e57d163cb1c6d1e12bebd4026e62dd89a799ca8654e54dc705fc6a03dc340",
+        "artifacts/markerfree/policy-11/score.json": "b1bba241868e0863bc7ada6bc8ba714fda13ed773fe76e91f4900acbeb570623",
+        "artifacts/markerfree/policy-11/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "artifacts/markerfree/policy-11/observer/truth.jsonl": "965b780d8104bda1891ab0cbcbe9c3e9cac8a94da5105fcc4c428b7c124e1ff2",
+        "artifacts/markerfree/policy-11/observer/contacts.jsonl": "ac4560569151e7709d8ed30256b39f728afe450cc3cefbf2c03b9beec1b7646e",
+        "artifacts/markerfree/policy-11/observer/status.json": "9ab8e0e38bb2c462591159c1f0d6ec1f99ad4101eea5defc30e6995843bfc0a5",
+        "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c",
+        "mission/course-window-fast.json (scorer geometry only)": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "docs/experiments/net-visual-ablation-01/protocol.json": "b1a971901d1eeb05e639bd5477eadec256e23aca04516848fe5fbd7bfa219061",
+        "checkpoints/window-depth-v1.pt": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26"
+      },
+      "runtime_source_sha256_at_launch": {
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+        "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+        "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+        "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+        "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69"
+      },
+      "contact_coverage": {
+        "truth_messages": 11901,
+        "recording_complete": true,
+        "evidence_loss": false,
+        "truth_queue_overflow": 0,
+        "contact_queue_overflow": 0,
+        "topics": {
+          "/model/course_quad/contact/base_link": {
+            "transport_messages_received": 13326,
+            "messages_with_contact_pairs": 13326,
+            "interpretation": "messages_received"
+          },
+          "/model/course_quad/contact/rotor_0": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_1": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_2": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_3": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          }
+        },
+        "scope": "Observed Gazebo contact streams only; rotor-topic silence is not a zero-physical-contact claim."
+      },
+      "limitations": [
+        "One completed simulation run; no speed-promotion, causal, robustness, or reliability conclusion.",
+        "Independent route and clearance checks use offline Gazebo truth and modeled CAD envelopes.",
+        "Contact coverage is partial: the base-link topic carried messages while rotor topics had no messages observed; this does not establish zero physical contacts."
+      ]
+    },
+    {
+      "run": "policy-01 (clean export)",
+      "run_id": "26f5ee4841b84e3db77ad1f9b4a07917",
+      "score_run_id_matches_telemetry": true,
+      "controller": "learned policy",
+      "result": "completed",
+      "route_profile": {
+        "file": "mission/course-window-x500.json",
+        "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "matches_launch_waypoints": true
+      },
+      "scorer_geometry_route": {
+        "file": "mission/course-window-fast.json",
+        "sha256": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "role": "Independent scorer CAD/course geometry import; not the flown route file."
+      },
+      "policy_configuration": {
+        "policy_depth_mode": "raw",
+        "depth_normals": {
+          "method": "fals7",
+          "opencv_version": "4.6.0",
+          "sample_stride_px": 8,
+          "sample_origin_uv_px": [
+            2,
+            2
+          ],
+          "normal_radius_px": 3,
+          "center_curvature_radii_px": [
+            1,
+            2
+          ],
+          "center_curvature_limit_m": [
+            0.014,
+            0.018
+          ],
+          "full_support_window_px": 7,
+          "full_support_requires_valid_depth": true,
+          "full_support_curvature_limit_m": [
+            0.085,
+            0.018
+          ]
+        },
+        "sensor_diagnostic": {
+          "mode": "gaussian-10mm",
+          "seed": 4417,
+          "configured_renderer": "ogre2",
+          "depth_topic": "/dronehacks/rgbd/depth_image",
+          "noise_mean_m": 0.0,
+          "noise_stddev_m": 0.01,
+          "world_path": "/tmp/dronehacks-px4.sdf",
+          "configuration_tool_sha256": "be0316afabd579e80c78de8c3862842eaf32a6ba405f8284881823adc0e2adc0",
+          "source_world_sha256": "ed393956c69e40523539bfc01a4b4ccad77b41634b2428c8e7761bba3702a987",
+          "world_sha256": "6b09ab544187a899712c5e18ec523b8905ab1992595b4f784616cd5bea017be5"
+        },
+        "vision_max_capture_gap_s": 0.12,
+        "vision_max_capture_age_s": 0.3,
+        "speed_scale": 1.0,
+        "heading_lookahead_m": 1.8,
+        "inertial_tilt_prior_enabled": true,
+        "policy_boundary_brake_enabled": true,
+        "policy_boundary_brake": {
+          "response_s": 0.8,
+          "command_lead_s": 0.4,
+          "position_reserve_m": 0.04,
+          "max_estimate_age_s": 0.06,
+          "max_setpoint_gap_s": 0.1,
+          "scope": "Predictive planar bound guard; no formal safety guarantee"
+        },
+        "launch": {
+          "position_enu": [
+            -2.5146,
+            0.9144,
+            0.24
+          ],
+          "yaw_enu_deg": 90.0
+        },
+        "px4_runtime": {
+          "px4_binary_sha256": "d66c6838d114ab2b6f3912904bea9a9d87cf7e147ab668353d39d34771effa31",
+          "manifest_verified": true,
+          "build_manifest_sha256": "29b803e0d2fc259c8733dafba61076fc1d8b8e0ebce2b79db32671e1b7433abc",
+          "scope": "On-disk SITL executable; launch script starts this path. Not hardware firmware."
+        }
+      },
+      "policy_checkpoint_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+      "policy_boundary_brake_enabled": true,
+      "policy_boundary_brake_flag_recorded": true,
+      "policy_actions_received": 364,
+      "policy_setpoints_sent_aggregate_only": 4603,
+      "policy_boundary_braking_interventions": 193,
+      "policy_boundary_guard_setpoints": 4697,
+      "timing_sim_s": {
+        "arm_to_verified_hover": 14.184,
+        "verified_hover_to_route_complete": 58.164,
+        "route_complete_to_landing": 5.652,
+        "total_armed_flight": 78.0,
+        "arm_sim_time": 23.528,
+        "verified_hover_sim_time": 37.712,
+        "route_complete_sim_time": 95.876,
+        "landing_sim_time": 101.528,
+        "timing_basis": "simulation timestamps only; contiguous sample labels are held to the next sample; gaps over max_sample_gap_s are unobserved; route ends at success event or is censored at fault",
+        "score_run_id_matches_telemetry": true
+      },
+      "route": {
+        "controller_waypoints_reached": 15,
+        "waypoints_required": 15,
+        "truth_waypoints_reached": 15,
+        "truth_waypoints_required": 15,
+        "full_route_verified_by_geometry": true,
+        "checks": {
+          "controller_reports_all_waypoints": true,
+          "truth_complete_during_flight": true,
+          "truth_reaches_all_waypoints_in_order": true,
+          "truth_crosses_window_with_full_envelope": true,
+          "truth_multipart_path_certified_clear": true,
+          "truth_transit_floor_checked": true,
+          "px4_ground_and_disarm_confirmed": true,
+          "truth_touchdown_inside_pad": true
+        },
+        "window": {
+          "full_envelope_crossed": true,
+          "min_aperture_clearance_m": 0.09815156262933566
+        },
+        "pad": {
+          "truth_touchdown_inside_pad": true,
+          "horizontal_envelope_clearance_m": 0.3090421276005534
+        }
+      },
+      "sections": [
+        {
+          "phase": "UNOBSERVED",
+          "waypoint_index": null,
+          "start_sim_s": 37.712,
+          "end_sim_s": 37.808,
+          "duration_s": 0.09599999999999653
+        },
+        {
+          "phase": "FIRST_CORRIDOR",
+          "waypoint_index": 1,
+          "start_sim_s": 37.808,
+          "end_sim_s": 43.02,
+          "duration_s": 5.212000000000003
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 2,
+          "start_sim_s": 43.02,
+          "end_sim_s": 46.56,
+          "duration_s": 3.539999999999999
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 3,
+          "start_sim_s": 46.56,
+          "end_sim_s": 51.188,
+          "duration_s": 4.628
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 4,
+          "start_sim_s": 51.188,
+          "end_sim_s": 54.756,
+          "duration_s": 3.567999999999998
+        },
+        {
+          "phase": "MAZE",
+          "waypoint_index": 5,
+          "start_sim_s": 54.756,
+          "end_sim_s": 60.02,
+          "duration_s": 5.264000000000003
+        },
+        {
+          "phase": "GATE_A",
+          "waypoint_index": 6,
+          "start_sim_s": 60.02,
+          "end_sim_s": 63.912,
+          "duration_s": 3.891999999999996
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 7,
+          "start_sim_s": 63.912,
+          "end_sim_s": 67.456,
+          "duration_s": 3.544000000000004
+        },
+        {
+          "phase": "TUNNEL_ALIGN",
+          "waypoint_index": 8,
+          "start_sim_s": 67.456,
+          "end_sim_s": 70.12,
+          "duration_s": 2.6640000000000015
+        },
+        {
+          "phase": "TUNNEL",
+          "waypoint_index": 9,
+          "start_sim_s": 70.12,
+          "end_sim_s": 74.12,
+          "duration_s": 4.0
+        },
+        {
+          "phase": "CHICANE",
+          "waypoint_index": 10,
+          "start_sim_s": 74.12,
+          "end_sim_s": 76.644,
+          "duration_s": 2.524000000000001
+        },
+        {
+          "phase": "WINDOW_APPROACH",
+          "waypoint_index": 11,
+          "start_sim_s": 76.644,
+          "end_sim_s": 82.608,
+          "duration_s": 5.963999999999999
+        },
+        {
+          "phase": "WINDOW_ALIGN",
+          "waypoint_index": 12,
+          "start_sim_s": 82.608,
+          "end_sim_s": 86.576,
+          "duration_s": 3.9679999999999893
+        },
+        {
+          "phase": "WINDOW_CROSS",
+          "waypoint_index": 13,
+          "start_sim_s": 86.576,
+          "end_sim_s": 91.444,
+          "duration_s": 4.868000000000009
+        },
+        {
+          "phase": "LANDING_APPROACH",
+          "waypoint_index": 14,
+          "start_sim_s": 91.444,
+          "end_sim_s": 95.876,
+          "duration_s": 4.432000000000002
+        }
+      ],
+      "aggregate_section_timings_s": {
+        "first_corridor": 5.212,
+        "maze": 17.0,
+        "gate_a": 3.892,
+        "tunnel_and_chicane": 12.732,
+        "window": 14.8,
+        "landing_approach": 4.432
+      },
+      "input_sha256": {
+        "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01/telemetry.jsonl": "728cefbef88c1adaab1fdee337495eb14d7d811c196da02274539d745b82e210",
+        "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01/telemetry.summary.json": "0aa63fe559c9d1cb01fbcccd5a790e0dbc4b0b68f3273539adf807d7f29c0929",
+        "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01/score.json": "a33e9b4076a8c917a31affa79008c178df7be46f2e02eb124d3caaec279b38ab",
+        "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01/recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+        "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01/observer/truth.jsonl": "5130e0183fb9f4370cd540ab620b22f93fc6378d8945303082b13a5d09fd4198",
+        "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01/observer/contacts.jsonl": "16ac685432eb8c2332751b8fe6d45d73cb547538b33e0f802539bca627d93307",
+        "artifacts/clean-export-01/repository/artifacts/markerfree/policy-01/observer/status.json": "9789b733ad4c9f2a5a53b173f89314a910e1d5294e8e3ac2252529a6e436bdc1",
+        "artifacts/clean-export-01/export.json": "88b013613d634f190abac720164e79598512fe7e650dee3fc9b0ac1f11e46253",
+        "artifacts/clean-export-01/inference-process.json": "e91ba340995510ef6ab70c531be567d77f294674ce1fa0922b135edd8805886a",
+        "artifacts/clean-export-01/repository/requirements-policy.txt": "1c46890e24c2ca7e5140cad77c3b21d626b8674b55ffcea880f78ba2afb1b95e",
+        "artifacts/clean-export-01/repository/mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+        "artifacts/clean-export-01/repository/checkpoints/window-depth-v1.pt": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+        "tools/section_timings.py": "0ebab770febc2f67303afbe48a71d9942f67151b627cb0c7bae7d60910f3264c",
+        "artifacts/clean-export-01/repository/mission/course-window-fast.json (scorer geometry only)": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773"
+      },
+      "runtime_source_sha256_at_launch": {
+        "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+        "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+        "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+        "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+        "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+        "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+        "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+        "mission/markerfree_run.py": "7277ef4f72da830494463a681bb146c0914dd1de58b6c04721e5a245946b5f77",
+        "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+        "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+        "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+        "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+        "mission/runtime_provenance.py": "8f3e5b8af055abbc446bcb34d1c878c9b46f895498dcf2c26f88e2d9485e0b81",
+        "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+        "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+        "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+        "vision/capture_rgbd.py": "f6936c3c3c2de051364b893ba943fffb0947ac1081f27bb884ccc6abff393340",
+        "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+        "vision/depth_odometry.py": "173a8dbff1a64c90ac9f770a37425c65136cb3dfa2a546e0fdb845a8d6e50821",
+        "vision/flight_observe.py": "efc45bad1e30b43444de50e85210d6f75fc560b21831d16f989956c8171b9046",
+        "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+        "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+        "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+        "vision/rgbd_odometry.py": "8db039c17365489b24d166072ce0b5b8bae7d0491307641224db2ef295bbbc01",
+        "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+        "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+        "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+        "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+        "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+        "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+        "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+        "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+        "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69"
+      },
+      "independent_scorer_input_sha256": {
+        "artifacts/markerfree/policy-01/telemetry.jsonl": "728cefbef88c1adaab1fdee337495eb14d7d811c196da02274539d745b82e210",
+        "artifacts/markerfree/policy-01/observer/truth.jsonl": "5130e0183fb9f4370cd540ab620b22f93fc6378d8945303082b13a5d09fd4198",
+        "artifacts/markerfree/policy-01/observer/contacts.jsonl": "16ac685432eb8c2332751b8fe6d45d73cb547538b33e0f802539bca627d93307",
+        "artifacts/markerfree/policy-01/observer/status.json": "9789b733ad4c9f2a5a53b173f89314a910e1d5294e8e3ac2252529a6e436bdc1",
+        "models/flight_x500_base/model.sdf": "2ac89809b6dca9475521d856f6d75e759cbbb2418a738fb5cc6cc172310f5b5b",
+        "models/flight_x500/model.sdf": "71cb73340f40fbfa5bb9c2612aea29be0d834763c1a123f1671aeea91aac1472",
+        "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+        "mission/course-window-fast.json": "b88194da869175107a35815f26848af328a0257fd12ad513b0c0c50c5a1b2773",
+        "models/course_v3/groups.json": "06d09b0ac35ea3fd0d6f258cd700999848a339e590d0f77a8e817cf60134e619",
+        "models/course_v3/meshes/tube_cradle_1.obj": "f63fd4ab06bafa4117b66680c0eb298ab9d6660ffddfc86eab7a95ff8f925f60",
+        "models/course_v3/meshes/net_side_east.obj": "03d9182b96dd673972adde2b55a64039df8fbbc4e413969ac7d2546025bae17b",
+        "models/course_v3/meshes/c2b_chicane_wall.obj": "90c6a2d677486d33a36680ae40b367fa0d5de47fb52687ba9c9529402ad47c63",
+        "models/course_v3/meshes/barrier_3_cut_to_55_in.obj": "a79661148158dd052acd3bfe823fe80f3362e200853ced2378105ab7362e8670",
+        "models/course_v3/meshes/barrier_2.obj": "e5f647c9bf5a04ff8529a760727a94ff3be3273fbd77ca8f69b753469196540c",
+        "models/course_v3/meshes/boulder_1.obj": "b3f845c68a017fd1304539b9236dce40d33dacb31dfe8469619c7f45f7e4bf3a",
+        "models/course_v3/meshes/c1_chicane_wall.obj": "db04002e08246e9073a208baab98c2b7523c7d78f65ed7572ea73130168f934c",
+        "models/course_v3/meshes/tube_oval_58_x_72_x_60.obj": "a625c22a98710395c955b0700692fae9b58f52860c249c9706750658f35ab4c5",
+        "models/course_v3/meshes/net_side_north.obj": "aafd5fb5379e2a775fd6601cb9b88b3958d227896093a6067aa2c03f7da73968",
+        "models/course_v3/meshes/m1_maze_divider.obj": "668d47e812ae05102e12d049f362030a789e042201ceca37d04b36546d13c61c",
+        "models/course_v3/meshes/tube_cradle_3.obj": "df4975f43fb7a7e09690777614971f915fb5c445852d046397cef3ac20a89149",
+        "models/course_v3/meshes/boulder_3.obj": "1483023c08ff8527b3a3a513833d440351b79cb889f25a4ccb12bae60f4456e9",
+        "models/course_v3/meshes/c2a_chicane_wall_window.obj": "4347b3da7cff0bcdb0c1ce550f04daaec9158c7ce030f9da299d3d1b7a4ad5df",
+        "models/course_v3/meshes/barrier_1.obj": "67c2f0bbae3891bebd42787daf9457d333a435618fde3539be1333e4ae1b3901",
+        "models/course_v3/meshes/boulder_4.obj": "ebe8233006507d5919cd45bd6177b7bdcf2079d4c0f6d0a870345e6222f1d523",
+        "models/course_v3/meshes/net_side_south.obj": "f3bcf0b41321e8fd73e61a66c48bd55043159094959f6076839912b7cbb86549",
+        "models/course_v3/meshes/boulder_5.obj": "9ee491d8be4c76c74b987c95f01d39a456d34f84222af798480fc482dd24adc8",
+        "models/course_v3/meshes/a1_approach_wall.obj": "d670569d8340724b17114a397d438449f74a61c1a63496aed61a3d830303b992",
+        "models/course_v3/meshes/boulder_2.obj": "8d47a5798c93769004da82778c617cf1a4f5d5e575a328af00b8db8ff81db404",
+        "models/course_v3/meshes/tube_cradle_2.obj": "d1622e1a156f92cc508d7ee69496531891785d75260a9365011d7b32843526a0",
+        "models/course_v3/meshes/m2_maze_divider.obj": "8fcebf2cb61e7ab9d1a0044c8f94433574c3ece83c365a60d37c158a7d068755",
+        "models/course_v3/meshes/net_roof.obj": "4a8fe788a669ca441c3a337f8bc67339d5e4e5c7afcd88849e1d85c5a91bcbad",
+        "models/course_v3/meshes/net_side_west.obj": "a7480e626b741f3c6dac4ca00abcf6eccdafbded9cc8d403a7690b1a80884fb6",
+        "models/course_v3/meshes/m3_maze_divider.obj": "26f74106de518ccd01bf34519328dbf26c9724fdbce554e5c6e3d4ca4b829ce6"
+      },
+      "clean_export_provenance": {
+        "source_revision": "37696f60537d8a69ea029e603d3821c01f7e045c",
+        "export_method": "git archive",
+        "exported_file_count": 284,
+        "untracked_helpers_absent": true,
+        "source_inventory_matches_runtime_metadata": true,
+        "dependency_scope": "Inference ran from an existing research virtual environment. This run did not perform a clean-machine dependency installation.",
+        "inference_source_sha256": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+        "inference_process_record_sha256": "e91ba340995510ef6ab70c531be567d77f294674ce1fa0922b135edd8805886a",
+        "policy_requirements_file_sha256": "1c46890e24c2ca7e5140cad77c3b21d626b8674b55ffcea880f78ba2afb1b95e"
+      },
+      "contact_coverage": {
+        "truth_messages": 11967,
+        "recording_complete": true,
+        "evidence_loss": false,
+        "truth_queue_overflow": 0,
+        "contact_queue_overflow": 0,
+        "topics": {
+          "/model/course_quad/contact/base_link": {
+            "transport_messages_received": 13416,
+            "messages_with_contact_pairs": 13416,
+            "interpretation": "messages_received"
+          },
+          "/model/course_quad/contact/rotor_0": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_1": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_2": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          },
+          "/model/course_quad/contact/rotor_3": {
+            "transport_messages_received": 0,
+            "messages_with_contact_pairs": 0,
+            "interpretation": "publisher_advertised_no_messages_observed"
+          }
+        },
+        "scope": "Observed Gazebo contact streams only; rotor-topic silence is not a zero-physical-contact claim."
+      },
+      "limitations": [
+        "One completed simulation run; no speed-promotion, causal, robustness, or reliability conclusion.",
+        "Independent route and clearance checks use offline Gazebo truth and modeled CAD envelopes.",
+        "This was a source-export flight, not a clean-machine dependency-install test.",
+        "Contact coverage is partial: the base-link topic carried messages while rotor topics had no messages observed; this does not establish zero physical contacts."
+      ]
+    }
+  ]
+}

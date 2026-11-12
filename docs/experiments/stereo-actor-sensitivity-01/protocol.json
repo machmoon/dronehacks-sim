@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "protocol": "paired-packaged-v1-actor-sensitivity-to-finite-far-edge-mismatch",
+  "input_experiment": "artifacts/markerfree/stereo-stress-01",
+  "input_experiment_protocol_sha256": "70c11cafbcdd8907f1593e28270d13d02ce4030a306ea4821876315879fa19a2",
+  "input_experiment_results_sha256": "89b6462fbd6ac061f08a1cedb4d4a9dbf48a73961d9af71b9e65ea957c9c52f8",
+  "archive": "artifacts/markerfree/policy-07",
+  "ulog": "artifacts/px4/log/2026-11-07/15_23_01.ulg.gz",
+  "window_frame_ids": [359, 371, 383, 395, 407, 419],
+  "model_file": "checkpoints/window-depth-v1.pt",
+  "model_sha256": "a1919ecdd2149515e4875f4694c52733e269345ef95cad6b074099bfdbff8b26",
+  "historical_training_depth_source": "artifacts/learning/20261107T120458Z-273a3b/source-snapshot/learning/sim.py",
+  "state": {
+    "source": "PX4 ULog vehicle_local_position xyz/vxyz (NED) and vehicle_attitude quaternion (FRD-to-NED). Replay uORB publication timestamp truncated to MAVLink time_boot_ms, not timestamp_sample. Use production PolicyStateHistory and policy_state.",
+    "bracket_max_usec": 60000,
+    "goal": "Mission telemetry before/after the capture must agree on target and waypoint index and match the run metadata phase and waypoint. Use the run metadata waypoint speed and logged speed scale.",
+    "validity": "No extrapolation, no position/velocity invalidity or estimator reset across a bracket. Require all six faithful reconstructed pairs and matching checkpoint/route. If unavailable, report input pairing failure and do not run inference.",
+    "scope": "uORB estimates are the source of MAVLink values. The exact throttled MAVLink packet set was not archived. Record the ULog bracket and distinguish this reconstruction from a byte-identical historical actor request. No simulator truth, modified survey pose or actor reply is read for state."
+  },
+  "treatment": {
+    "control": "Original archived metric depth PNG reconstructed with the same encoding handling as the stereo experiment.",
+    "perturbed": "Same image processed with the frozen stereo probe finite_far_edge_mismatch transform. Verify changed pixel count and preprocessed policy metrics against prior experiment. The state bytes are shared within the pair.",
+    "policy_depth_mode": "raw",
+    "device": "cpu",
+    "torch_threads": 1,
+    "number_of_pairs": 6,
+    "number_of_inferences": 12
+  },
+  "metrics": {
+    "velocity_flu_m_s": "Signed forward, left and up components of each actor output before controller or boundary guard.",
+    "forward_closing_m_s": "Signed forward body-axis component toward the forward camera view. Also report the projection toward the current waypoint separately.",
+    "norm_m_s": "Euclidean speed norm and paired difference.",
+    "vector_delta_norm_m_s": "Euclidean norm of perturbed minus control velocity, distinct from change in speed magnitude."
+  },
+  "scope_limits": "Paired open-loop network output sensitivity for selected archived views under synthetic finite depth substitutions. This experiment does not assess obstacle trajectories, estimator response, closed-loop safety or real OAK depth.",
+  "px4_source": [
+    "https://github.com/PX4/PX4-Autopilot/blob/54f0455ffcd755534539a7cf33a09a20bf71d29d/src/modules/mavlink/streams/LOCAL_POSITION_NED.hpp#L59-L68",
+    "https://github.com/PX4/PX4-Autopilot/blob/54f0455ffcd755534539a7cf33a09a20bf71d29d/src/modules/mavlink/streams/ATTITUDE.hpp#L61-L71"
+  ]
+}

@@ -1,0 +1,669 @@
+{
+  "protocol_sha256": "70c11cafbcdd8907f1593e28270d13d02ce4030a306ea4821876315879fa19a2",
+  "sources": [
+    {
+      "id": "policy-06-native",
+      "phase": "MAZE",
+      "kind": "native_npz",
+      "path": "artifacts/markerfree/policy-06/vision-diagnostics/first-rejected.npz",
+      "capture_usec": 50852000,
+      "prior_usec": 50800000,
+      "now_usec": 50880000,
+      "pose": [
+        [
+          0.8711750493531619,
+          -0.0015671972997659313,
+          0.4909700370461982,
+          -0.13127203914680047
+        ],
+        [
+          -0.4909505184876328,
+          -0.012251481512655439,
+          0.8711013084581333,
+          1.8199105025942486
+        ],
+        [
+          0.004649922713700628,
+          -0.9999237196373392,
+          -0.011442601338328763,
+          0.9460838926107229
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tof": {
+        "distance_m": 0.876063346862793,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      },
+      "tilt": {
+        "capture_usec": 50852000,
+        "bracket_usec": 36000,
+        "up_optical": [
+          0.007165515112991591,
+          -0.9999274326167172,
+          -0.009684260101111668
+        ],
+        "std_rad": 0.010071742649611337
+      },
+      "prior_source": "previous accepted RGBD pose saved before rejected capture"
+    },
+    {
+      "id": "synthetic-alias-69deg",
+      "phase": "MAZE",
+      "kind": "synthetic_npz",
+      "path": "artifacts/markerfree/noisy-policy-probe-01/alias-69deg.npz",
+      "capture_usec": 50852000,
+      "prior_usec": 50800000,
+      "now_usec": 50852000,
+      "pose": [
+        [
+          0.9335894012929369,
+          0.0002407438122928788,
+          0.3583444876594553,
+          -0.17636472593829305
+        ],
+        [
+          -0.358314398276507,
+          -0.012348965505181976,
+          0.9335193061949494,
+          1.8411326218247661
+        ],
+        [
+          0.004649922713700628,
+          -0.9999237196373392,
+          -0.011442601338328763,
+          0.9460838926107229
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tof": {
+        "distance_m": 0.876063346862793,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      },
+      "tilt": {
+        "capture_usec": 50852000,
+        "bracket_usec": 36000,
+        "up_optical": [
+          0.007165515112991591,
+          -0.9999274326167172,
+          -0.009684260101111668
+        ],
+        "std_rad": 0.010071742649611337
+      },
+      "prior_source": "native EV position and tilt, with fixed synthetic heading of 69 degrees"
+    },
+    {
+      "id": "policy-07-window-359",
+      "phase": "WINDOW_APPROACH",
+      "kind": "archive_png",
+      "path": "artifacts/markerfree/policy-07/camera/frames/depth-000359.png",
+      "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000359.jpg",
+      "capture_usec": 73252000,
+      "now_usec": 73252000,
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+      "prior_usec": 73200000,
+      "prior_ulog_timestamp_sample_usec": 73200423,
+      "prior_ulog_receive_usec": 73252000,
+      "prior_clock_grid_correction_usec": -423,
+      "pose": [
+        [
+          -0.14475176176713367,
+          0.023370803833282758,
+          -0.9891919596284117,
+          1.6434143997114474
+        ],
+        [
+          0.9894665892457953,
+          0.0017294475958675518,
+          -0.14475108903668255,
+          -1.728541189287975
+        ],
+        [
+          -0.0016721936500994853,
+          -0.99972536955866,
+          -0.023374970143236615,
+          0.9163118151516048
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tilt": {
+        "capture_usec": 73252000,
+        "up_optical": [
+          -0.0008362233617396104,
+          -0.9997749842191144,
+          -0.021196265240812917
+        ],
+        "std_rad": 0.01,
+        "bracket_usec": 0
+      },
+      "tof": {
+        "distance_m": 0.8514785170555115,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      }
+    },
+    {
+      "id": "policy-07-window-371",
+      "phase": "WINDOW_APPROACH",
+      "kind": "archive_png",
+      "path": "artifacts/markerfree/policy-07/camera/frames/depth-000371.png",
+      "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000371.jpg",
+      "capture_usec": 75652000,
+      "now_usec": 75652000,
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+      "prior_usec": 75600000,
+      "prior_ulog_timestamp_sample_usec": 75600365,
+      "prior_ulog_receive_usec": 75624000,
+      "prior_clock_grid_correction_usec": -365,
+      "pose": [
+        [
+          -0.17388789983764275,
+          0.0059047919547767285,
+          -0.9847477503005655,
+          0.723672226537212
+        ],
+        [
+          0.9847635848262404,
+          0.0029907057354574547,
+          -0.17387276290257803,
+          -1.8157209340279898
+        ],
+        [
+          0.001918408253260783,
+          -0.9999780943156579,
+          -0.006334871632410163,
+          0.9353966883837501
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tilt": {
+        "capture_usec": 75652000,
+        "up_optical": [
+          0.0017086795442051797,
+          -0.9999847424541141,
+          -0.005253120329333255
+        ],
+        "std_rad": 0.01,
+        "bracket_usec": 0
+      },
+      "tof": {
+        "distance_m": 0.8650359511375427,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      }
+    },
+    {
+      "id": "policy-07-window-383",
+      "phase": "WINDOW_ALIGN",
+      "kind": "archive_png",
+      "path": "artifacts/markerfree/policy-07/camera/frames/depth-000383.png",
+      "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000383.jpg",
+      "capture_usec": 78052000,
+      "now_usec": 78052000,
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+      "prior_usec": 78000000,
+      "prior_ulog_timestamp_sample_usec": 78000361,
+      "prior_ulog_receive_usec": 78044000,
+      "prior_clock_grid_correction_usec": -361,
+      "pose": [
+        [
+          -0.2691904721452909,
+          -0.011925017705847432,
+          -0.9630131274592839,
+          0.020557734663797678
+        ],
+        [
+          0.9630854310564418,
+          -0.0015522433750251767,
+          -0.26919146165384333,
+          -1.9769023848269918
+        ],
+        [
+          0.001715282199324081,
+          -0.9999276896322153,
+          0.0119026599445992,
+          0.9452051394542533
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tilt": {
+        "capture_usec": 78052000,
+        "up_optical": [
+          0.0017663885360351696,
+          -0.9999347568961033,
+          0.011285469536987724
+        ],
+        "std_rad": 0.01,
+        "bracket_usec": 0
+      },
+      "tof": {
+        "distance_m": 0.8681235313415527,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      }
+    },
+    {
+      "id": "policy-07-window-395",
+      "phase": "WINDOW_ALIGN",
+      "kind": "archive_png",
+      "path": "artifacts/markerfree/policy-07/camera/frames/depth-000395.png",
+      "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000395.jpg",
+      "capture_usec": 80452000,
+      "now_usec": 80452000,
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+      "prior_usec": 80400000,
+      "prior_ulog_timestamp_sample_usec": 80400371,
+      "prior_ulog_receive_usec": 80444000,
+      "prior_clock_grid_correction_usec": -371,
+      "pose": [
+        [
+          -0.19120325747315126,
+          0.003930558118821988,
+          -0.9815425946155016,
+          -0.14667624067318447
+        ],
+        [
+          0.9815499867245872,
+          -0.00022098267573317687,
+          -0.19120558236521346,
+          -2.26734477883303
+        ],
+        [
+          -0.000968448563033893,
+          -0.9999922509097416,
+          -0.003815786661904623,
+          0.9024534097795203
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tilt": {
+        "capture_usec": 80452000,
+        "up_optical": [
+          -0.0002647628974219806,
+          -0.9999944588077003,
+          -0.0033184717118796975
+        ],
+        "std_rad": 0.01,
+        "bracket_usec": 0
+      },
+      "tof": {
+        "distance_m": 0.831670343875885,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      }
+    },
+    {
+      "id": "policy-07-window-407",
+      "phase": "WINDOW_CROSS",
+      "kind": "archive_png",
+      "path": "artifacts/markerfree/policy-07/camera/frames/depth-000407.png",
+      "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000407.jpg",
+      "capture_usec": 82852000,
+      "now_usec": 82852000,
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+      "prior_usec": 82800000,
+      "prior_ulog_timestamp_sample_usec": 82800358,
+      "prior_ulog_receive_usec": 82844000,
+      "prior_clock_grid_correction_usec": -358,
+      "pose": [
+        [
+          0.3398640752925135,
+          0.020957299301129786,
+          -0.9402410339543618,
+          -0.33265003538807186
+        ],
+        [
+          0.9404723133762986,
+          -0.009761847256299003,
+          0.33973009008737776,
+          -2.2980543056099156
+        ],
+        [
+          -0.0020586641780061636,
+          -0.9997327132509707,
+          -0.02302746094676184,
+          0.8866046981024723
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tilt": {
+        "capture_usec": 82852000,
+        "up_optical": [
+          -0.0018741015102703065,
+          -0.9997673599427033,
+          -0.021487525141957675
+        ],
+        "std_rad": 0.01,
+        "bracket_usec": 0
+      },
+      "tof": {
+        "distance_m": 0.8239889144897461,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      }
+    },
+    {
+      "id": "policy-07-window-419",
+      "phase": "WINDOW_CROSS",
+      "kind": "archive_png",
+      "path": "artifacts/markerfree/policy-07/camera/frames/depth-000419.png",
+      "rgb": "artifacts/markerfree/policy-07/camera/frames/rgb-000419.jpg",
+      "capture_usec": 85252000,
+      "now_usec": 85252000,
+      "intrinsics": [
+        [
+          192.00000000000003,
+          0.0,
+          192.0
+        ],
+        [
+          0.0,
+          192.00000000000003,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "prior_source": "PX4 ULog vehicle_visual_odometry NED/FRD",
+      "prior_usec": 85200000,
+      "prior_ulog_timestamp_sample_usec": 85200295,
+      "prior_ulog_receive_usec": 85240000,
+      "prior_clock_grid_correction_usec": -295,
+      "pose": [
+        [
+          0.2956023729422509,
+          0.0036887350244487003,
+          -0.9553039465766013,
+          -0.9674290313425753
+        ],
+        [
+          0.9553110643934775,
+          -0.0012311997873957492,
+          0.2955998213708607,
+          -2.084401828174703
+        ],
+        [
+          -8.578060161195831e-05,
+          -0.9999924386619146,
+          -0.0038878349611917665,
+          0.8939804317980092
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "tilt": {
+        "capture_usec": 85252000,
+        "up_optical": [
+          0.0011149540822262098,
+          -0.9999917003909136,
+          -0.003918676649565744
+        ],
+        "std_rad": 0.01,
+        "bracket_usec": 0
+      },
+      "tof": {
+        "distance_m": 0.8243098855018616,
+        "origin": [
+          0.0,
+          0.075,
+          -0.34
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "std_m": 0.012
+      }
+    }
+  ],
+  "policy07_ulog_arm_usec": 18436000,
+  "policy07_ulog_last_vision_sample_usec": 96452402,
+  "policy07_ulog_dropouts": 0,
+  "source_sha256": {
+    "artifacts/markerfree/stereo-stress-01/prepare.py": "c6857fb1d42783ae62797dc09b82c68b2f7d61e2602fefdefddc624681acb7d6",
+    "artifacts/markerfree/stereo-stress-01/protocol.json": "70c11cafbcdd8907f1593e28270d13d02ce4030a306ea4821876315879fa19a2",
+    "artifacts/markerfree/policy-06/vision-diagnostics/first-rejected.npz": "fdd02a17bfeca7f8216cf62efcbeb93361b86f2fe89c3e9cdae7fe1f52d73848",
+    "artifacts/markerfree/noisy-policy-probe-01/alias-69deg.npz": "4311cef035ecff79cc21a70d2d5e23f61f196eec35321c8009506b4ef93035be",
+    "artifacts/px4/log/2026-11-07/15_23_01.ulg.gz": "22133134e1f54e6188b6ef9fa3111efdb156c6834832f9973303924793b72553",
+    "artifacts/markerfree/policy-07/telemetry.jsonl": "27cc2aab1604dad83666ff50fed8b648e97c298beaf62d0a8be2a71cffa9342e",
+    "artifacts/markerfree/policy-07/camera/frames.jsonl": "8acc8e8476ff17d716795dcc0269fcbc8922c5decb9bd4bc773d16d1893b3e8a",
+    "artifacts/markerfree/policy-07/camera/frames/rgb-000359.jpg": "b5d66217d8d5d73580ccea2fcbd71e2880713aff4d9f2ee94cf45632cd46c414",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000359.png": "213212c6f7785799ad11abed0f7adcb42726fa20932b5e9d375d58a1ab9ef3b5",
+    "artifacts/markerfree/policy-07/camera/frames/rgb-000371.jpg": "aebb9ca05469f8d82476fdc1e495c5ee9b5a782d9f571d17ed5599a9445ea8c1",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000371.png": "595482279b4145e59321961a8ba4ff42a11f4059191e3abcbd8a172d1299bb70",
+    "artifacts/markerfree/policy-07/camera/frames/rgb-000383.jpg": "4471ea9fb8ad06657557ffcf154d7a7397c75badfa21c6c7f6c768743a3b6810",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000383.png": "4790a1788246680f35b0fe8557e1966461d73f0cb5ee7a55ed37011e209dbea1",
+    "artifacts/markerfree/policy-07/camera/frames/rgb-000395.jpg": "ea89e1021466ea8b8729052688af6a6a558c21fc56538d9b0bf94791f6e47e3a",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000395.png": "275c28f4416e4c5d67beee6965203aeb34b809a7ad8f9295d9adca4ff8006cd5",
+    "artifacts/markerfree/policy-07/camera/frames/rgb-000407.jpg": "730c3b1ae1ad7cfabf798dd269b76edeae837799aa60d872e4a4f987299cc894",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000407.png": "439e2bdb4f10ccd8fdd244ab5cd7614f0a090a0055986b76d7212acba7d92467",
+    "artifacts/markerfree/policy-07/camera/frames/rgb-000419.jpg": "ed053fddde429e71d4405cce29d81a8455b8fbc3112c069759b3343617a81a5b",
+    "artifacts/markerfree/policy-07/camera/frames/depth-000419.png": "8df94007ffb5bed778fa28eea2186928bb2be4fc69aa54cf42fdc0aeea271a00"
+  }
+}

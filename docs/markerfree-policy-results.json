@@ -1,0 +1,149 @@
+{
+  "schema": "dronehacks.markerfree-policy-results.v1",
+  "run_id": "38958b31e4a4456f8f522164f823342b",
+  "task": "learned policy course flight",
+  "result": "completed",
+  "flight": {
+    "elapsed_sim_s": 77.0,
+    "route_elapsed_sim_s": 71.49199999999999,
+    "waypoints_reached": 15,
+    "waypoints_required": 15,
+    "route_verified_by_independent_geometry": true,
+    "all_checks_passed": true,
+    "checks": {
+      "controller_reports_all_waypoints": true,
+      "truth_complete_during_flight": true,
+      "truth_reaches_all_waypoints_in_order": true,
+      "truth_crosses_window_with_full_envelope": true,
+      "truth_multipart_path_certified_clear": true,
+      "truth_transit_floor_checked": true,
+      "px4_ground_and_disarm_confirmed": true,
+      "truth_touchdown_inside_pad": true
+    },
+    "window": {
+      "full_envelope_crossed": true,
+      "min_aperture_clearance_m": 0.0932627394813233,
+      "direction": "entry_to_exit",
+      "valid_forward_crossings": 1,
+      "forward_attempts": 1,
+      "valid_reverse_crossings": 0
+    },
+    "landing": {
+      "px4_confirmed_ground_and_disarm": true,
+      "horizontal_envelope_clearance_m": 0.311355781995304,
+      "truth_envelope_inside_pad": true
+    }
+  },
+  "policy": {
+    "checkpoint_sha256": "3602a898cad3f3ec91be78786c0811aa1ab0bd2f2d3a6b8f909edcf64c0cdf56",
+    "depth_mode": "raw",
+    "actions_received": 364,
+    "boundary_guard": {
+      "braking_interventions": 193,
+      "guard_setpoints": 4689,
+      "response_s": 0.8,
+      "command_lead_s": 0.4,
+      "position_reserve_m": 0.04,
+      "scope": "Predictive planar bound guard; no formal safety guarantee"
+    }
+  },
+  "navigation": {
+    "source": "RGBD depth registration to supplied course map + PX4 EKF2",
+    "simulator_position_used_for_control": false,
+    "position_aiding": "Recorded RGBD depth registration to supplied course map plus PX4 EKF2; no AprilTags",
+    "truth": "Independent Gazebo dynamic_pose/info observer used offline for geometry scoring"
+  },
+  "contacts": {
+    "status": "partial_topic_coverage",
+    "unexpected_contact_observed": false,
+    "raw_pair_observations": {
+      "obstacle": 0,
+      "transit_ground": 0,
+      "expected_ground": 4665,
+      "self": 0
+    },
+    "coverage": "Base link stream received; all four rotor contact topics advertised but no messages observed. This does not establish zero physical contact."
+  },
+  "video": {
+    "file": "media/window-policy.mp4",
+    "format": "H.264 MP4, RGB and optical-Z depth side by side",
+    "captured_frames": 471,
+    "timestamp_method": "Variable-frame-rate playback durations use successive camera capture_sim_s timestamps; camera gaps over 0.6 s are rendered explicitly. No arbitrary real-time frame rate is assumed.",
+    "first_capture_sim_s": 9.444,
+    "last_capture_sim_s": 103.45200000000001,
+    "rendered_duration_sim_s": 94.208,
+    "depth_encoding": "Saved uint16 millimetres (0 invalid); visualization maps optical Z linearly to grayscale from 0 to 5 m.",
+    "still": {
+      "file": "media/window-policy.png",
+      "source_frame": 408,
+      "capture_sim_s": 91.052,
+      "phase": "WINDOW_CROSS",
+      "sha256": "22c316b552d2b4d06069646d3a60a5103b1a7d5cce8a0e24e7d806cab93865c2"
+    },
+    "encoded_duration_ffprobe_s": 94.24,
+    "encoded_frames_ffprobe": 472,
+    "encoded_frame_note": "The renderer appends the final still for concat demuxer timing; 471 are recorded capture events.",
+    "sha256": "d50f873049b6d87c75a4ef9fd9a8230699edfe349920deb06ef778b4a993dffa",
+    "renderer": "tools/render_flight_video.py",
+    "header": "LEARNED + BRAKING GUARD"
+  },
+  "limitations": [
+    "Simulation evidence only; not a physical-flight or official-course result.",
+    "Geometry clearance is based on independent simulated truth and conservative CAD envelope assumptions.",
+    "Contact topic coverage is partial, so no zero-physical-collision claim is made."
+  ],
+  "source_sha256": {
+    "artifacts": {
+      "telemetry.summary.json": "a55978a894ca40f9428794d4f8d525e349c1c29f7cee36211fbfb2efbd1eb44b",
+      "score.json": "f078aac57ce07722908e7ec698b0b2f0f8f0132bbaa8602b604fb3b43d8f045e",
+      "recording.json": "ad9e3ad182c858f6aeeac6f7cb2f0a1f658b4bed98146aff6ca7321fae60724b",
+      "camera/frames.jsonl": "56f12a596ef6d2c66ba16172ac0b55c045049acbf6af14099a6e6297365aea33",
+      "camera/frames/rgb-000408.jpg": "3463fe3f58b725fff483489651b91c3372b2240581f4c9715414244ac5b84823",
+      "camera/frames/depth-000408.png": "49ff0d02f45f90ec9a84e58a21c52ce3efadabd1fc7cad8bc87fe1380c79146b"
+    },
+    "implementation_and_geometry": {
+      "mission/__init__.py": "f8dd6512a916d34a8bee19289e5a433786831b45c8476c623a98e7cf7f18f3a0",
+      "mission/airframe.py": "3c228973c48482f1836b7c02da2831144530321449717af00e893ef4bc3295ba",
+      "mission/boundary_brake.py": "383fe7ea95ab3450f69c662f37a244daf5d0424e60306b8d7f7df301ac8dfad2",
+      "mission/core.py": "6962a96f354ce918df303395fe8a2dff9b543996001a10474a8c5288c0905e63",
+      "mission/crossing.py": "8282008cb538161e0a0d4bf741e7b2852f86db28f37fff267cb74f90042d476e",
+      "mission/evaluate.py": "727e5454c10a14d2a072da4f8a883d60cabf0779c1eb789108bb92a5389df6c6",
+      "mission/frames.py": "039bca1beac5ab3af0e665a97b74a603375f856a57ffe38945242afa9be80cdb",
+      "mission/heading.py": "2bb3970ebad2b3b21b73936402eff9171d28744ba0aba8e085d1010de344cdfb",
+      "mission/landing.py": "ea1b13060d09ea800ee0ad12a97b366b68fbfd05ddd693dc262b36230b873b16",
+      "mission/markerfree_evaluate.py": "9888c985b13cfa5fe09edf305927fbdec980fd811f85b794adb6fa163c4e3ebe",
+      "mission/markerfree_run.py": "dc725b15ddeae07537ecb751a875bb30a432a6afd00f42cebb6f63d2deb35963",
+      "mission/navigation_audit.py": "7a819d7c8b444faa8fe6d823846df8b130340123127f7dc01d234daf3c5fdbf8",
+      "mission/px4_frames.py": "11d8fe70f11a7393f00503b33dd96de33a40bffcb93574bdb2bb2dfa36eda1ee",
+      "mission/px4_run.py": "a002e9e38c2a07958a74a06821c14e3007ff540eb93c415db64cadfa1d25c225",
+      "mission/run.py": "6ca4ed87304a0fec2e578b14fde9a3da9f19f9dadd0585c8e295e0985bef3d2b",
+      "mission/sitl_health.py": "5cad49410aa7c9fddc94b74eb80d39fd0aa55abde399244c622a6886b6f1e89c",
+      "mission/state_history.py": "77d301c0b1d4fb0f152f8796e068f3f56b5cce34ed2e16d844d27b2733fe0f52",
+      "vision/__init__.py": "bb7ab48a89107e05352a793292d5bd54fa312a28acb409944e5e1bb9d6fa0874",
+      "vision/course.py": "90c8731873bfc355a711234a3620877e654816bc524cdecb8ee4befdfae4244e",
+      "vision/depth_odometry.py": "3f82563a90028e40a9bd41fc3f3b36f974f903feffa45cbf21d14275601bd7b6",
+      "vision/flight_observe.py": "1d224332701763b45516e61465d9d75a24c597e4869d06beac6ccdec0ccf4dae",
+      "vision/flight_record.py": "f422e443edcbca4ed66e283d658acd0e0be4c42953fa88e1e86feacbc40457ef",
+      "vision/localize.py": "e71b1e0a1f34f6e3f117523ea060213bbc9f11c782a1f15258a32fd688b3d22e",
+      "vision/preview.py": "d3f2a93c51bc8bfac3cbe36162c3d9328a68ddda3d37d6095ab085083bac4a02",
+      "vision/rgbd_odometry.py": "1d88d04e1e89b35db571f2816cacefca151525ea6d0b03d81e94771aea03c5d8",
+      "vision/rgbd_scene.py": "b143776400d07282b4af6a298e3dc9622d03ef3e3768d4299756ed184e79da0f",
+      "vision/scene.py": "904c1e9eef6c5b78b084c7c60a7f987e78055c8f817d88846c6d31b2698db37f",
+      "vision/worker.py": "fcdac1b9107433cf6fe3a0cac343ef1ea0bc6cdb147048fb66c8254983fa2c52",
+      "learning/__init__.py": "dbf8e1bab876c25a3b5ef591c8b7207de94b867ac635484a77dfb8d09eb44c87",
+      "learning/inference.py": "690b502c3a3690395fc1860e78e1cd40487f536f55e43c3a1d41a9dfbf598a9e",
+      "learning/policy.py": "0f0fbae4aafa6307512a7f707d08cbe50f4dfb25cf694f3a0c92a954febf8557",
+      "learning/sim.py": "ea5cfda1eb812d803ead541f134f7d44436247b4e8f1c89f91c524f5fbecb57a",
+      "learning/train.py": "f05a8de4ae1fa4a4a51fd0a45ddde76be2c96f6b84901f4b60434b31ed4c83d3",
+      "learning/transfer.py": "3a9a5998f4d7cc335c140778a090f79237eddedd9c2ab40b593233302dcc321a",
+      "learning/transfer_delay.py": "3391c81ee4b2a2408ec29548c134b11afaf6a318a3c28470b7d6f72792f36e69",
+      "mission/course-window-x500.json": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+      "tools/render_flight_video.py": "9b7faa7f3ae75558429612c04bba0ad6d6728b1e085681fa4431c7f2841c71d9"
+    }
+  },
+  "route_profile": {
+    "file": "mission/course-window-x500.json",
+    "sha256": "d75381bce0876018544c25e40d10a7bd8864d3ec521b61eb5881a8b3d2acef7a",
+    "basis": "The x500 route waypoints and heights match the run metadata/score; route profile itself is not separately hashed in launch metadata."
+  }
+}

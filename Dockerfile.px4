@@ -1,0 +1,40 @@
+FROM dronehacks-sim:local AS runtime-dependencies
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+       python3-opencv python3-venv \
+    && rm -rf /var/lib/apt/lists/* \
+    && python3 -m venv --system-site-packages /opt/px4-python \
+    && /opt/px4-python/bin/pip --disable-pip-version-check install --no-cache-dir \
+       pymavlink==2.4.49 \
+    && /opt/px4-python/bin/python -c 'import cv2; assert hasattr(cv2, "aruco")'
+
+ENV PATH=/opt/px4-python/bin:/opt/px4/bin:$PATH \
+    GZ_SIM_RESOURCE_PATH=/workspace/models:/workspace/assets:/opt/px4/models \
+    GZ_IP=127.0.0.1 \
+    MAVLINK20=1 \
+    DRONEHACKS_SITL=1
+
+COPY runtime/start.sh /usr/local/bin/dronehacks-start
+COPY runtime/px4-start.sh runtime/px4-sitl.sh /usr/local/bin/
+CMD ["/usr/local/bin/px4-start.sh"]
+
+FROM dronehacks-sim:local AS px4-build
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+       build-essential cmake cppzmq-dev git libeigen3-dev libgz-sim8-dev \
+       libunwind-dev libxml2-utils ninja-build pkg-config protobuf-compiler \
+       python3-venv rsync \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY px4/ /tmp/px4-build/
+RUN python3 -m venv /tmp/px4-venv \
+    && /tmp/px4-venv/bin/pip --disable-pip-version-check install --no-cache-dir \
+       -r /tmp/px4-build/requirements-build.txt
+ENV PATH=/tmp/px4-venv/bin:$PATH GZ_DISTRO=harmonic
+ARG PX4_BUILD_JOBS=3
+RUN /tmp/px4-build/build.sh && rm -r /tmp/PX4-Autopilot
+
+FROM runtime-dependencies
+COPY --from=px4-build /opt/px4 /opt/px4

@@ -1,0 +1,4 @@
+{
+  "protocol_sha256": "7c7325e89ba3518be18209566aa2fca7ee5509bf1ded2e77749ca14f6b250e5e",
+  "reason": "nonmonotonic ULog state publication timestamp"
+}
